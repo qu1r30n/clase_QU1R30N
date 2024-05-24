@@ -54,6 +54,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\iniciar_archivos.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\operaciones_arreglos.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\operaciones_textos.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\Tex_base.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\var_fun_GG.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\modelo_AnalisisDeDatos.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\modelo_compras.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\modelo_productos.cs" />
+    <Compile Include="sin_internet\sin_formularios\principal.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\procesos_productos.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\proceso_AnalisisDeDatos.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\proceso_compras.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,7 +94,6 @@
   <ItemGroup>
     <Folder Include="con_internet\" />
     <Folder Include="sin_internet\con_formularios\" />
-    <Folder Include="sin_internet\sin_formularios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
