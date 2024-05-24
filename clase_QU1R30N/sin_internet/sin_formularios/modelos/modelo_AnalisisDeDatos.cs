@@ -24,10 +24,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             string info_a_retornar = null;
             string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
-            if (a_donde_enviara_la_informacion[0] == "existe_producto")
+            switch (a_donde_enviara_la_informacion[0])
             {
-                pr_an_dat.existe_producto(a_donde_enviara_la_informacion[1]);
+                case "existe_producto":
+                    info_a_retornar = pr_an_dat.existe_producto(a_donde_enviara_la_informacion[1]);
+                    break;
+                default:
+                    break;
             }
+            return info_a_retornar;
         }
     }
 }
