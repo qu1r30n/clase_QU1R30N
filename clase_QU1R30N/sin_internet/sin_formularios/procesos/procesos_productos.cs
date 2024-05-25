@@ -21,11 +21,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
 
 
-        string[] G_dir_arch_conf_negocio =
-        {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\chatbot\\info_para_comandos_chatbot\\00_paginaweb.txt",
-
-        };
+        
 
 
 
@@ -52,6 +48,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 string impuesto = producto_espliteado[13];
                 string tipo_de_producto_para_impuesto = producto_espliteado[14];
                 string caducidad = producto_espliteado[15];
+                /*
                 string[] arreglo_modificado = bas.Agregar(G_dir_arch_conf_negocio[0], producto);
 
                 string se_modifico_el_arreglo = "0";
@@ -59,7 +56,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 {
                     se_modifico_el_arreglo = "1";
                 }
+                
                 variable_a_la_que_va_a_devolver = vf_GG.GG_retorno_de_datos(variable_a_la_que_va_a_devolver, producto,se_modifico_el_arreglo, respuesta_devolver_arreglo_texto: arreglo_modificado);
+                */
                 return variable_a_la_que_va_a_devolver;
             }
             catch 

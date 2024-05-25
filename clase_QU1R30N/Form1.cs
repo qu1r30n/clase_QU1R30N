@@ -25,7 +25,7 @@ namespace clase_QU1R30N
         private void btn_procesar_Click(object sender, EventArgs e)
         {
 
-            enl_princ.enlasador("producto~agregar§");
+            enl_princ.enlasador("analisis_datos~existe_producto§codigo");
 
         }
     }

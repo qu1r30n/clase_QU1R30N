@@ -23,7 +23,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         public string existe_producto(string codigo)
         {
+            string[] resultao = bas.sacar_indice_del_arreglo_de_direccion(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (resultao[0] == "1")
+            {
+                int indice_arreglo = Convert.ToInt32(resultao[1]);
 
+                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length; i++)
+                {
+                    string[] info_espliteado = Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo][i].Split(G_caracter_separacion[0][0]);
+                    if (codigo == info_espliteado[4])
+                    {
+                        return "1" + G_caracter_para_confirmacion_o_error[0] + "encontrado";
+                    }
+                }
+                return "3" + G_caracter_para_confirmacion_o_error + "no_encontrado";
+            }
+            else
+            {
+                return resultao[0] + G_caracter_para_confirmacion_o_error + resultao[1];
+            }
+            
+            return null;
         }
     }
 }

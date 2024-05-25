@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             switch (a_donde_enviara_la_informacion[0])
             {
                 case "compra":
-                    info_a_retornar=pr_Comp.comprar();
+                    //info_a_retornar=pr_Comp.comprar();
                     break;
                 case "compra_mayoreo":
                     

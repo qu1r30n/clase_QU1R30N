@@ -248,12 +248,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         return "1" + G_caracter_para_confirmacion_o_error + num_indice_de_direccion;
                     }
                 }
-                return "2" + G_caracter_para_confirmacion_o_error[0] + "no esta dentro de la lista de nombres";
+                return "3" + G_caracter_para_confirmacion_o_error[0] + "no esta dentro de la lista de nombres";
                 
             }
             else
             {
-                return "3" + G_caracter_para_confirmacion_o_error[0] + "no existe el archivo";
+                return "2" + G_caracter_para_confirmacion_o_error[0] + "no existe el archivo";
             }
         }
 
