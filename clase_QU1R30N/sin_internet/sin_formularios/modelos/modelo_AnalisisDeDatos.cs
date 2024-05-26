@@ -30,6 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_an_dat.existe_producto(a_donde_enviara_la_informacion[1]);
                     break;
                 default:
+                    info_a_retornar = "3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }
             return info_a_retornar;

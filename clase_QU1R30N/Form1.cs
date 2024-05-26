@@ -14,6 +14,7 @@ namespace clase_QU1R30N
 {
     public partial class Form1 : Form
     {
+        
         principal enl_princ = new principal();
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace clase_QU1R30N
         private void btn_procesar_Click(object sender, EventArgs e)
         {
 
-            enl_princ.enlasador("analisis_datos~existe_producto§codigo");
+            string se_encuentra = enl_princ.enlasador("analisis_datos~existe_producto§codigo");
 
         }
     }

@@ -22,23 +22,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
         // Función para manejar compras
-        public void enlasador(string info_entrada)
+        public string enlasador(string info_entrada)
         {
+            //ejemplo dato entrada: "analisis_datos~existe_producto§codigo"
             string info_a_retornar = null;
             string[] a_donde_enviara_la_informacion = info_entrada.Split(G_caracter_separacion_funciones_espesificas[0][0]);
 
             switch (a_donde_enviara_la_informacion[0])
             {
                 case "analisis_datos":
-                    mod_an_dat.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    //"existe_producto§codigo"
+                    info_a_retornar = mod_an_dat.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
                 case "modelo_compras":
-                    mod_comp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_comp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
                 case "modelo_productos":
-                    mod_prod.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_prod.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
             }
+
+            return info_a_retornar;
 
         }
 

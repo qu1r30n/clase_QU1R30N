@@ -23,8 +23,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         
 
-
-
         public object agregar_producto(object variable_a_la_que_va_a_devolver, string producto)
         {
             
@@ -69,6 +67,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             
         }
+
+
+
 
     }
 }

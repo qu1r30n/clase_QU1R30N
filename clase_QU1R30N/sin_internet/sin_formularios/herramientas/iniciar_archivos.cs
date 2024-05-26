@@ -29,7 +29,10 @@ namespace clase_QU1R30N
             string[] agregar_filas =
             {
                 // empiesa desde el 1 por que el 0 es de los archivos iniciales
-                /*1*/ "config\\tienda\\inventario\\inventario.txt~producto|contenido|tipo_medida|precio_venta|cod_barras|cantidad|costo_comp|provedor|grupo|no_poner_nada|cant_produc_x_paquet|tipo_de_producto|ligar_produc_sab|impuestos|parte_de_que_producto|caducidad~",
+                /*1*/ "config\\tienda\\inf\\inventario\\inventario.txt~id|producto|contenido|tipo_medida|precio_venta|cod_barras|cantidad|costo_comp|provedor|grupo|no_poner_nada|cant_produc_x_paquet|tipo_de_producto|ligar_produc_sab|impuestos|parte_de_que_producto|caducidad~",
+                /*2*/ "config\\tienda\\inf\\dat\\provedores.txt~producto|contenido|tipo_medida|precio_venta|cod_barras|cantidad|costo_comp|provedor|grupo|no_poner_nada|cant_produc_x_paquet|tipo_de_producto|ligar_produc_sab|impuestos|parte_de_que_producto|caducidad~",
+                /*3*/ "config\\tienda\\inf\\dat\\empleados.txt~producto|contenido|tipo_medida|precio_venta|cod_barras|cantidad|costo_comp|provedor|grupo|no_poner_nada|cant_produc_x_paquet|tipo_de_producto|ligar_produc_sab|impuestos|parte_de_que_producto|caducidad~",
+                /*4*/ "config\\tienda\\inf\\dat\\afiliados.txt~producto|contenido|tipo_medida|precio_venta|cod_barras|cantidad|costo_comp|provedor|grupo|no_poner_nada|cant_produc_x_paquet|tipo_de_producto|ligar_produc_sab|impuestos|parte_de_que_producto|caducidad~",
             };
 
             bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(direccion_archivo_de_direcciones_de_bd, fila_inicial, agregar_filas, caracter_separacion_fun_esp_objeto: G_caracter_separacion_funciones_espesificas[2]);

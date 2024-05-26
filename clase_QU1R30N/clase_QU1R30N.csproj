@@ -59,13 +59,17 @@
     <Compile Include="sin_internet\sin_formularios\herramientas\operaciones_textos.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\Tex_base.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\var_fun_GG.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\modelo_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\modelo_AnalisisDeDatos.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\modelo_compras.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\modelo_empleados.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\modelo_productos.cs" />
     <Compile Include="sin_internet\sin_formularios\principal.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\procesos_productos.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\proceso_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\proceso_AnalisisDeDatos.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\proceso_compras.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\proceso_empleados.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

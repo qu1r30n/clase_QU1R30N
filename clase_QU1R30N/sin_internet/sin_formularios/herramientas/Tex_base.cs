@@ -245,7 +245,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     if (GG_dir_bd_y_valor_inicial_bidimencional[i, 0] == direccion_archivo)
                     {
                         num_indice_de_direccion = "" + i;
-                        return "1" + G_caracter_para_confirmacion_o_error + num_indice_de_direccion;
+                        return "1" + G_caracter_para_confirmacion_o_error[0] + num_indice_de_direccion;
                     }
                 }
                 return "3" + G_caracter_para_confirmacion_o_error[0] + "no esta dentro de la lista de nombres";
