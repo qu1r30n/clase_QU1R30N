@@ -17,7 +17,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-
+        _5_proceso_afiliados pr_afil = new _5_proceso_afiliados();
         public string operacion_a_hacer(string operacion)
         {
             string info_a_retornar = null;
@@ -25,7 +25,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case :
+                case "inscribir":
 
                     break;
 

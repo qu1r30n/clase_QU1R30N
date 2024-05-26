@@ -30,10 +30,10 @@ namespace clase_QU1R30N
             {
                 // empiesa desde el 1 por que el 0 es de los archivos iniciales
                 /*1*/ "config\\tienda\\inf\\inventario\\inventario.txt~0_id|1_producto|2_contenido|3_tipo_medida|4_precio_venta|5_cod_barras|6_cantidad|7_costo_comp|8_provedor|9_grupo|10_no_poner_nada|11_cant_produc_x_paquet|12_tipo_de_producto|13_ligar_produc_sab|14_impuestos|15_parte_de_que_producto|16_caducidad~",
-                /*2*/ "config\\tienda\\inf\\dat\\provedores.txt~0_id|1_provedor|~",
-                /*3*/ "config\\tienda\\inf\\dat\\empleados.txt~0_id|1_empleado|~",
-                /*4*/ "config\\tienda\\inf\\dat\\mul\\afiliados_simple.txt~0_id|1_afiliado|~",
-                /*4*/ "config\\tienda\\inf\\dat\\mul\\afiliados_complejo.txt~0_id|1_afiliado|~",
+                /*2*/ "config\\tienda\\inf\\dat\\provedores.txt~0_ID_empresa|1_Nombre_empresa|2_Nombre_encargado|3_Dirección_empresa|4_Ciudad_empresa|5_Estado_empresa|6_Código_postal|7_País|8_Correo_electrónico|9_Teléfono_encargado|10_Telefono_empresa|11_Tipo_de_proveedor|12_Productos/Servicios_suministrados|13_Número_de_cuenta_bancaria|14_Banco|15_Ubicación_(GPS)|16_Notas|17_Recordatorio|18_activo_o_no_activo~",
+                /*3*/ "config\\tienda\\inf\\dat\\empleados.txt~0_ID|1_Nombre|2_Apellido_paterno|3_Apellido_materno|4_Fecha_de_nacimiento|5_Género|6_Dirección|7_Ciudad|8_Estado/Provincia|9_Código_postal|10_País|11_Correo_electrónico|12_Teléfono|13_Fecha_de_ingreso|14_Sueldo|15_Cargo|16_Estado_de_empleo|17_Supervisor|18_Notas|19_Afiliado|20_Fecha_de_terminación|21_Motivo_de_terminación|22_Horas_trabajadas|23_Evaluaciones_de_desempeño|24_Habilidades_y_certificaciones|25_Idiomas|26_Fecha_de_última_promoción|27_ID_del_departamento_de_supervisión|28_Historial_de_capacitación|29_Último_aumento_de_salario|~",
+                /*4*/ "config\\tienda\\inf\\dat\\mul\\afiliados_simple.txt~0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_encargado|4_tabla_encargado|5_puntos_d|6_a_pagar|7_datos|8_encargados|~",
+                /*4*/ "config\\tienda\\inf\\dat\\mul\\afiliados_complejo.txt~0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_encargado|4_tabla_encargado|5_puntos_d|6_a_pagar|7_datos|8_encargados|~",
             };
 
             bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(direccion_archivo_de_direcciones_de_bd, fila_inicial, agregar_filas, caracter_separacion_fun_esp_objeto: G_caracter_separacion_funciones_espesificas[2]);

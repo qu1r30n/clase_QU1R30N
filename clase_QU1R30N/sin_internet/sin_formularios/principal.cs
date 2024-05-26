@@ -14,8 +14,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
     {
         _0_modelo_AnalisisDeDatos mod_an_dat = new _0_modelo_AnalisisDeDatos();
         _1_modelo_compras mod_comp = new _1_modelo_compras();
-        _3_modelo_inventario mod_prod = new _3_modelo_inventario();
-
+        _2_modelo_ventas mod_vent = new _2_modelo_ventas();
+        _3_modelo_inventario mod_inv = new _3_modelo_inventario();
+        _4_modelo_empleados mod_emp = new _4_modelo_empleados();
+        _5_modelo_afiliados mod_afil = new _5_modelo_afiliados();
+        
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -30,7 +33,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case "analisis_datos":
+                case "modelo_analisis_datos":
                     //"existe_producto§codigo"
                     info_a_retornar = mod_an_dat.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
@@ -38,7 +41,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     info_a_retornar = mod_comp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
                 case "modelo_productos":
-                    info_a_retornar = mod_prod.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_inv.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    break;
+                case "modelo_inventario":
+                    info_a_retornar = mod_inv.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    break;
+                case "modelo_empleados":
+                    info_a_retornar = mod_emp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    break;
+                case "modelo_afiliados":
+                    info_a_retornar = mod_afil.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
             }
 
