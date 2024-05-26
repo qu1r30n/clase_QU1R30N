@@ -59,17 +59,19 @@
     <Compile Include="sin_internet\sin_formularios\herramientas\operaciones_textos.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\Tex_base.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\var_fun_GG.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\modelo_afiliados.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\modelo_AnalisisDeDatos.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\modelo_compras.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\modelo_empleados.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\modelo_productos.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_2_modelo_ventas.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_5_modelo_afiliados.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_0_modelo_AnalisisDeDatos.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_1_modelo_compras.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_4_modelo_empleados.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_3_modelo_inventario.cs" />
     <Compile Include="sin_internet\sin_formularios\principal.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\procesos_productos.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\proceso_afiliados.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\proceso_AnalisisDeDatos.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\proceso_compras.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\proceso_empleados.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_2_proceso_ventas.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_3_procesos_inventario.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_5_proceso_afiliados.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_0_proceso_AnalisisDeDatos.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_1_proceso_compras.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_4_proceso_empleados.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,7 +8,7 @@ using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 {
-    internal class proceso_AnalisisDeDatos
+    internal class _0_proceso_AnalisisDeDatos
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;

@@ -8,7 +8,7 @@ using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 {
-    internal class proceso_compras
+    internal class _2_proceso_ventas
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -27,7 +27,5 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             return info_a_retornar;
         }
-
-
     }
 }

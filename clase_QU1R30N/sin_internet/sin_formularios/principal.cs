@@ -12,9 +12,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
 {
     internal class principal
     {
-        modelo_AnalisisDeDatos mod_an_dat = new modelo_AnalisisDeDatos();
-        modelo_compras mod_comp = new modelo_compras();
-        modelo_productos mod_prod = new modelo_productos();
+        _0_modelo_AnalisisDeDatos mod_an_dat = new _0_modelo_AnalisisDeDatos();
+        _1_modelo_compras mod_comp = new _1_modelo_compras();
+        _3_modelo_inventario mod_prod = new _3_modelo_inventario();
 
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
