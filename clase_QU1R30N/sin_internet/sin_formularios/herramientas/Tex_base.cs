@@ -140,7 +140,57 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
         }
 
+        public string Incrementa_celda(string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string cantidad_a_sumar, string caracter_separacion_str = "|")
+        {
+            Convert.ToInt32(sacar_indice_del_arreglo_de_direccion(direccion_archivo));
+            try
+            {
 
+                for (int i = 0; i < length; i++)
+                {
+
+
+
+                    string[] palabra = linea.Split(caracter_separacion);
+
+                    if (palabra[num_column_comp] == comparar)
+                    {
+                        exito_o_fallo = "1" + caracter_separacion + "exito";
+                        string linea_editada = "";
+                        string[] columnas_editar = numero_columnas_editar.Split(caracter_separacion);
+                        string[] cantidades_sumara = cantidad_a_sumar.Split(caracter_separacion);
+
+                        for (int i = 0; i < columnas_editar.Length; i++)
+                        {
+                            palabra[Convert.ToInt32(columnas_editar[i])] = "" + (Convert.ToDouble(palabra[Convert.ToInt32(columnas_editar[i])]) + Convert.ToDouble(cantidades_sumara[i]));//esta largo lo se. pero significa que a la columna a editar le va a sumar la cantidad señalada
+                        }
+                        for (int i = 0; i < palabra.Length; i++)
+                        {
+                            linea_editada = linea_editada + palabra[i] + caracter_separacion;
+                        }
+                        linea_editada = Trimend_paresido(linea_editada, caracter_separacion);
+                        sw.WriteLine(linea_editada);
+
+                    }
+
+
+                }
+
+                sr.Close();
+                sw.Close();
+
+                File.Delete(direccion_archivo);//borramos el archivo original
+                File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
+            }
+            catch (Exception error)
+            {
+                sr.Close();
+                sw.Close();
+                exito_o_fallo = "3" + caracter_separacion + "error:" + error;
+                File.Delete(dir_tem);//borramos el archivo temporal
+            }
+            return exito_o_fallo;
+        }
 
         public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
         {
@@ -248,12 +298,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         return "1" + G_caracter_para_confirmacion_o_error[0] + num_indice_de_direccion;
                     }
                 }
-                return "3" + G_caracter_para_confirmacion_o_error[0] + "no esta dentro de la lista de nombres";
+                return "-1" + G_caracter_para_confirmacion_o_error[0] + "no esta dentro de la lista de nombres";
                 
             }
             else
             {
-                return "2" + G_caracter_para_confirmacion_o_error[0] + "no existe el archivo";
+                return "0" + G_caracter_para_confirmacion_o_error[0] + "no existe el archivo";
             }
         }
 
@@ -277,7 +327,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             catch (Exception e)
             {
 
-                exito_o_fallo = "2" + G_caracter_para_confirmacion_o_error[0] + "fallo: " + e;
+                exito_o_fallo = "0" + G_caracter_para_confirmacion_o_error[0] + "fallo: " + e;
 
             }
 

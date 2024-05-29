@@ -39,11 +39,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         return info_a_retornar;
                     }
                 }
-                info_a_retornar = "3" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
+                info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
                 return info_a_retornar;
             }
 
-            info_a_retornar = "2" + G_caracter_para_confirmacion_o_error[0] + resultado[1];
+            info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + resultado[1];
             return info_a_retornar;
 
         }

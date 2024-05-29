@@ -243,7 +243,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
                 
             }
-            else if (num_indice_del_arreglo[0] == "2")
+            else if (num_indice_del_arreglo[0] == "0")
             {
                 string[] info_a_concarenar = bas.Leer(direccion_archivo);
                 for (int i = G_donde_inicia_la_tabla; i < info_a_concarenar.Length; i++)
@@ -384,7 +384,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         niveles_de_profundidad = op_arr.agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, tem_linea.Split(caracter_separacion[0][0]));
                         tem_linea = niveles_de_profundidad[0][Convert.ToInt32(arr_col_rec[0])];
                     }
-                    string tem_linea_2 = "";
+                    //string tem_linea_2 = "";
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
                     if (tem_linea == arr_comparaciones[l])

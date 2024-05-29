@@ -50,6 +50,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     info_a_retornar = mod_emp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
                 case "modelo_afiliados":
+                    //inscribir_simple§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     info_a_retornar = mod_afil.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
             }

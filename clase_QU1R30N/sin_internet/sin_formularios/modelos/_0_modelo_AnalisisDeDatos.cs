@@ -1,10 +1,11 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using clase_QU1R30N.sin_internet.sin_formularios.procesos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
+using clase_QU1R30N.sin_internet.sin_formularios.procesos;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 {
@@ -30,7 +31,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_an_dat.existe_producto(a_donde_enviara_la_informacion[1]);
                     break;
                 default:
-                    info_a_retornar = "3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }
             return info_a_retornar;

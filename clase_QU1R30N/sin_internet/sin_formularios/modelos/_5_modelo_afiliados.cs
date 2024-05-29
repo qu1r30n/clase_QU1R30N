@@ -1,5 +1,4 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,12 +24,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case "inscribir":
+                case "inscribir_simple":
 
+                    //0_id_enc_simp|1_tabla_enc_simple|2_datos
+                    //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
+                    //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
+                    string[] info_registro = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion[0][0]);
+                    pr_afil.registro_simple(info_registro[0], info_registro[1], info_registro[2]);
                     break;
 
                 default:
-                    info_a_retornar = "3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }
 

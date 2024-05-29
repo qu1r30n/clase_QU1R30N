@@ -280,8 +280,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     string tem_linea = areglo[i];
                     string[] arr_col_rec = arr_comparaciones_a_rec[l].Split(caracter_separacion[0][0]);
 
-
-
                     if (arr_col_rec.Length > 1)
                     {
 
@@ -305,11 +303,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     if (tem_linea == arr_comparaciones[l])
                     {
                         chequeo_todas_las_comparaciones[l] = true;
-
-
                     }
-
                 }
+
                 bool estan_todas_las_comparaciones = true;
                 for (int m = 0; m < chequeo_todas_las_comparaciones.Length; m++)
                 {

@@ -1,5 +1,4 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +32,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     */
 
                 default:
-                    info_a_retornar = "3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }
 
