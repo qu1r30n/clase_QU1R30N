@@ -9,3 +9,4 @@
 7|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|3||
 8|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|4||
 9|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|5||
+10|4|afiliados_complejo|4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|6||
