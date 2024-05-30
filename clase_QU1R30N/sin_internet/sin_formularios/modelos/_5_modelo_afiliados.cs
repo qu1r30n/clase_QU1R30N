@@ -30,7 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
                     string[] info_registro = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion[0][0]);
-                    pr_afil.registro_simple(info_registro[0], info_registro[1], info_registro[2]);
+                    info_a_retornar = pr_afil.registro_simple(info_registro[0], info_registro[1], info_registro[2]);
                     break;
 
                 default:
