@@ -15,7 +15,7 @@ namespace clase_QU1R30N
     public partial class Form1 : Form
     {
         
-        principal enl_princ = new principal();
+        
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +25,7 @@ namespace clase_QU1R30N
 
         private void btn_procesar_Click(object sender, EventArgs e)
         {
+            principal enl_princ = new principal();
             string info_resultado = null;
             //info_resultado = enl_princ.enlasador("analisis_datos~existe_producto§codigo");
             //0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal

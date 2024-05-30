@@ -118,79 +118,41 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
         }
 
-        public string[] Agregar(string direccion_archivos, string agregando,bool con_arreglo_GG=true)
+        public string Agregar(string direccion_archivos, string agregando,bool con_arreglo_GG=true)
         {
+            
+
+            string info_a_retornar = agregando;
+
+            if (con_arreglo_GG)
+            {
+                string resultado_indice_de_direccion = sacar_indice_del_arreglo_de_direccion(direccion_archivos);
+                string[] res_indice_espliteado = resultado_indice_de_direccion.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                if (res_indice_espliteado[0] =="1")
+                {
+                    if (res_indice_espliteado[1] != "")
+                    {
+                        int num_indice_de_direccion_int = Convert.ToInt32(res_indice_espliteado[1]);
+                        GG_base_arreglo_de_arreglos[num_indice_de_direccion_int] = op_arreglos.agregar_registro_del_array(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int], agregando);
+
+                        info_a_retornar = agregando;
+                    }
+                }
+                else
+                {
+                    info_a_retornar = resultado_indice_de_direccion;
+                }
+            }
+
             StreamWriter sw = new StreamWriter(direccion_archivos, true);
             sw.WriteLine(agregando);
             sw.Close();
+
+            return info_a_retornar;
             
-            if (con_arreglo_GG)
-            {
-                string num_indice_de_direccion = sacar_indice_del_arreglo_de_direccion(direccion_archivos);
-
-                if (num_indice_de_direccion != null)
-                {
-                    int num_indice_de_direccion_int = Convert.ToInt32(num_indice_de_direccion);
-                    GG_base_arreglo_de_arreglos[num_indice_de_direccion_int] = op_arreglos.agregar_registro_del_array(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int], agregando);
-
-                    return GG_base_arreglo_de_arreglos[num_indice_de_direccion_int];
-                }
-            }
-
-            return null;
         }
 
-        public string Incrementa_celda(string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string cantidad_a_sumar, string caracter_separacion_str = "|")
-        {
-            Convert.ToInt32(sacar_indice_del_arreglo_de_direccion(direccion_archivo));
-            try
-            {
-
-                for (int i = 0; i < length; i++)
-                {
-
-
-
-                    string[] palabra = linea.Split(caracter_separacion);
-
-                    if (palabra[num_column_comp] == comparar)
-                    {
-                        exito_o_fallo = "1" + caracter_separacion + "exito";
-                        string linea_editada = "";
-                        string[] columnas_editar = numero_columnas_editar.Split(caracter_separacion);
-                        string[] cantidades_sumara = cantidad_a_sumar.Split(caracter_separacion);
-
-                        for (int i = 0; i < columnas_editar.Length; i++)
-                        {
-                            palabra[Convert.ToInt32(columnas_editar[i])] = "" + (Convert.ToDouble(palabra[Convert.ToInt32(columnas_editar[i])]) + Convert.ToDouble(cantidades_sumara[i]));//esta largo lo se. pero significa que a la columna a editar le va a sumar la cantidad señalada
-                        }
-                        for (int i = 0; i < palabra.Length; i++)
-                        {
-                            linea_editada = linea_editada + palabra[i] + caracter_separacion;
-                        }
-                        linea_editada = Trimend_paresido(linea_editada, caracter_separacion);
-                        sw.WriteLine(linea_editada);
-
-                    }
-
-
-                }
-
-                sr.Close();
-                sw.Close();
-
-                File.Delete(direccion_archivo);//borramos el archivo original
-                File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
-            }
-            catch (Exception error)
-            {
-                sr.Close();
-                sw.Close();
-                exito_o_fallo = "3" + caracter_separacion + "error:" + error;
-                File.Delete(dir_tem);//borramos el archivo temporal
-            }
-            return exito_o_fallo;
-        }
+        
 
         public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
         {
