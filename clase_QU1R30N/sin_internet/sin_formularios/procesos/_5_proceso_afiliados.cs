@@ -304,5 +304,136 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         }
 
+        public string registro_unificado(string id_enc, string tabla_enc, string datos, object caracter_separacion_obj = null)
+        {
+            string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            string info_a_retornar = "";
+
+
+            string direccion_tab_enc_simple = G_direcciones[0];
+            string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = G_direcciones[2];
+            string resultado_inf_enc_simp = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_enc_simple);
+            string resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple);
+            string[] res_esp_enc_simp = resultado_inf_enc_simp.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            string[] res_esp_NIV_enc_simp = resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+
+            if (res_esp_enc_simp[0] == "1" && res_esp_NIV_enc_simp[0] == "1")
+            {
+
+                int indic_afil_simp = Convert.ToInt32(res_esp_enc_simp[1]);
+                int indic_niv_afil_simp = Convert.ToInt32(res_esp_NIV_enc_simp[1]);
+                //0_id_usuario|1_id_patrocinador|2_tabla_patrocinador|3_id_encargado|5_tabla_encargado|5_diner|6_a_pagar|7_datos|8_encargados|
+
+
+
+                string nivel_encargados = "";
+                string nivel_usuario = "";
+                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indic_afil_simp].Length; i++)
+                {
+                    string[] info_base_split = Tex_base.GG_base_arreglo_de_arreglos[indic_afil_simp][i].Split(caracter_separacion_string[0][0]);
+                    //en registro simple en la base el id_encargado el el id_patrocinador
+                    if (info_base_split[0] == id_enc)
+                    {
+                        nivel_encargados = info_base_split[8];
+                        nivel_usuario = "" + (Convert.ToInt32(nivel_encargados) + 1);
+                        break;
+                    }
+                }
+
+                bool encontro_nivel_usuario = false;
+                string id_horizontal_usuario_simple = "";
+                for (int j = G_donde_inicia_la_tabla; j < Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp].Length; j++)
+                {
+
+                    string[] info_base_split = Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp][j].Split(caracter_separacion_string[0][0]);
+
+                    if (info_base_split[0] == nivel_usuario)
+                    {
+                        encontro_nivel_usuario = true;
+
+                        info_base_split[2] = info_base_split[2].Replace(" ", "");
+                        info_base_split[2] = info_base_split[2].Replace(caracter_separacion_string[1] + caracter_separacion_string[1], caracter_separacion_string[1]);
+                        string[] lugares_horizontales_vacios = info_base_split[2].Split(caracter_separacion_string[1][0]);
+                        //si horizontales vacios tiene lugares vacios o se crea un nuevo id_horizontal
+                        if (lugares_horizontales_vacios[0] == "" && lugares_horizontales_vacios.Length == 1)
+                        {
+                            info_base_split[1] = "" + (Convert.ToInt32(info_base_split[1]) + 1);
+                            id_horizontal_usuario_simple = info_base_split[1];
+                        }
+                        else
+                        {
+                            string[] actualisacdor_lugares_vacios = new string[lugares_horizontales_vacios.Length - 1];
+                            id_horizontal_usuario_simple = lugares_horizontales_vacios[0];
+                            //actualiza lugares vacios
+                            for (int k = 1; k < lugares_horizontales_vacios.Length; k++)
+                            {
+                                actualisacdor_lugares_vacios[k] = lugares_horizontales_vacios[k];
+                            }
+                            info_base_split[2] = string.Join(caracter_separacion_string[1], actualisacdor_lugares_vacios);
+                        }
+
+                        Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp][j] = string.Join(caracter_separacion_string[0], info_base_split);
+                        info_a_retornar = Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp][j];
+                        bas.cambiar_archivo_con_arreglo(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple, Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp]);
+                        break;
+                    }
+
+                }
+
+                if (encontro_nivel_usuario == false)
+                {
+                    id_horizontal_usuario_simple = "1";
+                    info_a_retornar = bas.Agregar(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple, nivel_usuario + caracter_separacion_string[0] + id_horizontal_usuario_simple + caracter_separacion_string[0]);
+
+                }
+
+                string info_a_agregar =
+                    (Tex_base.GG_base_arreglo_de_arreglos[indic_afil_simp].Length - 1 + "")//0_id_usuario
+                    + caracter_separacion_string[0]
+                    + ""                    //|1_id_enc_comp    
+                    + caracter_separacion_string[0]
+                    + ""                    //|2_tabla_enc_comp    
+                    + caracter_separacion_string[0]
+                    + id_enc                //|3_id_enc_simp 
+                    + caracter_separacion_string[0]
+                    + tabla_enc             //|4_tabla_enc_simp
+                    + caracter_separacion_string[0]
+                    + "0"                   //|5_puntos_d
+                    + caracter_separacion_string[0]
+                    + "0"                   //|6_puntos_d_a_dar
+                    + caracter_separacion_string[0]
+                    + datos                 //|7_datos
+                    + caracter_separacion_string[0]
+                    + "" + nivel_usuario    //|8_niveles   
+                    + caracter_separacion_string[0]
+                    + "" + id_horizontal_usuario_simple//|9_id_horizontal
+                    + caracter_separacion_string[0]
+                    + ""                    //|10_tipo_afiliado| 
+                    + caracter_separacion_string[0];
+
+                info_a_retornar = bas.Agregar(direccion_tab_enc_simple, info_a_agregar);
+            }
+
+            else
+            {
+                if (res_esp_enc_simp[0] != "1")
+                {
+                    info_a_retornar = resultado_inf_enc_simp;
+                }
+                else if (res_esp_NIV_enc_simp[0] != "1")
+                {
+                    info_a_retornar = resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple;
+                }
+                else
+                {
+                    return null;
+                }
+                return info_a_retornar;
+            }
+            return info_a_retornar;
+
+        }
+
     }
 }

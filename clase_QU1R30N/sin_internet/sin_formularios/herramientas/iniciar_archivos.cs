@@ -36,6 +36,8 @@ namespace clase_QU1R30N
                 /*5*/ "config\\afiliados\\afiliados_complejo.txt~0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal|10_tipo_afiliado|~0|0|tabla_compleja|0|tabla_simple|0|0|datos_us|0|0||§1|0|tabla_compleja|0|tabla_simple|0|0|datos_us|1|0||§2|0|tabla_compleja|1|tabla_simple|0|0|datos_us|2|0||§3|0|tabla_compleja|2|tabla_simple|0|0|datos_us|3|0||§4|0|tabla_compleja|3|tabla_simple|0|0|datos_us|4|0||",
                 /*6*/ "config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt~nivel|id_horizontal|vacios~1|1|§2|1|§3|1|§4|1|",
                 /*7*/ "config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt~nivel|id_horizontal|vacios~1|1|§2|1|§3|1|§4|1|",
+                /*8*/ "config\\afiliados\\afiliados_unificado.txt~0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal|10_tipo_afiliado|~0|0|tabla_compleja|0|tabla_simple|0|0|datos_us|0|0||§1|0|tabla_compleja|0|tabla_simple|0|0|datos_us|1|0||§2|1|tabla_compleja|1|tabla_simple|0|0|datos_us|2|0||§3|2|tabla_compleja|2|tabla_simple|0|0|datos_us|3|0||§4|3|tabla_compleja|3|tabla_simple|0|0|datos_us|4|0||",
+                /*6*/ "config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt~nivel|id_horizontal|vacios~1|1|§2|1|§3|1|§4|1|",
             };
 
             bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(direccion_archivo_de_direcciones_de_bd, fila_inicial, agregar_filas, caracter_separacion_fun_esp_objeto: G_caracter_separacion_funciones_espesificas[2]);
