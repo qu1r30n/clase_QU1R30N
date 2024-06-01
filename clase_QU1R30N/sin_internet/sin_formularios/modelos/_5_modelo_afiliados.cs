@@ -28,29 +28,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 //usables-----------------------------------------------------------------------------------
 
-                case "inscribir_unificado":
+                case "inscribir_unificado_cod3_r_":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_unificado(info_registro[0], info_registro[1], info_registro[2]);
+                    info_a_retornar = pr_afil.registro_unificado_cod3_r_(info_registro[0], info_registro[1], info_registro[2]);
 
                     break;
                     
                     //no usables--------------------------------------------------------------------------
 
-                case "inscribir_simple":
+                case "inscribir_simple_cod1":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_simple(info_registro[0], info_registro[1], info_registro[2]);
+                    info_a_retornar = pr_afil.registro_simple_cod1(info_registro[0], info_registro[1], info_registro[2]);
                     
                     break;
 
-                case "inscribir_complejo":
+                case "inscribir_complejo_cod2":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
-                    info_a_retornar = pr_afil.registro_complejo(info_registro[0], info_registro[1], info_registro[2], info_registro[3], info_registro[4]);
+                    info_a_retornar = pr_afil.registro_complejo_cod2(info_registro[0], info_registro[1], info_registro[2], info_registro[3], info_registro[4]);
                     
                     break;
                 

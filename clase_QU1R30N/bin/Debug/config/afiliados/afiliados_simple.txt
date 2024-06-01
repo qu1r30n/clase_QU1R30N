@@ -4,9 +4,3 @@
 2|1|tabla_compleja|1|tabla_simple|0|0|datos_us|2|0||
 3|2|tabla_compleja|2|tabla_simple|0|0|datos_us|3|0||
 4|3|tabla_compleja|3|tabla_simple|0|0|datos_us|4|0||
-5|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|1||
-6|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|2||
-7|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|3||
-8|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|4||
-9|||4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|5||
-10|4|afiliados_complejo|4|afiliados_simple|0|0|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com|5|6||
