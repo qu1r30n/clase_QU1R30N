@@ -71,7 +71,7 @@
     <Compile Include="sin_internet\sin_formularios\procesos\_5_proceso_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_0_proceso_AnalisisDeDatos.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_1_proceso_compras.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\_4_proceso_empleados.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_4_proceso_aprendices_empleados.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

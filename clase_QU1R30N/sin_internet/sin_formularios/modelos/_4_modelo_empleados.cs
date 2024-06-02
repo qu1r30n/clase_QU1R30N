@@ -15,19 +15,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-        _4_proceso_empleados pr_emp = new _4_proceso_empleados();
+        string[] G_direcciones =
+        {
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//"config\\tienda\\inf\\dat\\empleados.txt",
+        };
+
+        _4_proceso_aprendices_empleados pr_emp = new _4_proceso_aprendices_empleados();
         public string operacion_a_hacer(string operacion)
         {
             string info_a_retornar = null;
             string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
+            
+
             switch (a_donde_enviara_la_informacion[0])
             {
-                /*
-                case :
-                    
+
+                case "registro_empleado":
+
+                    pr_emp.registro_empleado_cod3_r_(G_direcciones[0], a_donde_enviara_la_informacion[1]);
                     break;
-                */
+                
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;

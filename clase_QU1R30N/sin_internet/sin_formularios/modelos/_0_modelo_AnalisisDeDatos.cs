@@ -31,8 +31,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         _0_proceso_AnalisisDeDatos pr_an_dat = new _0_proceso_AnalisisDeDatos();
         public string operacion_a_hacer(string operacion)
         {
-            //proceso_que_se_ara§informacion_que_se_utilisara|informacion_que_se_utilisara
-            _3_procesos_inventario proc_produc = new _3_procesos_inventario();
+            
 
             string info_a_retornar = null;
             string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
