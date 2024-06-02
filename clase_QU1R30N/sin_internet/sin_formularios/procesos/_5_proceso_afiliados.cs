@@ -22,19 +22,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
 
-        string[] G_direcciones =
-        {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4,0],//"config\\afiliados\\afiliados_simple.txt
-            /*1*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[5,0],//"config\\afiliados\\afiliados_complejo.txt
-            /*2*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[6,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt
-            /*3*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt
-            /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt
-            /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt
-
-        };
+        
 
 
-        public string registro_simple_cod1(string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null, bool viene_reg_comp = false)
+        public string registro_simple_cod1(string dir_arch_afiliados, string dir_arch_niveles, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null, bool viene_reg_comp = false)
         {
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -51,8 +42,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             }
 
 
-            string direccion_tab_enc_simple = G_direcciones[0];
-            string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = G_direcciones[2];
+            string direccion_tab_enc_simple = dir_arch_afiliados;
+            string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = dir_arch_niveles;
             string resultado_inf_enc_simp = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_enc_simple);
             string resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple);
             string[] res_esp_enc_simp = resultado_inf_enc_simp.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -176,14 +167,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         }
 
 
-        public string registro_complejo_cod2(string id_enc_complejo, string tabla_enc_comp, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null)
+        public string registro_complejo_cod2(string dir_arch_afiliados, string dir_arch_niveles, string id_enc_complejo, string solo_nombre_archivo_enc_comp, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null)
         {
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
 
-            string direccion_tab_enc_simple = G_direcciones[0];
-            string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = G_direcciones[2];
+            string direccion_tab_enc_simple = dir_arch_afiliados;
+            string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = dir_arch_niveles;
             string resultado_inf_enc_simp = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_enc_simple);
             string resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple);
             string[] res_esp_enc_simp = resultado_inf_enc_simp.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -265,7 +256,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + caracter_separacion_string[0]
                     + "" + id_enc_complejo  //|1_id_enc_comp    
                     + caracter_separacion_string[0]
-                    + "" + tabla_enc_comp   //|2_tabla_enc_comp    
+                    + "" + solo_nombre_archivo_enc_comp   //|2_tabla_enc_comp    
                     + caracter_separacion_string[0]
                     + id_enc_simple         //|3_id_enc_simp 
                     + caracter_separacion_string[0]
@@ -307,14 +298,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         }
 
-        public string registro_unificado_cod3_r_(string id_enc, string tabla_enc, string datos, object caracter_separacion_obj = null)
+        public string registro_unificado_cod3_r_(string dir_arch_afiliados, string dir_arch_niveles, string id_enc, string tabla_enc, string datos, object caracter_separacion_obj = null)
         {
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
 
-            string direccion_tab_enc_unificado = G_direcciones[4];
-            string direccion_tab_NIVELES_IDHORIZONTAL_enc_unificado = G_direcciones[5];
+            string direccion_tab_enc_unificado = dir_arch_afiliados;
+            string direccion_tab_NIVELES_IDHORIZONTAL_enc_unificado = dir_arch_niveles;
             string resultado_inf_enc_unificado = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_enc_unificado);
             string resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_unificado = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_NIVELES_IDHORIZONTAL_enc_unificado);
             string[] res_esp_enc_unificado = resultado_inf_enc_unificado.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -447,6 +438,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
 
         }
+        
 
     }
 }

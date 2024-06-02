@@ -1,6 +1,6 @@
 0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal|10_tipo_afiliado|
-0|0|tabla_compleja|0|tabla_simple|0|0|datos_us|0|0||
-1|0|tabla_compleja|0|tabla_simple|0|0|datos_us|1|0||
-2|0|tabla_compleja|1|tabla_simple|0|0|datos_us|2|0||
-3|0|tabla_compleja|2|tabla_simple|0|0|datos_us|3|0||
-4|0|tabla_compleja|3|tabla_simple|0|0|datos_us|4|0||
+0|0|tabla_compleja|0|tabla_simple|0|0|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com|0|0||
+1|0|tabla_compleja|0|tabla_simple|0|0|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com|1|0||
+2|0|tabla_compleja|1|tabla_simple|0|0|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com|2|0||
+3|0|tabla_compleja|2|tabla_simple|0|0|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com|3|0||
+4|0|tabla_compleja|3|tabla_simple|0|0|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com|4|0||

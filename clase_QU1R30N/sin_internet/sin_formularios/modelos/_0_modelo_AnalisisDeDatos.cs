@@ -15,6 +15,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
+        string[] G_direcciones =
+        {
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
+            /*1*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4,0],//"config\\afiliados\\afiliados_simple.txt",
+            /*2*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[6,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt",
+            /*3*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[5,0],//"config\\afiliados\\afiliados_complejo.txt",
+            /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt",
+            /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\afiliados_unificado.txt",
+            /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt",
+
+        };
+
 
         _0_proceso_AnalisisDeDatos pr_an_dat = new _0_proceso_AnalisisDeDatos();
         public string operacion_a_hacer(string operacion)
@@ -28,8 +40,24 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             switch (a_donde_enviara_la_informacion[0])
             {
                 case "existe_producto":
-                    info_a_retornar = pr_an_dat.existe_producto(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], a_donde_enviara_la_informacion[1],"5");
                     break;
+
+                case "existe_curp_unificado_cod3_r_":
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|4");
+                    break;
+
+                case "existe_clave_lector_unificado_cod3_r_":
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|5");
+                    break;
+                case "existe_otra_identificacion_oficial_unificado_cod3_r_":
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|6");
+                    break;
+
+
+
+
+
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;

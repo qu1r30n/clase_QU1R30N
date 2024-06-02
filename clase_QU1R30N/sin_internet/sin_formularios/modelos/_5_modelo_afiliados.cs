@@ -16,6 +16,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
+        string[] G_direcciones =
+        {
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
+            /*1*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4,0],//"config\\afiliados\\afiliados_simple.txt",
+            /*2*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[6,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt",
+            /*3*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[5,0],//"config\\afiliados\\afiliados_complejo.txt",
+            /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt",
+            /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\afiliados_unificado.txt",
+            /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt",
+
+        };
+
+
         _5_proceso_afiliados pr_afil = new _5_proceso_afiliados();
         public string operacion_a_hacer(string operacion)
         {
@@ -32,7 +45,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_unificado_cod3_r_(info_registro[0], info_registro[1], info_registro[2]);
+                    info_a_retornar = pr_afil.registro_unificado_cod3_r_(G_direcciones[5], G_direcciones[6], info_registro[0], info_registro[1], info_registro[2]);
 
                     break;
                     
@@ -42,7 +55,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_simple_cod1(info_registro[0], info_registro[1], info_registro[2]);
+                    info_a_retornar = pr_afil.registro_simple_cod1(G_direcciones[1], G_direcciones[2], info_registro[0], info_registro[1], info_registro[2]);
                     
                     break;
 
@@ -50,7 +63,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
-                    info_a_retornar = pr_afil.registro_complejo_cod2(info_registro[0], info_registro[1], info_registro[2], info_registro[3], info_registro[4]);
+                    info_a_retornar = pr_afil.registro_complejo_cod2(G_direcciones[1], G_direcciones[2], info_registro[0], info_registro[1], info_registro[2], info_registro[3], info_registro[4]);
                     
                     break;
                 
