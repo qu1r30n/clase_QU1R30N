@@ -18,7 +18,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _3_modelo_inventario mod_inv = new _3_modelo_inventario();
         _4_modelo_empleados mod_emp = new _4_modelo_empleados();
         _5_modelo_afiliados mod_afil = new _5_modelo_afiliados();
-        
+        _6_modelo_provedores mod_pro = new _6_modelo_provedores();
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -52,6 +52,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                 case "modelo_afiliados":
                     //inscribir_simple§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     info_a_retornar = mod_afil.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    break;
+                case "modelo_provedores":
+                    info_a_retornar = mod_pro.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
             }
 

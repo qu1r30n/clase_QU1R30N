@@ -34,23 +34,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             if (res_esp_archivo_emp[0] != "0")
             {
 
+                 
 
                 string[] datos_espliteado = datos.Split(caracter_separacion_string[0][0]);
 
 
                 string ID = "";
                 string resul_agregue = "";
-
+                bool esta_arreglo = false;
                 if (res_esp_archivo_emp[0] == "1")
                 {
                     int indic_aprendiz_emp = Convert.ToInt32(res_esp_archivo_emp[1]);
                     ID = "" + Tex_base.GG_base_arreglo_de_arreglos[indic_aprendiz_emp].Length;
                     resul_agregue = "1";
+                    esta_arreglo = true;
+                    
                 }
                 else if (res_esp_archivo_emp[0] == "-1")
                 {
                     ID = "" + bas.Leer(direccion_archivo_aprendices_emp).Length;
                     resul_agregue = "2";
+                    esta_arreglo = false;
                 }
 
 
@@ -88,7 +92,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                 string datos_a_agregar = ID + caracter_separacion_string[0] + Nombre + caracter_separacion_string[0] + Apellido_paterno + caracter_separacion_string[0] + Apellido_materno + caracter_separacion_string[0] + Fecha_de_nacimiento + caracter_separacion_string[0] + Género + caracter_separacion_string[0] + Dirección + caracter_separacion_string[0] + Ciudad + caracter_separacion_string[0] + Estado_Provincia + caracter_separacion_string[0] + Código_postal + caracter_separacion_string[0] + País + caracter_separacion_string[0] + Correo_electrónico + caracter_separacion_string[0] + Teléfono + caracter_separacion_string[0] + Fecha_de_ingreso + caracter_separacion_string[0] + Sueldo + caracter_separacion_string[0] + Cargo + caracter_separacion_string[0] + Estado_de_aprendis_de_empleado + caracter_separacion_string[0] + Supervisor + caracter_separacion_string[0] + Notas + caracter_separacion_string[0] + Afiliado + caracter_separacion_string[0] + Fecha_de_terminación + caracter_separacion_string[0] + Motivo_de_terminación + caracter_separacion_string[0] + Horas_trabajadas + caracter_separacion_string[0] + Evaluaciones_de_desempeño + caracter_separacion_string[0] + Habilidades_y_certificaciones + caracter_separacion_string[0] + Idiomas + caracter_separacion_string[0] + Fecha_de_última_promoción + caracter_separacion_string[0] + ID_del_departamento_de_supervisión + caracter_separacion_string[0] + Historial_de_capacitación + caracter_separacion_string[0] + Último_aumento_de_salario + caracter_separacion_string[0] + tipo_de_aprendis_de_empleado;
-                bas.Agregar(direccion_archivo_aprendices_emp, datos_a_agregar, false);
+                bas.Agregar(direccion_archivo_aprendices_emp, datos_a_agregar, esta_arreglo);
                 info_a_retornar = resul_agregue + G_caracter_para_confirmacion_o_error[0] + "agregado si es 2 solo al archivo si es 1 tambien al arreglo";
             }
             else
