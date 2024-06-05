@@ -368,11 +368,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //comparacion--------------------------------------------------------------------------
             if (tem_linea == comparar)
             {
-                return "1" + G_caracter_para_confirmacion_o_error + texto;
+                return "1" + G_caracter_para_confirmacion_o_error[0] + texto;
             }
 
 
-            return "0" + G_caracter_para_confirmacion_o_error + "no se_encontro";
+            return "0" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro";
         }
 
         public string busqueda_con_YY_profunda_texto(string texto, string columnas_a_recorrer, string comparaciones, object caracter_separacion_objeto = null, object caracter_separacion_para_busqueda_multiple_profuda_obj = null)
@@ -536,8 +536,33 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string retornar = string.Join(caracter_separacion[0], espliteado_texto);
             return retornar;
         }
+        public string editar_inc_edicion_profunda_multiple_comparacion_final_string(string texto, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda_objeto = null)
+        {
+            operaciones_arreglos op_arr = new operaciones_arreglos();
+            
+            //editar_busqueda_multiple_edicion_profunda_arreglo(texto, "2|1|1~1~2|1|0", "10~10~10","1~1~0");
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
+            string[] caracter_separacion_para_busqueda_multiple_profuda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
 
-        public string editar_inc_busqueda_multiple_edicion_profunda_string(string texto, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda_objeto = null)
+            
+
+            string[] indices_espliteado = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            for (int k = 0; k < indices_espliteado.Length; k++)
+            {
+                string info = op_arr.extraer_arreglo_dentro_de_un_string_y_ponerolo_en_string(texto, indices_espliteado[k]);
+                for (int l = 0; l < info.Length; l++)
+                {
+                   
+                }
+                texto = editar_incr_string_funcion_recursiva(texto, indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
+            }
+
+            return texto;
+
+        }
+        public string editar_inc_edicion_profunda_multiple_string(string texto, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda_objeto = null)
         {
             //editar_busqueda_multiple_edicion_profunda_arreglo(texto, "2|1|1~1~2|1|0", "10~10~10","1~1~0");
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
@@ -551,6 +576,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             {
                 texto = editar_incr_string_funcion_recursiva(texto, indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
             }
+
+
 
             return texto;
 

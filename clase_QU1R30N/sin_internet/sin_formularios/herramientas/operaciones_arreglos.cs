@@ -817,6 +817,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return arreglo_a_retoranar;
         }
 
+        public string extraer_arreglo_dentro_de_un_string_y_ponerolo_en_string(string linea_con_arreglo_dentro, string columnas_a_recorrer = null, object caracteres_separacion_obj = null)
+        {
+            string[] caracteres_separacion = vf_GG.GG_funcion_caracter_separacion(caracteres_separacion_obj);
+
+            string[] arr_col_rec = columnas_a_recorrer.Split(caracteres_separacion[0][0]);
+
+            int j = 0;
+            string[][] niveles_de_profundidad = null;
+            do
+            {
+
+                //caracter_separacion[j][0] el primer [j] es la celda y el segundo [0] es el caracter para no usar convert.tochar
+                niveles_de_profundidad = agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, linea_con_arreglo_dentro.Split(caracteres_separacion[j][0]));
+                linea_con_arreglo_dentro = niveles_de_profundidad[j][Convert.ToInt32(arr_col_rec[j])];
+
+                j++;
+
+            } while (j < arr_col_rec.Length);
+            string[] arreglo_a_retoranar = linea_con_arreglo_dentro.Split(caracteres_separacion[j][0]);
+
+            return "1" + G_caracter_para_confirmacion_o_error[0] + linea_con_arreglo_dentro + G_caracter_para_confirmacion_o_error[0] + j;
+        }
+
 
         public string[,] suma_elementos_iguales_dentro_de_un_arreglo_retorna_un_bidimencional(string[] arreglo_entrada, object caracter_separacion_func_esp_obj = null)
         {

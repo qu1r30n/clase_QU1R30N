@@ -179,7 +179,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         {
                             if (res_esp[0] == "1")
                             {
-                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_busqueda_multiple_edicion_profunda_string(res_esp[1], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_edicion_profunda_multiple_comparacion_final_string(res_esp[1], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
                                 cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
                                 info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
                                 break;
@@ -200,7 +200,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         if (columnas[num_column_comp] == comparar)
                         {
 
-                            inventario[i] = op_tex.editar_inc_busqueda_multiple_edicion_profunda_string(inventario[i], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+                            inventario[i] = op_tex.editar_inc_edicion_profunda_multiple_string(inventario[i], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
 
                             cambiar_archivo_con_arreglo(direccion_archivo, inventario);
                             info_a_retornar = "2" + G_caracter_para_confirmacion_o_error[0] + inventario[i];
