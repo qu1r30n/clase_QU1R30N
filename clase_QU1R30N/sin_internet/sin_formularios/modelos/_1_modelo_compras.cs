@@ -17,7 +17,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
         };
 
         _1_proceso_compras pr_Comp = new _1_proceso_compras();
@@ -29,7 +29,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             switch (a_donde_enviara_la_informacion[0])
             {
                 case "compra":
-                    //info_a_retornar=pr_Comp.comprar();
+                    string[] info_espliteada = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion[0][0]);
+                    info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                     break;
                 case "compra_mayoreo":
                     
