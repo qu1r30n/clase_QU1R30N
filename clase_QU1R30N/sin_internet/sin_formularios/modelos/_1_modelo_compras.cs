@@ -15,6 +15,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
+        string[] G_direcciones =
+        {
+            
+        };
+
         _1_proceso_compras pr_Comp = new _1_proceso_compras();
         public string operacion_a_hacer(string operacion)
         {

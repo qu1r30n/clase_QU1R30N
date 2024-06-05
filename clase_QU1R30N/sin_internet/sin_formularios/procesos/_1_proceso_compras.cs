@@ -21,9 +21,34 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
 
 
-        public string funcion_a_hacer(string parametro1, string parametro2)
+        _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
+
+
+        public string compras(string direccion_inventario, string codigo, string cantidad, string precio)
         {
-            string info_a_retornar = null;
+            string info_a_retornar = "";
+
+
+
+            bas.Editar_o_incr_multiple(direccion_inventario, 5, codigo
+                ,
+                  //columnas a editar
+                  /*0*/"6"
+                + G_caracter_separacion_funciones_espesificas[0]
+                 /*1*/+ ""
+                ,
+                  //info a editar o incrementar
+                  /*0*/cantidad
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*1*/+ ""
+
+                ,
+                  // 0:editar  1:incrementar
+                  /*0*/"1"
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*1*/+ ""
+                  );
+
 
             return info_a_retornar;
         }

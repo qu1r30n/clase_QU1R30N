@@ -37,7 +37,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
        Ver poniendo también los nombres de las funciones que estás usando para no pasar toda la clase -----------------------
        Próstata también el nombre de la clase para saber de qué clase se está sacando las funciones -------------------------
        */
-        operaciones_arreglos op_arreglos = new operaciones_arreglos();
+        operaciones_arreglos op_arr = new operaciones_arreglos();
+        operaciones_textos op_tex = new operaciones_textos();
 
         //fin Aquí poner las funciones de las otras clases Si te vas a llevar esta clase solamente --------------------------------
 
@@ -105,8 +106,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 //si crea ele archivo lee el archivo
                 if (leer_y_agrega_al_arreglo)
                 {
-                    GG_dir_bd_y_valor_inicial_bidimencional = op_arreglos.agregar_registro_del_array_bidimensional(GG_dir_bd_y_valor_inicial_bidimencional, direccion_archivo + caracter_separacion_fun_esp[0] + valor_inicial, caracter_separacion_fun_esp);
-                    GG_base_arreglo_de_arreglos = op_arreglos.agregar_arreglo_a_arreglo_de_arreglos(GG_base_arreglo_de_arreglos, Leer(direccion_archivo));
+                    GG_dir_bd_y_valor_inicial_bidimencional = op_arr.agregar_registro_del_array_bidimensional(GG_dir_bd_y_valor_inicial_bidimencional, direccion_archivo + caracter_separacion_fun_esp[0] + valor_inicial, caracter_separacion_fun_esp);
+                    GG_base_arreglo_de_arreglos = op_arr.agregar_arreglo_a_arreglo_de_arreglos(GG_base_arreglo_de_arreglos, Leer(direccion_archivo));
                     return direccion_archivo + G_caracter_separacion[0] + "leido";
                 }
             }
@@ -133,7 +134,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     if (res_indice_espliteado[1] != "")
                     {
                         int num_indice_de_direccion_int = Convert.ToInt32(res_indice_espliteado[1]);
-                        GG_base_arreglo_de_arreglos[num_indice_de_direccion_int] = op_arreglos.agregar_registro_del_array(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int], agregando);
+                        GG_base_arreglo_de_arreglos[num_indice_de_direccion_int] = op_arr.agregar_registro_del_array(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int], agregando);
 
                         info_a_retornar = agregando;
                     }
@@ -152,7 +153,75 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             
         }
 
-        
+
+        public string Editar_o_incr_multiple(string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string edit_0_o_increm_1 = null, object caracter_separacion_obj = null)
+        {
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            string info_a_retornar = "";
+
+            string direccion_archivo = direccion_archivo_a_checar;
+            string resultado_archivo = sacar_indice_del_arreglo_de_direccion(direccion_archivo);
+            string[] res_esp_archivo = resultado_archivo.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            if (res_esp_archivo[0] != "0")
+            {
+                if (res_esp_archivo[0] == "1")
+                {
+                    
+                    int num_indice_de_direccion_int = Convert.ToInt32(res_esp_archivo[1]);
+
+                    for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+                    {
+
+                        string resul_busqueda=op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], "" + num_column_comp, comparar);
+                        string[] res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        if (res_esp[0]!="0")
+                        {
+                            if (res_esp[0] == "1")
+                            {
+                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_busqueda_multiple_edicion_profunda_string(res_esp[1], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+                                cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
+                                info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
+                                break;
+                            }
+                        }
+
+                        
+                    }
+
+                }
+                else if (res_esp_archivo[0] == "-1")
+                {
+                    string[] inventario = Leer(direccion_archivo);
+                    for (int i = G_donde_inicia_la_tabla; i < inventario.Length; i++)
+                    {
+                        string[] columnas = inventario[i].Split(caracter_separacion[0][0]);
+
+                        if (columnas[num_column_comp] == comparar)
+                        {
+
+                            inventario[i] = op_tex.editar_inc_busqueda_multiple_edicion_profunda_string(inventario[i], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+
+                            cambiar_archivo_con_arreglo(direccion_archivo, inventario);
+                            info_a_retornar = "2" + G_caracter_para_confirmacion_o_error[0] + inventario[i];
+                            break;
+                        }
+                    }
+
+                }
+                else
+                {
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no encontro el dato";
+                }
+            }
+
+            else
+            {
+                info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro la direccion";
+            }
+
+            return info_a_retornar;
+        }
 
         public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
         {
@@ -178,7 +247,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     if (palabra != "")
                     {
-                        linea = op_arreglos.agregar_registro_del_array(linea, palabra);
+                        linea = op_arr.agregar_registro_del_array(linea, palabra);
                     }
                 }
             }
@@ -213,7 +282,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     }
 
                     // Agregar la palabra procesada al arreglo "resultado"
-                    resultado = op_arreglos.agregar_registro_del_array(resultado, palabra);
+                    resultado = op_arr.agregar_registro_del_array(resultado, palabra);
                 }
 
                 // Cerrar el StreamReader ya que se ha completado el procesamiento

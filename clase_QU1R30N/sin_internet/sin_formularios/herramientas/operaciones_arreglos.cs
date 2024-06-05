@@ -11,12 +11,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
     class operaciones_arreglos
     {
 
+        operaciones_textos op_tex = new operaciones_textos();
+
         public string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         public string[] G_caracter_separacion_para_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
+        string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
         var_fun_GG vf_GG = new var_fun_GG();
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
+        
 
         public string[] agregar_registro_del_array(string[] arreglo, string registro, string al_inicio = null)
         {
@@ -254,6 +258,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
         }
 
+        
+
 
         //se le pone yy en referencia a &&
         public string busqueda_con_YY_profunda_arreglo(string[] areglo, string columnas_a_recorrer, string comparaciones, object caracter_separacion_objeto = null, object caracter_separacion_para_busqueda_multiple_profuda_obj = null)
@@ -395,93 +401,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-
-        public string editar_incr_string_funcion_recursiva(string texto, object columnas_a_recorrer, string info_a_sustituir, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_dif_a_texto = null)
-        {
-            //string texto="0|1|2¬3°4¬5|6", object columnas_a_recorrer="2°1°1", string info_a_sustituir="10", string edit_0_o_increm_1 = "1",  string[] caracter_separacion = null, string caracter_separacion_dif_a_texto = "°"
-
-            /*ejemplo puesto
-                    string[] indices_espliteado = indices_a_editar.Split(caracter_separacion[0][0]);
-                    string[] info_editar_espliteado = info_editar.Split(caracter_separacion[0][0]);
-                    string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion[0][0]);
-                    for (int k = 0; k < indices_espliteado.Length; k++)
-                    {
-                        areglo[i] = editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto:"°");
-                    }
-            
-            */
-            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
-
-            string[] espliteado_columnas_recorrer = { };
-
-            //Sí es un string lo splitea Este normalmente es al inicio de la función 
-            if (columnas_a_recorrer is string)
-            {
-                if (caracter_separacion_dif_a_texto == null)
-                {
-                    espliteado_columnas_recorrer = columnas_a_recorrer.ToString().Split(caracter_separacion[0][0]);
-
-                }
-                else
-                {
-                    espliteado_columnas_recorrer = columnas_a_recorrer.ToString().Split(caracter_separacion_dif_a_texto[0]);
-                }
-
-            }
-            else if (columnas_a_recorrer is string[] temp)
-            {
-
-                espliteado_columnas_recorrer = temp;
-            }
-
-            string[] espliteado_texto = texto.Split(caracter_separacion[0][0]);
-
-            //En esta parte Se inicia desde el segundo elemento y se guardan los caracteres y
-            //las columnas para sí hay otro elemento En el arreglo múltiple 
-            string texto_a_retornar = "";
-
-            string[] tem_array_caracter_separacion = caracter_separacion;
-            if (espliteado_columnas_recorrer.Length > 0)
-            {
-                string[] tem_array_col_recorrer = espliteado_columnas_recorrer;
-                //espliteado_texto = texto.Split(Convert.ToChar(tem_array_caracter_separacion[0]));
-                texto_a_retornar = espliteado_texto[Convert.ToInt32(tem_array_col_recorrer[0])];
-
-                tem_array_col_recorrer = new string[espliteado_columnas_recorrer.Length - 1];
-                tem_array_caracter_separacion = new string[caracter_separacion.Length - 1];
-                for (int i = 1; i < espliteado_columnas_recorrer.Length; i++)
-                {
-
-                    tem_array_col_recorrer[i - 1] = espliteado_columnas_recorrer[i];
-
-                }
-                for (int i = 1; i < caracter_separacion.Length; i++)
-                {
-                    tem_array_caracter_separacion[i - 1] = caracter_separacion[i];
-                }
+        
 
 
-                espliteado_texto[Convert.ToInt32(espliteado_columnas_recorrer[0])] = editar_incr_string_funcion_recursiva(texto_a_retornar, tem_array_col_recorrer, info_a_sustituir, edit_0_o_increm_1, tem_array_caracter_separacion); // Llamada recursiva
+        
 
 
-            }
-            else
-            {
-                if (edit_0_o_increm_1 == "1")
-                {
-                    espliteado_texto[0] = "" + (Convert.ToDouble(espliteado_texto[0]) + Convert.ToDouble(info_a_sustituir));
-                }
-                else
-                {
-                    espliteado_texto[0] = info_a_sustituir;
-                }
-
-            }
-
-            string retornar = string.Join(caracter_separacion[0], espliteado_texto);
-            return retornar;
-        }
-
+        
 
 
         public string[] editar_busqueda_profunda_arreglo(string[] areglo, string columnas_a_recorrer, string comparar, object columnas_a_recorrer_editar, string info_a_sustituir, object caracter_separacion_objeto = null)
@@ -514,7 +440,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 //racion--------------------------------------------------------------------------
                 if (tem_linea == comparar)
                 {
-                    areglo[i] = editar_incr_string_funcion_recursiva(areglo[i], columnas_a_recorrer_editar, info_a_sustituir);
+                    areglo[i] =  op_tex.editar_incr_string_funcion_recursiva(areglo[i], columnas_a_recorrer_editar, info_a_sustituir);
                     return areglo;
                 }
 
@@ -522,17 +448,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
         }
 
-
-        public string[] editar_inc_busqueda_multiple_edicion_profunda_arreglo(string[] areglo, string columnas_a_recorrer, string comparaciones, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda = null)
+        public string[] editar_inc_busqueda_multiple_edicion_profunda_arreglo(string[] areglo, string columnas_a_recorrer, string comparaciones, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda_objeto = null)
         {
             //editar_busqueda_multiple_edicion_profunda_arreglo(arreglo, "2|1|1", "5", "2|1|1~1~2|1|0", "10~10~10","1~1~0");
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
-
-            if (caracter_separacion_para_busqueda_multiple_profuda == null)
-            {
-                caracter_separacion_para_busqueda_multiple_profuda = G_caracter_separacion_para_funciones_espesificas[0];
-            }
-
+            string[] caracter_separacion_para_busqueda_multiple_profuda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
 
 
             //caracter_separacion[0][0] el primer [0] es la celda y el segundo [0] es el caracter para no usar convert.tochar
@@ -560,12 +480,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
 
 
-                    string[] indices_espliteado = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0]);
-                    string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0]);
-                    string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0]);
+                    string[] indices_espliteado = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+                    string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+                    string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
                     for (int k = 0; k < indices_espliteado.Length; k++)
                     {
-                        areglo[i] = editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda);
+                        areglo[i] = op_tex.editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
                     }
 
                     return areglo;
@@ -577,6 +497,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
 
         }
+
 
 
 
@@ -721,7 +642,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0]);
                         string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0]);
 
-                        areglo[i] = editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[j], info_editar_espliteado[j], edit_0_o_increm_1_espliteado[j]);
+                        areglo[i] = op_tex.editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[j], info_editar_espliteado[j], edit_0_o_increm_1_espliteado[j]);
 
 
 
