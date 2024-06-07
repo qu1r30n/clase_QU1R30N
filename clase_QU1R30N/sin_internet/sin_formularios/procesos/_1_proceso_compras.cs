@@ -32,7 +32,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string año_mes_dia_hora_min = fecha_hora.ToString("yyyyMMddHHmm");
             string año = fecha_hora.ToString("yyyy");
 
-            bas.Editar_o_incr_multiple(direccion_inventario, 5, codigo
+            bas.Editar_o_incr_multiple_con_comparacion_final(direccion_inventario, 5, codigo
                 ,
                   //columnas a editar
                   /*0*/"6"//cantidad
@@ -56,6 +56,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   /*3*/+ cantidad_por_paquete //cantidad por paquete
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*4*/+ cantidad_por_paquete //ultimo movimiento
+                  ,
+                  //comparacion para edicion dejar en blanco si no hay comparacion
+                  /*0*/  "a" //cantidad
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*1*/+ "d" //costo de compra
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*2*/+ "c" //provedor
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*3*/+ "" //cantidad por paquete
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*4*/+ "" //ultimo movimiento
 
                 ,
                   // 0:editar  1:incrementar

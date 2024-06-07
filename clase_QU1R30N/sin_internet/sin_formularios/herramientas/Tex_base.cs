@@ -154,7 +154,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
 
-        public string Editar_o_incr_multiple(string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string edit_0_o_increm_1 = null, object caracter_separacion_obj = null)
+        public string Editar_o_incr_multiple_con_comparacion_final(string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_o_increm_1, object caracter_separacion_obj = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -179,7 +179,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         {
                             if (res_esp[0] == "1")
                             {
-                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_edicion_profunda_multiple_comparacion_final_string(res_esp[1], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_string(res_esp[1], numero_columnas_editar, editar_columna,comparar_columna_a_editar, edit_0_o_increm_1);
                                 cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
                                 info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
                                 break;
