@@ -546,52 +546,85 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             
 
-            string[] indices_espliteado = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
-            string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] indices_a_editar_esp = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] info_editar_esp = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
             string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
-            for (int k = 0; k < indices_espliteado.Length; k++)
+
+            string[] comparacion_esplit = comparacion_antes_para_saber_cual_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+
+            for (int k = 0; k < indices_a_editar_esp.Length; k++)
             {
-                string res_ext = op_arr.extraer_arreglo_dentro_de_un_string_y_ponerolo_en_string(texto, indices_espliteado[k]);
+                string res_ext = op_arr.extraer_arreglo_dentro_de_un_string_y_ponerolo_en_string(texto, indices_a_editar_esp[k]);
                 string[] res_ext_esp = res_ext.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                int indice_caracter = Convert.ToInt32(res_ext_esp[2]);
                 if (res_ext_esp[0] != "0")
                 {
                     if (res_ext_esp[0] == "1")
                     {
-                        int indice_caracter = Convert.ToInt32(res_ext_esp[2]);
+                        
                         string[] info = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
                         bool encontro_dato_a_editar = false;
                         for (int l = 0; l < info.Length; l++)
                         {
                             string[] datos_a_checar_para_editar = info[l].Split(caracter_separacion[indice_caracter + 1][0]);
-                            string[] comparacion_esplit = comparacion_antes_para_saber_cual_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
-                            if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
+                            if (1 >= datos_a_checar_para_editar.Length)
                             {
                                 if (edit_0_o_increm_1_espliteado[k] == "0")
                                 {
-                                    datos_a_checar_para_editar[1] = info_editar_espliteado[k];
+                                    datos_a_checar_para_editar[0] = info_editar_esp[k];
                                 }
-                                else if (datos_a_checar_para_editar[1] == "1")
+                                else if (datos_a_checar_para_editar[k] == "1")
                                 {
-                                    datos_a_checar_para_editar[1] = "" + (Convert.ToDouble(datos_a_checar_para_editar[1]) + Convert.ToDouble(info_editar_espliteado[k]));
+                                    datos_a_checar_para_editar[0] = "" + (Convert.ToDouble(datos_a_checar_para_editar[0]) + Convert.ToDouble(info_editar_esp[k]));
                                 }
                                 else
                                 {
                                     return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
                                 }
                                 info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-
                                 encontro_dato_a_editar = true;
-                                break;
+                                edit_0_o_increm_1_espliteado[k] = "0";
                             }
+                            else
+                            {
+                                if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
+                                {
+                                    if (edit_0_o_increm_1_espliteado[k] == "0")
+                                    {
+                                        datos_a_checar_para_editar[1] = info_editar_esp[k];
+                                    }
+                                    else if (datos_a_checar_para_editar[k] == "1")
+                                    {
+                                        datos_a_checar_para_editar[1] = "" + (Convert.ToDouble(datos_a_checar_para_editar[1]) + Convert.ToDouble(info_editar_esp[k]));
+                                    }
+                                    else
+                                    {
+                                        return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
+                                    }
+                                    info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+
+                                    encontro_dato_a_editar = true;
+                                    edit_0_o_increm_1_espliteado[k] = "0";
+                                    break;
+                                }
+                            }
+                            
                             
                         }
                         
                         if (encontro_dato_a_editar==false)
                         {
+                            res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + comparacion_esplit[k] + caracter_separacion[indice_caracter + 1] + info_editar_esp[k];
                             //aqui lo agregara si no lo enctuentra
+                            edit_0_o_increm_1_espliteado[k] = "0";
                         }
 
-                        texto = editar_incr_string_funcion_recursiva(texto, indices_espliteado[k], info[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
+                        res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info);
+
+                        texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
+
+                        
+
                     }
                 }
 
