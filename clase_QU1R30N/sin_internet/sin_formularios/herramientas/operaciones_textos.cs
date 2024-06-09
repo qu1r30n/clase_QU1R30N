@@ -488,8 +488,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                 espliteado_columnas_recorrer = temp;
             }
-
-            string[] espliteado_texto = texto.Split(caracter_separacion[0][0]);
+            string[] espliteado_texto = null;
+            if (espliteado_columnas_recorrer.Length > 0)
+            {
+                espliteado_texto = texto.Split(caracter_separacion[0][0]);
+            }
+            else
+            {
+                espliteado_texto = new string[] { texto };
+                
+            }
+            
 
             //En esta parte Se inicia desde el segundo elemento y se guardan los caracteres y
             //las columnas para sí hay otro elemento En el arreglo múltiple 
@@ -554,7 +563,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] caracter_separacion_profunda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
             string[] indices_a_editar_esp = indices_a_editar.Split(caracter_separacion_profunda[0][0]);
             string[] info_editar_esp = info_editar.Split(caracter_separacion_profunda[0][0]);
-            string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_profunda[0][0]);
+            string[] edit_0_o_increm_1_agrega_2_espliteado = edit_0_o_increm_1.Split(caracter_separacion_profunda[0][0]);
             string[] comparacion_esplit = comparacion_antes_para_saber_cual_editar.Split(caracter_separacion_profunda[0][0]);
 
             for (int k = 0; k < indices_a_editar_esp.Length; k++)
@@ -576,17 +585,50 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                             if (datos_a_checar_para_editar.Length == 1 )
                             {
-                                editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_espliteado[k],0, caracter_separacion[indice_caracter]);
-                                info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-                                edit_0_o_increm_1_espliteado[k] = "0";
-                                encontro_dato_a_editar = true;
+                                //si lo encuentra y tiene el numero 2 lo agrega
+                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                {
+                                    //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+
+                                    if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                    {
+                                        
+                                        edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                        encontro_dato_a_editar = true;
+                                    }
+                                    else
+                                    {
+                                        
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                    info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                    edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                    encontro_dato_a_editar = true;
+
+                                }
+                                
+                                
                             }
                             else if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
                             {
-                                editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_espliteado[k],1);
+                                //si tiene el 2 no hace nada por que ya esta
+                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                {
+                                    
+                                }
+                                //si encuentra incrementa
+                                else
+                                {
+                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
+                                    
+                                }
                                 info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
                                 encontro_dato_a_editar = true;
-                                edit_0_o_increm_1_espliteado[k] = "0";
+                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                                 break;
                             }
                         }
@@ -595,20 +637,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
                     if (!encontro_dato_a_editar)
                     {
-                        if (edit_0_o_increm_1_espliteado[k]=="3")
+                        //si no lo encuentra agrega
+                        if (edit_0_o_increm_1_agrega_2_espliteado[k]=="2")
                         {
-                            res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], "", info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                            res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], "", info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter] });
                         }
                         else
                         {
                             res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
-                            edit_0_o_increm_1_espliteado[k] = "0";
+                            edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                         }
                         
                     }
 
                     
-                    texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_profunda[0]);
+                    texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_profunda[0]);
                 }
             }
 
@@ -616,7 +659,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
         // Función para editar o incrementar información en un arreglo de datos
-        private void editar_o_incrementar_agrega_informacion(string[] datos, string info, string accion,int _0_solo_celda_1_varias_celdas, string caracter_separacion_agregar="°")
+        private string[] editar_o_incrementar_agrega_informacion(string[] datos, string info, string accion,int _0_solo_celda_1_varias_celdas, string caracter_separacion_agregar="°")
         {
             if (accion == "0") // Si la acción es "0", se edita la información
             {
@@ -635,6 +678,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             {
                 throw new Exception("Error en la variable incrementar o editar");
             }
+            return datos;
         }
 
         // Función para agregar nueva información a una cadena existente

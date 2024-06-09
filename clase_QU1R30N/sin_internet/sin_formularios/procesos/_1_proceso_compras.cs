@@ -58,7 +58,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   /*4*/+ cantidad_por_paquete //ultimo movimiento
                   ,
                   //comparacion para edicion dejar en blanco si no hay comparacion
-                  /*0*/  "a" //cantidad
+                  // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
+                  // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
+                  /*0*/  "b" //cantidad
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "d" //costo de compra
                   + G_caracter_separacion_funciones_espesificas[0]
@@ -74,7 +76,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "0"//editar//costo compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ "0"//editar//provedor
+                  /*2*/+ "2"//editar//provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "0"//editar//cantidad por paquete
                   + G_caracter_separacion_funciones_espesificas[0]
