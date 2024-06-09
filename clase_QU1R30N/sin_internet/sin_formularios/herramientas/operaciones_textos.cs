@@ -607,6 +607,26 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                     edit_0_o_increm_1_espliteado[k] = "0";
                                     break;
                                 }
+
+                                else if (comparacion_esplit[k] == "")
+                                {
+
+                                    if (edit_0_o_increm_1_espliteado[k] == "0")
+                                    {
+                                        datos_a_checar_para_editar[0] = info_editar_esp[k];
+                                    }
+                                    else if (datos_a_checar_para_editar[k] == "1")
+                                    {
+                                        datos_a_checar_para_editar[0] = "" + (Convert.ToDouble(datos_a_checar_para_editar[0]) + Convert.ToDouble(info_editar_esp[k]));
+                                    }
+                                    else
+                                    {
+                                        return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
+                                    }
+                                    info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                    encontro_dato_a_editar = true;
+                                    edit_0_o_increm_1_espliteado[k] = "0";
+                                }
                             }
                             
                             
