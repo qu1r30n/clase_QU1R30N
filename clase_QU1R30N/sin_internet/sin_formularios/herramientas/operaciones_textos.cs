@@ -564,53 +564,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         
                         string[] info = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
                         bool encontro_dato_a_editar = false;
-                        for (int l = 0; l < info.Length; l++)
+                        if (res_ext_esp[1] != "")
                         {
-                            string[] datos_a_checar_para_editar = info[l].Split(caracter_separacion[indice_caracter + 1][0]);
-                            if (1 >= datos_a_checar_para_editar.Length)
+                            for (int l = 0; l < info.Length; l++)
                             {
-                                if (edit_0_o_increm_1_espliteado[k] == "0")
+                                string[] datos_a_checar_para_editar = info[l].Split(caracter_separacion[indice_caracter + 1][0]);
+                                if (1 >= datos_a_checar_para_editar.Length)
                                 {
-                                    datos_a_checar_para_editar[0] = info_editar_esp[k];
-                                }
-                                else if (datos_a_checar_para_editar[k] == "1")
-                                {
-                                    datos_a_checar_para_editar[0] = "" + (Convert.ToDouble(datos_a_checar_para_editar[0]) + Convert.ToDouble(info_editar_esp[k]));
-                                }
-                                else
-                                {
-                                    return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
-                                }
-                                info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-                                encontro_dato_a_editar = true;
-                                edit_0_o_increm_1_espliteado[k] = "0";
-                            }
-                            else
-                            {
-                                if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
-                                {
-                                    if (edit_0_o_increm_1_espliteado[k] == "0")
-                                    {
-                                        datos_a_checar_para_editar[1] = info_editar_esp[k];
-                                    }
-                                    else if (datos_a_checar_para_editar[k] == "1")
-                                    {
-                                        datos_a_checar_para_editar[1] = "" + (Convert.ToDouble(datos_a_checar_para_editar[1]) + Convert.ToDouble(info_editar_esp[k]));
-                                    }
-                                    else
-                                    {
-                                        return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
-                                    }
-                                    info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-
-                                    encontro_dato_a_editar = true;
-                                    edit_0_o_increm_1_espliteado[k] = "0";
-                                    break;
-                                }
-
-                                else if (comparacion_esplit[k] == "")
-                                {
-
                                     if (edit_0_o_increm_1_espliteado[k] == "0")
                                     {
                                         datos_a_checar_para_editar[0] = info_editar_esp[k];
@@ -627,14 +587,80 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                     encontro_dato_a_editar = true;
                                     edit_0_o_increm_1_espliteado[k] = "0";
                                 }
+                                else
+                                {
+                                    if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
+                                    {
+                                        if (edit_0_o_increm_1_espliteado[k] == "0")
+                                        {
+                                            datos_a_checar_para_editar[1] = info_editar_esp[k];
+                                        }
+                                        else if (datos_a_checar_para_editar[k] == "1")
+                                        {
+                                            datos_a_checar_para_editar[1] = "" + (Convert.ToDouble(datos_a_checar_para_editar[1]) + Convert.ToDouble(info_editar_esp[k]));
+                                        }
+                                        else
+                                        {
+                                            return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
+                                        }
+                                        info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+
+                                        encontro_dato_a_editar = true;
+                                        edit_0_o_increm_1_espliteado[k] = "0";
+                                        break;
+                                    }
+
+                                    else if (comparacion_esplit[k] == "")
+                                    {
+
+                                        if (edit_0_o_increm_1_espliteado[k] == "0")
+                                        {
+                                            datos_a_checar_para_editar[0] = info_editar_esp[k];
+                                        }
+                                        else if (datos_a_checar_para_editar[k] == "1")
+                                        {
+                                            datos_a_checar_para_editar[0] = "" + (Convert.ToDouble(datos_a_checar_para_editar[0]) + Convert.ToDouble(info_editar_esp[k]));
+                                        }
+                                        else
+                                        {
+                                            return "0" + G_caracter_para_confirmacion_o_error[0] + "error en la variable incrementar o editar";
+                                        }
+                                        info[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                        encontro_dato_a_editar = true;
+                                        edit_0_o_increm_1_espliteado[k] = "0";
+                                    }
+                                }
+
+
                             }
-                            
-                            
                         }
-                        
-                        if (encontro_dato_a_editar==false)
+                        if (encontro_dato_a_editar == false)
                         {
-                            res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + comparacion_esplit[k] + caracter_separacion[indice_caracter + 1] + info_editar_esp[k];
+                            if (comparacion_esplit[k] != "")
+                            {
+
+                                if (res_ext_esp[1] == "")
+                                {
+                                    res_ext_esp[1] = res_ext_esp[1] + comparacion_esplit[k] + caracter_separacion[indice_caracter + 1] + info_editar_esp[k];
+                                }
+                                else
+                                {
+                                    res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + comparacion_esplit[k] + caracter_separacion[indice_caracter + 1] + info_editar_esp[k];
+                                }
+                            }
+
+                            else
+                            {
+                                if (res_ext_esp[1] == "")
+                                {
+                                    res_ext_esp[1] = res_ext_esp[1] + info_editar_esp[k];
+                                }
+                                else
+                                {
+                                    res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + info_editar_esp[k];
+                                }
+                            }
+
                             //aqui lo agregara si no lo enctuentra
                             edit_0_o_increm_1_espliteado[k] = "0";
                         }
