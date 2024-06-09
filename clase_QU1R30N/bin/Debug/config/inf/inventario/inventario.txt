@@ -1,2 +1,2 @@
 0_id|1_producto|2_contenido|3_tipo_medida|4_precio_venta|5_cod_barras|6_cantidad|7_costo_comp|8_provedor|9_grupo|10_no_poner_nada|11_cant_produc_x_paquet|12_tipo_de_producto|13_ligar_produc_sab|14_impuestos|15_si_es_elaborado_que_materia_prima_usa_y_cantidad|16_caducidad|17_ultimo_movimiento|
-1|PRODUCTO|200|ML|100|COD_BAR||100|PROVEDOR|PRODUCTO_NORMAL||10|LACTEOS|1|IVA||20240606|20240605|
+1|PRODUCTO|200|ML|100|COD_BAR||100|PROV|PRODUCTO_NORMAL||10|LACTEOS|1|IVA||20240606|20240605|
