@@ -24,12 +24,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
 
 
-        public string compras(string direccion_inventario, string codigo, string cantidad, string precio, string provedor, string cantidad_por_paquete)
+        public string compras(string direccion_inventario, string codigo, string cantidad, string precio, string provedor)
         {
             string info_a_retornar = "";
 
             DateTime fecha_hora = DateTime.Now;
-            string año_mes_dia_hora_min = fecha_hora.ToString("yyyyMMddHHmm");
+            string año_mes_dia_hora = fecha_hora.ToString("yyyyMMddHH");
             string año = fecha_hora.ToString("yyyy");
 
             bas.Editar_o_incr_multiple_con_comparacion_final(direccion_inventario, 5, codigo
@@ -41,9 +41,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion_funciones_espesificas[0]
                  /*2*/+ "8"//provedor
                  + G_caracter_separacion_funciones_espesificas[0]
-                 /*3*/+ "11"//cantidad por paquete
-                 + G_caracter_separacion_funciones_espesificas[0]
-                 /*4*/+ "17"//ultimo movimiento
+                 /*3*/+ "17"//ultimo movimiento
 
                 ,
                   //info a editar o incrementar
@@ -53,9 +51,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*2*/+ provedor //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*3*/+ cantidad_por_paquete //cantidad por paquete
-                  + G_caracter_separacion_funciones_espesificas[0]
-                  /*4*/+ cantidad_por_paquete //ultimo movimiento
+                  /*3*/+ año_mes_dia_hora  //ultimo movimiento
                   ,
                   //comparacion para edicion dejar en blanco si no hay comparacion
                   // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
@@ -66,9 +62,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*2*/+ "c" //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*3*/+ "" //cantidad por paquete
-                  + G_caracter_separacion_funciones_espesificas[0]
-                  /*4*/+ "" //ultimo movimiento
+                  /*3*/+ "" //ultimo movimiento
 
                 ,
                   // 0:editar  1:incrementar
@@ -78,10 +72,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*2*/+ "2"//editar//provedor
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*3*/+ "0"//editar//cantidad por paquete
-                  + G_caracter_separacion_funciones_espesificas[0]
-                  /*4*/+ "0"//editar//ultimo movimiento
-
+                  /*3*/+ "0"//editar//ultimo movimiento
                   );
 
 
