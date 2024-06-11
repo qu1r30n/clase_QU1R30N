@@ -1,0 +1,1 @@
+0_nom_id_sucur|1_Nombre_sucur|2_Nombre_encargado|3_Dirección_sucur|4_Ciudad_sucur|5_Estado_sucur|6_Código_postal|7_País|8_Correo_electrónico|9_Teléfono_encargado|10_Telefono_sucur|11_Tipo_de_sucur|12_Productos_Servicios_suministrados|13_cuenta_banco|14_Ubicación_(GPS)|15_Notas|16_Recordatorio|17_activo_o_no_activo|

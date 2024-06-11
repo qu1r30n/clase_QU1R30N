@@ -667,7 +667,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             else if (accion == "1") // Si la acción es "1", se incrementa la información
             {
-                datos[_0_solo_celda_1_varias_celdas] = (Convert.ToDouble(datos[1]) + Convert.ToDouble(info)).ToString();
+                datos[_0_solo_celda_1_varias_celdas] = (Convert.ToDouble(datos[_0_solo_celda_1_varias_celdas]) + Convert.ToDouble(info)).ToString();
             }
 
             else if (accion == "2") // Si la acción es "2", agrega

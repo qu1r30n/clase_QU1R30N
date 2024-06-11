@@ -49,7 +49,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ precio //costo de compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ provedor //provedor
+                  /*2*/+ precio //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ año_mes_dia_hora  //ultimo movimiento
                   ,
@@ -60,7 +60,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "d" //costo de compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ "c" //provedor
+                  /*2*/+ provedor //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "" //ultimo movimiento
 
@@ -70,7 +70,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "0"//editar//costo compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ "2"//editar//provedor
+                  /*2*/+ "0"//editar//provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "0"//editar//ultimo movimiento
                   );
