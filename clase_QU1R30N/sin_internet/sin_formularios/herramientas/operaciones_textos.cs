@@ -572,86 +572,89 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 string[] res_ext_esp = res_ext.Split(G_caracter_para_confirmacion_o_error[0][0]);
                 int indice_caracter = Convert.ToInt32(res_ext_esp[2]);
 
-                if (res_ext_esp[0] != "0" && res_ext_esp[0] == "1")
+                if (Convert.ToInt32(res_ext_esp[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
                 {
-                    string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
-                    bool encontro_dato_a_editar = false;
-
-                    for (int l = 0; l < info_extraida.Length; l++)
+                    if (res_ext_esp[0] == "1")
                     {
-                        string[] datos_a_checar_para_editar = info_extraida[l].Split(caracter_separacion[indice_caracter + 1][0]);
-                        if (info_extraida[l] != "")
+                        string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
+                        bool encontro_dato_a_editar = false;
+
+                        for (int l = 0; l < info_extraida.Length; l++)
                         {
-
-                            if (datos_a_checar_para_editar.Length == 1 )
+                            string[] datos_a_checar_para_editar = info_extraida[l].Split(caracter_separacion[indice_caracter + 1][0]);
+                            if (info_extraida[l] != "")
                             {
-                                //si lo encuentra y tiene el numero 2 lo agrega
-                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
-                                {
-                                    //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
 
-                                    if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                if (datos_a_checar_para_editar.Length == 1)
+                                {
+                                    //si lo encuentra y tiene el numero 2 lo agrega
+                                    if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
                                     {
-                                        
-                                        edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
-                                        encontro_dato_a_editar = true;
+                                        //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+
+                                        if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                        {
+
+                                            edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                            encontro_dato_a_editar = true;
+                                        }
+                                        else
+                                        {
+
+                                        }
+
                                     }
                                     else
                                     {
-                                        
+                                        datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                        info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                        edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                        encontro_dato_a_editar = true;
+
                                     }
-                                    
+
+
                                 }
-                                else
+                                else if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
                                 {
-                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                    //si tiene el 2 no hace nada por que ya esta
+                                    if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                    {
+
+                                    }
+                                    //si encuentra incrementa
+                                    else
+                                    {
+                                        datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
+
+                                    }
                                     info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-                                    edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                                     encontro_dato_a_editar = true;
-
+                                    edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                    break;
                                 }
-                                
-                                
                             }
-                            else if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
+                        }
+
+                        res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
+                        if (!encontro_dato_a_editar)
+                        {
+                            //si no lo encuentra agrega
+                            if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
                             {
-                                //si tiene el 2 no hace nada por que ya esta
-                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
-                                {
-                                    
-                                }
-                                //si encuentra incrementa
-                                else
-                                {
-                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
-                                    
-                                }
-                                info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
-                                encontro_dato_a_editar = true;
-                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
-                                break;
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], "", info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter] });
                             }
-                        }
-                    }
+                            else
+                            {
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                            }
 
-                    res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
-                    if (!encontro_dato_a_editar)
-                    {
-                        //si no lo encuentra agrega
-                        if (edit_0_o_increm_1_agrega_2_espliteado[k]=="2")
-                        {
-                            res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], "", info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter] });
                         }
-                        else
-                        {
-                            res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
-                            edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
-                        }
-                        
-                    }
 
-                    
-                    texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_profunda[0]);
+
+                        texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_profunda[0]);
+                    }
                 }
             }
 

@@ -31,10 +31,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string direccion_archivo_aprendices_emp = direccion_archivo;
             string resultado_archivo_aprendices_emp = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_emp);
             string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (res_esp_archivo_emp[0] != "0")
+            if (Convert.ToInt32(res_esp_archivo_emp[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
             {
-
-                 
 
                 string[] datos_espliteado = datos.Split(caracter_separacion_string[0][0]);
 

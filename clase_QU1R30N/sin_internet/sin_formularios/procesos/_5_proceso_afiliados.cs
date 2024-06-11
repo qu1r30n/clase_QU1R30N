@@ -51,7 +51,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             if (res_esp_enc_simp[0] == "1" && res_esp_NIV_enc_simp[0] == "1")
             {
-
+                
                 int indic_afil_simp = Convert.ToInt32(res_esp_enc_simp[1]);
                 int indic_niv_afil_simp = Convert.ToInt32(res_esp_NIV_enc_simp[1]);
                 //0_id_usuario|1_id_patrocinador|2_tabla_patrocinador|3_id_encargado|5_tabla_encargado|5_diner|6_a_pagar|7_datos|8_encargados|
