@@ -17,7 +17,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         
         
         
-        _3_procesos_inventario proc_produc = new _3_procesos_inventario();
+        _3_procesos_inventario proc_inventario = new _3_procesos_inventario();
         public string operacion_a_hacer(string operacion)
         {
             
@@ -29,7 +29,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 case "agregar":
                     string temp = "";
-                    temp = (string)proc_produc.agregar_producto(temp, a_donde_enviara_la_informacion[0]);
+                    temp = (string)proc_inventario.agregar_producto(temp, a_donde_enviara_la_informacion[0]);
                     info_a_retornar = temp;
 
                     break;

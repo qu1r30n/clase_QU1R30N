@@ -30,7 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             switch (a_donde_enviara_la_informacion[0])
             {
                 case "compra":
-                    info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                    info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                     break;
                 case "compra_mayoreo":
                     

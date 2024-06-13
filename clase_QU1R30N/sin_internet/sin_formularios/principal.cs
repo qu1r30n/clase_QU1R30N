@@ -40,9 +40,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                 case "modelo_compras":
                     info_a_retornar = mod_comp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;
-                case "modelo_productos":
-                    info_a_retornar = mod_inv.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
-                    break;
                 case "modelo_inventario":
                     info_a_retornar = mod_inv.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
                     break;

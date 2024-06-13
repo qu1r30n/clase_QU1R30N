@@ -22,9 +22,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
+        _3_procesos_inventario proc_inventario = new _3_procesos_inventario();
 
-
-        public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor)
+        public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor, string nombre_product_si_no_existe_producto = "")
         {
             string info_a_retornar = "";
 
@@ -32,7 +32,51 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string año_mes_dia_hora = fecha_hora.ToString("yyyyMMddHH");
             string año = fecha_hora.ToString("yyyy");
 
-            string res_edicion = bas.Editar_o_incr_multiple_con_comparacion_final(direccion_archivo, 5, codigo
+            double nuevo_precio_venta = Convert.ToDouble(precio_compra_pieza) * 1.20;
+
+            string texto_o_fila_que_ingresara_si_no_esta_el_producto =
+                Tex_base.GG_base_arreglo_de_arreglos[1].Length //0_id
+                + G_caracter_separacion[0]
+                + nombre_product_si_no_existe_producto //1_producto
+                + G_caracter_separacion[0]
+                + "NOSE"//2_contenido
+                + G_caracter_separacion[0]
+                + "NOSE"//3_tipo_medida
+                + G_caracter_separacion[0]
+                + nuevo_precio_venta//4_precio_venta
+                + G_caracter_separacion[0]
+                + codigo//5_cod_barras
+                + G_caracter_separacion[0]
+                + cantidad//6_cantidad
+                + G_caracter_separacion[0]
+                + precio_compra_pieza//7_costo_comp
+                + G_caracter_separacion[0]
+                + provedor//8_provedor
+                + G_caracter_separacion[0]
+                + "NOSE"//9_grupo
+                + G_caracter_separacion[0]
+                + ""//10_no_poner_nada
+                + G_caracter_separacion[0]
+                + "1"//11_cant_produc_x_paquet
+                + G_caracter_separacion[0]
+                + "NOSE"//12_tipo_de_producto
+                + G_caracter_separacion[0]
+                + ""//13_ligar_produc_sab
+                + G_caracter_separacion[0]
+                + "NOSE"//14_impuestos
+                + G_caracter_separacion[0]
+                + ""//15_si_es_elaborado_que_materia_prima_usa_y_cantidad
+                + G_caracter_separacion[0]
+                + ""//16_caducidad
+                + G_caracter_separacion[0]
+                + ""//17_ultimo_movimiento
+                + G_caracter_separacion[0]
+                + ""//18_sucursal_vent¬cost_vent
+                ;
+                
+
+
+            string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigo
                 ,
                   //columnas a editar
                   /*0*/"6"//cantidad
@@ -73,6 +117,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   /*2*/+ "0"//editar//provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "0"//editar//ultimo movimiento
+                  ,texto_o_fila_que_ingresara_si_no_esta_el_producto
+
                   );
 
             string[] res_esp = res_edicion.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -83,15 +129,26 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] info_res = res_esp[1].Split(G_caracter_separacion[0][0]);
                     if (Convert.ToDouble(info_res[4]) <= Convert.ToDouble(precio_compra_pieza))
                     {
-                        double nuevo_precio_venta = Convert.ToDouble(precio_compra_pieza) * 1.20;
-                        bas.Editar_o_incr_multiple_con_comparacion_final(direccion_archivo, 5, codigo, "4", nuevo_precio_venta + "", "", "0");
+                        
+                        info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigo, "4", nuevo_precio_venta + "", "", "0");
                     }
 
                 }
             }
+            
             else
             {
-
+                if (res_esp[0] == "-0")
+                {
+                    info_a_retornar = "-0" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_archivo";
+                }
+                if (res_esp[0] == "-1")
+                {
+                    bas.Agregar(direccion_archivo,
+                        "hola1"
+                        );
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato";
+                }
             }
 
             return info_a_retornar;
