@@ -579,9 +579,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
                         bool encontro_dato_a_editar = false;
 
+                        string num_celdas = "0";
                         for (int l = 0; l < info_extraida.Length; l++)
                         {
                             string[] datos_a_checar_para_editar = info_extraida[l].Split(caracter_separacion[indice_caracter + 1][0]);
+                            num_celdas = "" + datos_a_checar_para_editar.Length;
                             if (info_extraida[l] != "")
                             {
 
@@ -591,10 +593,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                     if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
                                     {
                                         //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
-
-                                        if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                        //asi estaba antes if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                        if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
                                         {
-
+                                            
                                             edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                                             encontro_dato_a_editar = true;
                                         }
@@ -642,11 +644,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                             //si no lo encuentra agrega
                             if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
                             {
-                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], "", info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter] });
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
                             }
                             else
                             {
-                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_esplit[k], info_editar_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
                                 edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                             }
 
@@ -685,10 +687,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
         // Función para agregar nueva información a una cadena existente
-        private string agregar_nueva_informacion(string existe_datos, string comparacion, string nueva_informacion, string[] separator)
+        private string agregar_nueva_informacion(string existe_datos, string comparacion, string nueva_informacion, string numero_de_celdas, string[] separator)
         {
-            // Si hay comparación, se agrega con el separador
-            if (!string.IsNullOrEmpty(comparacion))
+            // Si hay comparación y dato a modificar osea mas de 1 celda
+            if (Convert.ToInt32(numero_de_celdas) > 1)
             {
                 if (string.IsNullOrEmpty(existe_datos))
                 {
@@ -699,15 +701,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     return existe_datos + separator[0] + comparacion + separator[1] + nueva_informacion;
                 }
             }
-            else // Si no hay comparación, solo se agrega la nueva información
+            else // Si solo esta la comparacion solo se agrega la comparacion
             {
                 if (string.IsNullOrEmpty(existe_datos))
                 {
-                    return nueva_informacion;
+                    return comparacion;
                 }
                 else
                 {
-                    return existe_datos + separator[1] + nueva_informacion;
+                    return existe_datos + separator[0] + comparacion;
                 }
             }
         }

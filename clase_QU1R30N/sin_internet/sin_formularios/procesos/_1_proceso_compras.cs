@@ -22,9 +22,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
-        _3_procesos_inventario proc_inventario = new _3_procesos_inventario();
+        _3_procesos_productos_e_inventario proc_inventario = new _3_procesos_productos_e_inventario();
 
-        public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor, string nombre_product_si_no_existe_producto = "")
+        public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor, string nombre_product_si_no_existe_producto = "", string sucursal = "")
         {
             string info_a_retornar = "";
 
@@ -39,7 +39,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion[0]
                 + nombre_product_si_no_existe_producto //1_producto
                 + G_caracter_separacion[0]
-                + "NOSE"//2_contenido
+                + "0"//2_contenido
                 + G_caracter_separacion[0]
                 + "NOSE"//3_tipo_medida
                 + G_caracter_separacion[0]
@@ -51,7 +51,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion[0]
                 + precio_compra_pieza//7_costo_comp
                 + G_caracter_separacion[0]
-                + provedor//8_provedor
+                + provedor + G_caracter_separacion[2]+precio_compra_pieza//8_provedor
                 + G_caracter_separacion[0]
                 + "NOSE"//9_grupo
                 + G_caracter_separacion[0]
@@ -71,7 +71,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion[0]
                 + ""//17_ultimo_movimiento
                 + G_caracter_separacion[0]
-                + ""//18_sucursal_vent¬cost_vent
+                + sucursal + G_caracter_separacion[2] + nuevo_precio_venta//18_sucursal_vent¬cost_vent
+                + G_caracter_separacion[0]
+
                 ;
                 
 
@@ -86,16 +88,22 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                  /*2*/+ "8"//provedor
                  + G_caracter_separacion_funciones_espesificas[0]
                  /*3*/+ "17"//ultimo movimiento
+                 + G_caracter_separacion_funciones_espesificas[0]
+                 /*4*/+ "18"//sucursal
+                 
 
                 ,
-                  //info a editar o incrementar
+                  //info a editar o incrementar o agregar
                   /*0*/cantidad //cantidad
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ precio_compra_pieza //costo de compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ precio_compra_pieza //provedor
+                  /*2*/+ nuevo_precio_venta //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ año_mes_dia_hora  //ultimo movimiento
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*4*/+ nuevo_precio_venta  //sucursal
+
                   ,
                   //comparacion para edicion dejar en blanco si no hay comparacion
                   // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
@@ -107,6 +115,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   /*2*/+ provedor //provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "" //ultimo movimiento
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*4*/+ sucursal  //sucursal
 
                 ,
                   // 0:editar  1:incrementar
@@ -114,10 +124,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "0"//editar//costo compra
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*2*/+ "0"//editar//provedor
+                  /*2*/+ "2"//editar//provedor
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "0"//editar//ultimo movimiento
-                  ,texto_o_fila_que_ingresara_si_no_esta_el_producto
+                  + G_caracter_separacion_funciones_espesificas[0]
+                  /*4*/+ 2  //sucursal
+                  ,
+                  texto_o_fila_que_ingresara_si_no_esta_el_producto
+                  
 
                   );
 
@@ -144,9 +158,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 if (res_esp[0] == "-1")
                 {
-                    bas.Agregar(direccion_archivo,
-                        "hola1"
-                        );
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato";
                 }
             }

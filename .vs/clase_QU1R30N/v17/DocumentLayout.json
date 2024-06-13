@@ -1,12 +1,139 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|c:\\users\\qu1r30n\\documents\\github\\clase_qu1r30n\\clase_qu1r30n\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\tex_base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\tex_base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 301,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_1_modelo_compras.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\modelos\\_1_modelo_compras.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAwwCEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:06:23.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\Form1.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\Form1.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\Form1.cs",
+              "RelativeToolTip": "clase_QU1R30N\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:06:23.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_1_proceso_compras.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\procesos\\_1_proceso_compras.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAwwIoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:00:53.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "iniciar_archivos.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\iniciar_archivos.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAmwB8AAAD4AQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:35:30.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Tex_base.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\Tex_base.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\Tex_base.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\Tex_base.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\Tex_base.cs",
+              "ViewState": "AQIAAKYAAAAAAAAAAAAwwLsAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:16:29.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "operaciones_textos.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_textos.cs",
+              "ViewState": "AQIAAHYCAAAAAAAAAAAwwIECAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:06:23.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "operaciones_arreglos.cs",
+              "DocumentMoniker": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs",
+              "ToolTip": "C:\\Users\\qu1r30n\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\sin_formularios\\herramientas\\operaciones_arreglos.cs",
+              "ViewState": "AQIAAB0DAAAAAAAAAAA4wEUDAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T02:06:23.3Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

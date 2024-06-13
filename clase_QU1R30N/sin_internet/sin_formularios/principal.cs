@@ -15,7 +15,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _0_modelo_AnalisisDeDatos mod_an_dat = new _0_modelo_AnalisisDeDatos();
         _1_modelo_compras mod_comp = new _1_modelo_compras();
         _2_modelo_ventas mod_vent = new _2_modelo_ventas();
-        _3_modelo_inventario mod_inv = new _3_modelo_inventario();
+        _3_modelo_productos_e_inventario mod_inv = new _3_modelo_productos_e_inventario();
         _4_modelo_empleados mod_emp = new _4_modelo_empleados();
         _5_modelo_afiliados mod_afil = new _5_modelo_afiliados();
         _6_modelo_provedores mod_pro = new _6_modelo_provedores();
