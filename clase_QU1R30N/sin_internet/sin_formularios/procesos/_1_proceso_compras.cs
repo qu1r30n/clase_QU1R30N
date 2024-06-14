@@ -128,7 +128,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*3*/+ "0"//editar//ultimo movimiento
                   + G_caracter_separacion_funciones_espesificas[0]
-                  /*4*/+ 2  //sucursal
+                  /*4*/+ 0  //sucursal
                   ,
                   texto_o_fila_que_ingresara_si_no_esta_el_producto
                   

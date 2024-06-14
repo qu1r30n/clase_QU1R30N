@@ -63,7 +63,7 @@
     <Compile Include="sin_internet\sin_formularios\modelos\_5_modelo_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_0_modelo_AnalisisDeDatos.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_1_modelo_compras.cs" />
-    <Compile Include="sin_internet\sin_formularios\modelos\_4_modelo_empleados.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_4_modelo_aprendices_E.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_3_modelo_productos_e_inventario.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_6_modelo_provedores.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_7_modelo_sucursales.cs" />
@@ -73,7 +73,7 @@
     <Compile Include="sin_internet\sin_formularios\procesos\_5_proceso_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_0_proceso_AnalisisDeDatos.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_1_proceso_compras.cs" />
-    <Compile Include="sin_internet\sin_formularios\procesos\_4_proceso_aprendices_empleados.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_4_proceso_aprendices_E.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_6_proceso_provedores.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_7_procesos_sucursales.cs" />
     <EmbeddedResource Include="Form1.resx">

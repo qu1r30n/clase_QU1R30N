@@ -28,10 +28,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string info_a_retornar = "";
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
 
-            string direccion_archivo_aprendices_emp = direccion_archivo;
-            string resultado_archivo_aprendices_emp = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_emp);
-            string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (Convert.ToInt32(res_esp_archivo_emp[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
+            string direccion_archivo_aprendices_E = direccion_archivo;
+            string resultado_archivo_aprendices_E = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_E);
+            string[] res_esp_archivo_apr_E = resultado_archivo_aprendices_E.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (Convert.ToInt32(res_esp_archivo_apr_E[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
             {
                 string[] datos_espliteado = datos.Split(caracter_separacion_string[0][0]);
 
@@ -39,16 +39,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 string resul_agregue = "";
                 bool esta_arreglo = false;
 
-                if (res_esp_archivo_emp[0] == "1")
+                if (res_esp_archivo_apr_E[0] == "1")
                 {
-                    int indic_aprendiz_emp = Convert.ToInt32(res_esp_archivo_emp[1]);
-                    ID_encargado = "" + Tex_base.GG_base_arreglo_de_arreglos[indic_aprendiz_emp].Length;
+                    int indic_aprendiz_E = Convert.ToInt32(res_esp_archivo_apr_E[1]);
+                    ID_encargado = "" + Tex_base.GG_base_arreglo_de_arreglos[indic_aprendiz_E].Length;
                     resul_agregue = "1";
                     esta_arreglo = true;
                 }
-                else if (res_esp_archivo_emp[0] == "-1")
+                else if (res_esp_archivo_apr_E[0] == "-1")
                 {
-                    ID_encargado = "" + bas.Leer(direccion_archivo_aprendices_emp).Length;
+                    ID_encargado = "" + bas.Leer(direccion_archivo_aprendices_E).Length;
                     resul_agregue = "2";
                     esta_arreglo = false;
                 }
@@ -78,7 +78,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 string activo_o_no_activo = datos_espliteado[17];
 
                 string datos_a_agregar = ID_encargado + caracter_separacion_string[0] + provedor_de_que_empresa + caracter_separacion_string[0] + Nombre_encargado + caracter_separacion_string[0] + Dirección_empresa + caracter_separacion_string[0] + Ciudad_empresa + caracter_separacion_string[0] + Estado_empresa + caracter_separacion_string[0] + Código_postal + caracter_separacion_string[0] + País + caracter_separacion_string[0] + Correo_electrónico + caracter_separacion_string[0] + Teléfono_encargado + caracter_separacion_string[0] + Telefono_empresa + caracter_separacion_string[0] + Tipo_de_proveedor + caracter_separacion_string[0] + Productos_Servicios_suministrados + caracter_separacion_string[0] + cuenta_Banco + caracter_separacion_string[0] + Ubicación_GPS + caracter_separacion_string[0] + Notas + caracter_separacion_string[0] + Recordatorio + caracter_separacion_string[0] + activo_o_no_activo;
-                bas.Agregar(direccion_archivo_aprendices_emp, datos_a_agregar, esta_arreglo);
+                bas.Agregar(direccion_archivo_aprendices_E, datos_a_agregar, esta_arreglo);
                 info_a_retornar = resul_agregue + G_caracter_para_confirmacion_o_error[0] + "agregado si es 2 solo al archivo si es 1 tambien al arreglo";
 
             }

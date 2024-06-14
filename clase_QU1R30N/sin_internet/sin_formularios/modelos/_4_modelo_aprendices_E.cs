@@ -9,7 +9,7 @@ using clase_QU1R30N.sin_internet.sin_formularios.procesos;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 {
-    internal class _4_modelo_empleados
+    internal class _4_modelo_aprendices_E
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -17,10 +17,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//"config\\tienda\\inf\\dat\\empleados.txt",
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//"config\\tienda\\inf\\dat\\aprendices_E.txt",
         };
 
-        _4_proceso_aprendices_empleados pr_emp = new _4_proceso_aprendices_empleados();
+        _4_proceso_aprendices_E pr_apr_E = new _4_proceso_aprendices_E();
         public string operacion_a_hacer(string operacion)
         {
             string info_a_retornar = null;
@@ -31,9 +31,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             switch (a_donde_enviara_la_informacion[0])
             {
 
-                case "registro_empleado":
+                case "registro_aprendices_E":
 
-                    info_a_retornar = pr_emp.registro_empleado_cod3_r_(G_direcciones[0], a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = pr_apr_E.registro_aprendices_E_cod3_r_(G_direcciones[0], a_donde_enviara_la_informacion[1]);
                     break;
                 
                 default:
