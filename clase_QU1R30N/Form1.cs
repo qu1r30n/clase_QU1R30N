@@ -37,8 +37,8 @@ namespace clase_QU1R30N
             //inscribir afiliado unificado
             //info_resultado = enl_princ.enlasador("modelo_afiliados~inscribir_unificado_cod3_r_§4|afiliados_unificado|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com");
             
-            info_resultado = enl_princ.enlasador("modelo_aprendices_E~registro_aprendices_E§Nombre|Apellido_paterno|Apellido_materno|Fecha_de_nacimiento|Género|Dirección|Ciudad|Estado_Provincia|Código_postal|País|Correo_electrónico|Teléfono|Fecha_de_ingreso|donaciones_de_puntos_d|Cargo|Estado_de_aprendis_de_aprendis_E|Supervisor|Notas|Afiliado|Fecha_de_terminación|Motivo_de_terminación|Horas_del_curso_por_dia|Evaluaciones_de_desempeño|Habilidades_y_certificaciones|Idiomas|Fecha_de_última_promoción|ID_del_departamento_de_supervisión|Historial_de_capacitación|Último_aumento_de_puntos_d|tipo_de_aprendis_de_empleado");
-            //info_resultado = enl_princ.enlasador("modelo_compras~compra§COD_BAR2|1|200|PROVEDOR3|nom_producto_si_no_esta|suc_9");
+            //info_resultado = enl_princ.enlasador("modelo_aprendices_E~registro_aprendices_E§Nombre|Apellido_paterno|Apellido_materno|Fecha_de_nacimiento|Género|Dirección|Ciudad|Estado_Provincia|Código_postal|País|Correo_electrónico|Teléfono|Fecha_de_ingreso|donaciones_de_puntos_d|Cargo|Estado_de_aprendis_de_aprendis_E|Supervisor|Notas|Afiliado|Fecha_de_terminación|Motivo_de_terminación|Horas_del_curso_por_dia|Evaluaciones_de_desempeño|Habilidades_y_certificaciones|Idiomas|Fecha_de_última_promoción|ID_del_departamento_de_supervisión|Historial_de_capacitación|Último_aumento_de_puntos_d|tipo_de_aprendis_de_empleado");
+            //info_resultado = enl_princ.enlasador("modelo_compras~compra§COD_BAR4|1|200|PROVEDOR3|nom_producto_si_no_esta|suc_9");
 
         }
     }

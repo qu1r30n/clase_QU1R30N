@@ -13,16 +13,20 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
+        
+        string[] G_direcciones =
+        {
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
+        };
 
         var_fun_GG vf_GG = new var_fun_GG();
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
         Tex_base bas = new Tex_base();
-
-
+        
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
-        _3_procesos_productos_e_inventario proc_inventario = new _3_procesos_productos_e_inventario();
+        _3_procesos_productos_e_inventario pr_prod_inv = new _3_procesos_productos_e_inventario();
 
         public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor, string nombre_product_si_no_existe_producto = "", string sucursal = "")
         {
@@ -35,9 +39,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             double nuevo_precio_venta = Convert.ToDouble(precio_compra_pieza) * 1.20;
 
             string texto_o_fila_que_ingresara_si_no_esta_el_producto =
-                Tex_base.GG_base_arreglo_de_arreglos[1].Length //0_id
-                + G_caracter_separacion[0]
-                + nombre_product_si_no_existe_producto //1_producto
+                
+                ""+nombre_product_si_no_existe_producto //1_producto
                 + G_caracter_separacion[0]
                 + "0"//2_contenido
                 + G_caracter_separacion[0]
@@ -73,7 +76,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion[0]
                 + sucursal + G_caracter_separacion[2] + nuevo_precio_venta//18_sucursal_vent¬cost_vent
                 + G_caracter_separacion[0]
-
+                +"NOSE"//19_clasificacion_producto
+                + G_caracter_separacion[0]
                 ;
                 
 
@@ -130,7 +134,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*4*/+ 0  //sucursal
                   ,
-                  texto_o_fila_que_ingresara_si_no_esta_el_producto
+                  ""
                   
 
                   );
@@ -152,13 +156,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             
             else
             {
-                if (res_esp[0] == "-0")
+                if (res_esp[0] == "0")
                 {
-                    info_a_retornar = "-0" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_archivo";
+                    info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_archivo";
                 }
                 if (res_esp[0] == "-1")
                 {
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato";
+                    info_a_retornar = pr_prod_inv.agregar_producto(texto_o_fila_que_ingresara_si_no_esta_el_producto);
+                    info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato pero ya se agrego";
                 }
             }
 

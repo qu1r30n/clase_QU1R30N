@@ -29,7 +29,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 case "agregar":
                     string temp = "";
-                    temp = (string)proc_inventario.agregar_producto(temp, a_donde_enviara_la_informacion[0]);
+                    temp = proc_inventario.agregar_producto(a_donde_enviara_la_informacion[0]);
                     info_a_retornar = temp;
 
                     break;
