@@ -32,7 +32,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case "registro provedor":
+                case "REGISTRO_PROVEDOR":
 
                     pr_provedores.registro_provedores_cod3_r_(G_direcciones[0], a_donde_enviara_la_informacion[1]);
 

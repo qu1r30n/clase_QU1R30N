@@ -226,7 +226,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     if (columnas_a_retornar == null)
                     {
-                        return areglo[i];
+                        return "1" + G_caracter_para_confirmacion_o_error[0] + areglo[i];
                     }
                     else
                     {
@@ -249,13 +249,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                         }
 
-                        return tem_linea_2;
+                        return "2" + G_caracter_para_confirmacion_o_error[0] + tem_linea_2;
                     }
 
                 }
 
             }
-            return null;
+            return "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el dato";
         }
 
         
@@ -501,29 +501,41 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
 
-        public object si_no_existe_agrega_string(string[] areglo, string columnas_a_recorrer, string comparar, string texto_a_agregar)
+        public string si_no_existe_agrega_string(string[] areglo, string columnas_a_recorrer, string comparar, string texto_a_agregar)
+
         {
-            //retorna objet porque retoran un string del buscado y si no lo encuentra retorna un arreglo del agregado
-            if (areglo != null)
+            
+            string res_bus = busqueda_profunda_arreglo(areglo, columnas_a_recorrer, comparar);
+            string[] res_bus_esp = res_bus.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (Convert.ToInt32(res_bus_esp[0]) > 0)
             {
-
-
-                string info_encontrada = busqueda_profunda_arreglo(areglo, columnas_a_recorrer, comparar);
-                if (info_encontrada != null)
+                if (res_bus_esp[0] == "1")
                 {
-                    return info_encontrada;
+                    return res_bus;
+                }
+                else if (res_bus_esp[0] == "2")
+                {
+                    return res_bus;
                 }
                 else
                 {
-                    areglo = agregar_registro_del_array(areglo, texto_a_agregar);
-                    return areglo;
+                    return res_bus;
                 }
             }
             else
             {
-                areglo = agregar_registro_del_array(areglo, texto_a_agregar);
-                return areglo;
+                if (res_bus_esp[0] == "0")
+                {
+                    areglo = agregar_registro_del_array(areglo, texto_a_agregar);
+                    return "0" + G_caracter_para_confirmacion_o_error[0] + texto_a_agregar;
+                }
+                else
+                {
+                    return res_bus;
+                }
             }
+
+
         }
 
         public object si_arreglo_es_null_agrega_texto_si_no_agrega_texto_a_columna_seleccionada(string[] arreglo, string texto_a_agregar_si_arreglo_es_nulo, string texto_a_agregar, string columnas_agregar, object caracter_separacion_obj = null)

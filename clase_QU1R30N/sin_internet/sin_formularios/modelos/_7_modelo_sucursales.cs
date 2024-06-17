@@ -28,7 +28,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case "agregar":
+                case "AGREGAR":
                     pr_sucursales.funcion_a_hacer1(G_direcciones[0], "", "", "");
                     break;
 

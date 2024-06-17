@@ -23,13 +23,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             string info_a_retornar = null;
             string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
+            string[] info_espliteada = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion[0][0]);
+
             switch (a_donde_enviara_la_informacion[0])
             {
-                /*
-                case :
-
+                
+                case "VENTA":
+                    info_a_retornar = pr_vent.ventas(info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
                     break;
-                    */
+                    
 
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";

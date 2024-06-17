@@ -1,4 +1,4 @@
-nivel|id_horizontal|vacios
+NIVEL|ID_HORIZONTAL|VACIOS
 1|1|
 2|1|
 3|1|

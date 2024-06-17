@@ -41,7 +41,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 //usables-----------------------------------------------------------------------------------
 
-                case "inscribir_unificado_cod3_r_":
+                case "INSCRIBIR_UNIFICADO_COD3_R_":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
@@ -51,7 +51,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     
                     //no usables--------------------------------------------------------------------------
 
-                case "inscribir_simple_cod1":
+                case "INSCRIBIR_SIMPLE_COD1":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
@@ -59,7 +59,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     
                     break;
 
-                case "inscribir_complejo_cod2":
+                case "INSCRIBIR_COMPLEJO_COD2":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
                     //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo

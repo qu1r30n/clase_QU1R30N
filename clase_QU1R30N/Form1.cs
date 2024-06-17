@@ -31,15 +31,15 @@ namespace clase_QU1R30N
             //0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal
 
             //inscribir afiliado simple
-            //info_resultado = enl_princ.enlasador("modelo_afiliados~inscribir_simple_cod1§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com");
+            //info_resultado = enl_princ.enlasador("MODELO_AFILIADOS~INSCRIBIR_SIMPLE_COD1§4|AFILIADOS_SIMPLE|NOM_PRU°AP_PAT_PRU°APE_MAT_PRU°0°BANCO°CURP°0000000000°DIRECCION°COLONIA°MUNICIOPIO°ESTADO°CORREO@CORREO.COM");
             //inscribir afiliado complejo
-            //info_resultado = enl_princ.enlasador("modelo_afiliados~inscribir_complejo_cod2§4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com");
+            //info_resultado = enl_princ.enlasador("MODELO_AFILIADOS~INSCRIBIR_COMPLEJO_COD2§4|AFILIADOS_COMPLEJO|4|AFILIADOS_SIMPLE|NOM_PRU°AP_PAT_PRU°APE_MAT_PRU°0°BANCO°CURP°0000000000°DIRECCION°COLONIA°MUNICIOPIO°ESTADO°CORREO@CORREO.COM");
             //inscribir afiliado unificado
-            //info_resultado = enl_princ.enlasador("modelo_afiliados~inscribir_unificado_cod3_r_§4|afiliados_unificado|0_nom_pru°1_ap_pat_pru°2_ape_mat_pru°0╦banco°4_curp°5_clav_elector°6_otra_id_identificacion°7_0000000000°8_direccion°9_colonia°10_municiopio°11_estado°12_correo@correo.com");
-            
-            //info_resultado = enl_princ.enlasador("modelo_aprendices_E~registro_aprendices_E§Nombre|Apellido_paterno|Apellido_materno|Fecha_de_nacimiento|Género|Dirección|Ciudad|Estado_Provincia|Código_postal|País|Correo_electrónico|Teléfono|Fecha_de_ingreso|donaciones_de_puntos_d|Cargo|Estado_de_aprendis_de_aprendis_E|Supervisor|Notas|Afiliado|Fecha_de_terminación|Motivo_de_terminación|Horas_del_curso_por_dia|Evaluaciones_de_desempeño|Habilidades_y_certificaciones|Idiomas|Fecha_de_última_promoción|ID_del_departamento_de_supervisión|Historial_de_capacitación|Último_aumento_de_puntos_d|tipo_de_aprendis_de_empleado");
-            //info_resultado = enl_princ.enlasador("modelo_compras~compra§COD_BAR4|1|200|PROVEDOR3|nom_producto_si_no_esta|suc_9");
+            //info_resultado = enl_princ.enlasador("MODELO_AFILIADOS~INSCRIBIR_UNIFICADO_COD3_R_§4|AFILIADOS_UNIFICADO|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM");
 
+            //info_resultado = enl_princ.enlasador("MODELO_APRENDICES_E~REGISTRO_APRENDICES_E§NOMBRE|APELLIDO_PATERNO|APELLIDO_MATERNO|FECHA_DE_NACIMIENTO|GÉNERO|DIRECCIÓN|CIUDAD|ESTADO_PROVINCIA|CÓDIGO_POSTAL|PAÍS|CORREO_ELECTRÓNICO|TELÉFONO|FECHA_DE_INGRESO|DONACIONES_DE_PUNTOS_D|CARGO|ESTADO_DE_APRENDIS_DE_APRENDIS_E|SUPERVISOR|NOTAS|AFILIADO|FECHA_DE_TERMINACIÓN|MOTIVO_DE_TERMINACIÓN|HORAS_DEL_CURSO_POR_DIA|EVALUACIONES_DE_DESEMPEÑO|HABILIDADES_Y_CERTIFICACIONES|IDIOMAS|FECHA_DE_ÚLTIMA_PROMOCIÓN|ID_DEL_DEPARTAMENTO_DE_SUPERVISIÓN|HISTORIAL_DE_CAPACITACIÓN|ÚLTIMO_AUMENTO_DE_PUNTOS_D|TIPO_DE_APRENDIS_DE_EMPLEADO");
+            //info_resultado = enl_princ.enlasador("MODELO_COMPRAS~COMPRA§COD_BAR4|1|200|PROVEDOR3|NOM_PRODUCTO_SI_NO_ESTA|SUC_9");
+            info_resultado = enl_princ.enlasador("MODELO_VENTAS~VENTA§COD_BAR|1|PLATAFORMA1|4");
         }
     }
 }

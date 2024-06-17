@@ -38,18 +38,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (a_donde_enviara_la_informacion[0])
             {
-                case "existe_producto":
+                case "EXISTE_PRODUCTO":
                     info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], a_donde_enviara_la_informacion[1],"5");
                     break;
 
-                case "existe_curp_unificado_cod3_r_":
+                case "EXISTE_CURP_UNIFICADO_COD3_R_":
                     info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|4");
                     break;
 
-                case "existe_clave_lector_unificado_cod3_r_":
+                case "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_":
                     info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|5");
                     break;
-                case "existe_otra_identificacion_oficial_unificado_cod3_r_":
+                case "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_":
                     info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|6");
                     break;
 

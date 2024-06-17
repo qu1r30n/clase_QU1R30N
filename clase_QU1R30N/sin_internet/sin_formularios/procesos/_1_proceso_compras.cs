@@ -39,7 +39,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             double nuevo_precio_venta = Convert.ToDouble(precio_compra_pieza) * 1.20;
 
             string texto_o_fila_que_ingresara_si_no_esta_el_producto =
-                
+
                 ""+nombre_product_si_no_existe_producto //1_producto
                 + G_caracter_separacion[0]
                 + "0"//2_contenido
@@ -123,7 +123,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                   /*4*/+ sucursal  //sucursal
 
                 ,
-                  // 0:editar  1:incrementar
+                  // 0:editar  1:incrementar 2:agregar
                   /*0*/"1"//incrementar//cantidad
                   + G_caracter_separacion_funciones_espesificas[0]
                   /*1*/+ "0"//editar//costo compra
