@@ -811,7 +811,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[] GG_direccion_base = { "" };
         static public string[,] GG_dir_nom_archivos =
         {
-            /*0*/{ GG_direccion_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT", "",""},
+            /*0*/{ GG_direccion_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT", "DIRECCION_DE_LAS_BASES_DE_DATOS" + var_fun_GG.GG_caracter_separacion_funciones_espesificas[0] + "FILA_INICIAL" + var_fun_GG.GG_caracter_separacion_funciones_espesificas[0] + "ARREGLO_DE_FILAS_SEPARADO_POR_§//POSDATA_SOLO_IR_AGREGANDO_ARCHIVOS_ASTA_ABAJO_POR_QUE_LAS_FILAS_YA_SON_OCUPADAS_POR_EL_PROGRAMA_Y_NO_BORRAR",""},
             /*1*/{ GG_direccion_base[0] + "CONFIG\\INF\\INVENTARIO\\INVENTARIO.TXT", columnas_concatenadas(GG_ventana_emergente_productos,1,var_fun_GG.GG_caracter_separacion[0]),"1|PRODUCTO|200|ML|100|COD_BAR|1|100|PROVEDOR¬0|PRODUCTO_PIEZA||10|LACTEOS|1|IVA||20240606|20240605|SUC_0¬0|BEBIDA_ALCOLICA|"},
             /*2*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\PROVEDORES.TXT", columnas_concatenadas(GG_ventana_provedor,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*3*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\APRENDICES_E.TXT", columnas_concatenadas(GG_ventana_APRENDICES_E,1,var_fun_GG.GG_caracter_separacion[0]),""},

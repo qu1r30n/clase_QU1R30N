@@ -14,12 +14,12 @@ namespace clase_QU1R30N
 {
     public partial class Form1 : Form
     {
-        
-        
+        iniciar_archivos inicio = new iniciar_archivos();
+
         public Form1()
         {
             InitializeComponent();
-            iniciar_archivos inicio = new iniciar_archivos();
+            
             inicio.iniciar();
         }
 
