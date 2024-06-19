@@ -59,6 +59,7 @@
     <Compile Include="sin_internet\sin_formularios\herramientas\operaciones_textos.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\Tex_base.cs" />
     <Compile Include="sin_internet\sin_formularios\herramientas\var_fun_GG.cs" />
+    <Compile Include="sin_internet\sin_formularios\herramientas\var_fun_GG_dir_arch_crear.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_2_modelo_ventas.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_5_modelo_afiliados.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_0_modelo_AnalisisDeDatos.cs" />
