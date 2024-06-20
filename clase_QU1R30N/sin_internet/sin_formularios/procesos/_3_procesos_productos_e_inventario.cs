@@ -59,18 +59,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         double _7_costo_comp = Convert.ToDouble(producto_espliteado[6]);
                         string _8_provedor = producto_espliteado[7];
                         string _9_grupo = producto_espliteado[8];
-                        string _10_no_poner_nada = producto_espliteado[9];
-                        double _11_cant_produc_x_paquet = Convert.ToDouble(producto_espliteado[10]);
-                        string _12_tipo_de_producto = producto_espliteado[11];
-                        string _13_ligar_produc_sab = producto_espliteado[12];
-                        string _14_impuestos = producto_espliteado[13];
-                        string _15_si_es_elaborado_que_materia_prima_usa_y_cantidad = producto_espliteado[14];
-                        string _16_caducidad = producto_espliteado[15];
-                        string _17_ultimo_movimiento = año_mes_dia_hora;
-                        string _18_sucursal_vent = producto_espliteado[17];
-                        string _19_clasificacion_producto = producto_espliteado[18];
+                        double _10_cant_produc_x_paquet = Convert.ToDouble(producto_espliteado[9]);
+                        string _11_tipo_de_producto = producto_espliteado[10];
+                        string _12_ligar_produc_sab = producto_espliteado[11];
+                        string _13_impuestos = producto_espliteado[12];
+                        string _14_si_es_elaborado_que_materia_prima_usa_y_cantidad = producto_espliteado[13];
+                        string _15_caducidad = producto_espliteado[14];
+                        string _16_ultimo_movimiento = año_mes_dia_hora;
+                        string _17_sucursal_vent = producto_espliteado[16];
+                        string _18_clasificacion_producto = producto_espliteado[17];
+                        string _19_no_poner_nada = producto_espliteado[18];
 
-                        string todo_unido = _0_id + G_caracter_separacion[0] + _1_producto + G_caracter_separacion[0] + _2_contenido + G_caracter_separacion[0] + _3_tipo_medida + G_caracter_separacion[0] + _4_precio_venta + G_caracter_separacion[0] + _5_cod_barras + G_caracter_separacion[0] + _6_cantidad + G_caracter_separacion[0] + _7_costo_comp + G_caracter_separacion[0] + _8_provedor + G_caracter_separacion[0] + _9_grupo + G_caracter_separacion[0] + _10_no_poner_nada + G_caracter_separacion[0] + _11_cant_produc_x_paquet + G_caracter_separacion[0] + _12_tipo_de_producto + G_caracter_separacion[0] + _13_ligar_produc_sab + G_caracter_separacion[0] + _14_impuestos + G_caracter_separacion[0] + _15_si_es_elaborado_que_materia_prima_usa_y_cantidad + G_caracter_separacion[0] + _16_caducidad + G_caracter_separacion[0] + _17_ultimo_movimiento + G_caracter_separacion[0] + _18_sucursal_vent + G_caracter_separacion[0] + _19_clasificacion_producto + G_caracter_separacion[0];
+                        string todo_unido = _0_id + G_caracter_separacion[0] + _1_producto + G_caracter_separacion[0] + _2_contenido + G_caracter_separacion[0] + _3_tipo_medida + G_caracter_separacion[0] + _4_precio_venta + G_caracter_separacion[0] + _5_cod_barras + G_caracter_separacion[0] + _6_cantidad + G_caracter_separacion[0] + _7_costo_comp + G_caracter_separacion[0] + _8_provedor + G_caracter_separacion[0] + _9_grupo + G_caracter_separacion[0] + _10_cant_produc_x_paquet + G_caracter_separacion[0] + _11_tipo_de_producto + G_caracter_separacion[0] + _12_ligar_produc_sab + G_caracter_separacion[0] + _13_impuestos + G_caracter_separacion[0] + _14_si_es_elaborado_que_materia_prima_usa_y_cantidad + G_caracter_separacion[0] + _15_caducidad + G_caracter_separacion[0] + _16_ultimo_movimiento + G_caracter_separacion[0] + _17_sucursal_vent + G_caracter_separacion[0] + _18_clasificacion_producto + G_caracter_separacion[0] + _19_no_poner_nada + G_caracter_separacion[0];
                         info_a_retornar=bas.Agregar(G_direcciones[0], todo_unido);
                     }
                     catch

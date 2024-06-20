@@ -29,6 +29,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //                             TIENES QUE EDITAR                      //
         //                      RecargarVentanaEmergente                      //
         //                          ES EL DE ABAJITO A ESTE                   //
+        //           TIENE QUE SER EL MISMO ARREGLO UNO QUE EL OTRO           //
         ////////////////////////////////////////////////////////////////////////
         //ventana productos
         static public string[,] GG_ventana_emergente_productos = new string[,]
@@ -67,17 +68,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 /*6*/ { "1", "_6_CANTIDAD", "1|SOLO_NUMEROS" },
                 /*7*/ { "1", "_7_COSTO_COMP", "0|SOLO_NUMEROS" },
                 /*8*/ { "4", "_8_PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2] },
-                /*9*/ { "4", "_9_GRUPO", "1||1|1°2°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬23¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬29¬VENTA_INGREDIENTE" },
-                /*10*/ { "2", "_10_NO_PONER_NADA", "" },
-                /*11*/ { "1", "_11_CANT_PRODUC_X_PAQUET", "1|SOLO_NUMEROS" },
-                /*12*/ { "1", "_12_TIPO_DE_PRODUCTO", "||||NO_VISIBLE°PRODUCTO_ELABORADO" },
-                /*13*/ { "1", "_13_LIGAR_PRODUC_SAB", "" },
-                /*14*/ { "1", "_14_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" },
-                /*15*/ { "1", "_15_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD", "||||NO_VISIBLE°VENTA_INGREDIENTE" },
-                /*16*/ { "1", "_16_CADUCIDAD", "0|SOLO_NUMEROS" },
-                /*17*/ { "1", "_17_ULTIMO_MOVIMIENTO", "0|SOLO_NUMEROS" },
-                /*18*/ { "1", "_18_SUCURSAL_VENT", "" },
-                /*19*/ { "1", "_19_CLASIFICACION_PRODUCTO", "" },
+                /*9*/ { "4", "_9_GRUPO", "1||1|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬23¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬29¬VENTA_INGREDIENTE" },
+                /*11*/ { "1", "_10_CANT_PRODUC_X_PAQUET", "1|SOLO_NUMEROS" },
+                /*12*/ { "1", "_11_TIPO_DE_PRODUCTO", "||||NO_VISIBLE°PRODUCTO_ELABORADO" },
+                /*13*/ { "1", "_12_LIGAR_PRODUC_SAB", "" },
+                /*14*/ { "1", "_13_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" },
+                /*15*/ { "1", "_14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD", "||||NO_VISIBLE°VENTA_INGREDIENTE" },
+                /*16*/ { "1", "_15_CADUCIDAD", "0|SOLO_NUMEROS" },
+                /*17*/ { "1", "_16_ULTIMO_MOVIMIENTO", "0|SOLO_NUMEROS" },
+                /*18*/ { "1", "_17_SUCURSAL_VENT", "" },
+                /*19*/ { "1", "_18_CLASIFICACION_PRODUCTO", "" },
+                /*10*/ { "2", "_19_NO_PONER_NADA", "" },
             };
 
 
@@ -784,6 +785,488 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
+        //REGISTROS-------------------------------------------------------------------------------------
+        //registro dia
+        static public string[,] GG_ventana_reg_dia =
+        {
+            
+            { "1","0_HORA","" },
+            { "1","1_TOTAL_VENTA","" },
+            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","4_PRODUCTOS_SI_LOS_HUBO","" },
+            { "1","5_COMENTARIO","" },
+
+
+        };
+        public static void RecargarVentanaEmergenteRegDia(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_dia = new string[,]
+            {
+                { "1","0_HORA","" },
+                { "1","1_TOTAL_VENTA","" },
+                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","4_PRODUCTOS_SI_LOS_HUBO","" },
+                { "1","5_COMENTARIO","" },
+
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registro mes
+        static public string[,] GG_ventana_reg_mes =
+        {
+
+            { "1","0_DIA","" },
+            { "1","1_TOTAL_VENTA","" },
+            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","4_COMENTARIO","" },
+
+
+        };
+        public static void RecargarVentanaEmergenteRegMes (string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_mes = new string[,]
+            {
+                { "1","0_DIA","" },
+                { "1","1_TOTAL_VENTA","" },
+                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","4_COMENTARIO","" },
+
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+
+        //registro año
+        static public string[,] GG_ventana_reg_año =
+        {
+
+            { "1","0_MES","" },
+            { "1","1_TOTAL_VENTA","" },
+            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","4_COMENTARIO","" },
+
+
+
+        };
+        public static void RecargarVentanaEmergenteRegAño(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_año = new string[,]
+            {
+                { "1","0_MES","" },
+                { "1","1_TOTAL_VENTA","" },
+                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","4_COMENTARIO","" },
+
+
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registro total
+        static public string[,] GG_ventana_reg_total =
+        {
+
+            { "1","0_AÑO","" },
+            { "1","1_TOTAL_VENTA","" },
+            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","4_COMENTARIO","" },
+
+        };
+        public static void RecargarVentanaEmergenteRegTotal(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_total = new string[,]
+            {
+                { "1","0_AÑO","" },
+                { "1","1_TOTAL_VENTA","" },
+                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","4_COMENTARIO","" },
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registros productos
+
+        //registro produc dia
+        static public string[,] GG_ventana_reg_prod_dia =
+        {
+
+            { "1","0_HORA","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
+            { "1","2_NOMBRE_PRODUCTO","" },
+            { "1","4_DINERO_SI_LOS_HUBO","" },
+            { "1","5_COMENTARIO","" },
+
+        };
+        public static void RecargarVentanaEmergenteReg_prod_Dia(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_prod_dia = new string[,]
+            {
+                { "1","0_HORA","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_NOMBRE_PRODUCTO","" },
+                { "1","4_DINERO_SI_LOS_HUBO","" },
+                { "1","5_COMENTARIO","" },
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registro produc mes
+        static public string[,] GG_ventana_reg_prod_mes =
+        {
+
+            { "1","0_DIA","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_NOMBRE_PRODUCTO","" },
+            { "1","4_COMENTARIO","" },
+
+        };
+        public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_prod_mes = new string[,]
+            {
+                { "1","0_DIA","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_NOMBRE_PRODUCTO","" },
+                { "1","4_COMENTARIO","" },
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registro produc año
+        static public string[,] GG_ventana_reg_prod_año =
+        {
+
+            { "1","0_MES","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_NOMBRE_PRODUCTO","" },
+            { "1","4_COMENTARIO","" },
+
+        };
+        public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_prod_año = new string[,]
+            {
+                { "1","0_MES","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_NOMBRE_PRODUCTO","" },
+                { "1","4_COMENTARIO","" },
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //registro produc año
+        static public string[,] GG_ventana_reg_prod_total =
+        {
+
+            { "1","0_MES","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_NOMBRE_PRODUCTO","" },
+            { "1","4_COMENTARIO","" },
+
+        };
+        public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_reg_prod_total = new string[,]
+            {
+                { "1","0_MES","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_NOMBRE_PRODUCTO","" },
+                { "1","4_COMENTARIO","" },
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+
         //--------------------------------------------------------------------------------------------------------------------------------------------------------
         public static string columnas_concatenadas(string[,] arreglo_bidimencional, int id_columna, string caracter_separacion = null)
         {
@@ -822,7 +1305,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*8*/{ GG_direccion_base[0] + "CONFIG\\AFILIADOS\\AFILIADOS_UNIFICADO.TXT", columnas_concatenadas(GG_ventana_afiliados_unificados,1,var_fun_GG.GG_caracter_separacion[0]),"0|0╦0¬0AFILIADOS_UNIFICADO°0╦0¬AFILIADOS_UNIFICADO1|0¬AFILIADOS_UNIFICADO°0¬AFILIADOS_UNIFICADO1|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|0|0||§1|0¬AFILIADOS_UNIFICADO_P|0¬AFILIADOS_UNIFICADO|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|1|0||§2|1¬AFILIADOS_UNIFICADO|0¬AFILIADOS_UNIFICADO|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|2|0||§3|2¬AFILIADOS_UNIFICADO|0¬AFILIADOS_UNIFICADO|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|3|0||§4|3¬AFILIADOS_UNIFICADO|0¬AFILIADOS_UNIFICADO|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|4|0||"},
             /*9*/{ GG_direccion_base[0] + "CONFIG\\AFILIADOS\\NIVELES_E_ID_HORISONTAL_AFILIADOS_UNIFICADO.TXT", columnas_concatenadas(GG_ventana_niv_afiliados_unificado,1,var_fun_GG.GG_caracter_separacion[0]),"1|1|§2|1|§3|1|§4|1|"},
             /*10*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\SUCUR.TXT", columnas_concatenadas(GG_ventana_SUCUR,1,var_fun_GG.GG_caracter_separacion[0]),""},
-            
+            //registros
+            /*11*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*12*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*13*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*14*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\ACUMULADO_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            //registro productos
+            /*11*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*12*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*13*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*14*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
+
         };
     }
 }

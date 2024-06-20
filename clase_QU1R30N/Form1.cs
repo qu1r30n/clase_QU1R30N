@@ -19,7 +19,6 @@ namespace clase_QU1R30N
         public Form1()
         {
             InitializeComponent();
-            
             inicio.iniciar();
         }
 

@@ -45,16 +45,53 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     int indice = Convert.ToInt32(res_esp_indice[1]);
                     string res_bus = op_arr.busqueda_profunda_arreglo(Tex_base.GG_base_arreglo_de_arreglos[indice], "5", codigo, donde_iniciar: G_donde_inicia_la_tabla);
                     string[] res_esp_bus = res_bus.Split(G_caracter_para_confirmacion_o_error[0][0]);
-                    
+
                     //se encontro el producto?
-                    if (Convert.ToInt32(res_esp_bus[0])>0)
+                    if (Convert.ToInt32(res_esp_bus[0]) > 0)
                     {
                         if (res_esp_bus[0] == "1")
                         {
                             string[] info_esp = res_esp_bus[1].Split(G_caracter_separacion[0][0]);
+                            double cantidad_doubl = Convert.ToDouble(cantidad);
+                            double precio_unitario = Convert.ToDouble(info_esp[4]);
+                            double total_pagar = cantidad_doubl * precio_unitario;
                             //grupo_al_que_forma_el_producto
-                            if (info_esp[9]== "PRODUCTO_PIEZA")
+                            if (info_esp[9] == "PRODUCTO_PIEZA")
                             {
+                                //edita inventario
+                                string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(G_direcciones[0], 5, codigo
+                                    ,
+                                      //columnas a editar
+                                      /*0*/"6"//cantidad
+                                    + G_caracter_separacion_funciones_espesificas[0]
+                                     /*1*/+ "17"//_17_ultimo_movimiento
+
+                                    ,
+                                      //info a editar o incrementar o agregar
+                                      /*0*/"" + (cantidad_doubl*-1) //cantidad
+                                      + G_caracter_separacion_funciones_espesificas[0]
+                                      /*1*/+ DateTime.Now.ToString("yyyyMMddHH") //_17_ultimo_movimiento
+
+                                      ,
+                                      //comparacion para edicion dejar en blanco si no hay comparacion
+                                      // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
+                                      // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
+                                      /*0*/  "" //cantidad
+                                      + G_caracter_separacion_funciones_espesificas[0]
+                                      /*1*/+ "" //_17_ultimo_movimiento
+
+                                    ,
+                                      // 0:editar  1:incrementar 2:agregar
+                                      /*0*/"1"//incrementar//cantidad
+                                      + G_caracter_separacion_funciones_espesificas[0]
+                                      /*1*/+ "0"//editar//_17_ultimo_movimiento
+
+
+
+
+                                 );
+
+
 
                             }
                         }
