@@ -26,7 +26,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt",
 
         };
-
+        
 
         _0_proceso_AnalisisDeDatos pr_an_dat = new _0_proceso_AnalisisDeDatos();
         public string operacion_a_hacer(string proceso,string datos)

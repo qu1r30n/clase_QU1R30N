@@ -20,13 +20,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[10, 0]//"config\\inf\\inventario\\inventario.txt",
         };
 
+
+
         _7_procesos_sucursales pr_sucursales = new _7_procesos_sucursales();
-        public string operacion_a_hacer(string operacion)
+        public string operacion_a_hacer(string proceso, string datos)
         {
             string info_a_retornar = null;
-            string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
-            switch (a_donde_enviara_la_informacion[0])
+            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
+            switch (proceso)
             {
                 case "AGREGAR":
                     pr_sucursales.funcion_a_hacer1(G_direcciones[0], "", "", "");

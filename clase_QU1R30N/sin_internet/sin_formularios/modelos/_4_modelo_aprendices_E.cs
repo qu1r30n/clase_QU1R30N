@@ -20,6 +20,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//"config\\tienda\\inf\\dat\\aprendices_E.txt",
         };
 
+        
+
         _4_proceso_aprendices_E pr_apr_E = new _4_proceso_aprendices_E();
         public string operacion_a_hacer(string proceso, string datos)
         {

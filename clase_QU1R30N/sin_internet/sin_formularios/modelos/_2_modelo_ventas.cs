@@ -22,6 +22,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
         };
 
+        
+
         _2_proceso_ventas pr_vent = new _2_proceso_ventas();
         public string operacion_a_hacer(string proceso, string datos)
         {

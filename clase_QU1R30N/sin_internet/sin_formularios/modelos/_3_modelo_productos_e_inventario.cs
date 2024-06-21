@@ -21,6 +21,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
         };
 
+        
 
         _3_procesos_productos_e_inventario proc_inventario = new _3_procesos_productos_e_inventario();
         public string operacion_a_hacer(string proceso, string datos)

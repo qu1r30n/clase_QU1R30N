@@ -24,6 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         };
 
 
+
         _6_proceso_provedores pr_provedores = new _6_proceso_provedores();
         public string operacion_a_hacer(string proceso, string datos)
         {

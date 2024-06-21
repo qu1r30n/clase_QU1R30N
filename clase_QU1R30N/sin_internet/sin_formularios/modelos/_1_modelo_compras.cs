@@ -20,6 +20,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
         };
 
+        
+
         _1_proceso_compras pr_Comp = new _1_proceso_compras();
         public string operacion_a_hacer(string proceso,string datos)
         {

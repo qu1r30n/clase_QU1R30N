@@ -68,6 +68,7 @@
     <Compile Include="sin_internet\sin_formularios\modelos\_3_modelo_productos_e_inventario.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_6_modelo_provedores.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_7_modelo_sucursales.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_8_modelo_registros.cs" />
     <Compile Include="sin_internet\sin_formularios\principal.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_2_proceso_ventas.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_3_procesos_productos_e_inventario.cs" />

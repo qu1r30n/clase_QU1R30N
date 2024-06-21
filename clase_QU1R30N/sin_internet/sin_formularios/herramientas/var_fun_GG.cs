@@ -121,13 +121,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
         //registro para control de ventas compras y todo
-        public string GG_registros(string modelo, string proceso, string datos)
+        public string GG_registros(string direccion, string modelo, string proceso, string datos )
         {
             string info_retornar = "";
 
+            string[] dat_splt = datos.Split(GG_caracter_separacion[0][0]);
 
-            string datos_en_str = datos;
-            string[] dat_splt = datos_en_str.Split(GG_caracter_separacion[0][0]);
+
             
             return info_retornar;
         }

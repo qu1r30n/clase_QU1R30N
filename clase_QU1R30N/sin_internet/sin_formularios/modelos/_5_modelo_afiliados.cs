@@ -28,6 +28,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         };
 
+        
 
         _5_proceso_afiliados pr_afil = new _5_proceso_afiliados();
         public string operacion_a_hacer(string proceso, string datos)

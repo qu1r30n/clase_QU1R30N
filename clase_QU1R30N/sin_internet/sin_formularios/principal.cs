@@ -19,6 +19,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _4_modelo_aprendices_E mod_apr_E = new _4_modelo_aprendices_E();
         _5_modelo_afiliados mod_afil = new _5_modelo_afiliados();
         _6_modelo_provedores mod_pro = new _6_modelo_provedores();
+        _7_modelo_sucursales mod_suc = new _7_modelo_sucursales();
+        _8_modelo_registros mod_reg = new _8_modelo_registros();
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -41,7 +43,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string proceso = datos_spliteados[0];
             string datos = datos_spliteados[1];
 
-            vf_GG.GG_registros(modelo,proceso,datos);
+            
             
             switch (modelo)
             {
@@ -68,7 +70,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                 case "MODELO_PROVEDORES":
                     info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos);
                     break;
+                case "MODELO_SUCURSALES":
+                    info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos);
+                    break;
             }
+
+            mod_reg.registro_movimiento(modelo, proceso,datos);
 
             return info_a_retornar;
 
