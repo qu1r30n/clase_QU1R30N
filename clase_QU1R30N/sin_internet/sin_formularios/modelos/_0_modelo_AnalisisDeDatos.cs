@@ -29,28 +29,28 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         _0_proceso_AnalisisDeDatos pr_an_dat = new _0_proceso_AnalisisDeDatos();
-        public string operacion_a_hacer(string operacion)
+        public string operacion_a_hacer(string proceso,string datos)
         {
             
 
             string info_a_retornar = null;
-            string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string[] datos_spliteados = datos.Split(G_caracter_separacion[0][0]);
 
-            switch (a_donde_enviara_la_informacion[0])
+            switch (proceso)
             {
                 case "EXISTE_PRODUCTO":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], a_donde_enviara_la_informacion[1],"5");
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], datos_spliteados[0], "5");
                     break;
 
                 case "EXISTE_CURP_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|4");
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|4");
                     break;
 
                 case "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|5");
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|5");
                     break;
                 case "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], a_donde_enviara_la_informacion[1], "4|6");
+                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|6");
                     break;
 
 

@@ -21,13 +21,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
+
         
 
-        public string existe_informacion(string direccion_archivo,string informacion,string columnas_a_recorrer)
-        {
 
+
+        public string existe_informacion(string informacion,string columnas_a_recorrer, string direccion="")
+        {
             string info_a_retornar = null;
-            string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            
+
+            string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (resultado[0] == "1")
             {
                 int indice_arreglo = Convert.ToInt32(resultado[1]);
@@ -47,7 +52,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             else if (resultado[0] == "-1")
             {
-                string[] contenido_archivo=bas.Leer(direccion_archivo);
+                string[] contenido_archivo=bas.Leer(direccion);
 
                 for (int i = G_donde_inicia_la_tabla; i < contenido_archivo.Length; i++)
                 {

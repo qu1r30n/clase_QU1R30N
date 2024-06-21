@@ -21,13 +21,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         };
 
         _1_proceso_compras pr_Comp = new _1_proceso_compras();
-        public string operacion_a_hacer(string operacion)
+        public string operacion_a_hacer(string proceso,string datos)
         {
             string info_a_retornar = null;
-            string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
-
-            string[] info_espliteada = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion[0][0]);
-            switch (a_donde_enviara_la_informacion[0])
+            
+            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
+            switch (proceso)
             {
                 case "COMPRA":
                     info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4], info_espliteada[5]);

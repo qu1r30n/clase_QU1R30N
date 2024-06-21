@@ -14,10 +14,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
         
-        string[] G_direcciones =
-        {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
-        };
 
         var_fun_GG vf_GG = new var_fun_GG();
 
@@ -58,25 +54,25 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 + G_caracter_separacion[0]
                 + "NOSE"//9_grupo
                 + G_caracter_separacion[0]
-                + ""//10_no_poner_nada
+                + "1"//10_cant_produc_x_paquet
                 + G_caracter_separacion[0]
-                + "1"//11_cant_produc_x_paquet
+                + "NOSE"//11_tipo_de_producto
                 + G_caracter_separacion[0]
-                + "NOSE"//12_tipo_de_producto
+                + ""//12_ligar_produc_sab
                 + G_caracter_separacion[0]
-                + ""//13_ligar_produc_sab
+                + "NOSE"//13_impuestos
                 + G_caracter_separacion[0]
-                + "NOSE"//14_impuestos
+                + ""//14_si_es_elaborado_que_materia_prima_usa_y_cantidad
                 + G_caracter_separacion[0]
-                + ""//15_si_es_elaborado_que_materia_prima_usa_y_cantidad
+                + ""//15_caducidad
                 + G_caracter_separacion[0]
-                + ""//16_caducidad
-                + G_caracter_separacion[0]
-                + ""//17_ultimo_movimiento
+                + ""//16_ultimo_movimiento
                 + G_caracter_separacion[0]
                 + sucursal + G_caracter_separacion[2] + nuevo_precio_venta//18_sucursal_vent¬cost_vent
                 + G_caracter_separacion[0]
-                +"NOSE"//19_clasificacion_producto
+                +"NOSE"//17_clasificacion_producto
+                + G_caracter_separacion[0]
+                + ""//18_no_poner_nada
                 + G_caracter_separacion[0]
                 ;
                 
@@ -162,7 +158,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 if (res_esp[0] == "-1")
                 {
-                    info_a_retornar = pr_prod_inv.agregar_producto(texto_o_fila_que_ingresara_si_no_esta_el_producto);
+                    info_a_retornar = pr_prod_inv.agregar_producto(direccion_archivo,texto_o_fila_que_ingresara_si_no_esta_el_producto);
                     info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato pero ya se agrego";
                 }
             }

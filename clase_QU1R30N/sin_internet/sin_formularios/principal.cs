@@ -24,6 +24,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
+        var_fun_GG vf_GG = new var_fun_GG();
+
         // Función para manejar compras
         public string enlasador(string INFO_ENTRADA)
         {
@@ -31,32 +33,40 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             INFO_ENTRADA = INFO_ENTRADA.ToUpper();
 
             string info_a_retornar = null;
-            string[] a_donde_enviara_la_informacion = INFO_ENTRADA.Split(G_caracter_separacion_funciones_espesificas[0][0]);
 
-            switch (a_donde_enviara_la_informacion[0])
+            string[] a_donde_enviara_la_informacion = INFO_ENTRADA.Split(G_caracter_separacion_funciones_espesificas[0][0]);
+            string[] datos_spliteados=a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            
+            string modelo = a_donde_enviara_la_informacion[0];
+            string proceso = datos_spliteados[0];
+            string datos = datos_spliteados[1];
+
+            vf_GG.GG_registros(modelo,proceso,datos);
+            
+            switch (modelo)
             {
                 case "MODELO_ANALISIS_DATOS":
                     //"existe_producto§codigo"
-                    info_a_retornar = mod_an_dat.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_an_dat.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_COMPRAS":
-                    info_a_retornar = mod_comp.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_comp.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_VENTAS":
-                    info_a_retornar = mod_vent.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_vent.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_INVENTARIO":
-                    info_a_retornar = mod_inv.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_inv.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_APRENDICES_E":
-                    info_a_retornar = mod_apr_E.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_apr_E.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_AFILIADOS":
                     //inscribir_simple§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    info_a_retornar = mod_afil.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_afil.operacion_a_hacer(proceso, datos);
                     break;
                 case "MODELO_PROVEDORES":
-                    info_a_retornar = mod_pro.operacion_a_hacer(a_donde_enviara_la_informacion[1]);
+                    info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos);
                     break;
             }
 

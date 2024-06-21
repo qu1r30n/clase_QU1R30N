@@ -25,16 +25,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         _6_proceso_provedores pr_provedores = new _6_proceso_provedores();
-        public string operacion_a_hacer(string operacion)
+        public string operacion_a_hacer(string proceso, string datos)
         {
             string info_a_retornar = null;
-            string[] a_donde_enviara_la_informacion = operacion.Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
-            switch (a_donde_enviara_la_informacion[0])
+            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
+            switch (proceso)
             {
                 case "REGISTRO_PROVEDOR":
 
-                    pr_provedores.registro_provedores_cod3_r_(G_direcciones[0], a_donde_enviara_la_informacion[1]);
+                    pr_provedores.registro_provedores_cod3_r_(G_direcciones[0], "err__cambiar");
 
                     break;
 

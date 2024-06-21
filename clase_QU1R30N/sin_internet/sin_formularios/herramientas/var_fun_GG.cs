@@ -111,121 +111,28 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         //movimientos a repetir esto es mas para la aplicacion del celular para pasarlo al de la computadora y mejorar
         //tienes que poner en datos la informacion de_las_variables si es un arreglo usa el join paresido y agregale un GG_separador_para_funciones_espesificas
-        public string GG_movimientos_a_repetir(string direccion, string datos, bool guardar_movimiento = false)
+        public string GG_movimientos_a_repetir(object datos, bool guardar_movimiento = false)
         {
-            if (guardar_movimiento == true)
-            {
+            string info_retornar = "";
 
 
-                Tex_base bas = new Tex_base();
-                operaciones_textos op_textos = new operaciones_textos();
-                string carpetas = op_textos.joineada_paraesida_y_quitador_de_extremos_del_string(direccion, "\\", 2);
 
-                bas.Agregar(direccion, datos,false);
-
-                return datos;
-            }
-            return null;
+            return info_retornar;
         }
 
         //registro para control de ventas compras y todo
-        public string GG_registros(string direccion, object datos)
+        public string GG_registros(string modelo, string proceso, string datos)
         {
-            Tex_base bas = new Tex_base();
-            operaciones_textos op_textos = new operaciones_textos();
-            string carpetas = op_textos.joineada_paraesida_y_quitador_de_extremos_del_string(direccion, "\\", 2);
+            string info_retornar = "";
 
-            string info_a_retornar = "";
-            if (datos is string)
-            {
 
-                bas.Agregar(direccion, (string)datos,false);
-                info_a_retornar = (string)datos;
-                return info_a_retornar;
-            }
-            else if (datos is string[])
-            {
-                string[] temp = (string[])datos;
-                bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(carpetas + "\\", "datos", leer_y_agrega_al_arreglo: false);
-                for (int i = 0; i < temp.Length; i++)
-                {
-                    bas.Agregar(direccion, temp[i],false);
-                    info_a_retornar = info_a_retornar + temp[i] + "\n";
-                }
-                return info_a_retornar;
-            }
-            return null;
+            string datos_en_str = datos;
+            string[] dat_splt = datos_en_str.Split(GG_caracter_separacion[0][0]);
+            
+            return info_retornar;
         }
 
 
-        public object GG_retorno_de_datos(object variable_a_la_que_devolvera, string respuesta_devolver_texto = null, string respuesta_devolver_verdadero_1_falso_0 = null, string respuesta_devolver_numer = null, string[] respuesta_devolver_arreglo_texto = null, string[] respuesta_devolver_arreglo_verdadero_1_falso_0 = null, string[] respuesta_devolver_arreglo_numer = null)
-        {
-            if (variable_a_la_que_devolvera is string)
-            {
-                if (respuesta_devolver_arreglo_texto!=null)
-                {
-                    return respuesta_devolver_texto;
-                }
-            }
-            else if (variable_a_la_que_devolvera is bool)
-            {
-                
-                if (respuesta_devolver_verdadero_1_falso_0 != null)
-                {
-                    bool valor_retornar = false;
-                    if (respuesta_devolver_verdadero_1_falso_0=="1")
-                    {
-                        valor_retornar = true;
-                    }
-                    return valor_retornar;
-                }
-            }
-            else if (variable_a_la_que_devolvera is double || variable_a_la_que_devolvera is int)
-            {
-                if (respuesta_devolver_numer != null)
-                {
-                    return Convert.ToDouble(respuesta_devolver_numer);
-                }
-            }
-            else if (variable_a_la_que_devolvera is string[])
-            {
-                if (respuesta_devolver_arreglo_texto != null)
-                {
-                    return respuesta_devolver_arreglo_texto;
-                }
-            }
-            else if (variable_a_la_que_devolvera is bool[])
-            {
-                if (respuesta_devolver_arreglo_verdadero_1_falso_0 != null)
-                {
-                    bool[] temp = new bool[respuesta_devolver_arreglo_verdadero_1_falso_0.Length];
-                    for (int i = 0; i < respuesta_devolver_arreglo_verdadero_1_falso_0.Length; i++)
-                    {
-                        temp[i] = false;
-                        if (respuesta_devolver_arreglo_verdadero_1_falso_0[i]=="1")
-                        {
-                            temp[i] = true;
-                        }
-                        
-                    }
-                    return temp;
-                }
-            }
-            else if (variable_a_la_que_devolvera is double[] || variable_a_la_que_devolvera is int[])
-            {
-                if (respuesta_devolver_arreglo_numer != null)
-                {
-                    double[] temp = new double[respuesta_devolver_arreglo_numer.Length];
-                    for (int i = 0; i < respuesta_devolver_arreglo_numer.Length; i++)
-                    {
-                        temp[i] = Convert.ToDouble(respuesta_devolver_arreglo_numer[i]);
-                    }
-                }
-            }
-
-            return null;
-
-        }
 
     }
 }

@@ -14,10 +14,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-        string[] G_direcciones =
-        {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
-        };
+        
 
         var_fun_GG vf_GG = new var_fun_GG();
 
@@ -27,15 +24,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        public string ventas(string codigo, string cantidad, string plataforma = "", string datos_de_pataforma = "")
+        public string ventas(string direccion,string codigo, string cantidad, string plataforma = "", string datos_de_pataforma = "")
         {
             string info_a_retornar = null;
+
 
             DateTime fecha_hora = DateTime.Now;
             string año_mes_dia_hora = fecha_hora.ToString("yyyyMMddHH");
             string año = fecha_hora.ToString("yyyy");
 
-            string res_indise = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
+            string res_indise = bas.sacar_indice_del_arreglo_de_direccion(direccion);
             string[] res_esp_indice = res_indise.Split(G_caracter_para_confirmacion_o_error[0][0]);
             //se encontro el archivo?
             if (Convert.ToInt32(res_esp_indice[0]) > 0)
@@ -59,7 +57,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             if (info_esp[9] == "PRODUCTO_PIEZA")
                             {
                                 //edita inventario
-                                string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(G_direcciones[0], 5, codigo
+                                string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion, 5, codigo
                                     ,
                                       //columnas a editar
                                       /*0*/"6"//cantidad
@@ -115,7 +113,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
             }
 
-            info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(G_direcciones[0], 5, codigo,
+            info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion, 5, codigo,
                 //columnas a editar
                 "6"
                 + G_caracter_separacion_funciones_espesificas[0]
