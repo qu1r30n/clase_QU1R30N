@@ -9,7 +9,7 @@ using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 {
-    internal class _3_procesos_productos_e_inventario
+    internal class _3_proceso_productos_e_inventario
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -26,10 +26,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         
 
-        public string agregar_producto(string direccion,string producto)
+        public string agregar_producto(string direccion_archivo,string producto)
         {
             string info_a_retornar = "";
-            string res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(direccion);
+            string res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
             string[] res_esp = res_ind_ar.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (Convert.ToInt32(res_ind_ar[0]) > 0)
             {
@@ -67,7 +67,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string _19_no_poner_nada = producto_espliteado[18];
 
                     string todo_unido = _0_id + G_caracter_separacion[0] + _1_producto + G_caracter_separacion[0] + _2_contenido + G_caracter_separacion[0] + _3_tipo_medida + G_caracter_separacion[0] + _4_precio_venta + G_caracter_separacion[0] + _5_cod_barras + G_caracter_separacion[0] + _6_cantidad + G_caracter_separacion[0] + _7_costo_comp + G_caracter_separacion[0] + _8_provedor + G_caracter_separacion[0] + _9_grupo + G_caracter_separacion[0] + _10_cant_produc_x_paquet + G_caracter_separacion[0] + _11_tipo_de_producto + G_caracter_separacion[0] + _12_ligar_produc_sab + G_caracter_separacion[0] + _13_impuestos + G_caracter_separacion[0] + _14_si_es_elaborado_que_materia_prima_usa_y_cantidad + G_caracter_separacion[0] + _15_caducidad + G_caracter_separacion[0] + _16_ultimo_movimiento + G_caracter_separacion[0] + _17_sucursal_vent + G_caracter_separacion[0] + _18_clasificacion_producto + G_caracter_separacion[0] + _19_no_poner_nada + G_caracter_separacion[0];
-                    info_a_retornar = bas.Agregar(direccion, todo_unido);
+                    info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
 
                     return "";
                 }

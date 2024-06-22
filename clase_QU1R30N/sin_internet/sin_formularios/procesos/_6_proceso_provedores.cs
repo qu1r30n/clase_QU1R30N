@@ -1,12 +1,11 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 {
@@ -25,12 +24,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         
 
 
-        public string registro_provedores_cod3_r_(string direccion,string datos, object caracter_separacion_obj = null)
+        public string registro_provedores_cod3_r_(string direccion_archivo,string datos, object caracter_separacion_obj = null)
         {
             string info_a_retornar = "";
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
 
-            string direccion_archivo_aprendices_E = direccion;
+            string direccion_archivo_aprendices_E = direccion_archivo;
             string resultado_archivo_aprendices_E = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_E);
             string[] res_esp_archivo_apr_E = resultado_archivo_aprendices_E.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (Convert.ToInt32(res_esp_archivo_apr_E[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error

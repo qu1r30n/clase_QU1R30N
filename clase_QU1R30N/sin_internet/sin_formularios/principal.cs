@@ -43,8 +43,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string proceso = datos_spliteados[0];
             string datos = datos_spliteados[1];
 
-            
-            
+            mod_reg.registro_movimiento(modelo, proceso, datos);
+
             switch (modelo)
             {
                 case "MODELO_ANALISIS_DATOS":
@@ -75,7 +75,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     break;
             }
 
-            mod_reg.registro_movimiento(modelo, proceso,datos);
+            
 
             return info_a_retornar;
 

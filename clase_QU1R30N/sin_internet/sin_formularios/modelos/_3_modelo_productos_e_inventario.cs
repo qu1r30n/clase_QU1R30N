@@ -23,7 +23,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         
 
-        _3_procesos_productos_e_inventario proc_inventario = new _3_procesos_productos_e_inventario();
+        _3_proceso_productos_e_inventario proc_inventario = new _3_proceso_productos_e_inventario();
         public string operacion_a_hacer(string proceso, string datos)
         {
             string info_a_retornar = null;

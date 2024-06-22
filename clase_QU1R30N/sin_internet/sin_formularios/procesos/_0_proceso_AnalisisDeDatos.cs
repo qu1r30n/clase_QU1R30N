@@ -22,50 +22,62 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
 
-        
 
 
 
-        public string existe_informacion(string informacion,string columnas_a_recorrer, string direccion="")
+
+        public string existe_informacion(string direccion_archivo, string informacion, string columnas_a_recorrer)
         {
             string info_a_retornar = null;
 
             
 
-            string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (resultado[0] == "1")
+            string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            if (Convert.ToInt32(resultado[0]) > 0)
             {
-                int indice_arreglo = Convert.ToInt32(resultado[1]);
-
-                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length; i++)
+                if (resultado[0] == "1")
                 {
-                    string[] info_espliteado = Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo][i].Split(G_caracter_separacion[0][0]);
-                    if (informacion == info_espliteado[4])
-                    {
-                        info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "encontrado";
-                        return info_a_retornar;
-                    }
-                }
-                info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
-                return info_a_retornar;
-            }
+                    int indice_arreglo = Convert.ToInt32(resultado[1]);
 
-            else if (resultado[0] == "-1")
+                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length; i++)
+                    {
+                        string[] info_espliteado = Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo][i].Split(G_caracter_separacion[0][0]);
+                        if (informacion == info_espliteado[4])
+                        {
+                            info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "encontrado";
+                            return info_a_retornar;
+                        }
+                    }
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
+                    return info_a_retornar;
+                }
+            }
+            else
             {
-                string[] contenido_archivo=bas.Leer(direccion);
-
-                for (int i = G_donde_inicia_la_tabla; i < contenido_archivo.Length; i++)
+                if (resultado[0] == "-1")
                 {
-                    string[] info_espliteado = contenido_archivo[i].Split(G_caracter_separacion[0][0]);
-                    if (informacion == info_espliteado[4])
-                    {
-                        info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "encontrado";
-                        return info_a_retornar;
-                    }
+
                 }
-                info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
-                return info_a_retornar;
+                else if (resultado[0] == "-1")
+                {
+                    string[] contenido_archivo = bas.Leer(direccion_archivo);
+
+                    for (int i = G_donde_inicia_la_tabla; i < contenido_archivo.Length; i++)
+                    {
+                        string[] info_espliteado = contenido_archivo[i].Split(G_caracter_separacion[0][0]);
+                        if (informacion == info_espliteado[4])
+                        {
+                            info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "encontrado";
+                            return info_a_retornar;
+                        }
+                    }
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no_encontrado";
+
+                    return info_a_retornar;
+                }
             }
+            
 
             info_a_retornar = resultado[0] + G_caracter_para_confirmacion_o_error[0] + resultado[1];
 

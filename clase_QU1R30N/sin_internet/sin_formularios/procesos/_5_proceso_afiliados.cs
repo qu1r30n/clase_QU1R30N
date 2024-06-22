@@ -25,7 +25,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         
 
 
-        public string registro_simple_cod1(string dir_arch_afiliados, string dir_arch_niveles, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null, bool viene_reg_comp = false)
+        public string registro_simple_cod1(string direccion_archivo, string dir_arch_niveles, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null, bool viene_reg_comp = false)
         {
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -42,7 +42,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             }
 
 
-            string direccion_tab_enc_simple = dir_arch_afiliados;
+            string direccion_tab_enc_simple = direccion_archivo;
             string direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = dir_arch_niveles;
             string resultado_inf_enc_simp = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_enc_simple);
             string resultado_inf_direccion_tab_NIVELES_IDHORIZONTAL_enc_simple = bas.sacar_indice_del_arreglo_de_direccion(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple);

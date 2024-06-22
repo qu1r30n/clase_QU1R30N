@@ -105,34 +105,5 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
 
-
-
-
-
-        //movimientos a repetir esto es mas para la aplicacion del celular para pasarlo al de la computadora y mejorar
-        //tienes que poner en datos la informacion de_las_variables si es un arreglo usa el join paresido y agregale un GG_separador_para_funciones_espesificas
-        public string GG_movimientos_a_repetir(object datos, bool guardar_movimiento = false)
-        {
-            string info_retornar = "";
-
-
-
-            return info_retornar;
-        }
-
-        //registro para control de ventas compras y todo
-        public string GG_registros(string direccion, string modelo, string proceso, string datos )
-        {
-            string info_retornar = "";
-
-            string[] dat_splt = datos.Split(GG_caracter_separacion[0][0]);
-
-
-            
-            return info_retornar;
-        }
-
-
-
     }
 }

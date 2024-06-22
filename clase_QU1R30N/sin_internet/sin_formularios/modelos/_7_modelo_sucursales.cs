@@ -22,7 +22,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
 
-        _7_procesos_sucursales pr_sucursales = new _7_procesos_sucursales();
+        _7_proceso_sucursales pr_sucursales = new _7_proceso_sucursales();
         public string operacion_a_hacer(string proceso, string datos)
         {
             string info_a_retornar = null;

@@ -22,7 +22,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
         
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
-        _3_procesos_productos_e_inventario pr_prod_inv = new _3_procesos_productos_e_inventario();
+        _3_proceso_productos_e_inventario pr_prod_inv = new _3_proceso_productos_e_inventario();
 
         public string compras(string direccion_archivo, string codigo, string cantidad, string precio_compra_pieza, string provedor, string nombre_product_si_no_existe_producto = "", string sucursal = "")
         {
