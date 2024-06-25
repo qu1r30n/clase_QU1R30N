@@ -30,11 +30,59 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         //proceso al que se dirigira//_7_procesos_sucursales pr_sucursales = new _7_procesos_sucursales();
         _8_proceso_registros pr_reg = new _8_proceso_registros();
-        public string registro_movimiento(string modelo, string proceso, string datos)
+        public string registro_movimiento(string modelo, string proceso, string datos, string fecha_yyyyMMddHHmmss)
         {
             string info_a_retornar = null;
 
-            pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0],modelo, proceso, datos);
+            string año_mes_dia_hora_minuto_segundo = fecha_yyyyMMddHHmmss;
+            string año_mes_dia_hora_minuto = "";
+            string año_mes_dia_hora = "";
+            string año_mes_dia = "";
+            string año_mes = "";
+            string año = "";
+
+            for (int i = 0; i < fecha_yyyyMMddHHmmss.Length; i++)
+            {
+                if (i < fecha_yyyyMMddHHmmss.Length - 2)
+                {
+                    año_mes_dia_hora_minuto = año_mes_dia_hora_minuto + fecha_yyyyMMddHHmmss[i];
+                }
+                if (i < fecha_yyyyMMddHHmmss.Length - 4)
+                {
+                    año_mes_dia_hora = año_mes_dia_hora + fecha_yyyyMMddHHmmss[i];
+                }
+                if (i < fecha_yyyyMMddHHmmss.Length - 6)
+                {
+                    año_mes_dia = año_mes_dia + fecha_yyyyMMddHHmmss[i];
+                }
+                if (i < fecha_yyyyMMddHHmmss.Length - 8)
+                {
+                    año_mes = año_mes + fecha_yyyyMMddHHmmss[i];
+                }
+                if (i < fecha_yyyyMMddHHmmss.Length - 10)
+                {
+                    año = año + fecha_yyyyMMddHHmmss[i];
+                }
+            }
+
+            string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora);
+            string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            if (Convert.ToInt32(res_regist_esp[0]) > 0)
+            {
+                if (res_regist_esp[0] == "1")
+                {
+                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
+                }
+                
+
+            }
+            else
+            {
+
+            }
+
+
 
             return info_a_retornar;
 

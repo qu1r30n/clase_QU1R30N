@@ -586,7 +586,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                             num_celdas = "" + datos_a_checar_para_editar.Length;
                             if (info_extraida[l] != "")
                             {
-
+                                //si solo es 1 va a editar agregar o incrementar la celda ejemplo ceda provedor1°provedor2
+                                //o 1°2 e incrementara creo 
+                                //pero  si son mas comparara e incrementara el siguiente provedor1¬1°provedor2¬5 e incrementara 1 y 5 o editara o agregara masomenos recuerdo
                                 if (datos_a_checar_para_editar.Length == 1)
                                 {
                                     //si lo encuentra y tiene el numero 2 lo agrega
@@ -663,6 +665,201 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return texto;
         }
 
+
+
+        public string editar_inc_agregar_edicion_profunda_multiple_comparacion_final_MULTIPLE_A_CHECAR_string
+            (
+    string texto,
+    string indices_a_editar,
+    string comparacion_con_edicion_antes_para_saber_cual_editar,
+    string edit_0_o_increm_1 = null,
+    object caracter_separacion_objeto = null,
+    string caracter_separacion_para_busqueda_multiple_profuda_objeto = null
+            )
+        {
+            operaciones_arreglos op_arr = new operaciones_arreglos();
+
+            // Obtener caracteres de separación
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
+            string[] caracter_separacion_profunda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
+            string[] indices_a_editar_esp = indices_a_editar.Split(caracter_separacion_profunda[0][0]);
+            
+            string[] edit_0_o_increm_1_agrega_2_espliteado = edit_0_o_increm_1.Split(caracter_separacion_profunda[0][0]);
+            string[] comparacion_con_edicion_esp = comparacion_con_edicion_antes_para_saber_cual_editar.Split(caracter_separacion_profunda[0][0]);
+
+            for (int k = 0; k < indices_a_editar_esp.Length; k++)
+            {
+                string res_ext = op_arr.extraer_arreglo_dentro_de_un_string_y_ponerolo_en_string(texto, indices_a_editar_esp[k]);
+                string[] res_ext_esp = res_ext.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                int indice_caracter = Convert.ToInt32(res_ext_esp[2]);
+                //extrajo el arreglo
+                if (Convert.ToInt32(res_ext_esp[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
+                {
+                    if (res_ext_esp[0] == "1")
+                    {
+                        string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
+                        bool encontro_dato_a_editar = false;
+
+                        string num_celdas = "0";
+                        for (int l = 0; l < info_extraida.Length; l++)
+                        {
+                            string[] datos_a_checar_para_editar = info_extraida[l].Split(caracter_separacion[indice_caracter + 1][0]);
+                            num_celdas = "" + datos_a_checar_para_editar.Length;
+                            if (info_extraida[l] != "")
+                            {
+                                //si solo es 1 va a editar agregar o incrementar la celda ejemplo ceda provedor1°provedor2
+                                //o 1°2 e incrementara creo 
+                                //pero  si son mas comparara e incrementara el siguiente provedor1¬1°provedor2¬5 e incrementara 1 y 5 o editara o agregara masomenos recuerdo
+
+                                string[] opciones_dentro_comparacion = comparacion_con_edicion_esp[k].Split(caracter_separacion[1][0]);
+                                for (int m = 0; m < opciones_dentro_comparacion.Length; m++)
+                                {
+
+                                    string[] info_opc_com = opciones_dentro_comparacion[m].Split(caracter_separacion[2][0]);
+
+
+                                    if (info_opc_com.Length == 1)
+                                    {
+                                        //si lo encuentra y tiene el numero 2 lo agrega
+                                        if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                        {
+                                            //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                            //asi estaba antes if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                            if (datos_a_checar_para_editar[0] == info_opc_com[0])
+                                            {
+
+                                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                                encontro_dato_a_editar = true;
+                                            }
+                                            else
+                                            {
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+
+                                            datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, comparacion_con_edicion_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                            info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                            edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                            encontro_dato_a_editar = true;
+
+                                        }
+
+
+                                    }
+
+                                    else if (datos_a_checar_para_editar[0] == info_opc_com[0])
+                                    {
+                                        //si tiene el 2 no hace nada por que ya esta
+                                        if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                        {
+
+                                        }
+                                        //si encuentra incrementa
+                                        else
+                                        {
+                                            datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, comparacion_con_edicion_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
+
+                                        }
+                                        info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                        encontro_dato_a_editar = true;
+                                        edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                        break;
+                                    }
+
+
+                                    else
+                                    {
+                                        for (int i = 0; i < opciones_dentro_comparacion.Length; i++)
+                                        {
+                                            string[] info_de_opciones_esp = opciones_dentro_comparacion[i].Split(caracter_separacion[2][0]);
+
+                                            if (datos_a_checar_para_editar.Length == 1)
+                                            {
+                                                //si lo encuentra y tiene el numero 2 lo agrega
+                                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                                {
+                                                    //datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_editar_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                                    //asi estaba antes if (datos_a_checar_para_editar[0] == info_editar_esp[k])
+                                                    if (datos_a_checar_para_editar[0] == info_de_opciones_esp[0])
+                                                    {
+
+                                                        edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                                        encontro_dato_a_editar = true;
+                                                    }
+                                                    else
+                                                    {
+
+                                                    }
+
+                                                }
+
+                                                else
+                                                {
+                                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, comparacion_con_edicion_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 0, caracter_separacion[indice_caracter]);
+                                                    info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                                    edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                                    encontro_dato_a_editar = true;
+
+                                                }
+
+
+                                            }
+
+                                            else if (datos_a_checar_para_editar[0] == comparacion_con_edicion_esp[k])
+                                            {
+                                                //si tiene el 2 no hace nada por que ya esta
+                                                if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                                                {
+
+                                                }
+                                                //si encuentra incrementa
+                                                else
+                                                {
+                                                    datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, comparacion_con_edicion_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
+
+                                                }
+                                                info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);
+                                                encontro_dato_a_editar = true;
+                                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                        res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
+                        if (!encontro_dato_a_editar)
+                        {
+                            //si no lo encuentra agrega
+                            if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
+                            {
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                            }
+                            else
+                            {
+                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
+                            }
+
+                        }
+
+
+                        texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_profunda[0]);
+                    }
+                }
+            }
+
+            return texto;
+        }
+
+
+
         // Función para editar o incrementar información en un arreglo de datos
         private string[] editar_o_incrementar_agrega_informacion(string[] datos, string info, string accion,int _0_solo_celda_1_varias_celdas, string caracter_separacion_agregar="°")
         {
@@ -735,6 +932,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return texto;
 
         }
+
+
+        public string editar_inc_edicion_profunda_multiple_AL_FINAL_string(string texto, string indices_a_editar, string info_editar, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_para_busqueda_multiple_profuda_objeto = null)
+        {
+            //editar_busqueda_multiple_edicion_profunda_arreglo(texto, "2|1|1~1~2|1|0", "10~10~10","1~1~0");
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
+            string[] caracter_separacion_para_busqueda_multiple_profuda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
+
+
+            string[] indices_espliteado = indices_a_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] info_editar_espliteado = info_editar.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            for (int k = 0; k < indices_espliteado.Length; k++)
+            {
+                texto = editar_incr_string_funcion_recursiva(texto, indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
+            }
+
+
+
+            return texto;
+
+        }
+
 
     }
 }

@@ -42,8 +42,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string modelo = a_donde_enviara_la_informacion[0];
             string proceso = datos_spliteados[0];
             string datos = datos_spliteados[1];
+            string yyyyMMddHHmmss = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            mod_reg.registro_movimiento(modelo, proceso, datos);
+            mod_reg.registro_movimiento(modelo, proceso, datos,yyyyMMddHHmmss);
 
             switch (modelo)
             {

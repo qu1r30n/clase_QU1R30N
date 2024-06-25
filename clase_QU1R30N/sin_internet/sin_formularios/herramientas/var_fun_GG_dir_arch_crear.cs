@@ -790,26 +790,35 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //registro dia
         static public string[,] GG_ventana_reg_dia =
         {
-            
+
             { "1","0_HORA","" },
-            { "1","1_TOTAL_VENTA","" },
-            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
-            { "1","4_PRODUCTOS_SI_LOS_HUBO","" },
-            { "1","5_COMENTARIO","" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
+            { "1","4_COMENTARIO","" },
+            { "1","5_TOTAL_VENTA","" },
+            { "1","6_TOTAL_COSTO_COMP","" },
+            { "1","7_TOTAL_IMPUESTOS","" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
 
 
         };
         public static void RecargarVentanaEmergenteRegDia(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
+
             GG_ventana_reg_dia = new string[,]
             {
                 { "1","0_HORA","" },
-                { "1","1_TOTAL_VENTA","" },
-                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
-                { "1","4_PRODUCTOS_SI_LOS_HUBO","" },
-                { "1","5_COMENTARIO","" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
+                { "1","4_COMENTARIO","" },
+                { "1","5_TOTAL_VENTA","" },
+                { "1","6_TOTAL_COSTO_COMP","" },
+                { "1","7_TOTAL_IMPUESTOS","" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
 
             };
 
@@ -855,22 +864,33 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_DIA","" },
-            { "1","1_TOTAL_VENTA","" },
-            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
             { "1","4_COMENTARIO","" },
+            { "1","5_TOTAL_VENTA","" },
+            { "1","6_TOTAL_COSTO_COMP","" },
+            { "1","7_TOTAL_IMPUESTOS","" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
 
 
         };
         public static void RecargarVentanaEmergenteRegMes (string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
+
             GG_ventana_reg_mes = new string[,]
             {
                 { "1","0_DIA","" },
-                { "1","1_TOTAL_VENTA","" },
-                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
                 { "1","4_COMENTARIO","" },
+                { "1","5_TOTAL_VENTA","" },
+                { "1","6_TOTAL_COSTO_COMP","" },
+                { "1","7_TOTAL_IMPUESTOS","" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
 
             };
 
@@ -917,10 +937,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_MES","" },
-            { "1","1_TOTAL_VENTA","" },
-            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
             { "1","4_COMENTARIO","" },
+            { "1","5_TOTAL_VENTA","" },
+            { "1","6_TOTAL_COSTO_COMP","" },
+            { "1","7_TOTAL_IMPUESTOS","" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
+
 
 
 
@@ -930,10 +956,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_año = new string[,]
             {
                 { "1","0_MES","" },
-                { "1","1_TOTAL_VENTA","" },
-                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
                 { "1","4_COMENTARIO","" },
+                { "1","5_TOTAL_VENTA","" },
+                { "1","6_TOTAL_COSTO_COMP","" },
+                { "1","7_TOTAL_IMPUESTOS","" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
+
 
 
             };
@@ -980,10 +1012,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_AÑO","" },
-            { "1","1_TOTAL_VENTA","" },
-            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-            { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+            { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
             { "1","4_COMENTARIO","" },
+            { "1","5_TOTAL_VENTA","" },
+            { "1","6_TOTAL_COSTO_COMP","" },
+            { "1","7_TOTAL_IMPUESTOS","" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
+
 
         };
         public static void RecargarVentanaEmergenteRegTotal(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -991,10 +1029,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_total = new string[,]
             {
                 { "1","0_AÑO","" },
-                { "1","1_TOTAL_VENTA","" },
-                { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
-                { "1","3_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" },
+                { "1","3_PRODUCTOS_SI_LOS_HUBO","" },
                 { "1","4_COMENTARIO","" },
+                { "1","5_TOTAL_VENTA","" },
+                { "1","6_TOTAL_COSTO_COMP","" },
+                { "1","7_TOTAL_IMPUESTOS","" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
+
             };
 
 
@@ -1267,6 +1311,130 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
+        //impuestos
+        //ventana IMPUESTOS
+        static public string[,] GG_ventana_IMPUESTOS =
+        {
+            { "1","0_IMPUESTO","" },
+            { "1","1_PORCENTAGE","" },
+            { "1","2_DESCRIPCION","" },
+            { "1","3_INFO_EXTRA","" },
+            { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" },
+
+        };
+
+        public static void RecargarVentanaEmergenteImpuestos(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_IMPUESTOS = new string[,]
+            {
+                { "1","0_IMPUESTO","" },
+                { "1","1_PORCENTAGE","" },
+                { "1","2_DESCRIPCION","" },
+                { "1","3_INFO_EXTRA","" },
+                { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" },
+
+
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+        //ventana DEDUSIBLES
+        static public string[,] GG_ventana_DEDUSIBLES =
+        {
+            { "1","0_FECHA_yyyyMMddHH","" },
+            { "1","1_MONTO","" },
+            { "1","2_DESCRIPCION","" },
+            { "1","3_PROVEDOR_O_INSTITUCION_DE_LA_FACTURA_O_DONACION","" },
+            { "1","4_DIRECCION_ARCHIVO_FACTURA","" },
+            { "1","5_FOLIO","" },
+
+        };
+
+        public static void RecargarVentanaEmergenteDedusibles(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_DEDUSIBLES = new string[,]
+            {
+                { "1","fecha_yyyyMMddHHmm","" },
+                { "1","0_IMPUESTO_DEDUSIRA","" },
+                { "1","1_PORCENTAGE","" },
+                { "1","2_DESCRIPCION","" },
+                { "1","TIPO","" },
+                { "1","DIRECCION_ARCHIVO_FACTURA","" },
+            };
+
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------
         public static string columnas_concatenadas(string[,] arreglo_bidimencional, int id_columna, string caracter_separacion = null)
@@ -1316,6 +1484,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*16*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*17*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*18*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            //impuestos
+            /*19*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\IMPUESTOS.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE|0|SIN DESCRIPCION|NOSE|3"},
+            /*19*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\DEDUSIBLES.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),""},
+
 
         };
     }

@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        public string ventas(string direccion_archivo,string codigo, string cantidad, string plataforma = "", string datos_de_pataforma = "")
+        public string ventas(string direccion_archivo,string codigos, string cantidades, string plataforma = "", string datos_de_pataforma = "")
         {
             string info_a_retornar = null;
 
@@ -35,107 +35,102 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             string res_indise = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
             string[] res_esp_indice = res_indise.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            string[] codigos_espliteados = codigos.Split(G_caracter_separacion[1][0]);
+            string[] cantidades_espliteados = cantidades.Split(G_caracter_separacion[1][0]);
+
             //se encontro el archivo?
             if (Convert.ToInt32(res_esp_indice[0]) > 0)
             {
                 if (res_esp_indice[0] == "1")
                 {
                     int indice = Convert.ToInt32(res_esp_indice[1]);
-                    string res_bus = op_arr.busqueda_profunda_arreglo(Tex_base.GG_base_arreglo_de_arreglos[indice], "5", codigo, donde_iniciar: G_donde_inicia_la_tabla);
-                    string[] res_esp_bus = res_bus.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
-                    //se encontro el producto?
-                    if (Convert.ToInt32(res_esp_bus[0]) > 0)
+
+                    string productos_no_encontrados = "";
+                    for (int i = 0; i < codigos_espliteados.Length; i++)
                     {
-                        if (res_esp_bus[0] == "1")
+
+                        string res_bus = op_arr.busqueda_profunda_arreglo(Tex_base.GG_base_arreglo_de_arreglos[indice], "5", codigos_espliteados[i], donde_iniciar: G_donde_inicia_la_tabla);
+                        string[] res_esp_bus = res_bus.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                        //se encontro el producto?
+                        if (Convert.ToInt32(res_esp_bus[0]) > 0)
                         {
-                            string[] info_esp = res_esp_bus[1].Split(G_caracter_separacion[0][0]);
-                            double cantidad_doubl = Convert.ToDouble(cantidad);
-                            double precio_unitario = Convert.ToDouble(info_esp[4]);
-                            double total_pagar = cantidad_doubl * precio_unitario;
-                            //grupo_al_que_forma_el_producto
-                            if (info_esp[9] == "PRODUCTO_PIEZA")
+                            if (res_esp_bus[0] == "1")
                             {
-                                //edita inventario
-                                string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigo
-                                    ,
-                                      //columnas a editar
-                                      /*0*/"6"//cantidad
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                     /*1*/+ "17"//_17_ultimo_movimiento
+                                string[] info_esp = res_esp_bus[1].Split(G_caracter_separacion[0][0]);
+                                double cantidad_doubl = Convert.ToDouble(cantidades_espliteados[i]);
+                                double precio_unitario = Convert.ToDouble(info_esp[4]);
+                                double total_pagar = cantidad_doubl * precio_unitario;
+                                //grupo_al_que_forma_el_producto
+                                if (info_esp[9] == "PRODUCTO_PIEZA")
+                                {
+                                    //edita inventario
+                                    info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigos_espliteados[i]
+                                        ,
+                                          //columnas a editar
+                                          /*0*/"6"//cantidad
+                                        + G_caracter_separacion_funciones_espesificas[0]
+                                         /*1*/+ "17"//_17_ultimo_movimiento
 
-                                    ,
-                                      //info a editar o incrementar o agregar
-                                      /*0*/"" + (cantidad_doubl*-1) //cantidad
-                                      + G_caracter_separacion_funciones_espesificas[0]
-                                      /*1*/+ DateTime.Now.ToString("yyyyMMddHH") //_17_ultimo_movimiento
+                                        ,
+                                          //info a editar o incrementar o agregar
+                                          /*0*/"" + (cantidad_doubl * -1) //cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ DateTime.Now.ToString("yyyyMMddHH") //_17_ultimo_movimiento
 
-                                      ,
-                                      //comparacion para edicion dejar en blanco si no hay comparacion
-                                      // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
-                                      // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                                      /*0*/  "" //cantidad
-                                      + G_caracter_separacion_funciones_espesificas[0]
-                                      /*1*/+ "" //_17_ultimo_movimiento
+                                          ,
+                                          //comparacion para edicion dejar en blanco si no hay comparacion
+                                          // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
+                                          // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
+                                          /*0*/  "" //cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ "" //_17_ultimo_movimiento
 
-                                    ,
-                                      // 0:editar  1:incrementar 2:agregar
-                                      /*0*/"1"//incrementar//cantidad
-                                      + G_caracter_separacion_funciones_espesificas[0]
-                                      /*1*/+ "0"//editar//_17_ultimo_movimiento
-
-
-
-
-                                 );
+                                        ,
+                                          // 0:editar  1:incrementar 2:agregar
+                                          /*0*/"1"//incrementar//cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ "0"//editar//_17_ultimo_movimiento
 
 
 
+
+                                     );
+
+                                    
+
+                                }
+                            }
+
+
+
+                        }
+
+
+
+                        else
+                        {
+                            if (res_esp_bus[0] == "0")
+                            {
+                                productos_no_encontrados = op_tex.concatenacion_caracter_separacion(productos_no_encontrados, "-1" + G_caracter_para_confirmacion_o_error[0] + codigos_espliteados, G_caracter_para_confirmacion_o_error[1]);
+                                
                             }
                         }
+
                     }
-                    else
-                    {
-                        if (res_esp_bus[0] == "0")
-                        {
-
-                        }
-                    }
-
-
                 }
             }
             else
             {
                 if (res_esp_indice[0] == "0")
                 {
-
+                    info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro el archivo";
                 }
             }
 
-            info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigo,
-                //columnas a editar
-                "6"
-                + G_caracter_separacion_funciones_espesificas[0]
-
-                ,
-                //info a editar o incrementar o agregar
-                "" + (Convert.ToInt32(cantidad) * -1)
-                + G_caracter_separacion_funciones_espesificas[0]
-
-                ,
-                //comparacion para edicion dejar en blanco si no hay comparacion
-                // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
-                // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                ""
-                + G_caracter_separacion_funciones_espesificas[0]
-
-                ,
-                // 0:editar  1:incrementar 2:agregar
-                "1"
-                + G_caracter_separacion_funciones_espesificas[0]
-
-                );
+            
 
 
             return info_a_retornar;
