@@ -283,7 +283,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                                 GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = 
                                     op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_MULTIPLE_A_CHECAR_string
-                                    (res_esp[1], numero_columnas_editar, comparar_y_edicion_COMPARACION_FINAL, comparar_y_edicion_COMPARACION_FINAL, edit_0_increm_1_o_agregar_si_no_esta_2);
+                                    (res_esp[1], numero_columnas_editar,  comparar_y_edicion_COMPARACION_FINAL, edit_0_increm_1_o_agregar_si_no_esta_2);
 
 
                                 cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);

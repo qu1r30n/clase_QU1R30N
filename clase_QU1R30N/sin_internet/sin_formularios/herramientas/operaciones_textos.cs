@@ -760,7 +760,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                         //si encuentra incrementa
                                         else
                                         {
-                                            datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, comparacion_con_edicion_esp[k], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
+
+                                            datos_a_checar_para_editar = editar_o_incrementar_agrega_informacion(datos_a_checar_para_editar, info_opc_com[1], edit_0_o_increm_1_agrega_2_espliteado[k], 1);
 
                                         }
                                         info_extraida[l] = string.Join(caracter_separacion[indice_caracter + 1], datos_a_checar_para_editar);

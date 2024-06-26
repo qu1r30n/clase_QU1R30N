@@ -110,7 +110,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 double total_costo_comp = 0;
                                 double total_pagar_imp = 0;
                                 double ganancia_total = 0;
-                                string productos_precio_unitario_precio_total = "";
+                                string productos_precio_total_precio_unitario = "";
                                 string impuestos = "";
                                 
                                 for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[1].Length; i++)
@@ -145,13 +145,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                             }
                                         }
 
-                                        productos_precio_unitario_precio_total = op_tex.concatenacion_caracter_separacion(productos_precio_unitario_precio_total, info_bas[1] + G_caracter_separacion[2] + info_bas[4] + G_caracter_separacion[2] + precio_produc_tot_venta, G_caracter_separacion[1]);
+                                        productos_precio_total_precio_unitario = op_tex.concatenacion_caracter_separacion(productos_precio_total_precio_unitario, info_bas[5] + G_caracter_separacion[2] + precio_produc_tot_venta + G_caracter_separacion[2] + info_bas[1] , G_caracter_separacion[1]);
                                         break;
                                     }
                                 }
                                 
                                 ganancia_total = total_venta - total_costo_comp - total_pagar_imp;
-                                string info_agregar = fecha_o_hora + caracter_separacion_string[0] + "VENTA" + caracter_separacion_string[0] + impuestos + caracter_separacion_string[0] + productos_precio_unitario_precio_total + caracter_separacion_string[0] + "SIN_COMENTARIOS" + caracter_separacion_string[0] + total_venta + caracter_separacion_string[0] + total_costo_comp + caracter_separacion_string[0] + total_pagar_imp + caracter_separacion_string[0] + "" + caracter_separacion_string[0] + ganancia_total;
+                                string info_agregar = fecha_o_hora + caracter_separacion_string[0] + "VENTA" + caracter_separacion_string[0] + impuestos + caracter_separacion_string[0] + productos_precio_total_precio_unitario + caracter_separacion_string[0] + "SIN_COMENTARIOS" + caracter_separacion_string[0] + total_venta + caracter_separacion_string[0] + total_costo_comp + caracter_separacion_string[0] + total_pagar_imp + caracter_separacion_string[0] + "" + caracter_separacion_string[0] + ganancia_total;
                                 info_a_retornar = bas.Agregar(direccion_archivo, info_agregar);
 
                             }
