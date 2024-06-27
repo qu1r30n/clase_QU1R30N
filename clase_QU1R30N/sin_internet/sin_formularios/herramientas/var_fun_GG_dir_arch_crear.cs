@@ -1085,11 +1085,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_HORA","" },
-            { "1","1_CANTIDAD","" },
-            { "1","2_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
-            { "1","2_NOMBRE_PRODUCTO","" },
-            { "1","4_DINERO_SI_LOS_HUBO","" },
-            { "1","5_COMENTARIO","" },
+            { "1","1_NOMBRE_PRODUCTO","" },
+            { "1","2_CANTIDAD","" },
+            { "1","3_COD_BAR","" },
+            { "1","4_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
+            { "1","5_DINERO_SI_LOS_HUBO","" },
+            { "1","6_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Dia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1097,10 +1098,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_prod_dia = new string[,]
             {
                 { "1","0_HORA","" },
-                { "1","1_CANTIDAD","" },
-                { "1","2_NOMBRE_PRODUCTO","" },
-                { "1","4_DINERO_SI_LOS_HUBO","" },
-                { "1","5_COMENTARIO","" },
+                { "1","1_NOMBRE_PRODUCTO","" },
+                { "1","2_CANTIDAD","" },
+                { "1","3_COD_BAR","" },
+                { "1","4_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
+                { "1","5_DINERO_SI_LOS_HUBO","" },
+                { "1","6_COMENTARIO","" },
             };
 
 
@@ -1145,9 +1148,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_DIA","" },
-            { "1","1_CANTIDAD","" },
-            { "1","2_NOMBRE_PRODUCTO","" },
-            { "1","4_COMENTARIO","" },
+            { "1","1_NOMBRE_PRODUCTO","" },
+            { "1","2_CANTIDAD","" },
+            { "1","3_COD_BAR","" },
+            { "1","4_DINERO_SI_LOS_HUBO","" },
+            { "1","5_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1155,9 +1160,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_prod_mes = new string[,]
             {
                 { "1","0_DIA","" },
-                { "1","1_CANTIDAD","" },
-                { "1","2_NOMBRE_PRODUCTO","" },
-                { "1","4_COMENTARIO","" },
+                { "1","1_NOMBRE_PRODUCTO","" },
+                { "1","2_CANTIDAD","" },
+                { "1","3_COD_BAR","" },
+                { "1","4_DINERO_SI_LOS_HUBO","" },
+                { "1","5_COMENTARIO","" },
             };
 
 
@@ -1202,9 +1209,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_MES","" },
-            { "1","1_CANTIDAD","" },
-            { "1","2_NOMBRE_PRODUCTO","" },
-            { "1","4_COMENTARIO","" },
+            { "1","1_NOMBRE_PRODUCTO","" },
+            { "1","2_CANTIDAD","" },
+            { "1","3_COD_BAR","" },
+            { "1","4_DINERO_SI_LOS_HUBO","" },
+            { "1","5_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1212,9 +1221,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_prod_año = new string[,]
             {
                 { "1","0_MES","" },
-                { "1","1_CANTIDAD","" },
-                { "1","2_NOMBRE_PRODUCTO","" },
-                { "1","4_COMENTARIO","" },
+                { "1","1_NOMBRE_PRODUCTO","" },
+                { "1","2_CANTIDAD","" },
+                { "1","3_COD_BAR","" },
+                { "1","4_DINERO_SI_LOS_HUBO","" },
+                { "1","5_COMENTARIO","" },
             };
 
 
@@ -1258,20 +1269,24 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_total =
         {
 
-            { "1","0_MES","" },
-            { "1","1_CANTIDAD","" },
-            { "1","2_NOMBRE_PRODUCTO","" },
-            { "1","4_COMENTARIO","" },
+            { "1","0_AÑO","" },
+            { "1","1_NOMBRE_PRODUCTO","" },
+            { "1","2_CANTIDAD","" },
+            { "1","3_COD_BAR","" },
+            { "1","4_DINERO_SI_LOS_HUBO","" },
+            { "1","5_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_total = new string[,]
             {
-                { "1","0_MES","" },
-                { "1","1_CANTIDAD","" },
-                { "1","2_NOMBRE_PRODUCTO","" },
-                { "1","4_COMENTARIO","" },
+                { "1","0_AÑO","" },
+                { "1","1_NOMBRE_PRODUCTO","" },
+                { "1","2_CANTIDAD","" },
+                { "1","3_COD_BAR","" },
+                { "1","4_DINERO_SI_LOS_HUBO","" },
+                { "1","5_COMENTARIO","" },
             };
 
 
@@ -1475,14 +1490,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*9*/{ GG_direccion_base[0] + "CONFIG\\AFILIADOS\\NIVELES_E_ID_HORISONTAL_AFILIADOS_UNIFICADO.TXT", columnas_concatenadas(GG_ventana_niv_afiliados_unificado,1,var_fun_GG.GG_caracter_separacion[0]),"1|1|§2|1|§3|1|§4|1|"},
             /*10*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\SUCUR.TXT", columnas_concatenadas(GG_ventana_SUCUR,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //registros
-            /*11*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
-            /*12*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
-            /*13*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*11*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*12*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*13*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*14*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\ACUMULADO_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //registro productos
-            /*15*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
-            /*16*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
-            /*17*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\" + DateTime.Now.ToString("yyyy") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*15*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "\\" + DateTime.Now.ToString("yyyyMMdd") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_dia,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*16*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "\\" + DateTime.Now.ToString("yyyyMM") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_mes,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*17*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*18*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //impuestos
             /*19*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\IMPUESTOS.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE|0|SIN DESCRIPCION|NOSE|3"},

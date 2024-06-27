@@ -337,6 +337,82 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 return info_a_retornar;
         }
 
+        public string registro_incrementar_productos(string direccion_archivo, string datos, string fecha)
+        {
+            string info_a_retornar = "";
+
+            string resultado_archivo = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
+            string[] res_esp_archivo = resultado_archivo.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            //encontro el archivo
+            if (Convert.ToInt32(res_esp_archivo[0]) > 0)
+            {
+                if (res_esp_archivo[0] == "1")
+                {
+                    string[] datos_esp = datos.Split(G_caracter_separacion[0][0]);
+                    datos_esp[0] = fecha;
+                    bas.Editar_incr_o_agrega_MULTIPLESCOMPARACIONES_AL_FINAL_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                                (
+                                direccion_archivo, 0, fecha,
+                                 //columnas a editar
+                                 "2"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "3"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "5"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "6"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "7"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "9"
+                                ,
+
+                                  //comparacion para edicion dejar en blanco si no hay comparacion
+                                  // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
+                                  // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
+                                  datos_esp[2]
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + datos_esp[3]
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + datos_esp[5]
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + datos_esp[6]
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + datos_esp[7]
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + datos_esp[9]
+
+
+                                ,
+                                  // 0:editar  1:incrementar 2:agregar
+                                  "1"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "1"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "1"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "1"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "1"
+                                + G_caracter_separacion_funciones_espesificas[0]
+                                + "1"
+                                ,
+                                  string.Join(G_caracter_separacion[0], datos_esp)
+                                );
+                }
+            }
+            else
+            {
+                if (res_esp_archivo[0] == "0")
+                {
+
+                }
+            }
+
+
+            return info_a_retornar;
+        }
+
 
     }
 }

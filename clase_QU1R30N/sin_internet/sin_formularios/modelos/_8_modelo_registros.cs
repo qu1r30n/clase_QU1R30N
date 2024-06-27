@@ -72,7 +72,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 if (res_regist_esp[0] == "1")
                 {
+                    //registro dinero
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
+                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
+                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
+                    //registro productos
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[4], res_regist_esp[1], año_mes_dia_hora);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_esp[1], año_mes_dia);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_esp[1], año_mes);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_esp[1], año);
+
                 }
                 
 
