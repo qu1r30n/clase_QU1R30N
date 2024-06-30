@@ -162,7 +162,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             
         }
 
-        public string Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
+        public string Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+            (string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -345,6 +346,80 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             return info_a_retornar;
         }
+
+
+        public string Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+    (string direccion_archivo_a_checar, string num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
+        {
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            
+
+            string info_a_retornar = "";
+
+            string direccion_archivo = direccion_archivo_a_checar;
+            string resultado_archivo = sacar_indice_del_arreglo_de_direccion(direccion_archivo);
+            string[] res_esp_archivo = resultado_archivo.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            //encontro o no archivo
+            if (Convert.ToInt32(res_esp_archivo[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
+            {
+                //encontro archivo y direccion en la lista
+                if (res_esp_archivo[0] == "1")
+                {
+
+                    int num_indice_de_direccion_int = Convert.ToInt32(res_esp_archivo[1]);
+                    bool encotro_info = false;
+                    for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+                    {
+
+                        string resul_busqueda = op_tex.busqueda_con_YY_profunda_texto(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], "" + num_column_comp, comparar);
+                        string[] res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        if (Convert.ToInt32(res_esp[0]) > 0)
+                        {
+                            if (res_esp[0] == "1")
+                            {
+                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_string(res_esp[1], numero_columnas_editar, editar_columna, comparar_columna_a_editar, edit_0_increm_1_o_agregar_si_no_esta_2);
+                                cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
+                                info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
+                                encotro_info = true;
+                                break;
+                            }
+                        }
+
+
+                    }
+                    //no encontro la info
+                    if (encotro_info == false)
+                    {
+                        if (texto_a_agregar_si_no_esta != "")
+                        {
+                            Agregar(direccion_archivo, texto_a_agregar_si_no_esta);
+                            info_a_retornar = "2" + G_caracter_para_confirmacion_o_error[0] + "agrego_la_informacion";
+                        }
+                        else
+                        {
+                            info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no encontro el dato y no se puede agregar por que la variable texto_a_agregar_si_no_esta esta vacia";
+                        }
+
+                    }
+                }
+
+            }
+
+            else
+            {
+                //no encontro archivo
+                if (res_esp_archivo[0] == "0")
+                {
+                    info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro el archivo";
+                }
+                
+
+            }
+
+            return info_a_retornar;
+        }
+
 
         public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
         {

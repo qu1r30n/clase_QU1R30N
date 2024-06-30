@@ -801,7 +801,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","7_TOTAL_IMPUESTOS","" },
             { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
             { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
-
+            { "1","10_PLATAFORMA","" },
 
         };
         public static void RecargarVentanaEmergenteRegDia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -819,6 +819,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","7_TOTAL_IMPUESTOS","" },
                 { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" },
                 { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" },
+                { "1","10_PLATAFORMA","" },
 
             };
 
@@ -930,7 +931,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
         }
-
 
         //registro año
         static public string[,] GG_ventana_reg_año =
@@ -1078,6 +1078,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
+
+
         //registros productos
 
         //registro produc dia
@@ -1085,12 +1087,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
             { "1","0_HORA","" },
-            { "1","1_NOMBRE_PRODUCTO","" },
-            { "1","2_CANTIDAD","" },
-            { "1","3_COD_BAR","" },
-            { "1","4_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
-            { "1","5_DINERO_SI_LOS_HUBO","" },
-            { "1","6_COMENTARIO","" },
+            { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" },
+            { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" },
+
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Dia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1098,12 +1097,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_reg_prod_dia = new string[,]
             {
                 { "1","0_HORA","" },
-                { "1","1_NOMBRE_PRODUCTO","" },
-                { "1","2_CANTIDAD","" },
-                { "1","3_COD_BAR","" },
-                { "1","4_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_PRODUCTO_4_INTODUCIR_PRODUCTO","" },
-                { "1","5_DINERO_SI_LOS_HUBO","" },
-                { "1","6_COMENTARIO","" },
+                { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" },
+                { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" },
             };
 
 
@@ -1147,24 +1142,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_mes =
         {
 
-            { "1","0_DIA","" },
-            { "1","1_NOMBRE_PRODUCTO","" },
-            { "1","2_CANTIDAD","" },
-            { "1","3_COD_BAR","" },
-            { "1","4_DINERO_SI_LOS_HUBO","" },
-            { "1","5_COMENTARIO","" },
+            
+            { "1","0_NOMBRE_PRODUCTO","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_COD_BAR","" },
+            { "1","3_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_mes = new string[,]
             {
-                { "1","0_DIA","" },
-                { "1","1_NOMBRE_PRODUCTO","" },
-                { "1","2_CANTIDAD","" },
-                { "1","3_COD_BAR","" },
-                { "1","4_DINERO_SI_LOS_HUBO","" },
-                { "1","5_COMENTARIO","" },
+                { "1","0_NOMBRE_PRODUCTO","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_COD_BAR","" },
+                { "1","3_COMENTARIO","" },
             };
 
 
@@ -1208,24 +1200,20 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_año =
         {
 
-            { "1","0_MES","" },
-            { "1","1_NOMBRE_PRODUCTO","" },
-            { "1","2_CANTIDAD","" },
-            { "1","3_COD_BAR","" },
-            { "1","4_DINERO_SI_LOS_HUBO","" },
-            { "1","5_COMENTARIO","" },
+            { "1","0_NOMBRE_PRODUCTO","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_COD_BAR","" },
+            { "1","3_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_año = new string[,]
             {
-                { "1","0_MES","" },
-                { "1","1_NOMBRE_PRODUCTO","" },
-                { "1","2_CANTIDAD","" },
-                { "1","3_COD_BAR","" },
-                { "1","4_DINERO_SI_LOS_HUBO","" },
-                { "1","5_COMENTARIO","" },
+                { "1","0_NOMBRE_PRODUCTO","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_COD_BAR","" },
+                { "1","3_COMENTARIO","" },
             };
 
 
@@ -1269,24 +1257,20 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_total =
         {
 
-            { "1","0_AÑO","" },
-            { "1","1_NOMBRE_PRODUCTO","" },
-            { "1","2_CANTIDAD","" },
-            { "1","3_COD_BAR","" },
-            { "1","4_DINERO_SI_LOS_HUBO","" },
-            { "1","5_COMENTARIO","" },
+            { "1","0_NOMBRE_PRODUCTO","" },
+            { "1","1_CANTIDAD","" },
+            { "1","2_COD_BAR","" },
+            { "1","3_COMENTARIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_total = new string[,]
             {
-                { "1","0_AÑO","" },
-                { "1","1_NOMBRE_PRODUCTO","" },
-                { "1","2_CANTIDAD","" },
-                { "1","3_COD_BAR","" },
-                { "1","4_DINERO_SI_LOS_HUBO","" },
-                { "1","5_COMENTARIO","" },
+                { "1","0_NOMBRE_PRODUCTO","" },
+                { "1","1_CANTIDAD","" },
+                { "1","2_COD_BAR","" },
+                { "1","3_COMENTARIO","" },
             };
 
 

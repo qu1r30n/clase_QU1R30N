@@ -71,10 +71,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
             string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
+            
+
             if (Convert.ToInt32(res_regist_esp[0]) > 0)
             {
                 if (res_regist_esp[0] == "1")
                 {
+                    
+
                     //registro dinero
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
