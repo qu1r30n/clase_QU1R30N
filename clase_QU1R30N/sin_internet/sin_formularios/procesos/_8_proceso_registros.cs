@@ -325,55 +325,55 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     datos_esp[0] = fecha;
                     string[] datos_tip_operacion = datos_esp[1].Split(G_caracter_separacion[1][0]);
                     string[] datos_iva = datos_esp[2].Split(G_caracter_separacion[1][0]);
+                    string[] datos_cod_bar_dinero_nom_produc = datos_esp[3].Split(G_caracter_separacion[1][0]);
+
                     datos_iva = si_hay_iguales_en_iva_suma_cantidad_proceso_registros(datos_iva);
                     datos_esp[2] = string.Join(G_caracter_separacion[1], datos_iva);
-                    string[] datos_cod_bar_dinero_nom_produc = datos_esp[3].Split(G_caracter_separacion[1][0]);
+
                     bool fue_creada_la_informacion = false;
                     for (int j = 0; j < datos_cod_bar_dinero_nom_produc.Length; j++)
                     {
+                        string[] inf_dat = datos_cod_bar_dinero_nom_produc[j].Split(G_caracter_separacion[2][0]);
+                        string info_dat_prod = inf_dat[0] 
+                            + G_caracter_separacion[2] + inf_dat[1] 
+                            + G_caracter_separacion[2] + inf_dat[2] 
+                            + G_caracter_separacion[2] + inf_dat[3];
 
-                        string res = bas.Editar_incr_o_agrega_MULTIPLESCOMPARACIONES_AL_FINAL_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                        string sino_lo_encuentra = datos_esp[0] //0_fecha
+                            + G_caracter_separacion[0] + datos_tip_operacion[j] //1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR
+                            + G_caracter_separacion[0] + datos_esp[2] //2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2
+                            + G_caracter_separacion[0] + info_dat_prod //3_PRODUCTOS_PRECIO_TOTAL_PRECIO_UNITARIO
+                            + G_caracter_separacion[0] + "SIN_COMENTARIOS" //4_COMENTARIO
+                            + G_caracter_separacion[0] + datos_esp[5] //5_TOTAL_VENTA
+                            + G_caracter_separacion[0] + datos_esp[6] //6_TOTAL_COSTO_COMP
+                            + G_caracter_separacion[0] + datos_esp[7]// 7_TOTAL_IMPUESTOS
+                            + G_caracter_separacion[0] + datos_esp[8] //8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA
+                            + G_caracter_separacion[0] + datos_esp[9];//9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS
+
+
+                        string res = bas.Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
                                     (
-                                    direccion_archivo, 0, fecha,
-                                    //columnas a editar
-                                    "3"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "5"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "6"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "7"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "9"
+                                    //comparaciones YY
+                                    direccion_archivo,
+                                    "0"                                                   //0_fecha
+                                    + G_caracter_separacion_funciones_espesificas[0] + "1"//1_tipo_operacion
+                                    ,
+                                    fecha                                                                    //0_fecha
+                                    + G_caracter_separacion_funciones_espesificas[0] + datos_tip_operacion[j]//tipo_operacion
                                     ,
 
-                                      //comparacion para edicion dejar en blanco si no hay comparacion
-                                      // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
-                                      // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                                      datos_cod_bar_dinero_nom_produc[j]
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + datos_esp[5]
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + datos_esp[6]
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + datos_esp[7]
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + datos_esp[9]
-
-
+                                      //columnas a editar
+                                      "3"//3_productos
                                     ,
-                                      // 0:editar  1:incrementar 2:agregar
-                                      "1"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "1"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "1"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "1"
-                                    + G_caracter_separacion_funciones_espesificas[0]
-                                    + "1"
+
+                                      //edicion
+                                      info_dat_prod//3_productos
                                     ,
-                                      string.Join(G_caracter_separacion[0], datos_esp)
+
+                                     // 0:editar  1:incrementar 2:agregar
+                                      "1"                                                  //3_productos
+                                    ,
+                                      sino_lo_encuentra
                                     );
 
                         string[] res_esp = res.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -387,27 +387,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     if (fue_creada_la_informacion == false)
                     {
-                        for (int j = 0; j < datos_iva.Length; j++)
-                        {
+
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "2", datos_iva, -1, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "5", datos_esp[5], 5, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "9", datos_esp[9], 9, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "6", datos_esp[6], 6, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "7", datos_esp[7], 7, "1");
 
 
-                            bas.Editar_incr_o_agrega_MULTIPLESCOMPARACIONES_AL_FINAL_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
-                                            (
-                                            direccion_archivo, 0, fecha,
-                                             //columnas a editar
-                                             "2"
-                                            ,
-                                              //comparacion para edicion dejar en blanco si no hay comparacion
-                                              // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
-                                              // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                                              datos_iva[j]
-                                            ,
-                                              // 0:editar  1:incrementar 2:agregar
-                                              "1"
-                                            ,
-                                              ""
-                                            );
-                        }
+
+
                     }
 
 
@@ -424,8 +413,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             return info_a_retornar;
         }
-
-
 
         public string registrar_movimiento_productos(string direccion_archivo, string modelo, string proceso, string datos, string fecha_o_hora, object caracter_separacion_obj = null)
         {
@@ -666,38 +653,83 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 if (res_esp_archivo[0] == "1")
                 {
                     string[] datos_esp = datos.Split(G_caracter_separacion[0][0]);
-                    
                     datos_esp[0] = fecha;
-                    
-                    string[] datos_cod_bar_dinero_nom_produc_cant_plat_infplat = datos_esp[3].Split(G_caracter_separacion[1][0]);
+                    string[] datos_tip_operacion = datos_esp[1].Split(G_caracter_separacion[1][0]);
+                    string[] datos_iva = datos_esp[2].Split(G_caracter_separacion[1][0]);
+                    string[] datos_cod_bar_dinero_nom_produc = datos_esp[3].Split(G_caracter_separacion[1][0]);
 
-                    for (int j = 0; j < datos_cod_bar_dinero_nom_produc_cant_plat_infplat.Length; j++)
+                    datos_iva = si_hay_iguales_en_iva_suma_cantidad_proceso_registros(datos_iva);
+                    datos_esp[2] = string.Join(G_caracter_separacion[1], datos_iva);
+
+                    bool fue_creada_la_informacion = false;
+                    for (int j = 0; j < datos_cod_bar_dinero_nom_produc.Length; j++)
                     {
-                        string[] inf_dat = datos_cod_bar_dinero_nom_produc_cant_plat_infplat[j].Split(G_caracter_separacion[2][0]);
-                        string sino_lo_encuentra = inf_dat[2] + G_caracter_separacion[0] + inf_dat[3] + G_caracter_separacion[0] + inf_dat[0] + G_caracter_separacion[0] + "SIN_COMENTARIOS";
-                        bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                        string[] inf_dat = datos_cod_bar_dinero_nom_produc[j].Split(G_caracter_separacion[2][0]);
+                        string info_dat_prod = inf_dat[0]
+                            + G_caracter_separacion[2] + inf_dat[1]
+                            + G_caracter_separacion[2] + inf_dat[2]
+                            + G_caracter_separacion[2] + inf_dat[3];
+
+                        string sino_lo_encuentra = datos_esp[0] //0_fecha
+                            + G_caracter_separacion[0] + datos_tip_operacion[j] //1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR
+                            + G_caracter_separacion[0] + datos_esp[2] //2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2
+                            + G_caracter_separacion[0] + info_dat_prod //3_PRODUCTOS_PRECIO_TOTAL_PRECIO_UNITARIO
+                            + G_caracter_separacion[0] + "SIN_COMENTARIOS" //4_COMENTARIO
+                            + G_caracter_separacion[0] + datos_esp[5] //5_TOTAL_VENTA
+                            + G_caracter_separacion[0] + datos_esp[6] //6_TOTAL_COSTO_COMP
+                            + G_caracter_separacion[0] + datos_esp[7]// 7_TOTAL_IMPUESTOS
+                            + G_caracter_separacion[0] + datos_esp[8] //8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA
+                            + G_caracter_separacion[0] + datos_esp[9];//9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS
+
+
+                        string res = bas.Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
                                     (
-                                    direccion_archivo, 2, inf_dat[0],
-                                     //columnas a editar
-                                     "1"
+                                    //comparaciones YY
+                                    direccion_archivo,
+                                    "0"                                                   //0_fecha
+                                    + G_caracter_separacion_funciones_espesificas[0] + "1"//1_tipo_operacion
                                     ,
-                                     inf_dat[3]
-                                     ,
-                                      //comparacion para edicion dejar en blanco si no hay comparacion
-                                      // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
-                                      // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                                      
-                                     ""
+                                    fecha                                                                    //0_fecha
+                                    + G_caracter_separacion_funciones_espesificas[0] + datos_tip_operacion[j]//tipo_operacion
                                     ,
+
+                                      //columnas a editar
+                                      "3"//3_productos
+                                    ,
+
+                                      //edicion
+                                      info_dat_prod//3_productos
+                                    ,
+
                                       // 0:editar  1:incrementar 2:agregar
-                                      "1"
-                                    
+                                      "1"                                                  //3_productos
                                     ,
                                       sino_lo_encuentra
                                     );
 
+                        string[] res_esp = res.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        if (res_esp[0] == "2")
+                        {
+                            fue_creada_la_informacion = true;
+
+                        }
 
                     }
+
+                    if (fue_creada_la_informacion == false)
+                    {
+
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "2", datos_iva, -1, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "5", datos_esp[5], 5, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "9", datos_esp[9], 9, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "6", datos_esp[6], 6, "1");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "7", datos_esp[7], 7, "1");
+
+
+
+
+                    }
+
 
                 }
             }
@@ -730,10 +762,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                         if (produc_cantidad[i] != "" && produc_cantidad[j] != "")
                         {
-                            if (comp_prod_1[0] == comp_prod_2[0] && comp_prod_1[2] == comp_prod_2[2])
+                            string[] plat_1 = comp_prod_1[2].Split(G_caracter_separacion[4][0]);
+                            string[] plat_2 = comp_prod_2[2].Split(G_caracter_separacion[4][0]);
+
+                            if (comp_prod_1[0] == comp_prod_2[0] && plat_1[0] == plat_2[0])
                             {
+
                                 comp_prod_1[1] = (Convert.ToDouble(comp_prod_1[1]) + Convert.ToDouble(comp_prod_2[1])).ToString();
-                                comp_prod_1[3] = comp_prod_1[3] + G_caracter_separacion[3] + comp_prod_2[3];
+                                
+                                plat_1[1] = plat_1[1] + G_caracter_separacion[5] + plat_2[1];
+                                comp_prod_1[2] = plat_1[0] + G_caracter_separacion[4] + plat_1[1];
                                 produc_cantidad[j] = "";
                             }
                         }
@@ -790,6 +828,42 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return arr_retornar;
         }
 
-
+        private void rep_funcion_cantidad_del_arreglo
+            (string direccion_archivo
+            ,string num_columnas_comparar
+            ,string comparar
+            ,string col_editar
+            ,object arreglo_o_string_de_comparar_y_editar
+            ,int indice_arreglo
+            ,string _0_editar_1_incrementar_2_agregar
+            )
+        {
+            string[] arr_comparar_editar = null;
+            if (arreglo_o_string_de_comparar_y_editar is string[])
+            {
+                arr_comparar_editar = (string[])arreglo_o_string_de_comparar_y_editar;
+            }
+            else
+            {
+                arr_comparar_editar = arreglo_o_string_de_comparar_y_editar.ToString().Split(G_caracter_separacion[1][0]);
+            }
+            
+            for (int j = 0; j < arr_comparar_editar.Length; j++)
+            {
+                string dat_epsliteado = "";
+                
+                string[] inf_dat = dat_epsliteado.Split(G_caracter_separacion[2][0]);
+                string res = bas.Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                    (
+                    direccion_archivo,
+                    num_columnas_comparar,
+                    comparar,
+                    col_editar,
+                    arr_comparar_editar[j],
+                    _0_editar_1_incrementar_2_agregar
+                    );
+                
+            }
+        }
     }
 }

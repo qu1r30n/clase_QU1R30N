@@ -349,7 +349,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
         public string Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
-    (string direccion_archivo_a_checar, string num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
+    (string direccion_archivo_a_checar, string num_column_comp, string comparar, string numero_columnas_editar, string comparar_con_editar_columna,  string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             
@@ -374,11 +374,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                         string resul_busqueda = op_tex.busqueda_con_YY_profunda_texto(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], "" + num_column_comp, comparar);
                         string[] res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        //encontor informacion?
                         if (Convert.ToInt32(res_esp[0]) > 0)
                         {
                             if (res_esp[0] == "1")
                             {
-                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_string(res_esp[1], numero_columnas_editar, editar_columna, comparar_columna_a_editar, edit_0_increm_1_o_agregar_si_no_esta_2);
+                                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] 
+                                    = op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_MULTIPLE_A_CHECAR_string
+                                    (res_esp[1], 
+                                    numero_columnas_editar, 
+                                    comparar_con_editar_columna,  
+                                    edit_0_increm_1_o_agregar_si_no_esta_2);
+
                                 cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
                                 info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
                                 encotro_info = true;

@@ -12,11 +12,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public int GG_indice_donde_comensar = 1;
 
-        static public string[] GG_caracter_separacion = { "|", "°", "¬", "╦" };
+        static public string[] GG_caracter_separacion = { "|", "°", "¬", "╦", "╝", "╔" };
 
         static public string[] GG_caracter_separacion_funciones_espesificas = { "~", "§", "¶" };
 
-        static public string[] GG_caracter_para_confirmacion_o_error = { "╣", "╝" };
+        static public string[] GG_caracter_para_confirmacion_o_error = { "╣", "╠" };
 
         //funciones---------------------------------------------------------------------------------------------------------
 

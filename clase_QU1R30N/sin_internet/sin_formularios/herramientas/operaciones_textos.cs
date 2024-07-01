@@ -441,12 +441,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
 
 
-                    return texto;
-                }
-            
+                return "1" + G_caracter_para_confirmacion_o_error[0] + texto;
+            }
 
 
-            return null;
+
+            return "0" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro";
 
         }
 
@@ -705,6 +705,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         {
                             string[] datos_a_checar_para_editar = info_extraida[l].Split(caracter_separacion[indice_caracter + 1][0]);
                             num_celdas = "" + datos_a_checar_para_editar.Length;
+                            //dato a checar es diferente de ""
                             if (info_extraida[l] != "")
                             {
                                 //si solo es 1 va a editar agregar o incrementar la celda ejemplo ceda provedor1°provedor2
@@ -835,6 +836,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
 
                         res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
+                        //si no encuentra dato_a_editar lo agrega
                         if (!encontro_dato_a_editar)
                         {
                             //si no lo encuentra agrega
@@ -844,7 +846,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                             }
                             else
                             {
-                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                //no se si recuerdo como funciona el comentado pero para efectos practicos  use el segundo por que lo nesesito
+                                //res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                //lo puse para resolver rapido el problema pero hay que checar
+                                res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter]+ comparacion_con_edicion_esp[k];
                                 edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                             }
 
