@@ -84,9 +84,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
                     //registro productos
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_esp[1], año_mes_dia);
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_esp[1], año_mes);
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_esp[1], año);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
+                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
 
                 }
                 

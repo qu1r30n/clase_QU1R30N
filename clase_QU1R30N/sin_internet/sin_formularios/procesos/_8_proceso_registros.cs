@@ -23,6 +23,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
+        string[] G_direcciones =
+        {
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
+        };
+
         Tex_base bas = new Tex_base();
 
 
@@ -126,11 +131,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                                 if (proceso == "VENTA")
                                 {
-
-
-                                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[1].Length; i++)
+                                    string[] res_indice_invent= bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                                    int indice_inventario = Convert.ToInt32(res_indice_invent[1]);
+                                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_inventario].Length; i++)
                                     {
-                                        string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[1][i].Split(caracter_separacion_string[0][0]);
+                                        string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[indice_inventario][i].Split(caracter_separacion_string[0][0]);
                                         //encontro el codigo de barras?
                                         if (info_bas[5] == info_dat[0])
                                         {
@@ -327,7 +332,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] datos_iva = datos_esp[2].Split(G_caracter_separacion[1][0]);
                     string[] datos_cod_bar_dinero_nom_produc = datos_esp[3].Split(G_caracter_separacion[1][0]);
 
-                    datos_iva = si_hay_iguales_en_iva_suma_cantidad_proceso_registros(datos_iva);
+                    datos_iva = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_iva);
                     datos_esp[2] = string.Join(G_caracter_separacion[1], datos_iva);
 
                     bool fue_creada_la_informacion = false;
@@ -414,6 +419,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
+
+
         public string registrar_movimiento_productos(string direccion_archivo, string modelo, string proceso, string datos, string fecha_o_hora, object caracter_separacion_obj = null)
         {
 
@@ -426,220 +433,37 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] res_esp_archivo = resultado_archivo.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (Convert.ToInt32(res_esp_archivo[0]) > 0)
             {
-                if (res_esp_archivo[0] == "1")
-                {
+                int indice = Convert.ToInt32(res_esp_archivo[1]);
 
 
-                    int indice = Convert.ToInt32(res_esp_archivo[1]);
+                string tipo_de_operacion = "";
+                
+                string Nom_Cantidad_Codbar = "";
+                
+                
+                string[] cant_dat = datos.Split(G_caracter_separacion[1][0]);
+
+                cant_dat = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(cant_dat);
 
 
-                    string tipo_de_operacion = "";
 
+                string info_agregar =
+                    fecha_o_hora
+                    + caracter_separacion_string[0]
+                    + tipo_de_operacion
+                    + caracter_separacion_string[0]
+                    + string.Join(G_caracter_separacion[1],cant_dat);
 
+                info_a_retornar = bas.Agregar(direccion_archivo, info_agregar);
 
-                    string[] dat_esp = datos.Split(G_caracter_separacion[0][0]);
-                    string[] cant_dat = dat_esp[0].Split(G_caracter_separacion[1][0]);
-                    string info_productos_a_concatenar = "";
-                    for (int l = 0; l < cant_dat.Length; l++)
-                    {
-                        string[] info_dat = cant_dat[l].Split(G_caracter_separacion[2][0]);
-                        if (res_esp_archivo[0] == "1")
-                        {
-                            switch (modelo)
-                            {
-                                case "MODELO_ANALISIS_DATOS":
-
-                                    if (proceso == "EXISTE_PRODUCTO")
-                                    {
-                                        // Código correspondiente al caso "EXISTE_PRODUCTO"
-                                    }
-
-                                    else if (proceso == "EXISTE_CURP_UNIFICADO_COD3_R_")
-                                    {
-                                        // Código correspondiente al caso "EXISTE_CURP_UNIFICADO_COD3_R_"
-                                    }
-
-                                    else if (proceso == "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_")
-                                    {
-                                        // Código correspondiente al caso "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_"
-                                    }
-
-                                    else if (proceso == "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_")
-                                    {
-                                        // Código correspondiente al caso "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-                                    break;
-
-                                case "MODELO_COMPRAS":
-
-                                    if (proceso == "COMPRA")
-                                    {
-                                        // Código correspondiente al caso "COMPRA"
-                                    }
-
-                                    else if (proceso == "COMPRA_MAYOREO")
-                                    {
-                                        // Código correspondiente al caso "COMPRA_MAYOREO"
-                                    }
-
-                                    else if (proceso == "COMPRA_CON_PROMOCION")
-                                    {
-                                        // Código correspondiente al caso "COMPRA_CON_PROMOCION"
-                                    }
-
-                                    else if (proceso == "CANCELAR")
-                                    {
-                                        // Código correspondiente al caso "CANCELAR"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-                                    break;
-
-                                case "MODELO_VENTAS":
-
-                                    if (proceso == "VENTA")
-                                    {
-
-
-                                        for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[1].Length; i++)
-                                        {
-                                            string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[1][i].Split(caracter_separacion_string[0][0]);
-                                            //encontro el codigo de barras?
-                                            if (info_bas[5] == info_dat[0])
-                                            {
-                                                info_productos_a_concatenar = op_tex.concatenacion_caracter_separacion(info_productos_a_concatenar, info_dat[0] + caracter_separacion_string[2] + info_dat[1] + caracter_separacion_string[2] + info_bas[1] + caracter_separacion_string[2] + info_dat[2] + caracter_separacion_string[2] + info_dat[3], caracter_separacion_string[1]);
-                                                break;
-                                            }
-                                        }
-
-
-                                        tipo_de_operacion = op_tex.concatenacion_caracter_separacion(tipo_de_operacion, "VENTA", G_caracter_separacion[1]);
-
-
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-                                    break;
-
-                                case "MODELO_INVENTARIO":
-
-                                    if (proceso == "AGREGAR")
-                                    {
-                                        // Código correspondiente al caso "AGREGAR"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-                                    break;
-
-                                case "MODELO_APRENDICES_E":
-
-                                    if (proceso == "REGISTRO_APRENDICES_E")
-                                    {
-                                        // Código correspondiente al caso "REGISTRO_APRENDICES_E"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-                                    break;
-
-                                case "MODELO_AFILIADOS":
-
-                                    if (proceso == "INSCRIBIR_UNIFICADO_COD3_R_")
-                                    {
-                                        // Código correspondiente al caso "INSCRIBIR_UNIFICADO_COD3_R_"
-                                    }
-
-                                    else if (proceso == "INSCRIBIR_SIMPLE_COD1")
-                                    {
-                                        // Código correspondiente al caso "INSCRIBIR_SIMPLE_COD1"
-                                    }
-
-                                    else if (proceso == "INSCRIBIR_COMPLEJO_COD2")
-                                    {
-                                        // Código correspondiente al caso "INSCRIBIR_COMPLEJO_COD2"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-                                    break;
-
-                                case "MODELO_PROVEDORES":
-
-                                    if (proceso == "REGISTRO_PROVEDOR")
-                                    {
-                                        // Código correspondiente al caso "REGISTRO_PROVEDOR"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-
-                                    break;
-
-                                case "MODELO_SUCURSALES":
-
-                                    if (proceso == "REGISTRO_SUCURSAL")
-                                    {
-                                        // Código correspondiente al caso "REGISTRO_PROVEDOR"
-                                    }
-
-                                    else
-                                    {
-                                        // Código correspondiente al caso default
-                                    }
-
-
-                                    break;
-
-                                default:
-
-                                    break;
-                            }
-                        }
-
-                    }
-
-                    string info_agregar = fecha_o_hora
-                        + caracter_separacion_string[0]
-                        + tipo_de_operacion
-                        + caracter_separacion_string[0]
-                        + info_productos_a_concatenar;
-                    info_a_retornar = bas.Agregar(direccion_archivo, info_agregar);
-
-                }
             }
+
             else
             {
                 info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro la direccion";
             }
 
             return info_a_retornar;
-
         }
         public string registro_incrementar_productos(string direccion_archivo, string datos, string fecha)
         {
@@ -652,83 +476,74 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             {
                 if (res_esp_archivo[0] == "1")
                 {
+                    
+
+
                     string[] datos_esp = datos.Split(G_caracter_separacion[0][0]);
                     datos_esp[0] = fecha;
                     string[] datos_tip_operacion = datos_esp[1].Split(G_caracter_separacion[1][0]);
-                    string[] datos_iva = datos_esp[2].Split(G_caracter_separacion[1][0]);
-                    string[] datos_cod_bar_dinero_nom_produc = datos_esp[3].Split(G_caracter_separacion[1][0]);
+                    string[] datos_codbar = datos_esp[2].Split(G_caracter_separacion[1][0]);
+                    
 
-                    datos_iva = si_hay_iguales_en_iva_suma_cantidad_proceso_registros(datos_iva);
-                    datos_esp[2] = string.Join(G_caracter_separacion[1], datos_iva);
+                    datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
+                    datos_esp[2] = string.Join(G_caracter_separacion[1], datos_codbar);
+
+
+                    string[] res_indice_invent = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    int indice_inventario = Convert.ToInt32(res_indice_invent[1]);
+                    string[] info_producto_bas = null;
+                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_inventario].Length; i++)
+                    {
+                        string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[indice_inventario][i].Split(G_caracter_separacion[0][0]);
+                        if (true)
+                        {
+                            info_producto_bas = info_bas;
+                        }
+                    }
+
+                    
 
                     bool fue_creada_la_informacion = false;
-                    for (int j = 0; j < datos_cod_bar_dinero_nom_produc.Length; j++)
+                    for (int j = 0; j < datos_codbar.Length; j++)
                     {
-                        string[] inf_dat = datos_cod_bar_dinero_nom_produc[j].Split(G_caracter_separacion[2][0]);
-                        string info_dat_prod = inf_dat[0]
+                        string[] inf_dat = datos_codbar[j].Split(G_caracter_separacion[2][0]);
+                        string info_dat_prod = info_producto_bas[1]
                             + G_caracter_separacion[2] + inf_dat[1]
                             + G_caracter_separacion[2] + inf_dat[2]
                             + G_caracter_separacion[2] + inf_dat[3];
 
-                        string sino_lo_encuentra = datos_esp[0] //0_fecha
-                            + G_caracter_separacion[0] + datos_tip_operacion[j] //1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR
-                            + G_caracter_separacion[0] + datos_esp[2] //2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2
-                            + G_caracter_separacion[0] + info_dat_prod //3_PRODUCTOS_PRECIO_TOTAL_PRECIO_UNITARIO
-                            + G_caracter_separacion[0] + "SIN_COMENTARIOS" //4_COMENTARIO
-                            + G_caracter_separacion[0] + datos_esp[5] //5_TOTAL_VENTA
-                            + G_caracter_separacion[0] + datos_esp[6] //6_TOTAL_COSTO_COMP
-                            + G_caracter_separacion[0] + datos_esp[7]// 7_TOTAL_IMPUESTOS
-                            + G_caracter_separacion[0] + datos_esp[8] //8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA
-                            + G_caracter_separacion[0] + datos_esp[9];//9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS
+                        string sino_lo_encuentra =
+                            info_producto_bas[1]                    //0_NOMBRE
+                            + G_caracter_separacion[0] + inf_dat[1] //1_CANTIDAD
+                            + G_caracter_separacion[0] + inf_dat[0] //2_CODIGO
+                            + G_caracter_separacion[0] + "SIN_COMENTARIOS" //3_COMENTARIO
+                            ;
 
-
-                        string res = bas.Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                        bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
                                     (
                                     //comparaciones YY
                                     direccion_archivo,
-                                    "0"                                                   //0_fecha
-                                    + G_caracter_separacion_funciones_espesificas[0] + "1"//1_tipo_operacion
+                                        2                                                   //2_codbar
                                     ,
-                                    fecha                                                                    //0_fecha
-                                    + G_caracter_separacion_funciones_espesificas[0] + datos_tip_operacion[j]//tipo_operacion
+                                        inf_dat[0]
                                     ,
 
-                                      //columnas a editar
-                                      "3"//3_productos
+                                      "1"
                                     ,
-
-                                      //edicion
-                                      info_dat_prod//3_productos
+                                      inf_dat[1]
+                                    ,  
+                                      ""
                                     ,
-
-                                      // 0:editar  1:incrementar 2:agregar
-                                      "1"                                                  //3_productos
+                                      "1"
                                     ,
                                       sino_lo_encuentra
                                     );
 
-                        string[] res_esp = res.Split(G_caracter_para_confirmacion_o_error[0][0]);
-                        if (res_esp[0] == "2")
-                        {
-                            fue_creada_la_informacion = true;
-
-                        }
+                        
 
                     }
 
-                    if (fue_creada_la_informacion == false)
-                    {
-
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "2", datos_iva, -1, "1");
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "5", datos_esp[5], 5, "1");
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "9", datos_esp[9], 9, "1");
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "6", datos_esp[6], 6, "1");
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "7", datos_esp[7], 7, "1");
-
-
-
-
-                    }
+                    
 
 
                 }
@@ -791,34 +606,36 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return arr_retornar;
         }
 
-        private string[] si_hay_iguales_en_iva_suma_cantidad_proceso_registros(string[] produc_cantidad)
+
+
+        private string[] si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(string[] produc_cantidad)
         {
             string[] arr_retornar = new string[0];
+            //hay mas de uno para comparar?
             if (produc_cantidad.Length > 1)
             {
-                for (int i = 0; i < produc_cantidad.Length - 1; i++)
+                for (int i = 0; i < produc_cantidad.Length; i++)
                 {
-                    string[] comp_prod_1 = produc_cantidad[i].Split(G_caracter_separacion[2][0]);
-
-                    for (int j = i + 1; j < produc_cantidad.Length; j++)
-                    {
-                        string[] comp_prod_2 = produc_cantidad[j].Split(G_caracter_separacion[2][0]);
-
-                        if (produc_cantidad[i] != "" && produc_cantidad[j] != "")
-                        {
-                            if (comp_prod_1[0] == comp_prod_2[0])
-                            {
-                                comp_prod_1[1] = (Convert.ToDouble(comp_prod_1[1]) + Convert.ToDouble(comp_prod_2[1])).ToString();
-                                produc_cantidad[j] = "";
-                            }
-                        }
-                    }
                     if (produc_cantidad[i] != "")
                     {
+                        string[] comp_prod_1 = produc_cantidad[i].Split(G_caracter_separacion[2][0]);
+                        for (int j = i + 1; j < produc_cantidad.Length; j++)
+                        {
+                            if (produc_cantidad[j] != "")
+                            {
+                                string[] comp_prod_2 = produc_cantidad[j].Split(G_caracter_separacion[2][0]);
+
+                                if (comp_prod_1[0] == comp_prod_2[0])
+                                {
+                                    comp_prod_1[1] = (Convert.ToDouble(comp_prod_1[1]) + Convert.ToDouble(comp_prod_2[1])).ToString();
+                                    produc_cantidad[j] = "";
+                                }
+                            }
+                        }
+
                         arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
                     }
                 }
-
             }
             else
             {
@@ -827,6 +644,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             return arr_retornar;
         }
+
 
         private void rep_funcion_cantidad_del_arreglo
             (string direccion_archivo
