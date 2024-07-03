@@ -143,7 +143,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + "1"//10_cant_produc_x_paquet
                     + G_caracter_separacion[0]
-                    + "NOSE"//11_tipo_de_producto
+                    + ""//11_cod_barras_paquete
                     + G_caracter_separacion[0]
                     + ""//12_ligar_produc_sab
                     + G_caracter_separacion[0]
@@ -155,11 +155,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + ""//16_ultimo_movimiento
                     + G_caracter_separacion[0]
-                    + sucursales_espl[i] + G_caracter_separacion[2] + nuevo_precio_venta//18_sucursal_vent¬cost_vent
+                    + sucursales_espl[i] + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
                     + G_caracter_separacion[0]
-                    + "NOSE"//17_clasificacion_producto
+                    + "NOSE"//18_clasificacion_producto
                     + G_caracter_separacion[0]
-                    + ""//18_no_poner_nada
+                    + ""//19_direccion_imagen_internet
+                    + G_caracter_separacion[0]
+                    + ""//20_direccion_imagen_computadora
                     + G_caracter_separacion[0]
                     ;
 
