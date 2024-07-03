@@ -66,10 +66,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
             string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
-            string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
-
             string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            
 
             
 
@@ -78,6 +76,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 if (res_regist_esp[0] == "1")
                 {
                     
+                    string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                    string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
                     //registro dinero
                     pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
@@ -87,14 +87,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
                     pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
                     pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
-
+                    info_a_retornar = res_regist;
                 }
-                
 
+                else
+                {
+                    info_a_retornar = res_regist;
+                }
             }
             else
             {
-
+                info_a_retornar = res_regist;
             }
 
 

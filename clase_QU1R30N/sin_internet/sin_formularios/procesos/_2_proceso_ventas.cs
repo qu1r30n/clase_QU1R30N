@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        public string ventas(string direccion_archivo,string codigos, string cantidades, string plataforma = "", string datos_de_pataforma = "")
+        public string ventas(string direccion_archivo,string codigos, string cantidades, string plataforma = "")
         {
             string info_a_retornar = null;
 
