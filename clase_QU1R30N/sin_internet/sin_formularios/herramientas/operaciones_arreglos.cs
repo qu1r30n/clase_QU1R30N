@@ -129,7 +129,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
 
-
         /*
         public string[][] agregar_arreglo_a_arreglo_de_arreglos(string[][] arreglo_de_arreglos, string[] nuevo_arreglo)
         {
@@ -158,9 +157,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             temp[arreglo_de_arreglos.Length] = nuevo_arreglo;
             return temp;
         }
-
-
-
 
 
         public string[] quitar_registro_del_array(string[] arreglo, int cantidad_a_quitar = 1, bool quitar_del_inicio = false)
@@ -257,8 +253,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             return "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el dato";
         }
-
-        
 
 
         //se le pone yy en referencia a &&

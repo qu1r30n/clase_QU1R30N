@@ -961,6 +961,32 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
+        public string[] extraer_separado_carpetas_nombreArchivo_extencion_de_una_direccion(string direccion_archivo)
+        {
+            string[] arreglo_retornar = new string[3];
+
+
+            string[] direccion_esp = direccion_archivo.Split('\\');
+            string[] nom_ext_esp = direccion_esp[direccion_esp.Length - 1].Split('.');
+            if (nom_ext_esp.Length > 1)
+            {
+                string carpetas = joineada_paraesida_SIN_NULOS_y_quitador_de_extremos_del_string(direccion_archivo, '\\', 1);
+                string nombre = nom_ext_esp[0];
+                string extencion = nom_ext_esp[1];
+                arreglo_retornar[0] = carpetas;
+                arreglo_retornar[1] = nombre;
+                arreglo_retornar[2] = extencion;
+            }
+            else
+            {
+
+            }
+
+
+            return arreglo_retornar;
+        }
+
+
 
     }
 }

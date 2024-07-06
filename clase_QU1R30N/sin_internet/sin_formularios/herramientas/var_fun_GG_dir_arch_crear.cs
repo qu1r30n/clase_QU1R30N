@@ -31,6 +31,63 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //                          ES EL DE ABAJITO A ESTE                   //
         //           TIENE QUE SER EL MISMO ARREGLO UNO QUE EL OTRO           //
         ////////////////////////////////////////////////////////////////////////
+
+        //datos configuracio
+
+        static public string[,] GG_ventana_datos_conf = new string[,]
+        {
+                /*0*/ { "2", "dato_de_configuracion", "" },
+                /*1*/ { "2", "descripcion_de_configuracion", "" }
+        };
+        public static void RecargarVentanaEmergenteDatosConfiguracion(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_datos_conf = new string[,]
+            {
+                /*0*/ { "2", "dato_de_configuracion", "" },
+                /*1*/ { "2", "descripcion_de_configuracion", "" }
+            };
+
+
+
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
+
         //ventana productos
         static public string[,] GG_ventana_emergente_productos = new string[,]
         {
@@ -84,6 +141,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 /*19*/ { "1", "_19_DIRECCION_IMAGEN_INTERNET", "" },
                 /*20*/ { "1", "_20_DIRECCION_IMAGEN_COMPUTADORA", "" },
                 /*21*/ { "2", "_21_NO_PONER_NADA", "" },
+
             };
 
 
@@ -149,9 +207,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","17_ACTIVO_O_NO_ACTIVO","" },
             { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" },
             { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" },
-            { "1","20_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" },
-            { "1","21_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","" },
-            { "1","22_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","" },
+            { "1","20_SUCURSALES_QUE_LE_COMPRAN","" },
+            { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" },
+            { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","" },
+            { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","" },
+            
 
         };
         public static void RecargarVentanaEmergenteProvedor(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -178,9 +238,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","17_ACTIVO_O_NO_ACTIVO","" },
                 { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" },
                 { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" },
-                { "1","20_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" },
-                { "1","21_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","" },
-                { "1","22_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","" },
+                { "1","20_SUCURSALES_QUE_LE_COMPRAN","" },
+                { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" },
+                { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","" },
+                { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","" },
             };
 
 
@@ -723,8 +784,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","15_NOTAS","" },
             { "1","16_RECORDATORIO","" },
             { "1","17_ACTIVO_O_NO_ACTIVO","" },
-            { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" },
-            
+            { "1","18_HORA_ABRIR°HORA_CERRAR","" },
+
 
         };
         public static void RecargarVentanaEmergenteSUCUR(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -749,7 +810,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","15_NOTAS","" },
                 { "1","16_RECORDATORIO","" },
                 { "1","17_ACTIVO_O_NO_ACTIVO","" },
-                { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" },
+                { "1","18_HORA_ABRIR°HORA_CERRAR","" },
 
             };
 
@@ -1467,8 +1528,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[,] GG_dir_nom_archivos =
         {
-            /*0*/{ GG_direccion_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT", "DIRECCION_DE_LAS_BASES_DE_DATOS" + var_fun_GG.GG_caracter_separacion_funciones_espesificas[0] + "FILA_INICIAL" + var_fun_GG.GG_caracter_separacion_funciones_espesificas[0] + "ARREGLO_DE_FILAS_SEPARADO_POR_§//POSDATA_SOLO_IR_AGREGANDO_ARCHIVOS_ASTA_ABAJO_POR_QUE_LAS_FILAS_YA_SON_OCUPADAS_POR_EL_PROGRAMA_Y_NO_BORRAR",""},
-            /*1*/{ GG_direccion_base[0] + "CONFIG\\INF\\INVENTARIO\\INVENTARIO.TXT", columnas_concatenadas(GG_ventana_emergente_productos,1,var_fun_GG.GG_caracter_separacion[0]),"1|PRODUCTO|200|ML|100|COD_BAR|-7|100|PROVEDOR¬0|PRODUCTO_PIEZA|10|CODIGO_BARRAS_PAQUETE|1|IVA||20240606|20240605|SUC_0¬0°¬2024070308|BEBIDA_ALCOLICA|||"},
+            /*0*/{ GG_direccion_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT",columnas_concatenadas(GG_ventana_datos_conf,1,var_fun_GG.GG_caracter_separacion[0]),"2|id ultimo usuario"},
+            /*1*/{ GG_direccion_base[0] + "CONFIG\\INF\\INVENTARIO\\INVENTARIO.TXT", columnas_concatenadas(GG_ventana_emergente_productos,1,var_fun_GG.GG_caracter_separacion[0]),"1|PRODUCTO|200|ML|100|COD_BAR|-7|100|PROVEDOR¬0|PRODUCTO_PIEZA|10|CODIGO_BARRAS_PAQUETE|1|IVA||20240606|20240605|SUC_0¬0°¬2024070308|BEBIDA_ALCOLICA|||§2|PRODUCTO|200|ML|100|COD_BAR1|-4|100|PROVEDOR1¬0|PRODUCTO_PIEZA|10|CODIGO_BARRAS_PAQUETE|1|IVA||20240606|20240605|SUC_0¬0°¬2024070308|BEBIDA_ALCOLICA|||"},
             /*2*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\PROVEDORES.TXT", columnas_concatenadas(GG_ventana_provedor,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*3*/{ GG_direccion_base[0] + "CONFIG\\INF\\DAT\\APRENDICES_E.TXT", columnas_concatenadas(GG_ventana_APRENDICES_E,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*4*/{ GG_direccion_base[0] + "CONFIG\\AFILIADOS\\AFILIADOS_SIMPLE.TXT", columnas_concatenadas(GG_ventana_afiliados_simples,1,var_fun_GG.GG_caracter_separacion[0]),"0|0|TABLA_COMPLEJA|0|TABLA_SIMPLE|0|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|0|0||§1|0|TABLA_COMPLEJA|0|TABLA_SIMPLE|0|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|1|0||§2|1|TABLA_COMPLEJA|1|TABLA_SIMPLE|0|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|2|0||§3|2|TABLA_COMPLEJA|2|TABLA_SIMPLE|0|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|3|0||§4|3|TABLA_COMPLEJA|3|TABLA_SIMPLE|0|0|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM|4|0||"},
@@ -1490,7 +1551,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*18*/{ GG_direccion_base[0] + "CONFIG\\INF\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //impuestos
             /*19*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\IMPUESTOS.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE|0|SIN DESCRIPCION|NOSE|3"},
-            /*19*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\DEDUSIBLES.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),""},
+            /*20*/{ GG_direccion_base[0] + "CONFIG\\INF\\IMPUESTOS\\DEDUSIBLES.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),""},
 
 
         };

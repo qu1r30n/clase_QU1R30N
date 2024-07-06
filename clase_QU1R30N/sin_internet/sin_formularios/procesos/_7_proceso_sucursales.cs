@@ -21,21 +21,36 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
 
 
-        public string funcion_a_hacer1(string direccion_archivo,string parametro1, string parametro2, string parametro3, object caracter_separacion_obj = null)
+        public string registrar_sucursal(string direccion_archivo,string datos, object caracter_separacion_obj = null)
         {
 
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
 
-            string direccion_archivo_aprendices_E = direccion_archivo;
-            string resultado_archivo_aprendices_E = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_E);
-            string[] res_esp_archivo_apr_E = resultado_archivo_aprendices_E.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (Convert.ToInt32(res_esp_archivo_apr_E[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
+            
+            string resultado_archivo_aprendices_E = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
+            string[] res_esp_archivo = resultado_archivo_aprendices_E.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (Convert.ToInt32(res_esp_archivo[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
             {
-                if (res_esp_archivo_apr_E[0] == "1")
+                if (res_esp_archivo[0] == "1")
                 {
+                    int indice = Convert.ToInt32(res_esp_archivo[1]);
+                    string texto_agregar = Tex_base.GG_base_arreglo_de_arreglos[indice].Length + caracter_separacion_string[0] + datos;
 
+                    
+                    bas.Agregar(direccion_archivo, texto_agregar);
+                    
+                    
+                    info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + texto_agregar;
+                }
+
+                else if (res_esp_archivo[0] == "2")
+                {
+                    int indice = Convert.ToInt32(res_esp_archivo[1]);
+                    string texto_agregar = Tex_base.GG_base_arreglo_de_arreglos[indice].Length + G_caracter_para_confirmacion_o_error[0] + datos;
+                    bas.Agregar(direccion_archivo, texto_agregar, false);
+                    info_a_retornar = "2" + G_caracter_para_confirmacion_o_error[0] + texto_agregar;
                 }
             }
 

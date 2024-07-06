@@ -44,7 +44,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string datos = datos_spliteados[1];
             string yyyyMMddHHmmss = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            mod_reg.registro_movimiento(modelo, proceso, datos,yyyyMMddHHmmss);
+            
 
             switch (modelo)
             {
@@ -76,7 +76,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     break;
             }
 
-            
+            mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 
