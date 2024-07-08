@@ -14,6 +14,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
+        
+        var_fun_GG vf_GG = new var_fun_GG();
+        operaciones_textos op_tex = new operaciones_textos();
+        operaciones_arreglos op_arr = new operaciones_arreglos();
+
+        int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
         string[] G_direcciones =
         {
@@ -23,10 +29,43 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         
 
         _1_proceso_compras pr_Comp = new _1_proceso_compras();
-        public string operacion_a_hacer(string proceso,string datos)
+        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
         {
             string info_a_retornar = null;
-            
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora;
+            string año_mes_dia_hora_minuto = "";
+            string año_mes_dia_hora = "";
+            string año_mes_dia = "";
+            string año_mes = "";
+            string año = "";
+
+            for (int i = 0; i < fecha_hora.Length; i++)
+            {
+                if (i < fecha_hora.Length - 2)
+                {
+                    año_mes_dia_hora_minuto = año_mes_dia_hora_minuto + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 4)
+                {
+                    año_mes_dia_hora = año_mes_dia_hora + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 6)
+                {
+                    año_mes_dia = año_mes_dia + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 8)
+                {
+                    año_mes = año_mes + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 10)
+                {
+                    año = año + fecha_hora[i];
+                }
+            }
+
+
+
             string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
             switch (proceso)
             {

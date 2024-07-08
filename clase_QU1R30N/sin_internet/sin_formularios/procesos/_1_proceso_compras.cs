@@ -175,6 +175,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                         info_a_retornar = pr_prod_inv.agregar_producto(direccion_archivo, texto_o_fila_que_ingresara_si_no_esta_el_producto);
+
                         info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "no se_encontro_dato pero ya se agrego";
                     }
                 }

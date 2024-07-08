@@ -14,6 +14,40 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         
         var_fun_GG vf_GG = new var_fun_GG();
 
+        public string join_paresido_simple(char caracter_union_filas, string[] texto, string columna_extraer = null, string caracter_union_columnas = null)
+        {
+            string resultado = "";
+            if (columna_extraer != null)
+            {
+                char caracter_union_columnas_caracter = Convert.ToChar(caracter_union_columnas);
+                for (int i = 0; i < texto.Length; i++)
+                {
+                    string[] columnas_extraer_arreglo = columna_extraer.Split(caracter_union_columnas_caracter);
+                    for (int j = 0; j < columnas_extraer_arreglo.Length; j++)
+                    {
+                        string[] temp;
+                        temp = texto[i].Split(caracter_union_columnas_caracter);
+                        resultado = resultado + temp[Convert.ToInt32(columnas_extraer_arreglo[j])] + caracter_union_columnas;
+
+                    }
+                    resultado = Trimend_paresido(resultado, caracter_union_columnas_caracter);
+                    resultado = resultado + caracter_union_filas;
+
+                }
+            }
+            else
+            {
+
+                for (int i = 0; i < texto.Length; i++)
+                {
+                    resultado = resultado + texto[i] + caracter_union_filas;
+                }
+            }
+            resultado = Trimend_paresido(resultado, caracter_union_filas);
+
+            return resultado;
+        }
+
         public string joineada_paraesida_y_quitador_de_extremos_del_string(object arreglo_objeto, object caracter_separacion_objeto = null, int restar_cuantas_ultimas_o_primeras_celdas = 0, bool restar_primera_celda = false)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);

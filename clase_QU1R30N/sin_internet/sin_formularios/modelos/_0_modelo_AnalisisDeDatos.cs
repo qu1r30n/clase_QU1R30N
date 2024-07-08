@@ -29,11 +29,43 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         
 
         _0_proceso_AnalisisDeDatos pr_an_dat = new _0_proceso_AnalisisDeDatos();
-        public string operacion_a_hacer(string proceso,string datos)
+        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
         {
-            
-
             string info_a_retornar = null;
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora;
+            string año_mes_dia_hora_minuto = "";
+            string año_mes_dia_hora = "";
+            string año_mes_dia = "";
+            string año_mes = "";
+            string año = "";
+
+            for (int i = 0; i < fecha_hora.Length; i++)
+            {
+                if (i < fecha_hora.Length - 2)
+                {
+                    año_mes_dia_hora_minuto = año_mes_dia_hora_minuto + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 4)
+                {
+                    año_mes_dia_hora = año_mes_dia_hora + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 6)
+                {
+                    año_mes_dia = año_mes_dia + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 8)
+                {
+                    año_mes = año_mes + fecha_hora[i];
+                }
+                if (i < fecha_hora.Length - 10)
+                {
+                    año = año + fecha_hora[i];
+                }
+            }
+
+
+
             string[] datos_spliteados = datos.Split(G_caracter_separacion[0][0]);
 
             switch (proceso)

@@ -17,6 +17,9 @@ namespace clase_QU1R30N
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
+        
+        
+
 
         Tex_base bas = new Tex_base();
         public void iniciar()
@@ -34,8 +37,19 @@ namespace clase_QU1R30N
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 1], 
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
             }
-            
-            
+
+            string[] res_indice = bas.sacar_indice_del_arreglo_de_direccion(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            int indice = Convert.ToInt32(res_indice[1]);
+
+
+            for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
+            {
+                string[] info_esp = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
+                var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(info_esp[5] + G_caracter_separacion[0] + info_esp[1] + G_caracter_separacion[0] + info_esp[0]);
+                var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(info_esp[5] + G_caracter_separacion[0] + info_esp[1] + G_caracter_separacion[0] + info_esp[0]);
+            }
+            var_fun_GG.GG_inv_solo_lect = Array.AsReadOnly(Tex_base.GG_base_arreglo_de_arreglos[indice]);
+
         }
     }
 }

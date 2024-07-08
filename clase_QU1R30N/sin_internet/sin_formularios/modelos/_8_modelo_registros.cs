@@ -69,8 +69,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
             
 
-            
-
             if (Convert.ToInt32(res_regist_esp[0]) > 0)
             {
                 if (res_regist_esp[0] == "1")
@@ -105,7 +103,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             return info_a_retornar;
 
         }
-
 
     }
 }

@@ -15,7 +15,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _0_modelo_AnalisisDeDatos mod_an_dat = new _0_modelo_AnalisisDeDatos();
         _1_modelo_compras mod_comp = new _1_modelo_compras();
         _2_modelo_ventas mod_vent = new _2_modelo_ventas();
-        _3_modelo_productos_e_inventario mod_inv = new _3_modelo_productos_e_inventario();
+        _3_modelo_productos_e_inventario mod_pro_inv = new _3_modelo_productos_e_inventario();
         _4_modelo_aprendices_E mod_apr_E = new _4_modelo_aprendices_E();
         _5_modelo_afiliados mod_afil = new _5_modelo_afiliados();
         _6_modelo_provedores mod_pro = new _6_modelo_provedores();
@@ -50,29 +50,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             {
                 case "MODELO_ANALISIS_DATOS":
                     //"existe_producto§codigo"
-                    info_a_retornar = mod_an_dat.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_an_dat.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_COMPRAS":
-                    info_a_retornar = mod_comp.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_comp.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_VENTAS":
-                    info_a_retornar = mod_vent.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_vent.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
-                case "MODELO_INVENTARIO":
-                    info_a_retornar = mod_inv.operacion_a_hacer(proceso, datos);
+                case "MODELO_PRODUCTOS_E_INVENTARIO":
+                    info_a_retornar = mod_pro_inv.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_APRENDICES_E":
-                    info_a_retornar = mod_apr_E.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_apr_E.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_AFILIADOS":
                     //inscribir_simple§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    info_a_retornar = mod_afil.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_afil.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_PROVEDORES":
-                    info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_SUCURSALES":
-                    info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos);
+                    info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
             }
 

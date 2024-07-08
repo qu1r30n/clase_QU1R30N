@@ -25,7 +25,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         
 
         _2_proceso_ventas pr_vent = new _2_proceso_ventas();
-        public string operacion_a_hacer(string proceso, string datos)
+        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
         {
             string info_a_retornar = null;
 

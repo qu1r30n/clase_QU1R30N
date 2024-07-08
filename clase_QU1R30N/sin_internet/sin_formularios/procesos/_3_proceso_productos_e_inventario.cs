@@ -22,9 +22,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
         Tex_base bas = new Tex_base();
-
-
+        operaciones_textos op_tex = new operaciones_textos();
+        operaciones_arreglos op_arr = new operaciones_arreglos();
         
+        string[] G_direcciones =
+        {
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
+        };
 
         public string agregar_producto(string direccion_archivo,string producto)
         {
@@ -46,28 +50,53 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                     string _0_id = "" + Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length;
-                    string _1_producto = producto_espliteado[0];
-                    double _2_contenido = Convert.ToDouble(producto_espliteado[1]);
-                    string _3_tipo_medida = producto_espliteado[2];
-                    double _4_precio_venta = Convert.ToDouble(producto_espliteado[3]);
-                    string _5_cod_barras = producto_espliteado[4];
-                    double _6_cantidad = Convert.ToDouble(producto_espliteado[5]);
-                    double _7_costo_comp = Convert.ToDouble(producto_espliteado[6]);
-                    string _8_provedor = producto_espliteado[7];
-                    string _9_grupo = producto_espliteado[8];
-                    double _10_cant_produc_x_paquet = Convert.ToDouble(producto_espliteado[9]);
-                    string _11_tipo_de_producto = producto_espliteado[10];
-                    string _12_ligar_produc_sab = producto_espliteado[11];
-                    string _13_impuestos = producto_espliteado[12];
-                    string _14_si_es_elaborado_que_materia_prima_usa_y_cantidad = producto_espliteado[13];
-                    string _15_caducidad = producto_espliteado[14];
-                    string _16_ultimo_movimiento = año_mes_dia_hora;
-                    string _17_sucursal_vent = producto_espliteado[16];
-                    string _18_clasificacion_producto = producto_espliteado[17];
-                    string _19_no_poner_nada = producto_espliteado[18];
+                    string NOM_PRODUCTO = producto_espliteado[0];
+                    double _2_CONTENIDO = Convert.ToDouble(producto_espliteado[1]);
+                    string _3_TIPO_MEDIDA = producto_espliteado[2];
+                    double _4_PRECIO_VENTA = Convert.ToDouble(producto_espliteado[3]);
+                    string _5_COD_BARRAS = producto_espliteado[4];
+                    double _6_CANTIDAD = Convert.ToDouble(producto_espliteado[5]);
+                    double _7_COSTO_COMP = Convert.ToDouble(producto_espliteado[6]);
+                    string _8_PROVEDOR = producto_espliteado[7];
+                    string _9_GRUPO = producto_espliteado[8];
+                    double _10_CANT_PRODUC_X_PAQUET = Convert.ToDouble(producto_espliteado[9]);
+                    string _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 = producto_espliteado[10];
+                    string _12_LIGAR_PRODUC_SAB = producto_espliteado[11];
+                    string _13_IMPUESTOS = producto_espliteado[12];
+                    string _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD = producto_espliteado[13];
+                    string _15_CADUCIDAD = producto_espliteado[14];
+                    string _16_ULTIMO_MOVIMIENTO = producto_espliteado[15];
+                    string _17_SUCURSAL_VENT = producto_espliteado[16];
+                    string _18_CLASIFICACION_PRODUCTO = producto_espliteado[17];
+                    string _19_DIRECCION_IMAGEN_INTERNET = producto_espliteado[18];
+                    string _20_DIRECCION_IMAGEN_COMPUTADORA = producto_espliteado[19];
+                    string _21_NO_PONER_NADA = producto_espliteado[20];
 
-                    string todo_unido = _0_id + G_caracter_separacion[0] + _1_producto + G_caracter_separacion[0] + _2_contenido + G_caracter_separacion[0] + _3_tipo_medida + G_caracter_separacion[0] + _4_precio_venta + G_caracter_separacion[0] + _5_cod_barras + G_caracter_separacion[0] + _6_cantidad + G_caracter_separacion[0] + _7_costo_comp + G_caracter_separacion[0] + _8_provedor + G_caracter_separacion[0] + _9_grupo + G_caracter_separacion[0] + _10_cant_produc_x_paquet + G_caracter_separacion[0] + _11_tipo_de_producto + G_caracter_separacion[0] + _12_ligar_produc_sab + G_caracter_separacion[0] + _13_impuestos + G_caracter_separacion[0] + _14_si_es_elaborado_que_materia_prima_usa_y_cantidad + G_caracter_separacion[0] + _15_caducidad + G_caracter_separacion[0] + _16_ultimo_movimiento + G_caracter_separacion[0] + _17_sucursal_vent + G_caracter_separacion[0] + _18_clasificacion_producto + G_caracter_separacion[0] + _19_no_poner_nada + G_caracter_separacion[0];
+                    string todo_unido = _0_id + G_caracter_separacion[0] +
+                     NOM_PRODUCTO + G_caracter_separacion[0] +
+                     _2_CONTENIDO + G_caracter_separacion[0] +
+                     _3_TIPO_MEDIDA + G_caracter_separacion[0] +
+                     _4_PRECIO_VENTA + G_caracter_separacion[0] +
+                     _5_COD_BARRAS + G_caracter_separacion[0] +
+                     _6_CANTIDAD + G_caracter_separacion[0] +
+                     _7_COSTO_COMP + G_caracter_separacion[0] +
+                     _8_PROVEDOR + G_caracter_separacion[0] +
+                     _9_GRUPO + G_caracter_separacion[0] +
+                     _10_CANT_PRODUC_X_PAQUET + G_caracter_separacion[0] +
+                     _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 + G_caracter_separacion[0] +
+                     _12_LIGAR_PRODUC_SAB + G_caracter_separacion[0] +
+                     _13_IMPUESTOS + G_caracter_separacion[0] +
+                     _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD + G_caracter_separacion[0] +
+                     _15_CADUCIDAD + G_caracter_separacion[0] +
+                     _16_ULTIMO_MOVIMIENTO + G_caracter_separacion[0] +
+                     _17_SUCURSAL_VENT + G_caracter_separacion[0] +
+                     _18_CLASIFICACION_PRODUCTO + G_caracter_separacion[0] +
+                     _19_DIRECCION_IMAGEN_INTERNET + G_caracter_separacion[0] +
+                     _20_DIRECCION_IMAGEN_COMPUTADORA + G_caracter_separacion[0] +
+                     _21_NO_PONER_NADA;
+
                     info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
+                    //agregar dependiendo sucursal
 
                     return "";
                 }
@@ -92,8 +121,110 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return "";
         }
 
-        
 
+        public string agrega_si_no_existe(string direccion_archivo, string producto)
+        {
+            string info_a_retornar = "";
+            string res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
+            string[] res_esp = res_ind_ar.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (Convert.ToInt32(res_ind_ar[0]) > 0)
+            {
+
+                if (res_esp[0] == "1")
+                {
+
+                    string[] producto_espliteado = producto.Split(G_caracter_separacion[0][0]);
+
+                    DateTime fecha_hora = DateTime.Now;
+                    string año_mes_dia_hora = fecha_hora.ToString("yyyyMMddHH");
+                    string año = fecha_hora.ToString("yyyy");
+                    int indice_arreglo = Convert.ToInt32(res_esp[1]);
+
+
+                    string _0_id = "" + Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length;
+                    string _1_NOM_PRODUCTO = producto_espliteado[0];
+                    double _2_CONTENIDO = Convert.ToDouble(producto_espliteado[1]);
+                    string _3_TIPO_MEDIDA = producto_espliteado[2];
+                    double _4_PRECIO_VENTA = Convert.ToDouble(producto_espliteado[3]);
+                    string _5_COD_BARRAS = producto_espliteado[4];
+                    double _6_CANTIDAD = Convert.ToDouble(producto_espliteado[5]);
+                    double _7_COSTO_COMP = Convert.ToDouble(producto_espliteado[6]);
+                    string _8_PROVEDOR = producto_espliteado[7];
+                    string _9_GRUPO = producto_espliteado[8];
+                    double _10_CANT_PRODUC_X_PAQUET = Convert.ToDouble(producto_espliteado[9]);
+                    string _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 = producto_espliteado[10];
+                    string _12_LIGAR_PRODUC_SAB = producto_espliteado[11];
+                    string _13_IMPUESTOS = producto_espliteado[12];
+                    string _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD = producto_espliteado[13];
+                    string _15_CADUCIDAD = producto_espliteado[14];
+                    int _16_ULTIMO_MOVIMIENTO = Convert.ToInt32(producto_espliteado[15]);
+                    string _17_SUCURSAL_VENT = producto_espliteado[16];
+                    string _18_CLASIFICACION_PRODUCTO = producto_espliteado[17];
+                    string _19_DIRECCION_IMAGEN_INTERNET = producto_espliteado[18];
+                    string _20_DIRECCION_IMAGEN_COMPUTADORA = producto_espliteado[19];
+                    string _21_NO_PONER_NADA = producto_espliteado[20];
+
+                    string todo_unido = _0_id + G_caracter_separacion[0] +
+                     _1_NOM_PRODUCTO + G_caracter_separacion[0] +
+                     _2_CONTENIDO + G_caracter_separacion[0] +
+                     _3_TIPO_MEDIDA + G_caracter_separacion[0] +
+                     _4_PRECIO_VENTA + G_caracter_separacion[0] +
+                     _5_COD_BARRAS + G_caracter_separacion[0] +
+                     _6_CANTIDAD + G_caracter_separacion[0] +
+                     _7_COSTO_COMP + G_caracter_separacion[0] +
+                     _8_PROVEDOR + G_caracter_separacion[0] +
+                     _9_GRUPO + G_caracter_separacion[0] +
+                     _10_CANT_PRODUC_X_PAQUET + G_caracter_separacion[0] +
+                     _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 + G_caracter_separacion[0] +
+                     _12_LIGAR_PRODUC_SAB + G_caracter_separacion[0] +
+                     _13_IMPUESTOS + G_caracter_separacion[0] +
+                     _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD + G_caracter_separacion[0] +
+                     _15_CADUCIDAD + G_caracter_separacion[0] +
+                     _16_ULTIMO_MOVIMIENTO + G_caracter_separacion[0] +
+                     _17_SUCURSAL_VENT + G_caracter_separacion[0] +
+                     _18_CLASIFICACION_PRODUCTO + G_caracter_separacion[0] +
+                     _19_DIRECCION_IMAGEN_INTERNET + G_caracter_separacion[0] +
+                     _20_DIRECCION_IMAGEN_COMPUTADORA + G_caracter_separacion[0] +
+                     _21_NO_PONER_NADA;
+
+                    info_a_retornar = bas.Agregar_sino_existe(direccion_archivo, 5, _5_COD_BARRAS, todo_unido);
+
+                    //info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
+
+                    
+                }
+
+
+
+
+            }
+
+            else
+            {
+                if (res_esp[0] == "0")
+                {
+                    info_a_retornar = "0";
+                }
+                else if (res_esp[0] == "-1")
+                {
+                    info_a_retornar = "-1";
+                }
+            }
+
+            return info_a_retornar;
+        }
+
+        public string dar_el_inventario_string_caracter_sep(string direccion_archivo, object caracter_separacion_obj = null)
+        {
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_obj);
+            string[] res_inv = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            int indice = Convert.ToInt32(res_inv[1]);
+
+            string inventario = op_tex.join_paresido_simple(caracter_separacion[0][0], Tex_base.GG_base_arreglo_de_arreglos[indice]);
+
+            return inventario;
+            
+        }
 
     }
 }
