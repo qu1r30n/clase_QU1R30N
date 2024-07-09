@@ -30,6 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
 
         // Función para manejar compras
         public string enlasador(string INFO_ENTRADA)
+        
         {
             //ejemplo dato entrada: "analisis_datos~existe_producto§codigo"
             INFO_ENTRADA = INFO_ENTRADA.ToUpper();
@@ -76,7 +77,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     break;
             }
 
-            mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
+            
+            //mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 

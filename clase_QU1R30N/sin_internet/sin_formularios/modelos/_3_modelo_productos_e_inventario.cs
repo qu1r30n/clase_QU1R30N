@@ -63,8 +63,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
 
             string res_ind_ar = "";
-            string[] res_esp = null;
-            int indice_arreglo = 0;
+            
             switch (proceso)
             {
                 case "AGREGAR_SINO_EXISTE":
@@ -81,6 +80,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     
                     info_a_retornar = proc_inventario.agregar_producto(G_direcciones[0],datos);
                     
+                    break;
+
+                case "BUSCAR":
+
+
+                    info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+
+
+
                     break;
 
                 case "SACAR_INVENTARIO":

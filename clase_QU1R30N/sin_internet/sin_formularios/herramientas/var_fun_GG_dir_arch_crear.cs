@@ -115,7 +115,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 /*20*/ { "1", "_20_DIRECCION_IMAGEN_COMPUTADORA", "" },
                 /*21*/ { "2", "_21_NO_PONER_NADA", "" },
         };
-
         public static void RecargarVentanaEmergenteProductos(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_emergente_productos = new string[,]
@@ -185,6 +184,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
         
+
         static public string[,] GG_ventana_COSAS_NO_ESTABAN_INVENTARIO =
         {
             { "1","0_COD_BAR","" },

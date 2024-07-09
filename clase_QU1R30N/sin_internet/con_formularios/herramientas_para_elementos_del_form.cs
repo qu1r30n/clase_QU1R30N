@@ -1,4 +1,5 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
+﻿using clase_QU1R30N.sin_internet.sin_formularios;
+using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
-        var_fun_GG vf_GG = new var_fun_GG();
+        principal enl_princ = new principal();
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
@@ -54,9 +55,69 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         {
             txt_a_configurar.KeyDown += (sender, e) =>
             {
+                
                 if (e.KeyValue == (char)Keys.Enter)
                 {
+                    txt_a_configurar.Text = txt_a_configurar.Text.ToUpper();
 
+                    string[] tex_esplit = txt_a_configurar.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
+                    var_fun_GG.GG_variables_string[0] = tex_esplit[0];
+
+                    string[] info_producto = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0] + G_caracter_separacion[0] + tex_esplit[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                    string indice_producto = info_producto[2];
+                    
+                    if (indice_producto != "")
+                    {
+                        fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", 1, lbl_configurar_desc_produc: lbl_configurar_desc_produc, lbl_configurar_cantidad_costo: lbl_configurar_cantidad_costo, lbl_configurar_total: lbl_configurar_total);
+
+                    }
+
+                    else
+                    {
+                        //tipos_medida_producto
+                        if (var_fun_GG.GG_variables_string[5] == null || var_fun_GG.GG_variables_string[5] == "")
+                        {
+                            var_fun_GG.GG_variables_string[5] = "NOSE";
+                        }
+                        //fin_tipos_medida_producto
+                        //provedores
+                        if (var_fun_GG.GG_variables_string[1] == null || var_fun_GG.GG_variables_string[1] == "")
+                        {
+                            var_fun_GG.GG_variables_string[1] = "NOSE";
+                        }
+                        //var_fun_GG.GG_variables_string[2] = op_tex.join_paresido_simple(Convert.ToChar(G_caracter_separacion[1]), variables_glob_conf.GG_arrays_carga_de_archivos[1]);
+                        //fin_provedores
+                        //var_fun_GG.GG_variables_string[6] = op_tex.join_paresido_simple(Convert.ToChar(G_caracter_separacion[1]), variables_glob_conf.GG_arrays_carga_de_archivos[5]);
+
+
+
+                        Ventana_emergente emergente_vent = new Ventana_emergente();
+                        var_fun_GG_dir_arch_crear.RecargarVentanaEmergenteProductos();
+                        string datos_introducidos = emergente_vent.Proceso_ventana_emergente(var_fun_GG_dir_arch_crear.GG_ventana_emergente_productos);
+
+
+                        if (datos_introducidos != "")
+                        {
+
+                            //mod.modelo_unico("mod_form_chequeo_info_producto_nuevo", texto_rapido: datos_introducidos);
+                            //registro_nuevo_producto(txt_a_configurar, datos_introducidos);
+                            //mod.modelo_unico("agregar_string_al_inventario", texto_rapido: datos_introducidos);
+
+
+                            Tex_base bas = new Tex_base();
+                            fun_txt_prediccion_palabra(txt_a_configurar, "codbar");
+
+
+                            txt_a_configurar.Text = "";
+                            txt_a_configurar.Focus();
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
                 }
 
                 else if (e.KeyValue == (char)(Keys.Add))
@@ -320,7 +381,78 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             return informacionProducto;
         }
 
+        public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string proceso = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null)
+        {
 
+            switch (accion_realisar)
+            {
+                case "agregar":
+                    if (txt_de_donde_agregara_info.Text != "" && txt_de_donde_agregara_info.Text != null)
+                    {
+
+                        lstb_a_configurar.Items.Add(txt_de_donde_agregara_info.Text);
+                        txt_de_donde_agregara_info.Text = "";
+                    }
+                    break;
+
+                //inicio agregar_productos----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                case "agregar_producto":
+
+                    //agrega por agregar falta revisar si ya existe el codigo
+                    if (txt_de_donde_agregara_info.Text != "" && txt_de_donde_agregara_info.Text != null)
+                    {
+                        string[] info_pa_comparar = txt_de_donde_agregara_info.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
+                        string[] info_produc_del_invent = extraer_info_e_indise(info_pa_comparar[0]);
+                        string[] info_split_produc_inv = info_produc_del_invent[0].Split(Convert.ToChar(G_caracter_separacion[0]));
+                        if (info_split_produc_inv[9] == "2")
+                        {
+                            Ventana_emergente vent_emergent = new Ventana_emergente();
+                            string[] enviar = { "2°producto°" + info_produc_del_invent[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
+                            string result = vent_emergent.Proceso_ventana_emergente(enviar);
+                            if (result != "")
+                            {
+                                cantidad = Convert.ToDouble(result);
+                            }
+
+                        }
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, info_pa_comparar[0], cantidad);
+
+                        if (info_produc_del_invent[0] != null)
+                        {
+
+
+                            if (lbl_configurar_desc_produc != null) { lbl_configurar_desc_produc.Text = info_split_produc_inv[0] + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " precio:" + info_split_produc_inv[3]; }
+                            if (lbl_configurar_cantidad_costo != null) { lbl_configurar_cantidad_costo.Text = cantidad_sumada_o_restada + " " + info_split_produc_inv[0] + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " " + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc_inv[3])); }
+                            sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
+
+                        }
+
+
+                        txt_de_donde_agregara_info.Text = "";
+                    }
+
+                    break;
+
+                //fin agregar_productos---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                //i------------------------------------------------------------------------------------------------------------------------
+                case "eliminar":
+
+                    funciones_de_botones(lstb_a_configurar, proceso);
+
+                    break;
+
+                //f--------------------------------------------------------------------------------------------------------------------
+
+
+
+                default:
+                    break;
+            }
+
+
+        }
 
         //final clase-----------------------------------------------------------
     }
