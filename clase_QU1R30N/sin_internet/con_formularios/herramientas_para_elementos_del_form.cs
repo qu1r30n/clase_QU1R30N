@@ -69,7 +69,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     
                     if (indice_producto != "")
                     {
-                        fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", 1, lbl_configurar_desc_produc: lbl_configurar_desc_produc, lbl_configurar_cantidad_costo: lbl_configurar_cantidad_costo, lbl_configurar_total: lbl_configurar_total);
+                        fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", 1, info_producto[1],indice_producto, lbl_configurar_desc_produc,lbl_configurar_cantidad_costo, lbl_configurar_total);
 
                     }
 
@@ -145,7 +145,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             }
 
                         }
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, elemento_espliteado[0], cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, elemento_espliteado[0],"", cantidad);
 
                         if (info_produc_del_invent[0] != null)
                         {
@@ -191,7 +191,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             }
 
                         }
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, elemento_espliteado[0], (cantidad));
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, elemento_espliteado[0],"", (cantidad));
                         if (cantidad_sumada_o_restada == "")
                         {
                             cantidad_sumada_o_restada = "0";
@@ -222,14 +222,16 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         }
 
 
-        public string sumar_o_restar_producto(ListBox lstb_a_configurar, string codigo, double cantidad = 1)
+        public string sumar_o_restar_producto(ListBox lstb_a_configurar, string datos, string indice_producto, double cantidad = 1)
         {
             bool esta_el_mismo_producto = false;
             string cantidad_retornar_string = "";
+
+            string[] datos_espliteados = datos.Split(G_caracter_separacion[0][0]);
             for (int i = 0; i < lstb_a_configurar.Items.Count; i++)
             {
                 string[] elemento_espliteado = lstb_a_configurar.Items[i].ToString().Split(Convert.ToChar(G_caracter_separacion[0]));
-                if (codigo == elemento_espliteado[0])
+                if (datos_espliteados[5] == elemento_espliteado[0])
                 {
                     esta_el_mismo_producto = true;
                     double resultado = (Convert.ToDouble(elemento_espliteado[5]) + cantidad);
@@ -248,22 +250,13 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             }
 
 
-            if (!esta_el_mismo_producto)
+            if (esta_el_mismo_producto == false)
             {
-
-                for (int j = G_donde_inicia_la_tabla; j < var_fun_GG.GG_inv_solo_lect.Count; j++)
-                {
-                    string[] producto_invent = var_fun_GG.GG_inv_solo_lect[j].Split(Convert.ToChar(G_caracter_separacion[0]));
-                    if (codigo == producto_invent[4])
-                    {
-                        //id_0|producto_1|cantidad_producto_2|tipo_de_medida_3|precio_de_venta_4|0_5|cantidad_6|costo_compra_7|provedor_8|grupo_9|multiusos_10|cantidad_productos_por_paquete_11|produc_elaborados_12|ligar_productos_para_sabo_13|impuesto_14|tipo_producto_para_impuesto_15
-
-                        lstb_a_configurar.Items.Add(producto_invent[4] + G_caracter_separacion[0] + producto_invent[0] + G_caracter_separacion[0] + producto_invent[1] + G_caracter_separacion[0] + producto_invent[2] + G_caracter_separacion[0] + producto_invent[3] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + j);
-                        cantidad_retornar_string = "" + cantidad;
-                        break;
-                    }
-                }
+                //err__ falta_modificar para precio y producto
+                lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto);
+                cantidad_retornar_string = "" + cantidad;
             }
+
             return cantidad_retornar_string;
         }
 
@@ -381,7 +374,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             return informacionProducto;
         }
 
-        public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string proceso = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null)
+        public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string datos = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null)
         {
 
             switch (accion_realisar)
@@ -399,15 +392,16 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                 case "agregar_producto":
 
                     //agrega por agregar falta revisar si ya existe el codigo
-                    if (txt_de_donde_agregara_info.Text != "" && txt_de_donde_agregara_info.Text != null)
+                    if (txt_de_donde_agregara_info.Text != "" && datos != "")
                     {
-                        string[] info_pa_comparar = txt_de_donde_agregara_info.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
-                        string[] info_produc_del_invent = extraer_info_e_indise(info_pa_comparar[0]);
-                        string[] info_split_produc_inv = info_produc_del_invent[0].Split(Convert.ToChar(G_caracter_separacion[0]));
-                        if (info_split_produc_inv[9] == "2")
+                        string[] info_split_produc = datos.Split(G_caracter_separacion[0][0]);
+
+
+
+                        if (info_split_produc[9] == "2")
                         {
                             Ventana_emergente vent_emergent = new Ventana_emergente();
-                            string[] enviar = { "2°producto°" + info_produc_del_invent[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
+                            string[] enviar = { "2°producto°" + "info_produc_del_invent[3]", "1°cantidad en litros o kilos(se puede decimal)°°2" };
                             string result = vent_emergent.Proceso_ventana_emergente(enviar);
                             if (result != "")
                             {
@@ -415,15 +409,16 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             }
 
                         }
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, info_pa_comparar[0], cantidad);
 
-                        if (info_produc_del_invent[0] != null)
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, datos,indice_producto, cantidad);
+
+                        if (info_split_produc[0] != null)
                         {
 
 
-                            if (lbl_configurar_desc_produc != null) { lbl_configurar_desc_produc.Text = info_split_produc_inv[0] + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " precio:" + info_split_produc_inv[3]; }
-                            if (lbl_configurar_cantidad_costo != null) { lbl_configurar_cantidad_costo.Text = cantidad_sumada_o_restada + " " + info_split_produc_inv[0] + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " " + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc_inv[3])); }
-                            sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
+                            //if (lbl_configurar_desc_produc != null) { lbl_configurar_desc_produc.Text = info_split_produc[0] + " " + info_split_produc[1] + " " + info_split_produc[2] + " precio:" + info_split_produc[3]; }
+                            //if (lbl_configurar_cantidad_costo != null) { lbl_configurar_cantidad_costo.Text = cantidad_sumada_o_restada + " " + info_split_produc[0] + " " + info_split_produc[1] + " " + info_split_produc[2] + " " + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc[3])); }
+                            //sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
 
                         }
 
@@ -439,7 +434,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                 //i------------------------------------------------------------------------------------------------------------------------
                 case "eliminar":
 
-                    funciones_de_botones(lstb_a_configurar, proceso);
+                    funciones_de_botones(lstb_a_configurar, datos);
 
                     break;
 
