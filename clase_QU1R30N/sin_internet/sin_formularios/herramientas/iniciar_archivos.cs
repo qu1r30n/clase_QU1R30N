@@ -45,8 +45,8 @@ namespace clase_QU1R30N
             for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
             {
                 string[] info_esp = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
-                var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(info_esp[5] + G_caracter_separacion[0] + info_esp[1] + G_caracter_separacion[0] + info_esp[0]);
-                var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(info_esp[5] + G_caracter_separacion[0] + info_esp[1] + G_caracter_separacion[0] + info_esp[0]);
+                var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(info_esp[5] + G_caracter_separacion[0] + info_esp[1] + " " + info_esp[2] + info_esp[3] + G_caracter_separacion[0] + i);
+                var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(info_esp[1] + " " + info_esp[2] + info_esp[3] + G_caracter_separacion[0] + info_esp[5] + G_caracter_separacion[0] + i);
             }
             var_fun_GG.GG_inv_solo_lect = Array.AsReadOnly(Tex_base.GG_base_arreglo_de_arreglos[indice]);
 

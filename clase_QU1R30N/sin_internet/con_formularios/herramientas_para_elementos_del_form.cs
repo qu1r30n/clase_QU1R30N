@@ -235,6 +235,26 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             };
         }
 
+        public void fun_txt_nom_produc_pasar_a_txt_codigo(TextBox txt_origen, TextBox txt_destino, string orden)
+        {
+
+            txt_origen.KeyDown += (sender, e) =>
+            {
+                if (e.KeyValue == (char)Keys.Enter)
+                {
+                    string[] info_espliteado = txt_origen.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
+                    if (info_espliteado.Length > 1)
+                    {
+
+                        txt_destino.Text = info_espliteado[1] + G_caracter_separacion[0] + info_espliteado[0] + G_caracter_separacion[0] + info_espliteado[2];
+                        txt_destino.Focus();
+                        txt_origen.Text = "";
+                    }
+                }
+
+            };
+        }
+
 
         public string sumar_o_restar_producto(ListBox lstb_a_configurar, string datos, string indice_producto, double cantidad = 1)
         {
@@ -268,7 +288,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
             if (esta_el_mismo_producto == false)
             {
-                //err__ falta_modificar para precio y producto
+                
                 lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + datos_espliteados[2] + G_caracter_separacion[0] + datos_espliteados[3] + G_caracter_separacion[0] + datos_espliteados[4] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto);
                 cantidad_retornar_string = "" + cantidad;
             }
@@ -362,34 +382,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
         }
 
-        public string[] extraer_info_e_indise(string cod_bar, string caracter_separacion = null)
-        {
-
-            if (caracter_separacion == null)
-            {
-                caracter_separacion = G_caracter_separacion[0];
-            }
-
-            string[] informacionProducto = { null, null };
-
-            bool encontrado = false;
-            for (int i = G_donde_inicia_la_tabla; i < var_fun_GG.GG_inv_solo_lect.Count; i++)
-            {
-                string[] producto_espliteado = var_fun_GG.GG_inv_solo_lect[i].Split(Convert.ToChar(caracter_separacion));
-                if (producto_espliteado[4] == cod_bar)
-                {
-                    informacionProducto[0] = var_fun_GG.GG_inv_solo_lect[i];
-                    informacionProducto[1] = "" + i;
-                    encontrado = true;
-                    break;
-                }
-            }
-
-            if (encontrado == false) {/*hacer algo si no lo encuentra*/}
-
-            return informacionProducto;
-        }
-
+        
         public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string datos = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null)
         {
 

@@ -37,7 +37,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
             herr_form.fun_txt_prediccion_palabra(Txt_nom_producto, "producto");
 
             herr_form.fun_txt_procesar_tecleos(Txt_buscar_producto, Lst_ventas, Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
-
+            herr_form.fun_txt_nom_produc_pasar_a_txt_codigo(Txt_nom_producto, Txt_buscar_producto, "4");
 
             //------------------------------------------------------------------------------------
         }
