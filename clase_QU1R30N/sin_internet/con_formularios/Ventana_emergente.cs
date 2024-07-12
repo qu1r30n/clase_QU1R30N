@@ -118,6 +118,13 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             return G_devolver_informacion;//se uso la informacion de la variable global G_devolver_informacion que obtubo en funcion posicion a poner
         }
 
+
+
+
+
+
+
+
         public void posicion_a_poner(string[] controles, string[] caracter_spliteo = null)
         {
             if (caracter_spliteo == null)

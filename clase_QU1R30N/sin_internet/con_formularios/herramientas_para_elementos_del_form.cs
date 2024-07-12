@@ -64,12 +64,30 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     var_fun_GG.GG_variables_string[0] = tex_esplit[0];
 
                     string[] info_producto = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0] + G_caracter_separacion[0] + tex_esplit[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-
+                    string[] info_split_produc_inv = info_producto[1].Split(G_caracter_separacion[0][0]);
                     string indice_producto = info_producto[2];
-                    
+
+                    double cantidad = 1;
+
+                    if (info_split_produc_inv[9] == "PRODUCTO_CANTIDAD")
+                    {
+                        Ventana_emergente vent_emergent = new Ventana_emergente();
+                        string[] enviar = { "2|producto|" + info_split_produc_inv[1], "1|cantidad en litros o kilos(se puede decimal)||solo_numeros" };
+                        string result = vent_emergent.Proceso_ventana_emergente(enviar);
+                        
+                        if (result != "")
+                        {
+                            string[] res_esp = result.Split(G_caracter_separacion[0][0]);
+                            cantidad = Convert.ToDouble(res_esp[1]);
+                        }
+
+                    }
+
+
+
                     if (indice_producto != "")
                     {
-                        fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", 1, info_producto[1],indice_producto, lbl_configurar_desc_produc,lbl_configurar_cantidad_costo, lbl_configurar_total);
+                        fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", cantidad, info_producto[1],indice_producto, lbl_configurar_desc_produc,lbl_configurar_cantidad_costo, lbl_configurar_total);
 
                     }
 
@@ -135,7 +153,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         
 
-                        if (info_split_produc_inv[9] == "2")
+                        if (info_split_produc_inv[9] == "PRODUCTO_CANTIDAD")
                         {
                             Ventana_emergente vent_emergent = new Ventana_emergente();
                             string[] enviar = { "2°producto°" + info_split_produc_inv[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
