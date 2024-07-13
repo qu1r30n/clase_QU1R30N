@@ -84,10 +84,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                 case "BUSCAR":
 
-
-                    info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
-
-
+                    if (info_espliteada.Length > 1)
+                    {
+                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+                    }
+                    else
+                    {
+                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0]);
+                    }
 
                     break;
 

@@ -87,6 +87,7 @@
     <Compile Include="sin_internet\sin_formularios\modelos\_6_modelo_provedores.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_7_modelo_sucursales.cs" />
     <Compile Include="sin_internet\sin_formularios\modelos\_8_modelo_registros.cs" />
+    <Compile Include="sin_internet\sin_formularios\modelos\_9_modelo_funciones_diversas.cs" />
     <Compile Include="sin_internet\sin_formularios\principal.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_2_proceso_ventas.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_3_proceso_productos_e_inventario.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="sin_internet\sin_formularios\procesos\_6_proceso_provedores.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_7_proceso_sucursales.cs" />
     <Compile Include="sin_internet\sin_formularios\procesos\_8_proceso_registros.cs" />
+    <Compile Include="sin_internet\sin_formularios\procesos\_9_proceso_funciones_diversas.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

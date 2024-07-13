@@ -21,17 +21,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[] GG_caracter_para_confirmacion_o_error = { "╣", "╠" };
 
-        static public string[] GG_variables_string =
-{
-           /*0*/ "",//tex_esplit[0]//codbar
-           /*1*/ "",//prov_anterior
-           /*2*/ "", //provedores_txt//todos_los_provedores
-           /*3*/ "",//impuesto anterior
-           /*4*/ "", //impuestos_txt//todos_los_impuestos
-           /*5*/ "",//tipo_medida_producto_anterior
-           /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
-           
-        };
 
 
         //funciones---------------------------------------------------------------------------------------------------------

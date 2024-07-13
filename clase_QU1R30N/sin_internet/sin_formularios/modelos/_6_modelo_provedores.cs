@@ -1,5 +1,4 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -100,7 +99,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                     break;
 
-                default:
+                case "EXTRAER_NOM_PROVEDORES":
+                    info_a_retornar = pr_provedores.extraer_nombre_provedores(G_direcciones[0], datos);
+                    break;
+
+            default:
                     info_a_retornar = "-3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }

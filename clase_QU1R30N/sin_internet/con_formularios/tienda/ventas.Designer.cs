@@ -204,7 +204,7 @@
             this.Btn_procesar_venta.TabIndex = 47;
             this.Btn_procesar_venta.Text = "procesar venta";
             this.Btn_procesar_venta.UseVisualStyleBackColor = true;
-            this.Btn_procesar_venta.Click += new System.EventHandler(this.Btn_procesar_venta_Click_1);
+            
             // 
             // Btn_eliminar_todo
             // 

@@ -21,6 +21,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _6_modelo_provedores mod_pro = new _6_modelo_provedores();
         _7_modelo_sucursales mod_suc = new _7_modelo_sucursales();
         _8_modelo_registros mod_reg = new _8_modelo_registros();
+        _9_modelo_funciones_diversas mod_fun_div = new _9_modelo_funciones_diversas();
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -30,7 +31,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
 
         // Función para manejar compras
         public string enlasador(string INFO_ENTRADA)
-        
         {
             //ejemplo dato entrada: "analisis_datos~existe_producto§codigo"
             INFO_ENTRADA = INFO_ENTRADA.ToUpper();
@@ -75,10 +75,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                 case "MODELO_SUCURSALES":
                     info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
+
+                case "MODELO_FUNCIONES_DIVERSAS":
+                    info_a_retornar = mod_fun_div.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    break;
+
             }
 
             
-            //mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
+            mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 

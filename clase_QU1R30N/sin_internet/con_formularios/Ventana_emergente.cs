@@ -407,7 +407,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
             else if (cantidad_elementos_para_la_ventana >= 16)
             {
-                this.Size = new Size(650, 270);
+                this.Size = new Size(650, 370);
             }
 
 

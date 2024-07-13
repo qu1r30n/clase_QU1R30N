@@ -65,192 +65,194 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 }
             }
 
-            string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
-            string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
 
-            switch (modelo)
+
+            if (modelo == "MODELO_ANALISIS_DATOS")
             {
-                case "MODELO_ANALISIS_DATOS":
-
-                    if (proceso == "EXISTE_PRODUCTO")
-                    {
-                        // Código correspondiente al caso "EXISTE_PRODUCTO"
-                    }
-
-                    else if (proceso == "EXISTE_CURP_UNIFICADO_COD3_R_")
-                    {
-                        // Código correspondiente al caso "EXISTE_CURP_UNIFICADO_COD3_R_"
-                    }
-
-                    else if (proceso == "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_")
-                    {
-                        // Código correspondiente al caso "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_"
-                    }
-
-                    else if (proceso == "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_")
-                    {
-                        // Código correspondiente al caso "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-                    break;
-
-                case "MODELO_COMPRAS":
-                    if (proceso == "COMPRA")
-                    {
-                        // Código correspondiente al caso "COMPRA"
-                    }
-
-                    else if (proceso == "COMPRA_MAYOREO")
-                    {
-                        // Código correspondiente al caso "COMPRA_MAYOREO"
-                    }
-
-                    else if (proceso == "COMPRA_CON_PROMOCION")
-                    {
-                        // Código correspondiente al caso "COMPRA_CON_PROMOCION"
-                    }
-
-                    else if (proceso == "CANCELAR")
-                    {
-                        // Código correspondiente al caso "CANCELAR"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-                    break;
-
-                case "MODELO_VENTAS":
-
-                    
-                    break;
-
-                case "MODELO_INVENTARIO":
-                    if (proceso == "AGREGAR")
-                    {
-                        // Código correspondiente al caso "AGREGAR"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-                    break;
-
-                case "MODELO_APRENDICES_E":
-                    if (proceso == "REGISTRO_APRENDICES_E")
-                    {
-                        // Código correspondiente al caso "REGISTRO_APRENDICES_E"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-                    break;
-
-                case "MODELO_AFILIADOS":
-
-                    if (proceso == "INSCRIBIR_UNIFICADO_COD3_R_")
-                    {
-                        // Código correspondiente al caso "INSCRIBIR_UNIFICADO_COD3_R_"
-                    }
-
-                    else if (proceso == "INSCRIBIR_SIMPLE_COD1")
-                    {
-                        // Código correspondiente al caso "INSCRIBIR_SIMPLE_COD1"
-                    }
-
-                    else if (proceso == "INSCRIBIR_COMPLEJO_COD2")
-                    {
-                        // Código correspondiente al caso "INSCRIBIR_COMPLEJO_COD2"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-                    break;
-
-                case "MODELO_PROVEDORES":
-                    if (proceso == "REGISTRO_PROVEDOR")
-                    {
-                        // Código correspondiente al caso "REGISTRO_PROVEDOR"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-
-                    break;
-
-                case "MODELO_SUCURSALES":
-                    if (proceso == "REGISTRO_SUCURSAL")
-                    {
-                        // Código correspondiente al caso "REGISTRO_PROVEDOR"
-                    }
-
-                    else
-                    {
-                        // Código correspondiente al caso default
-                    }
-
-
-                    break;
-
-                default:
-
-                    break;
-            }
-        
-
-    
-
-
-
-
-
-
-            if (Convert.ToInt32(res_regist_esp[0]) > 0)
-            {
-                if (res_regist_esp[0] == "1")
+                if (proceso == "EXISTE_PRODUCTO")
                 {
-                    
-                    string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
-                    string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
-
-                    //registro dinero
-                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
-                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
-                    pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
-                    //registro productos
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
-                    pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
-                    info_a_retornar = res_regist;
+                    // Código correspondiente al caso "EXISTE_PRODUCTO"
                 }
-
+                else if (proceso == "EXISTE_CURP_UNIFICADO_COD3_R_")
+                {
+                    // Código correspondiente al caso "EXISTE_CURP_UNIFICADO_COD3_R_"
+                }
+                else if (proceso == "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_")
+                {
+                    // Código correspondiente al caso "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_"
+                }
+                else if (proceso == "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_")
+                {
+                    // Código correspondiente al caso "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_"
+                }
                 else
                 {
-                    info_a_retornar = res_regist;
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_COMPRAS")
+            {
+                if (proceso == "COMPRA")
+                {
+                    string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                    string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                    if (Convert.ToInt32(res_regist_esp[0]) > 0)
+                    {
+                        if (res_regist_esp[0] == "1")
+                        {
+                            string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                            string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                            // registro dinero
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
+                            // registro productos
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+                            info_a_retornar = res_regist;
+                        }
+                        else
+                        {
+                            info_a_retornar = res_regist;
+                        }
+                    }
+                    else
+                    {
+                        info_a_retornar = res_regist;
+                    }
+                }
+                else if (proceso == "COMPRA_MAYOREO")
+                {
+                    // Código correspondiente al caso "COMPRA_MAYOREO"
+                }
+                else if (proceso == "COMPRA_CON_PROMOCION")
+                {
+                    // Código correspondiente al caso "COMPRA_CON_PROMOCION"
+                }
+                else if (proceso == "CANCELAR")
+                {
+                    // Código correspondiente al caso "CANCELAR"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_VENTAS")
+            {
+                string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                if (proceso == "VENTA")
+                {
+                    if (Convert.ToInt32(res_regist_esp[0]) > 0)
+                    {
+                        if (res_regist_esp[0] == "1")
+                        {
+                            string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                            string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                            // registro dinero
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
+                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
+                            // registro productos
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+                            info_a_retornar = res_regist;
+                        }
+                        else
+                        {
+                            info_a_retornar = res_regist;
+                        }
+                    }
+                    else
+                    {
+                        info_a_retornar = res_regist;
+                    }
+                }
+            }
+            else if (modelo == "MODELO_INVENTARIO")
+            {
+                if (proceso == "AGREGAR")
+                {
+                    // Código correspondiente al caso "AGREGAR"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_APRENDICES_E")
+            {
+                if (proceso == "REGISTRO_APRENDICES_E")
+                {
+                    // Código correspondiente al caso "REGISTRO_APRENDICES_E"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_AFILIADOS")
+            {
+                if (proceso == "INSCRIBIR_UNIFICADO_COD3_R_")
+                {
+                    // Código correspondiente al caso "INSCRIBIR_UNIFICADO_COD3_R_"
+                }
+                else if (proceso == "INSCRIBIR_SIMPLE_COD1")
+                {
+                    // Código correspondiente al caso "INSCRIBIR_SIMPLE_COD1"
+                }
+                else if (proceso == "INSCRIBIR_COMPLEJO_COD2")
+                {
+                    // Código correspondiente al caso "INSCRIBIR_COMPLEJO_COD2"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_PROVEDORES")
+            {
+                if (proceso == "REGISTRO_PROVEDOR")
+                {
+                    // Código correspondiente al caso "REGISTRO_PROVEDOR"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
+                }
+            }
+            else if (modelo == "MODELO_SUCURSALES")
+            {
+                if (proceso == "REGISTRO_SUCURSAL")
+                {
+                    // Código correspondiente al caso "REGISTRO_SUCURSAL"
+                }
+                else
+                {
+                    // Código correspondiente al caso default
                 }
             }
             else
             {
-                info_a_retornar = res_regist;
+                // Código correspondiente al caso default
             }
+
+
+
+
+
+
+
+
+
 
 
 

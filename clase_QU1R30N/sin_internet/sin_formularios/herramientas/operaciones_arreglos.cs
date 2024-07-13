@@ -297,7 +297,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         niveles_de_profundidad = agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, tem_linea.Split(caracter_separacion[0][0]));
                         tem_linea = niveles_de_profundidad[0][Convert.ToInt32(arr_col_rec[0])];
                     }
-                    string tem_linea_2 = "";
+                    
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
                     if (tem_linea == arr_comparaciones[l])
@@ -363,7 +363,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         j++;
                     } while (j < arr_col_rec.Length);
 
-                    string tem_linea_2 = "";
+                    
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
                     if (tem_linea == arr_comparaciones[l])
@@ -429,7 +429,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     j++;
                 } while (j < arr_col_rec.Length);
 
-                string tem_linea_2 = "";
+                
                 //compa
                 //racion--------------------------------------------------------------------------
                 if (tem_linea == comparar)
@@ -468,7 +468,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     j++;
                 } while (j < arr_col_rec.Length);
 
-                string tem_linea_2 = "";
+                
                 //comparacion--------------------------------------------------------------------------
                 if (tem_linea == comparaciones)
                 {
@@ -638,7 +638,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         h++;
                     } while (h < col_rec_espliteado.Length);
 
-                    string tem_linea_2 = "";
+                    
                     //comparacion--------------------------------------------------------------------------
 
                     if (tem_linea == comparar_espliteado[j])
