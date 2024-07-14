@@ -128,8 +128,18 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             Ventana_emergente emergente_vent = new Ventana_emergente();
                             var_fun_GG_dir_arch_crear.RecargarVentanaEmergenteProductos();
                             string datos_introducidos = emergente_vent.Proceso_ventana_emergente(var_fun_GG_dir_arch_crear.GG_ventana_emergente_productos);
+
+                            string temp = "";
+                            for (int i = 1; i < datos_introducidos.Length; i++)
+                            {
+                                temp = temp + datos_introducidos[i];
+                            }
+                            datos_introducidos = temp;
+
+                            string info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~AGREGAR_SINO_EXISTE§" + datos_introducidos);
+
                         }
-                        
+
                     }
 
 

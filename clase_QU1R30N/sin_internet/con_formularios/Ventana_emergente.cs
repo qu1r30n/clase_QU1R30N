@@ -119,12 +119,6 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         }
 
 
-
-
-
-
-
-
         public void posicion_a_poner(string[] controles, string[] caracter_spliteo = null)
         {
             if (caracter_spliteo == null)
@@ -171,7 +165,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             //posicion objeto---------------------------------------------------------------------------
             for (int numero_control = 0; numero_control < controles.Length; numero_control++)
             {
-                if (numero_control == 13)
+                if (numero_control == 9)//esto solo es para debuguear en el control que nesesites
                 {
 
                 }
