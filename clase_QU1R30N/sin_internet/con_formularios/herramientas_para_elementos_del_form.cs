@@ -102,43 +102,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         }
                         else
                         {
-                            //tipos_medida_producto
-                            if (var_fun_GG_dir_arch_crear.GG_variables_string[5] == null || var_fun_GG_dir_arch_crear.GG_variables_string[5] == "")
-                            {
-                                var_fun_GG_dir_arch_crear.GG_variables_string[5] = "NOSE";
-                            }
-                            //fin_tipos_medida_producto
-                            //provedores
-                            if (var_fun_GG_dir_arch_crear.GG_variables_string[1] == null || var_fun_GG_dir_arch_crear.GG_variables_string[1] == "")
-                            {
-                                var_fun_GG_dir_arch_crear.GG_variables_string[1] = "NOSE";
-                            }
-
-
-                            
-
-                           string[] res_tip_med = enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~EXTRAER_TIPOS_DE_MEDIDA§").Split(G_caracter_para_confirmacion_o_error[0][0]);
-
-                            var_fun_GG_dir_arch_crear.GG_variables_string[2] = res_tip_med[1];
-                            //fin_provedores
-                            string[] res_prov = enl_princ.enlasador("MODELO_PROVEDORES~EXTRAER_NOM_PROVEDORES§").Split(G_caracter_para_confirmacion_o_error[0][0]);
-                            var_fun_GG_dir_arch_crear.GG_variables_string[6] = res_prov[1];
-
-
-                            Ventana_emergente emergente_vent = new Ventana_emergente();
-                            var_fun_GG_dir_arch_crear.RecargarVentanaEmergenteProductos();
-                            string datos_introducidos = emergente_vent.Proceso_ventana_emergente(var_fun_GG_dir_arch_crear.GG_ventana_emergente_productos);
-
-                            string temp = "";
-                            for (int i = 1; i < datos_introducidos.Length; i++)
-                            {
-                                temp = temp + datos_introducidos[i];
-                            }
-                            datos_introducidos = temp;
-
-
-                            string info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~AGREGAR_SINO_EXISTE§" + datos_introducidos);
-
+                            ventana_nuevo_producto();
                         }
 
                     }
@@ -511,6 +475,50 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
         }
 
+
+        public void ventana_nuevo_producto()
+        {
+            //tipos_medida_producto
+            if (var_fun_GG_dir_arch_crear.GG_variables_string[5] == null || var_fun_GG_dir_arch_crear.GG_variables_string[5] == "")
+            {
+                var_fun_GG_dir_arch_crear.GG_variables_string[5] = "NOSE";
+            }
+            //fin_tipos_medida_producto
+            //provedores
+            if (var_fun_GG_dir_arch_crear.GG_variables_string[1] == null || var_fun_GG_dir_arch_crear.GG_variables_string[1] == "")
+            {
+                var_fun_GG_dir_arch_crear.GG_variables_string[1] = "NOSE";
+            }
+
+
+
+
+            string[] res_tip_med = enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~EXTRAER_TIPOS_DE_MEDIDA§").Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            var_fun_GG_dir_arch_crear.GG_variables_string[2] = res_tip_med[1];
+            //fin_provedores
+            string[] res_prov = enl_princ.enlasador("MODELO_PROVEDORES~EXTRAER_NOM_PROVEDORES§").Split(G_caracter_para_confirmacion_o_error[0][0]);
+            var_fun_GG_dir_arch_crear.GG_variables_string[6] = res_prov[1];
+
+
+            Ventana_emergente emergente_vent = new Ventana_emergente();
+            var_fun_GG_dir_arch_crear.RecargarVentanaEmergenteProductos();
+            string datos_introducidos = emergente_vent.Proceso_ventana_emergente(var_fun_GG_dir_arch_crear.GG_ventana_emergente_productos);
+
+            string temp = "";
+            for (int i = 1; i < datos_introducidos.Length; i++)
+            {
+                temp = temp + datos_introducidos[i];
+            }
+            datos_introducidos = temp;
+
+
+            string info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~AGREGAR_SINO_EXISTE§" + datos_introducidos);
+
+        }
+
+
         //final clase-----------------------------------------------------------
     }
 }
+
