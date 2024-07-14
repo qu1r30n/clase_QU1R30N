@@ -164,6 +164,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string _20_DIRECCION_IMAGEN_COMPUTADORA = producto_espliteado[19];
                     string _21_NO_PONER_NADA = producto_espliteado[20];
 
+
+
                     string todo_unido = _0_id + G_caracter_separacion[0] +
                      _1_NOM_PRODUCTO + G_caracter_separacion[0] +
                      _2_CONTENIDO + G_caracter_separacion[0] +

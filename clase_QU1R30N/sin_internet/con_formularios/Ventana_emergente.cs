@@ -531,7 +531,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                 {
                     string parametros = restricciones[i];
 
-                    if (parametros == "solo_letras")//restriccion solo letras
+                    if (parametros == "SOLO_LETRAS")//restriccion solo letras
                     {
                         cont_txt_cmb.KeyPress += (sender, e) =>
                         {
@@ -547,7 +547,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         };
                     }
 
-                    else if (parametros == "solo_numeros")//restriccion solo numeros
+                    else if (parametros == "SOLO_NUMEROS")//restriccion solo numeros
                     {
                         cont_txt_cmb.KeyPress += (sender, e) =>
                         {
@@ -564,7 +564,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         };
                     }
 
-                    else if (parametros == "todas_mayusculas")
+                    else if (parametros == "TODAS_MAYUSCULAS")
                     {
                         cont_txt_cmb.Leave += (sender, e) =>
                         {
@@ -572,7 +572,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         };
                     }
 
-                    else if (parametros == "todas_minusculas")
+                    else if (parametros == "TODAS_MINUSCULAS")
                     {
                         cont_txt_cmb.Leave += (sender, e) =>
                         {
@@ -597,7 +597,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
                     //funciones y restricciones txt y cmb ventana_emergente cod:poison
-                    if (detalle_parametro[0] == "ocultar_control")
+                    if (detalle_parametro[0] == "OCULTAR_CONTROL")
                     {
                         cont_txt_cmb.TextChanged += new EventHandler((sender, e) =>
                         {
@@ -614,7 +614,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         });
                     }
 
-                    else if (detalle_parametro[0] == "reyeno_textbox_ventana_impu")
+                    else if (detalle_parametro[0] == "REYENO_TEXTBOX_VENTANA_IMPU")
                     {
                         cont_txt_cmb.Enter += (sender, e) =>
                         {
@@ -633,7 +633,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         };
                     }
 
-                    else if (detalle_parametro[0] == "producto_elaborado")
+                    else if (detalle_parametro[0] == "PRODUCTO_ELABORADO")
                     {
 
                         cont_txt_cmb.Enter += (sender, e) =>
@@ -652,12 +652,12 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         };
                     }
 
-                    else if (detalle_parametro[0] == "no_visible")
+                    else if (detalle_parametro[0] == "NO_VISIBLE")
                     {
                         cont_txt_cmb.Visible = false;
                     }
 
-                    else if (detalle_parametro[0] == "parte_de_un_producto")
+                    else if (detalle_parametro[0] == "PARTE_DE_UN_PRODUCTO")
                     {
 
                         cont_txt_cmb.Enter += (sender, e) =>
@@ -951,8 +951,6 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
         }
-
-
 
 
         public void pasar_datos_impuestos_si_da_enter(Object sender, KeyEventArgs e, string parametros)

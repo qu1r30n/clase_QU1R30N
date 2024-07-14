@@ -136,6 +136,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             }
                             datos_introducidos = temp;
 
+
                             string info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~AGREGAR_SINO_EXISTE§" + datos_introducidos);
 
                         }
