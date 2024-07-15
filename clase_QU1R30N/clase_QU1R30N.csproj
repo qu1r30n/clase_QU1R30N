@@ -60,6 +60,12 @@
     <Compile Include="sin_internet\con_formularios\herramientas_para_elementos_del_form.Designer.cs">
       <DependentUpon>herramientas_para_elementos_del_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="sin_internet\con_formularios\tienda\compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sin_internet\con_formularios\tienda\compras.Designer.cs">
+      <DependentUpon>compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="sin_internet\con_formularios\tienda\ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
     <EmbeddedResource Include="sin_internet\con_formularios\herramientas_para_elementos_del_form.resx">
       <DependentUpon>herramientas_para_elementos_del_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sin_internet\con_formularios\tienda\compras.resx">
+      <DependentUpon>compras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sin_internet\con_formularios\tienda\ventas.resx">
       <DependentUpon>ventas.cs</DependentUpon>

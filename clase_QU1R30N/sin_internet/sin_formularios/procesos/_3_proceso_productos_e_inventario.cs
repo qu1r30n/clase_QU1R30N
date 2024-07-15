@@ -50,7 +50,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                     string _0_id = "" + Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length;
-                    string NOM_PRODUCTO = producto_espliteado[0];
+                    string _1_NOM_PRODUCTO = producto_espliteado[0];
                     double _2_CONTENIDO = Convert.ToDouble(producto_espliteado[1]);
                     string _3_TIPO_MEDIDA = producto_espliteado[2];
                     double _4_PRECIO_VENTA = Convert.ToDouble(producto_espliteado[3]);
@@ -73,7 +73,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string _21_NO_PONER_NADA = producto_espliteado[20];
 
                     string todo_unido = _0_id + G_caracter_separacion[0] +
-                     NOM_PRODUCTO + G_caracter_separacion[0] +
+                     _1_NOM_PRODUCTO + G_caracter_separacion[0] +
                      _2_CONTENIDO + G_caracter_separacion[0] +
                      _3_TIPO_MEDIDA + G_caracter_separacion[0] +
                      _4_PRECIO_VENTA + G_caracter_separacion[0] +
@@ -96,7 +96,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                      _21_NO_PONER_NADA;
 
                     info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
-                    //agregar dependiendo sucursal
+
+
+                    var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(_5_COD_BARRAS + G_caracter_separacion[0] + _1_NOM_PRODUCTO + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
+                    var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(_1_NOM_PRODUCTO + G_caracter_separacion[0] + _5_COD_BARRAS + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
 
                     return "";
                 }
@@ -190,10 +193,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                      _21_NO_PONER_NADA;
 
                     info_a_retornar = bas.Agregar_sino_existe(direccion_archivo, 5, _5_COD_BARRAS, todo_unido);
+                    string[] resultado_espliteado = info_a_retornar.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                    if (resultado_espliteado[0]=="1")
+                    {
+                        var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(_5_COD_BARRAS + G_caracter_separacion[0] + _1_NOM_PRODUCTO + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
+                        var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(_1_NOM_PRODUCTO + G_caracter_separacion[0] + _5_COD_BARRAS + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
+
+                    }
+                    
 
                     //info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
 
-                    
+
                 }
 
 

@@ -20,3 +20,4 @@ C:\Users\qu1r30n\Documents\GitHub\clase_QU1R30N\clase_QU1R30N\obj\Debug\clase_QU
 C:\Users\qu1r30n\Documents\GitHub\clase_QU1R30N\clase_QU1R30N\obj\Debug\clase_QU1R30N.pdb
 C:\Users\qu1r30n\Documents\GitHub\clase_QU1R30N\clase_QU1R30N\obj\Debug\clase_QU1R30N.sin_internet.con_formularios.tienda.ventas.resources
 C:\Users\qu1r30n\Documents\GitHub\clase_QU1R30N\clase_QU1R30N\obj\Debug\clase_QU1R30N.sin_internet.con_formularios.herramientas_para_elementos_del_form.resources
+C:\Users\QU1R30N\Documents\GitHub\clase_QU1R30N\clase_QU1R30N\obj\Debug\clase_QU1R30N.sin_internet.con_formularios.tienda.compras.resources

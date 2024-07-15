@@ -30,10 +30,23 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        
+
 
 
         //txt------------------------------------------------------------
+
+        public void fun_ventana_cargar_cadaves_que_regresa_a_la_ventana(Form formulario, TextBox txt_codigo, TextBox txt_nom_producto)
+        {
+            formulario.Activated += (s, e) => 
+            {
+             
+                
+                txt_codigo.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_codbar_venta;
+                txt_nom_producto.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_nom_produc_venta;
+
+
+            };
+        }
 
 
         public void fun_txt_prediccion_palabra(TextBox txt_a_configurar, string tipo)
@@ -63,6 +76,8 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     txt_a_configurar.Text = txt_a_configurar.Text.ToUpper();
 
                     string[] tex_esplit = txt_a_configurar.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
+                    var_fun_GG_dir_arch_crear.GG_variables_string[0] = tex_esplit[0];
+
                     if (tex_esplit.Length > 1)
                     {
 
@@ -86,6 +101,11 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                                 string[] res_esp = result.Split(G_caracter_separacion[0][0]);
                                 cantidad = Convert.ToDouble(res_esp[1]);
                             }
+
+                        }
+                        if (indice_producto != "")
+                        {
+                            fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", cantidad, info_producto[1], indice_producto, lbl_configurar_desc_produc, lbl_configurar_cantidad_costo, lbl_configurar_total);
 
                         }
 
@@ -475,6 +495,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
         }
 
+        
 
         public void ventana_nuevo_producto()
         {

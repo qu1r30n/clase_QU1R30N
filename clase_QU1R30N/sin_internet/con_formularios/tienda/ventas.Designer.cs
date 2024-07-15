@@ -48,7 +48,7 @@
             this.Btn_eliminar_seleccionado = new System.Windows.Forms.Button();
             this.Lst_ventas = new System.Windows.Forms.ListBox();
             this.Txt_nom_producto = new System.Windows.Forms.TextBox();
-            this.Txt_buscar_producto = new System.Windows.Forms.TextBox();
+            this.Txt_Codbar = new System.Windows.Forms.TextBox();
             this.chb_ventas_compras = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,7 +204,6 @@
             this.Btn_procesar_venta.TabIndex = 47;
             this.Btn_procesar_venta.Text = "procesar venta";
             this.Btn_procesar_venta.UseVisualStyleBackColor = true;
-            
             // 
             // Btn_eliminar_todo
             // 
@@ -241,14 +240,14 @@
             this.Txt_nom_producto.Size = new System.Drawing.Size(150, 20);
             this.Txt_nom_producto.TabIndex = 53;
             // 
-            // Txt_buscar_producto
+            // Txt_Codbar
             // 
-            this.Txt_buscar_producto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.Txt_buscar_producto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Txt_buscar_producto.Location = new System.Drawing.Point(54, 344);
-            this.Txt_buscar_producto.Name = "Txt_buscar_producto";
-            this.Txt_buscar_producto.Size = new System.Drawing.Size(150, 20);
-            this.Txt_buscar_producto.TabIndex = 46;
+            this.Txt_Codbar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Txt_Codbar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Txt_Codbar.Location = new System.Drawing.Point(54, 344);
+            this.Txt_Codbar.Name = "Txt_Codbar";
+            this.Txt_Codbar.Size = new System.Drawing.Size(150, 20);
+            this.Txt_Codbar.TabIndex = 46;
             // 
             // chb_ventas_compras
             // 
@@ -341,7 +340,7 @@
             this.Controls.Add(this.Btn_eliminar_seleccionado);
             this.Controls.Add(this.Lst_ventas);
             this.Controls.Add(this.Txt_nom_producto);
-            this.Controls.Add(this.Txt_buscar_producto);
+            this.Controls.Add(this.Txt_Codbar);
             this.Name = "ventas";
             this.Text = "ventas";
             ((System.ComponentModel.ISupportInitialize)(this.pb_product)).EndInit();
@@ -374,7 +373,7 @@
         private System.Windows.Forms.Button Btn_eliminar_seleccionado;
         private System.Windows.Forms.ListBox Lst_ventas;
         private System.Windows.Forms.TextBox Txt_nom_producto;
-        private System.Windows.Forms.TextBox Txt_buscar_producto;
+        private System.Windows.Forms.TextBox Txt_Codbar;
         private System.Windows.Forms.CheckBox chb_ventas_compras;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
