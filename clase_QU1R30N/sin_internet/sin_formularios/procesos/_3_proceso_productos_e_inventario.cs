@@ -61,16 +61,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string _9_GRUPO = producto_espliteado[8];
                     double _10_CANT_PRODUC_X_PAQUET = Convert.ToDouble(producto_espliteado[9]);
                     string _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 = producto_espliteado[10];
-                    string _12_LIGAR_PRODUC_SAB = producto_espliteado[11];
-                    string _13_IMPUESTOS = producto_espliteado[12];
-                    string _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD = producto_espliteado[13];
-                    string _15_CADUCIDAD = producto_espliteado[14];
-                    string _16_ULTIMO_MOVIMIENTO = producto_espliteado[15];
-                    string _17_SUCURSAL_VENT = producto_espliteado[16];
-                    string _18_CLASIFICACION_PRODUCTO = producto_espliteado[17];
-                    string _19_DIRECCION_IMAGEN_INTERNET = producto_espliteado[18];
-                    string _20_DIRECCION_IMAGEN_COMPUTADORA = producto_espliteado[19];
-                    string _21_NO_PONER_NADA = producto_espliteado[20];
+                    string _12_COD_BAR_INDIVIDUAL_ES_PAQ = producto_espliteado[11];
+                    string _13_LIGAR_PRODUC_SAB = producto_espliteado[12];
+                    string _14_IMPUESTOS = producto_espliteado[13];
+                    string _15_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD = producto_espliteado[14];
+                    string _16_CADUCIDAD = producto_espliteado[15];
+                    string _17_ULTIMO_MOVIMIENTO = producto_espliteado[16];
+                    string _18_SUCURSAL_VENT = producto_espliteado[17];
+                    string _19_CLASIFICACION_PRODUCTO = producto_espliteado[18];
+                    string _20_DIRECCION_IMAGEN_INTERNET = producto_espliteado[19];
+                    string _21_DIRECCION_IMAGEN_COMPUTADORA = producto_espliteado[20];
+                    string _22_NO_PONER_NADA = producto_espliteado[21];
 
                     string todo_unido = _0_id + G_caracter_separacion[0] +
                      _1_NOM_PRODUCTO + G_caracter_separacion[0] +
@@ -84,16 +85,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                      _9_GRUPO + G_caracter_separacion[0] +
                      _10_CANT_PRODUC_X_PAQUET + G_caracter_separacion[0] +
                      _11_COD_BAR_PAQUETE1_DATO1_DATO2_COD_BAR2_PAQUETE1_DATO1_DATO2 + G_caracter_separacion[0] +
-                     _12_LIGAR_PRODUC_SAB + G_caracter_separacion[0] +
-                     _13_IMPUESTOS + G_caracter_separacion[0] +
-                     _14_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD + G_caracter_separacion[0] +
-                     _15_CADUCIDAD + G_caracter_separacion[0] +
-                     _16_ULTIMO_MOVIMIENTO + G_caracter_separacion[0] +
-                     _17_SUCURSAL_VENT + G_caracter_separacion[0] +
-                     _18_CLASIFICACION_PRODUCTO + G_caracter_separacion[0] +
-                     _19_DIRECCION_IMAGEN_INTERNET + G_caracter_separacion[0] +
-                     _20_DIRECCION_IMAGEN_COMPUTADORA + G_caracter_separacion[0] +
-                     _21_NO_PONER_NADA;
+                     _12_COD_BAR_INDIVIDUAL_ES_PAQ + G_caracter_separacion[0] +
+                     _13_LIGAR_PRODUC_SAB + G_caracter_separacion[0] +
+                     _14_IMPUESTOS + G_caracter_separacion[0] +
+                     _15_SI_ES_ELABORADO_QUE_MATERIA_PRIMA_USA_Y_CANTIDAD + G_caracter_separacion[0] +
+                     _16_CADUCIDAD + G_caracter_separacion[0] +
+                     _17_ULTIMO_MOVIMIENTO + G_caracter_separacion[0] +
+                     _18_SUCURSAL_VENT + G_caracter_separacion[0] +
+                     _19_CLASIFICACION_PRODUCTO + G_caracter_separacion[0] +
+                     _20_DIRECCION_IMAGEN_INTERNET + G_caracter_separacion[0] +
+                     _21_DIRECCION_IMAGEN_COMPUTADORA + G_caracter_separacion[0] +
+                     _22_NO_PONER_NADA;
 
                     info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
 
@@ -203,7 +205,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     }
                     
 
-                    //info_a_retornar = bas.Agregar(direccion_archivo, todo_unido);
+                    
 
 
                 }

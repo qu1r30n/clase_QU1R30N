@@ -56,13 +56,13 @@
             this.Txt_nom_producto = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Txt_buscar_producto = new System.Windows.Forms.TextBox();
+            this.Txt_Codbar = new System.Windows.Forms.TextBox();
             this.Lbl_nombre_producto = new System.Windows.Forms.Label();
             this.Lbl_producto = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Lbl_cantidad_cant = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Lbl_precio_compra_cant = new System.Windows.Forms.Label();
+            this.Lbl_precio_compra = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
             this.Lbl_precio_venta = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -315,14 +315,14 @@
             this.label3.TabIndex = 106;
             this.label3.Text = "provedor";
             // 
-            // Txt_buscar_producto
+            // Txt_Codbar
             // 
-            this.Txt_buscar_producto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.Txt_buscar_producto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Txt_buscar_producto.Location = new System.Drawing.Point(12, 40);
-            this.Txt_buscar_producto.Name = "Txt_buscar_producto";
-            this.Txt_buscar_producto.Size = new System.Drawing.Size(119, 20);
-            this.Txt_buscar_producto.TabIndex = 84;
+            this.Txt_Codbar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Txt_Codbar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Txt_Codbar.Location = new System.Drawing.Point(12, 40);
+            this.Txt_Codbar.Name = "Txt_Codbar";
+            this.Txt_Codbar.Size = new System.Drawing.Size(119, 20);
+            this.Txt_Codbar.TabIndex = 84;
             // 
             // Lbl_nombre_producto
             // 
@@ -369,14 +369,14 @@
             this.label1.TabIndex = 99;
             this.label1.Text = "precio compra";
             // 
-            // Lbl_precio_compra_cant
+            // Lbl_precio_compra
             // 
-            this.Lbl_precio_compra_cant.AutoSize = true;
-            this.Lbl_precio_compra_cant.Location = new System.Drawing.Point(312, 47);
-            this.Lbl_precio_compra_cant.Name = "Lbl_precio_compra_cant";
-            this.Lbl_precio_compra_cant.Size = new System.Drawing.Size(13, 13);
-            this.Lbl_precio_compra_cant.TabIndex = 100;
-            this.Lbl_precio_compra_cant.Text = "$";
+            this.Lbl_precio_compra.AutoSize = true;
+            this.Lbl_precio_compra.Location = new System.Drawing.Point(312, 47);
+            this.Lbl_precio_compra.Name = "Lbl_precio_compra";
+            this.Lbl_precio_compra.Size = new System.Drawing.Size(13, 13);
+            this.Lbl_precio_compra.TabIndex = 100;
+            this.Lbl_precio_compra.Text = "$";
             // 
             // label0
             // 
@@ -434,13 +434,13 @@
             this.Controls.Add(this.Txt_nom_producto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.Txt_buscar_producto);
+            this.Controls.Add(this.Txt_Codbar);
             this.Controls.Add(this.Lbl_nombre_producto);
             this.Controls.Add(this.Lbl_producto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Lbl_cantidad_cant);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Lbl_precio_compra_cant);
+            this.Controls.Add(this.Lbl_precio_compra);
             this.Controls.Add(this.label0);
             this.Controls.Add(this.Lbl_precio_venta);
             this.Controls.Add(this.label4);
@@ -483,13 +483,13 @@
         private System.Windows.Forms.TextBox Txt_nom_producto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Txt_buscar_producto;
+        private System.Windows.Forms.TextBox Txt_Codbar;
         private System.Windows.Forms.Label Lbl_nombre_producto;
         private System.Windows.Forms.Label Lbl_producto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Lbl_cantidad_cant;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Lbl_precio_compra_cant;
+        private System.Windows.Forms.Label Lbl_precio_compra;
         private System.Windows.Forms.Label label0;
         private System.Windows.Forms.Label Lbl_precio_venta;
         private System.Windows.Forms.Label label4;

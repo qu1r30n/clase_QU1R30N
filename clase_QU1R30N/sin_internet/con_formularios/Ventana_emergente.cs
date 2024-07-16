@@ -947,6 +947,19 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                 restriccion_txt_cmb(cont_txt_cmb, espliteado);
 
                 funciones_txt_cmb(cont_txt_cmb, espliteado);
+
+                //si preciona enter  da tabulador  en texbox y combobox
+                cont_txt_cmb.KeyDown += (sender, e) =>
+                {
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        // Simular pulsación de Tab
+                        SendKeys.Send("{TAB}");
+
+                    }
+                };
+
+
             }
 
 

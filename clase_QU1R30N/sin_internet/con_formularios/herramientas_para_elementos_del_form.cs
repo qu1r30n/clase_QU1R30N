@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,24 +50,51 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         }
 
 
-        public void fun_txt_prediccion_palabra(TextBox txt_a_configurar, string tipo)
+        public void fun_txt_prediccion_palabra(TextBox cmb_a_configurar, string tipo)
         {
             // Inicializar AutoCompleteStringCollection
-            txt_a_configurar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txt_a_configurar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmb_a_configurar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmb_a_configurar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
             if (tipo == "codbar")
             {
-                txt_a_configurar.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_codbar_venta;
+                cmb_a_configurar.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_codbar_venta;
             }
             else if (tipo == "producto")
             {
-                txt_a_configurar.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_nom_produc_venta;
+                cmb_a_configurar.AutoCompleteCustomSource = var_fun_GG.GG_autoCompleteCollection_nom_produc_venta;
             }
 
         }
 
-        public void fun_txt_procesar_tecleos(TextBox txt_a_configurar, ListBox lstb_a_configurar, Label lbl_configurar_desc_produc, Label lbl_configurar_cantidad_costo, Label lbl_configurar_total)
+        public void fun_cmb_prediccion_palabra(ComboBox cmb_a_configurar, string provedor, string tipo = "PROVEDOR")
+        {
+            // Establecer modo de autocompletado
+            cmb_a_configurar.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmb_a_configurar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            cmb_a_configurar.Text = provedor;
+
+            if (tipo == "PROVEDOR")
+            {
+                string[] res_prov = enl_princ.enlasador("MODELO_PROVEDORES~EXTRAER_NOM_PROVEDORES§").Split(G_caracter_para_confirmacion_o_error[0][0]);
+                string[] nom_prov = res_prov[1].Split(G_caracter_separacion[1][0]);
+
+                AutoCompleteStringCollection predicciones_de_palabra = new AutoCompleteStringCollection();
+
+                for (int i = 0; i < nom_prov.Length; i++)
+                {
+                    cmb_a_configurar.Items.Add(nom_prov[i]);
+                    predicciones_de_palabra.Add(nom_prov[i]);
+                }
+
+                cmb_a_configurar.AutoCompleteCustomSource = predicciones_de_palabra;
+            }
+        }
+
+
+
+        public void fun_txt_procesar_tecleos_ventas(TextBox txt_a_configurar, ListBox lstb_a_configurar, Label lbl_configurar_desc_produc, Label lbl_configurar_cantidad_costo, Label lbl_configurar_total)
         {
             txt_a_configurar.KeyDown += (sender, e) =>
             {
@@ -227,6 +255,167 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             };
         }
 
+        public void fun_txt_procesar_tecleos_compras(TextBox txt_a_configurar, ListBox lstb_a_configurar, Label lbl_id_producto, Label lbl_nom_producto, Label lbl_precio_compra, Label lbl_precio_venta, Label lbl_nom_cantidad_inventario, ComboBox cmb_provedores, Label lbl_precio_total)
+        {
+            txt_a_configurar.KeyDown += (sender, e) =>
+            {
+
+                if (e.KeyValue == (char)Keys.Enter)
+                {
+                    txt_a_configurar.Text = txt_a_configurar.Text.ToUpper();
+
+                    string[] tex_esplit = txt_a_configurar.Text.Split(Convert.ToChar(G_caracter_separacion[0]));
+                    var_fun_GG_dir_arch_crear.GG_variables_string[0] = tex_esplit[0];
+
+                    if (tex_esplit.Length > 1)
+                    {
+
+
+
+
+                        string[] info_producto = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0] + G_caracter_separacion[0] + tex_esplit[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        string[] info_split_produc_inv = info_producto[1].Split(G_caracter_separacion[0][0]);
+                        string indice_producto = info_producto[2];
+
+                        double cantidad = 1;
+
+                        if (indice_producto != "")
+                        {
+                            lbl_id_producto.Text = info_producto[2];
+                            lbl_nom_producto.Text = info_split_produc_inv[1] + " " + info_split_produc_inv[2] + info_split_produc_inv[3];
+                            lbl_precio_compra.Text = info_split_produc_inv[7];
+                            lbl_precio_venta.Text = info_split_produc_inv[4];
+                            lbl_nom_cantidad_inventario.Text = info_split_produc_inv[6];
+
+                            string[] prov = info_split_produc_inv[8].Split(G_caracter_separacion[1][0]);
+                            string[] nom_prov = prov[0].Split(G_caracter_separacion[2][0]);
+
+
+                            SendKeys.Send("{TAB}");
+                            SendKeys.Send("{TAB}");
+
+                            //fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", cantidad, info_producto[1], indice_producto, lbl_configurar_desc_produc, lbl_configurar_cantidad_costo, lbl_configurar_total);
+
+                        }
+
+
+                    }
+                    else
+                    {
+                        string[] info_producto = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        //encontro el producto?
+                        if (Convert.ToInt32(info_producto[0]) > 0)
+                        {
+                            string[] info_split_produc_inv = info_producto[1].Split(G_caracter_separacion[0][0]);
+                            string indice_producto = info_producto[2];
+                        }
+                        else
+                        {
+                            ventana_nuevo_producto();
+                        }
+
+                    }
+
+
+                }
+
+                else if (e.KeyValue == (char)(Keys.Add))
+                {
+                    //e.KeyChar = '\0';//este evita que escrivas cuando usas keypress
+                    e.SuppressKeyPress = true;
+
+                    if (lstb_a_configurar.Items.Count > 0)
+                    {
+
+                        string[] tex_esplit = lstb_a_configurar.Items[lstb_a_configurar.Items.Count - 1].ToString().Split(Convert.ToChar(G_caracter_separacion[0]));
+                        string[] result_busq = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0] + G_caracter_separacion[0] + tex_esplit[6]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        string[] info_split_produc_inv = result_busq[1].Split(G_caracter_separacion[0][0]);
+                        double cantidad = 1;
+
+
+
+                        if (info_split_produc_inv[9] == "PRODUCTO_CANTIDAD")
+                        {
+                            Ventana_emergente vent_emergent = new Ventana_emergente();
+                            string[] enviar = { "2°producto°" + info_split_produc_inv[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
+                            string result = vent_emergent.Proceso_ventana_emergente(enviar);
+                            if (result != "")
+                            {
+                                cantidad = Convert.ToDouble(result);
+                            }
+
+                        }
+
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+
+                        if (info_split_produc_inv[0] != null)
+                        {
+
+
+                            //if (lbl_configurar_desc_produc != null) { lbl_configurar_desc_produc.Text = info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " " + info_split_produc_inv[3] + " precio:$" + info_split_produc_inv[4]; }
+                            //if (lbl_configurar_cantidad_costo != null) { lbl_configurar_cantidad_costo.Text = cantidad_sumada_o_restada + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + "" + info_split_produc_inv[3] + " $" + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc_inv[4])); }
+                            //sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
+
+                        }
+
+                    }
+
+                }
+
+                else if (e.KeyValue == (char)(Keys.Subtract))
+                {
+                    //e.KeyChar = '\0';//este evita que escrivas cuando usas keypress
+                    e.SuppressKeyPress = true;
+
+                    if (lstb_a_configurar.Items.Count > 0)
+                    {
+
+                        string[] tex_esplit = lstb_a_configurar.Items[lstb_a_configurar.Items.Count - 1].ToString().Split(Convert.ToChar(G_caracter_separacion[0]));
+                        string[] result_busq = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~BUSCAR§" + tex_esplit[0] + G_caracter_separacion[0] + tex_esplit[6]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        string[] info_split_produc_inv = result_busq[1].Split(G_caracter_separacion[0][0]);
+                        double cantidad = -1;
+
+
+
+                        if (info_split_produc_inv[9] == "2")
+                        {
+                            Ventana_emergente vent_emergent = new Ventana_emergente();
+                            string[] enviar = { "2°producto°" + info_split_produc_inv[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
+                            string result = vent_emergent.Proceso_ventana_emergente(enviar);
+                            if (result != "")
+                            {
+                                cantidad = Convert.ToDouble(result);
+                            }
+
+                        }
+
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+
+                        if (info_split_produc_inv[0] != null)
+                        {
+
+                            if (Convert.ToDouble(cantidad_sumada_o_restada) > 0)
+                            {
+                                //if (lbl_configurar_desc_produc != null) { lbl_configurar_desc_produc.Text = info_split_produc_inv[1] + " " + info_split_produc_inv[2] + " " + info_split_produc_inv[3] + " precio:$" + info_split_produc_inv[4]; }
+                                //if (lbl_configurar_cantidad_costo != null) { lbl_configurar_cantidad_costo.Text = cantidad_sumada_o_restada + " " + info_split_produc_inv[1] + " " + info_split_produc_inv[2] + "" + info_split_produc_inv[3] + " $" + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc_inv[4])); }
+                            }
+                            else
+                            {
+                                //lbl_configurar_desc_produc.Text = "nombre del producto";
+                                //lbl_configurar_cantidad_costo.Text = "$";
+                            }
+
+                            //sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
+
+                        }
+
+                    }
+
+                }
+
+            };
+        }
+
         public void fun_txt_nom_produc_pasar_a_txt_codigo(TextBox txt_origen, TextBox txt_destino)
         {
 
@@ -357,6 +546,11 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     ventana_introduce_cantidad_pagada(lstb_a_configurar);
                     lstb_a_configurar.Items.Clear();
                     break;
+
+                case "agregar_compra_produc":
+                    
+                    break;
+                
 
                 default:
                     break;

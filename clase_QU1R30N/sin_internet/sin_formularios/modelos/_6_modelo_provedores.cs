@@ -103,6 +103,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_provedores.extraer_nombre_provedores(G_direcciones[0], datos);
                     break;
 
+                case "EXTRAER_NOM_PROVEDORES_Y_DINERO":
+                    info_a_retornar = pr_provedores.extraer_nombre_provedores_y_dinero(G_direcciones[0], datos);
+                    break;
+
+                    
+
             default:
                     info_a_retornar = "-3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
