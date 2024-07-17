@@ -1,7 +1,4 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios;
-using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using clase_QU1R30N.sin_internet.sin_formularios.modelos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +8,11 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using clase_QU1R30N.sin_internet.sin_formularios;
+using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
+using clase_QU1R30N.sin_internet.sin_formularios.modelos;
+
 
 namespace clase_QU1R30N.sin_internet.con_formularios.tienda
 {
@@ -36,10 +38,6 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
         {
             InitializeComponent();
             
-            
-            
-
-
             herr_form.fun_txt_prediccion_palabra(Txt_Codbar, "codbar");
             herr_form.fun_txt_prediccion_palabra(Txt_nom_producto, "producto");
 
@@ -49,14 +47,20 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
             string[] enviar = { "4|PROVEDOR||||" + res_prov[1] };
             string result = vent_emergent.Proceso_ventana_emergente(enviar).ToUpper();
             string[] res_esp = result.Split(G_caracter_separacion[2][0]);
+
             string provedor = res_esp[0];
             string cantidad_din_comprar = res_esp[1];
 
             herr_form.fun_cmb_prediccion_palabra(cmb_provedor, provedor, "PROVEDOR");
 
 
-            herr_form.fun_txt_procesar_tecleos_compras(Txt_Codbar, Lst_compras, Lbl_id, Lbl_nombre_producto, Lbl_precio_compra, Lbl_precio_venta, Lbl_cantidad_cant, cmb_provedor, Lbl_cuenta);
+            herr_form.fun_txt_procesar_tecleos_compras(Txt_Codbar, Lst_compras, Lbl_id, lbl_codbar, Lbl_nombre_producto, Lbl_precio_compra, Lbl_precio_venta, Lbl_cantidad_cant, cmb_provedor,Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
             herr_form.fun_txt_nom_produc_pasar_a_txt_codigo(Txt_nom_producto, Txt_Codbar);
+
+            herr_form.fun_botones(Lst_compras, Btn_eliminar_seleccionado, "eliminar_seleccionado", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_compras, Btn_eliminar_todo, "eliminar_todo", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_compras, Btn_elim_ultimo, "eliminar_ultimo", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_compras, Btn_procesar_venta, "procesar_compra", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
 
         }
     }

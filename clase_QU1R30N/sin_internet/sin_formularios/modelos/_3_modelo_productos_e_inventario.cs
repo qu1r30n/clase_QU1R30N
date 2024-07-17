@@ -69,8 +69,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 case "AGREGAR_SINO_EXISTE":
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
-
-                    info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[0], datos);
+                    if (datos!="")
+                    {
+                        info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[0], datos);
+                    }
+                    
 
 
                     break;
@@ -83,6 +86,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
 
                 case "BUSCAR":
+
+                    if (info_espliteada.Length > 1)
+                    {
+                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+                    }
+                    else
+                    {
+                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0]);
+                    }
+
+                    break;
+
+                case "EXTRAER_INFO_PRODUC_DE_PAQ":
 
                     if (info_espliteada.Length > 1)
                     {

@@ -48,9 +48,10 @@ namespace clase_QU1R30N
             ventas ventas = new ventas();
             ventas.Show();
             */
+            
             compras comp = new compras();
             comp.Show();
-
+            
 
         }
     }

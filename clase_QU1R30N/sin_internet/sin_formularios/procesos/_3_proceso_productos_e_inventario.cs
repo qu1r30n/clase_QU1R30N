@@ -299,6 +299,79 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return inf_retornar;
         }
 
+        public string sacar_info_productos_unitario_del_paquete(string direccion_archivo, string cod_bar_si_es_paquete, string id_producto_string = "")
+        {
+            string info_retornar = "";
+            string[] res_busq = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            int indice = Convert.ToInt32(res_busq[1]);
+            if (id_producto_string != "")
+            {
+                int id_producto = Convert.ToInt32(id_producto_string);
+                string[] info_produc_esp = Tex_base.GG_base_arreglo_de_arreglos[indice][id_producto].Split(G_caracter_separacion[0][0]);
+                if (cod_bar_si_es_paquete == info_produc_esp[5])
+                {
+                    info_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + Tex_base.GG_base_arreglo_de_arreglos[indice][id_producto] + G_caracter_para_confirmacion_o_error[0] + id_producto;
+                }
+                else
+                {
+                    bool encontro_producto = false;
+                    int indice_iniciar_busqueda = id_producto;
+                    if (id_producto > 9) { indice_iniciar_busqueda = indice_iniciar_busqueda - 10; }
+                    else { indice_iniciar_busqueda = G_donde_inicia_la_tabla; }
+
+                    for (int i = indice_iniciar_busqueda; i < id_producto; i++)
+                    {
+                        string[] info_prod_bas = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
+                        if (cod_bar_si_es_paquete == info_prod_bas[5])
+                        {
+                            info_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + Tex_base.GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
+                            encontro_producto = true;
+                            break;
+                        }
+                    }
+                    if (encontro_producto == false)
+                    {
+
+                        for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
+                        {
+                            string[] info_prod_bas = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
+
+                            if (cod_bar_si_es_paquete == info_prod_bas[5])
+                            {
+                                info_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + Tex_base.GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
+                                encontro_producto = true;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                bool encontro_producto = false;
+                for (int i = 0; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
+                {
+                    string[] info_produc_esp = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
+                    if (cod_bar_si_es_paquete == info_produc_esp[5])
+                    {
+                        info_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + Tex_base.GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
+                        encontro_producto = true;
+                        break;
+                    }
+                }
+                if (encontro_producto == false)
+                {
+                    info_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el producto";
+                }
+            }
+
+
+            return info_retornar;
+
+        }
+
+
         public string dar_el_inventario_string_caracter_sep(string direccion_archivo, object caracter_separacion_obj = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_obj);

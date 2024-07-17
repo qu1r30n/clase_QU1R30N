@@ -38,8 +38,6 @@
             this.btn_elim_selec_carga = new System.Windows.Forms.Button();
             this.btn_cargar_lst_comprar = new System.Windows.Forms.Button();
             this.lst_carga = new System.Windows.Forms.ListBox();
-            this.btn_individual = new System.Windows.Forms.Button();
-            this.btn_paquete = new System.Windows.Forms.Button();
             this.cmb_provedor = new System.Windows.Forms.ComboBox();
             this.Lbl_nom_product_list = new System.Windows.Forms.Label();
             this.Lbl_cuenta = new System.Windows.Forms.Label();
@@ -66,6 +64,9 @@
             this.label0 = new System.Windows.Forms.Label();
             this.Lbl_precio_venta = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_codbar = new System.Windows.Forms.Label();
+            this.Lbl_costo_product_list = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,24 +152,6 @@
             this.lst_carga.Size = new System.Drawing.Size(319, 173);
             this.lst_carga.TabIndex = 112;
             // 
-            // btn_individual
-            // 
-            this.btn_individual.Location = new System.Drawing.Point(747, 63);
-            this.btn_individual.Name = "btn_individual";
-            this.btn_individual.Size = new System.Drawing.Size(75, 39);
-            this.btn_individual.TabIndex = 87;
-            this.btn_individual.Text = "individual";
-            this.btn_individual.UseVisualStyleBackColor = true;
-            // 
-            // btn_paquete
-            // 
-            this.btn_paquete.Location = new System.Drawing.Point(747, 18);
-            this.btn_paquete.Name = "btn_paquete";
-            this.btn_paquete.Size = new System.Drawing.Size(75, 39);
-            this.btn_paquete.TabIndex = 86;
-            this.btn_paquete.Text = "paquete";
-            this.btn_paquete.UseVisualStyleBackColor = true;
-            // 
             // cmb_provedor
             // 
             this.cmb_provedor.FormattingEnabled = true;
@@ -181,11 +164,11 @@
             // Lbl_nom_product_list
             // 
             this.Lbl_nom_product_list.AutoSize = true;
-            this.Lbl_nom_product_list.Location = new System.Drawing.Point(140, 290);
+            this.Lbl_nom_product_list.Location = new System.Drawing.Point(141, 289);
             this.Lbl_nom_product_list.Name = "Lbl_nom_product_list";
-            this.Lbl_nom_product_list.Size = new System.Drawing.Size(185, 13);
+            this.Lbl_nom_product_list.Size = new System.Drawing.Size(104, 13);
             this.Lbl_nom_product_list.TabIndex = 111;
-            this.Lbl_nom_product_list.Text = "nombre_precio_produc_seleccionado";
+            this.Lbl_nom_product_list.Text = "nombre del producto";
             // 
             // Lbl_cuenta
             // 
@@ -327,7 +310,7 @@
             // Lbl_nombre_producto
             // 
             this.Lbl_nombre_producto.AutoSize = true;
-            this.Lbl_nombre_producto.Location = new System.Drawing.Point(181, 44);
+            this.Lbl_nombre_producto.Location = new System.Drawing.Point(140, 83);
             this.Lbl_nombre_producto.Name = "Lbl_nombre_producto";
             this.Lbl_nombre_producto.Size = new System.Drawing.Size(87, 13);
             this.Lbl_nombre_producto.TabIndex = 98;
@@ -336,7 +319,7 @@
             // Lbl_producto
             // 
             this.Lbl_producto.AutoSize = true;
-            this.Lbl_producto.Location = new System.Drawing.Point(181, 24);
+            this.Lbl_producto.Location = new System.Drawing.Point(140, 63);
             this.Lbl_producto.Name = "Lbl_producto";
             this.Lbl_producto.Size = new System.Drawing.Size(49, 13);
             this.Lbl_producto.TabIndex = 96;
@@ -405,6 +388,33 @@
             this.label4.TabIndex = 94;
             this.label4.Text = "codigo de barras";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(180, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 13);
+            this.label6.TabIndex = 96;
+            this.label6.Text = "codigo de barras";
+            // 
+            // lbl_codbar
+            // 
+            this.lbl_codbar.AutoSize = true;
+            this.lbl_codbar.Location = new System.Drawing.Point(180, 44);
+            this.lbl_codbar.Name = "lbl_codbar";
+            this.lbl_codbar.Size = new System.Drawing.Size(87, 13);
+            this.lbl_codbar.TabIndex = 98;
+            this.lbl_codbar.Text = "nombre producto";
+            // 
+            // Lbl_costo_product_list
+            // 
+            this.Lbl_costo_product_list.AutoSize = true;
+            this.Lbl_costo_product_list.Location = new System.Drawing.Point(140, 316);
+            this.Lbl_costo_product_list.Name = "Lbl_costo_product_list";
+            this.Lbl_costo_product_list.Size = new System.Drawing.Size(13, 13);
+            this.Lbl_costo_product_list.TabIndex = 111;
+            this.Lbl_costo_product_list.Text = "0";
+            // 
             // compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,9 +426,8 @@
             this.Controls.Add(this.btn_elim_selec_carga);
             this.Controls.Add(this.btn_cargar_lst_comprar);
             this.Controls.Add(this.lst_carga);
-            this.Controls.Add(this.btn_individual);
-            this.Controls.Add(this.btn_paquete);
             this.Controls.Add(this.cmb_provedor);
+            this.Controls.Add(this.Lbl_costo_product_list);
             this.Controls.Add(this.Lbl_nom_product_list);
             this.Controls.Add(this.Lbl_cuenta);
             this.Controls.Add(this.Btn_cargar_pedido);
@@ -435,7 +444,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Txt_Codbar);
+            this.Controls.Add(this.lbl_codbar);
             this.Controls.Add(this.Lbl_nombre_producto);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Lbl_producto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Lbl_cantidad_cant);
@@ -465,8 +476,6 @@
         private System.Windows.Forms.Button btn_elim_selec_carga;
         private System.Windows.Forms.Button btn_cargar_lst_comprar;
         public System.Windows.Forms.ListBox lst_carga;
-        private System.Windows.Forms.Button btn_individual;
-        private System.Windows.Forms.Button btn_paquete;
         private System.Windows.Forms.ComboBox cmb_provedor;
         private System.Windows.Forms.Label Lbl_nom_product_list;
         private System.Windows.Forms.Label Lbl_cuenta;
@@ -493,5 +502,8 @@
         private System.Windows.Forms.Label label0;
         private System.Windows.Forms.Label Lbl_precio_venta;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_codbar;
+        private System.Windows.Forms.Label Lbl_costo_product_list;
     }
 }

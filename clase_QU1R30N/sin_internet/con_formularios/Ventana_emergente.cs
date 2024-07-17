@@ -597,18 +597,25 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
                     //funciones y restricciones txt y cmb ventana_emergente cod:poison
+                    
                     if (detalle_parametro[0] == "OCULTAR_CONTROL")
                     {
                         cont_txt_cmb.TextChanged += new EventHandler((sender, e) =>
                         {
-                            if (cont_txt_cmb.Text == detalle_parametro[2])
+                            string[] opciones_donde_se_aplicara = detalle_parametro[2].Split(Convert.ToChar(G_caracter_separacion[3]));
+                            for (int j = 0; j < opciones_donde_se_aplicara.Length; j++)
                             {
-                                this.Controls[Convert.ToInt32(detalle_parametro[1])].Visible = true;
-                            }
 
-                            else
-                            {
-                                this.Controls[Convert.ToInt32(detalle_parametro[1])].Visible = false;
+                                if (cont_txt_cmb.Text == opciones_donde_se_aplicara[j])
+                                {
+                                    this.Controls[Convert.ToInt32(detalle_parametro[1])].Visible = true;
+                                    break;
+                                }
+
+                                else
+                                {
+                                    this.Controls[Convert.ToInt32(detalle_parametro[1])].Visible = false;
+                                }
                             }
 
                         });

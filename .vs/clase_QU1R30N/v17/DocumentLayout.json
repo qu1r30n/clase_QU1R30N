@@ -1,12 +1,117 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|c:\\users\\qu1r30n\\documents\\github\\clase_qu1r30n\\clase_qu1r30n\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\compras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\sin_internet\\con_formularios\\tienda\\ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_qu1r30n\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C40950FC-590D-4F1B-94DB-C7D03A0C190A}|clase_QU1R30N\\clase_QU1R30N.csproj|solutionrelative:clase_qu1r30n\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 301,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ventas.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC0AAACOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:01:39.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ventas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\ventas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:01:36.296Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "compras.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAuwD4AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T04:53:00.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "compras.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs [Dise\u00F1o]",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\con_formularios\\tienda\\compras.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T05:30:42.305Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\Form1.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\Form1.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\Form1.cs",
+              "RelativeToolTip": "clase_QU1R30N\\Form1.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T04:52:24.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "herramientas_para_elementos_del_form.cs",
+              "DocumentMoniker": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs",
+              "RelativeDocumentMoniker": "clase_QU1R30N\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs",
+              "ToolTip": "C:\\Users\\QU1R30N\\Documents\\GitHub\\clase_QU1R30N\\clase_QU1R30N\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs",
+              "RelativeToolTip": "clase_QU1R30N\\sin_internet\\con_formularios\\herramientas_para_elementos_del_form.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAFkCAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T04:41:19.874Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
