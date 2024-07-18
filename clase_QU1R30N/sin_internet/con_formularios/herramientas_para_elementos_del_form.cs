@@ -133,7 +133,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                         }
                         if (indice_producto != "")
                         {
-                            fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", cantidad, info_producto[1], indice_producto, lbl_configurar_desc_produc, lbl_configurar_cantidad_costo, lbl_configurar_total);
+                            fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "AGREGAR_PRODUCTO_VENTA", cantidad, info_producto[1], indice_producto, lbl_configurar_desc_produc, lbl_configurar_cantidad_costo, lbl_configurar_total);
 
                         }
 
@@ -185,7 +185,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         }
 
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, result_busq[1], result_busq[2], "VENTA", cantidad);
 
                         if (info_split_produc_inv[0] != null)
                         {
@@ -216,7 +216,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
 
-                        if (info_split_produc_inv[9] == "2")
+                        if (info_split_produc_inv[9] == "PRODUCTO_CANTIDAD")
                         {
                             Ventana_emergente vent_emergent = new Ventana_emergente();
                             string[] enviar = { "2°producto°" + info_split_produc_inv[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
@@ -228,7 +228,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         }
 
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, result_busq[1], result_busq[2], "VENTA", cantidad);
 
                         if (info_split_produc_inv[0] != null)
                         {
@@ -294,14 +294,22 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                             double cantidad_de_productos = 0;
 
+
+
+
+
+
                             if (info_split_produc_inv[11] == "PAQUETE_MAYOREO")
                             {
+
+                                
                                 enviar = new string[]
                                 {
-                                    "1|cantidad||solo_numeros",
-                                    "1|precio|" + lbl_precio_compra.Text + "|solo_numeros",
+                                    "1|cantidad|0|SOLO_NUMEROS",
+                                    "1|precio|" + lbl_precio_compra.Text + "|SOLO_NUMEROS",
                                 };
 
+                                vent_emergent = new Ventana_emergente();
                                 string result = vent_emergent.Proceso_ventana_emergente(enviar, lbl_nom_producto.Text).ToUpper();
                                 string[] res_esp = result.Split(G_caracter_separacion[0][0]);
                                 cantidad_de_productos = Convert.ToDouble(res_esp[0]);
@@ -313,8 +321,8 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             {
                                 enviar = new string[]
                                 {
-                                    "1|cantidad|0|solo_numeros",
-                                    "1|precio|" + lbl_precio_compra.Text + "|solo_numeros",
+                                    "1|cantidad|0|SOLO_NUMEROS",
+                                    "1|precio|" + lbl_precio_compra.Text + "|SOLO_NUMEROS",
                                 };
 
                                 string result = vent_emergent.Proceso_ventana_emergente(enviar, lbl_nom_producto.Text).ToUpper();
@@ -329,23 +337,41 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                             {
                                 enviar = new string[]
                                 {
-                                    "1|cantidad|0|solo_numeros",
-                                    "1|precio|" + lbl_precio_compra.Text + "|solo_numeros",
+                                    "1|cantidad|0|SOLO_NUMEROS",
+                                    "1|precio|" + lbl_precio_compra.Text + "|SOLO_NUMEROS",
 
 
                                 };
+                                vent_emergent = new Ventana_emergente();
                                 string result = vent_emergent.Proceso_ventana_emergente(enviar, lbl_nom_producto.Text).ToUpper();
                                 string[] res_esp = result.Split(G_caracter_separacion[0][0]);
                                 cantidad_de_productos = Convert.ToDouble(res_esp[0]);
                                 lbl_precio_compra.Text = res_esp[1];
                             }
-                            
-
-                            fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "agregar_producto", cantidad_de_productos, info_producto[1], indice_producto, Lbl_descripcion_product_list, lbl_configurar_cantidad_costo, lbl_precio_total);
 
 
-                            
-                            
+
+                            enviar = new string[]
+                                {
+                                    "3|multiplicar cant*precio|1|SOLO_NUMEROS",
+                                    "3|dividir cant/precio|2|SOLO_NUMEROS",
+                                };
+
+
+                            vent_emergent = new Ventana_emergente();
+                            string result_operacion = vent_emergent.Proceso_ventana_emergente(enviar, lbl_nom_producto.Text).ToUpper();
+                            if (result_operacion == "2")
+                            {
+                                
+                                info_split_produc_inv[7] = "" + (Convert.ToDouble(lbl_precio_compra.Text) / cantidad_de_productos);
+                                info_producto[1] = op_tex.join_paresido_simple(G_caracter_separacion[0][0], info_split_produc_inv);
+
+                            }
+
+
+
+                            fun_lstb_agregar_elim(lstb_a_configurar, txt_a_configurar, "AGREGAR_PRODUCTO_COMPRA", cantidad_de_productos, info_producto[1], indice_producto, Lbl_descripcion_product_list, lbl_configurar_cantidad_costo, lbl_precio_total,cmb_provedores.Text);
+
 
                         }
 
@@ -397,7 +423,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         }
 
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, result_busq[1], result_busq[2], "COMPRA", cantidad);
 
                         if (info_split_produc_inv[0] != null)
                         {
@@ -428,7 +454,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
 
-                        if (info_split_produc_inv[9] == "2")
+                        if (info_split_produc_inv[9] == "PRODUCTO_CANTIDAD")
                         {
                             Ventana_emergente vent_emergent = new Ventana_emergente();
                             string[] enviar = { "2°producto°" + info_split_produc_inv[3], "1°cantidad en litros o kilos(se puede decimal)°°2" };
@@ -440,7 +466,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         }
 
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, result_busq[1], result_busq[2], cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, result_busq[1], result_busq[2], "COMPRA", cantidad);
 
                         if (info_split_produc_inv[0] != null)
                         {
@@ -505,11 +531,11 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             };
         }
 
-        
 
 
 
-      public string sumar_o_restar_producto(ListBox lstb_a_configurar, string datos, string indice_producto, double cantidad = 1)
+
+        public string sumar_o_restar_producto_ventas(ListBox lstb_a_configurar, string datos, string indice_producto, string compra_o_venta, double cantidad = 1, string provedor = "")
         {
             bool esta_el_mismo_producto = false;
             string cantidad_retornar_string = "";
@@ -525,7 +551,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     elemento_espliteado[5] = "" + resultado;
                     if (resultado <= 0)
                     {
-                        funciones_de_botones(lstb_a_configurar, "eliminar_por_item", i + "");
+                        funciones_de_botones(lstb_a_configurar, "ELIMINAR_POR_ITEM", i + "");
                         cantidad_retornar_string = "0";
                         break;
                     }
@@ -541,8 +567,38 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
             if (esta_el_mismo_producto == false)
             {
+
+                if (compra_o_venta == "VENTA") 
+                {
+                    lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + datos_espliteados[2] + G_caracter_separacion[0] + datos_espliteados[3] + G_caracter_separacion[0] + datos_espliteados[4] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto);
+                }
+                else
+                {
+                    if (provedor == "")
+                    {
+                        string[] prov_espliteado = datos_espliteados[8].Split(G_caracter_separacion[1][0]);
+                        string provedores_del_producto = "";
+                        for (int i = 0; i < prov_espliteado.Length; i++)
+                        {
+                            string[] info_provedor = prov_espliteado[i].Split(G_caracter_separacion[2][0]);
+                            provedores_del_producto = op_tex.concatenacion_caracter_separacion(provedores_del_producto, info_provedor[0], G_caracter_separacion[1]);
+                        }
+                        lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + datos_espliteados[2] + G_caracter_separacion[0] + datos_espliteados[3] + G_caracter_separacion[0] + datos_espliteados[7] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto + G_caracter_separacion[0] + provedores_del_producto);
+                    }
+                    else
+                    {
+                        string[] prov_espliteado = provedor.Split(G_caracter_separacion[1][0]);
+                        string provedores_del_producto = "";
+                        for (int i = 0; i < prov_espliteado.Length; i++)
+                        {
+                            string[] info_provedor = prov_espliteado[i].Split(G_caracter_separacion[2][0]);
+                            provedores_del_producto = op_tex.concatenacion_caracter_separacion(provedores_del_producto, info_provedor[0], G_caracter_separacion[1]);
+                        }
+                        lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + datos_espliteados[2] + G_caracter_separacion[0] + datos_espliteados[3] + G_caracter_separacion[0] + datos_espliteados[7] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto + G_caracter_separacion[0] + provedores_del_producto);
+                    }
+                    
+                }
                 
-                lstb_a_configurar.Items.Add(datos_espliteados[5] + G_caracter_separacion[0] + datos_espliteados[1] + G_caracter_separacion[0] + datos_espliteados[2] + G_caracter_separacion[0] + datos_espliteados[3] + G_caracter_separacion[0] + datos_espliteados[4] + G_caracter_separacion[0] + cantidad + G_caracter_separacion[0] + indice_producto);
                 cantidad_retornar_string = "" + cantidad;
             }
 
@@ -572,33 +628,33 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             //eliminar_por_item,eliminar_seleccionado,eliminar_ultimo,eliminar_todo
             switch (proceso)
             {
-                case "eliminar_por_item":
+                case "ELIMINAR_POR_ITEM":
                     if (lstb_a_configurar.Items.Count > 0)
                     {
                         lstb_a_configurar.Items.RemoveAt(Convert.ToInt32(info_extra));
                     }
                     break;
-                case "eliminar_seleccionado":
+                case "ELIMINAR_SELECCIONADO":
 
                     lstb_a_configurar.Items.RemoveAt(lstb_a_configurar.SelectedIndex);
                     break;
 
-                case "eliminar_ultimo":
+                case "ELIMINAR_ULTIMO":
                     if (lstb_a_configurar.Items.Count > 0)
                     {
                         lstb_a_configurar.Items.RemoveAt(lstb_a_configurar.Items.Count - 1);
                     }
                     break;
-                case "eliminar_todo":
+                case "ELIMINAR_TODO":
                     lstb_a_configurar.Items.Clear();
                     break;
 
-                case "procesar_venta":
+                case "PROCESAR_VENTA":
                     ventana_introduce_cantidad_pagada(lstb_a_configurar, "VENTA");
                     lstb_a_configurar.Items.Clear();
                     break;
 
-                case "procesar_compra":
+                case "PROCESAR_COMPRA":
                     ventana_introduce_cantidad_pagada(lstb_a_configurar, "COMPRA");
                     lstb_a_configurar.Items.Clear();
                     break;
@@ -619,7 +675,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             {
                 //info_resultado = enl_princ.enlasador("MODELO_VENTAS~VENTA§COD_BAR¬1¬PLATAFORMA1╝4¬VENTAS°COD_BAR1¬1¬PLATAFORMA1╝4¬VENTAS°COD_BAR¬3¬PLATAFORMA1╝4¬VENTAS");
                 string[] inf_esp = lstb_a_configurar.Items[i].ToString().Split(G_caracter_separacion[0][0]);
-                info_enviar = op_tex.concatenacion_caracter_separacion(info_enviar, inf_esp[0] + G_caracter_separacion[2] + inf_esp[5] + G_caracter_separacion[2] + "0_tien" + G_caracter_separacion[3] + "0" + G_caracter_separacion[2] + "VENTAS", G_caracter_separacion[1]);
+                info_enviar = op_tex.concatenacion_caracter_separacion(info_enviar, inf_esp[0] + G_caracter_separacion[2] + inf_esp[5] + G_caracter_separacion[2] + inf_esp[4] + G_caracter_separacion[2] + inf_esp[7]  + G_caracter_separacion[2] + "0_tien" + G_caracter_separacion[3] + "0" + G_caracter_separacion[2] + venta_o_compra, G_caracter_separacion[1]);
                 
             }
 
@@ -627,23 +683,12 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             while (pago_completo == false)
             {
                 Ventana_emergente vent_emergent = new Ventana_emergente();
-                string[] enviar = { "1|cantidad pagada|" + total + "|2" };
+                string[] enviar = { "1|cantidad pagada |" + total + "|2" };
 
                 string cantidad_en_dinero_dada = vent_emergent.Proceso_ventana_emergente(enviar);
                 double cantidad_en_dinero_dada_double = Convert.ToDouble(cantidad_en_dinero_dada);
 
-                if (cantidad_en_dinero_dada_double > total)
-                {
-                    MessageBox.Show("cambio: " + (cantidad_en_dinero_dada_double - total));
-                    pago_completo = true;
-                }
-
-                if (cantidad_en_dinero_dada_double < total)
-                {
-                    MessageBox.Show("falta: " + (total - cantidad_en_dinero_dada_double));
-                    pago_completo = false;
-                    //ventana_introduce_cantidad_pagada(lstb_a_configurar);
-                }
+                pago_completo = true;
 
                 if (pago_completo == true)
                 {
@@ -656,6 +701,19 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     }
                     else
                     {
+                        if (cantidad_en_dinero_dada_double > total)
+                        {
+                            MessageBox.Show("cambio: " + (cantidad_en_dinero_dada_double - total));
+                            pago_completo = true;
+                        }
+
+                        if (cantidad_en_dinero_dada_double < total)
+                        {
+                            MessageBox.Show("falta: " + (total - cantidad_en_dinero_dada_double));
+                            pago_completo = false;
+                            //ventana_introduce_cantidad_pagada(lstb_a_configurar);
+                        }
+
                         info_resultado = enl_princ.enlasador("MODELO_VENTAS~VENTA§" + info_enviar);   
                     }
 
@@ -663,16 +721,19 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
             }
+
+
+
         }
 
-        
 
-        public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string datos = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null)
+
+        public void fun_lstb_agregar_elim(ListBox lstb_a_configurar, TextBox txt_de_donde_agregara_info, string accion_realisar, double cantidad = 0, string datos = "", string indice_producto = "", Label lbl_configurar_desc_produc = null, Label lbl_configurar_cantidad_costo = null, Label lbl_configurar_total = null, string provedor_compras = "")
         {
 
             switch (accion_realisar)
             {
-                case "agregar":
+                case "AGREGAR":
                     if (txt_de_donde_agregara_info.Text != "" && txt_de_donde_agregara_info.Text != null)
                     {
 
@@ -682,7 +743,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     break;
 
                 //inicio agregar_productos----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                case "agregar_producto":
+                case "AGREGAR_PRODUCTO_VENTA":
 
                     //agrega por agregar falta revisar si ya existe el codigo
                     if (txt_de_donde_agregara_info.Text != "" && datos != "")
@@ -691,7 +752,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
 
 
-                        if (info_split_produc[9] == "2")
+                        if (info_split_produc[9] == "PRODUCTO_CANTIDAD")
                         {
                             Ventana_emergente vent_emergent = new Ventana_emergente();
                             string[] enviar = { "2°producto°" + "info_produc_del_invent[3]", "1°cantidad en litros o kilos(se puede decimal)°°2" };
@@ -703,7 +764,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                         }
 
-                        string cantidad_sumada_o_restada = sumar_o_restar_producto(lstb_a_configurar, datos,indice_producto, cantidad);
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, datos,indice_producto, "VENTA", cantidad);
 
                         if (info_split_produc[0] != null)
                         {
@@ -729,11 +790,45 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
                     break;
 
+                case "AGREGAR_PRODUCTO_COMPRA":
+
+                    //agrega por agregar falta revisar si ya existe el codigo
+                    if (txt_de_donde_agregara_info.Text != "" && datos != "")
+                    {
+                        string[] info_split_produc = datos.Split(G_caracter_separacion[0][0]);
+
+
+                        string cantidad_sumada_o_restada = sumar_o_restar_producto_ventas(lstb_a_configurar, datos, indice_producto, "COMPRA", cantidad, provedor_compras);
+
+                        if (info_split_produc[0] != null)
+                        {
+
+
+                            if (lbl_configurar_desc_produc != null)
+                            {
+                                string tem_tex = info_split_produc[1] + " " + info_split_produc[2] + " " + info_split_produc[3] + " precio:" + info_split_produc[4];
+                                lbl_configurar_desc_produc.Text = tem_tex;
+                            }
+                            if (lbl_configurar_cantidad_costo != null)
+                            {
+                                string tem_tex = cantidad_sumada_o_restada + " " + info_split_produc[1] + " " + info_split_produc[2] + " " + info_split_produc[3] + " " + (Convert.ToDouble(cantidad_sumada_o_restada) * Convert.ToDouble(info_split_produc[7]));
+                                lbl_configurar_cantidad_costo.Text = tem_tex;
+                            }
+                            sumar_precio_columna_lstbox(lstb_a_configurar, 4, 5, lbl_configurar_total);
+
+                        }
+
+
+                        txt_de_donde_agregara_info.Text = "";
+                    }
+
+                    break;
+
                 //fin agregar_productos---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
                 //i------------------------------------------------------------------------------------------------------------------------
-                case "eliminar":
+                case "ELIMINAR":
 
                     funciones_de_botones(lstb_a_configurar, datos);
 

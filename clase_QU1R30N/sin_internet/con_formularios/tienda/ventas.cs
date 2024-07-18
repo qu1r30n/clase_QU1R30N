@@ -43,10 +43,10 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
             herr_form.fun_txt_procesar_tecleos_ventas(Txt_Codbar, Lst_ventas, Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
             herr_form.fun_txt_nom_produc_pasar_a_txt_codigo(Txt_nom_producto, Txt_Codbar);
 
-            herr_form.fun_botones(Lst_ventas, Btn_eliminar_seleccionado, "eliminar_seleccionado", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
-            herr_form.fun_botones(Lst_ventas, Btn_eliminar_todo, "eliminar_todo", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
-            herr_form.fun_botones(Lst_ventas, Btn_elim_ultimo, "eliminar_ultimo", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
-            herr_form.fun_botones(Lst_ventas, Btn_procesar_venta, "procesar_venta", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_ventas, Btn_eliminar_seleccionado, "ELIMINAR_SELECCIONADO", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_ventas, Btn_eliminar_todo, "ELIMINAR_TODO", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_ventas, Btn_elim_ultimo, "ELIMINAR_ULTIMO", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
+            herr_form.fun_botones(Lst_ventas, Btn_procesar_venta, "PROCESAR_VENTA", Lbl_nom_product_list, Lbl_costo_product_list, Lbl_cuenta);
 
             herr_form.fun_ventana_cargar_cadaves_que_regresa_a_la_ventana(this, Txt_Codbar, Txt_nom_producto);
 

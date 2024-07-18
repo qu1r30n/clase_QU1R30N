@@ -33,58 +33,32 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         {
             string info_a_retornar = null;
 
-            string año_mes_dia_hora_minuto_segundo = fecha_hora;
-            string año_mes_dia_hora_minuto = "";
-            string año_mes_dia_hora = "";
-            string año_mes_dia = "";
-            string año_mes = "";
-            string año = "";
+            string[] cant_datos = datos.Split(G_caracter_separacion[1][0]);
+            
 
-            for (int i = 0; i < fecha_hora.Length; i++)
+            for (int i = 0; i < cant_datos.Length; i++)
             {
-                if (i < fecha_hora.Length - 2)
+                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[2][0]);
+                switch (proceso)
                 {
-                    año_mes_dia_hora_minuto = año_mes_dia_hora_minuto + fecha_hora[i];
+                    case "COMPRA":
+                        info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3],sucursales: info_espliteada[4]);
+                        break;
+                    case "COMPRA_MAYOREO":
+
+                        break;
+
+                    case "COMPRA_CON_PROMOCION":
+
+                        break;
+                    case "CANCELAR":
+
+                        break;
+                    default:
+                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                        break;
                 }
-                if (i < fecha_hora.Length - 4)
-                {
-                    año_mes_dia_hora = año_mes_dia_hora + fecha_hora[i];
-                }
-                if (i < fecha_hora.Length - 6)
-                {
-                    año_mes_dia = año_mes_dia + fecha_hora[i];
-                }
-                if (i < fecha_hora.Length - 8)
-                {
-                    año_mes = año_mes + fecha_hora[i];
-                }
-                if (i < fecha_hora.Length - 10)
-                {
-                    año = año + fecha_hora[i];
-                }
-            }
 
-
-
-            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
-            switch (proceso)
-            {
-                case "COMPRA":
-                    info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4], info_espliteada[5]);
-                    break;
-                case "COMPRA_MAYOREO":
-                    
-                    break;
-
-                case "COMPRA_CON_PROMOCION":
-
-                    break;
-                case "CANCELAR":
-
-                    break;
-                default:    
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                    break;
             }
             return info_a_retornar;
         }
