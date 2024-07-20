@@ -371,6 +371,41 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         }
 
+        public string hacer_inventario(string informacion, object caracter_separacion_obj = null, object caracter_separacion_obj_funciones_espesificas_obj = null)
+        {
+            string info_retornar = "";
+
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            string[] caracter_separacion_funciones_espesificas = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_obj_funciones_espesificas_obj);
+
+            string[] cantidad_informacion = informacion.Split(caracter_separacion_funciones_espesificas[0][0]);
+
+            for (int i = 0; i < cantidad_informacion.Length; i++)
+            {
+                string[] info_producto = cantidad_informacion[i].Split(caracter_separacion[0][0]);
+
+                string res_busq = buscar(G_direcciones[0], info_producto[0]);
+                
+                string[] res_esp = res_busq.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                string[] info_esp_producto = res_esp[1].Split(G_caracter_separacion[0][0]);
+                string info_a_procesar = "";
+                if (Convert.ToInt32(res_esp[0]) > 0)
+                {
+
+                    info_a_procesar = info_producto[0] + G_caracter_separacion[0] + info_esp_producto[1] + G_caracter_separacion[0] + info_producto[2] + G_caracter_separacion[0] + info_producto[3];
+
+                    
+                }
+                else
+                {
+                    info_a_procesar = info_producto[0] + G_caracter_separacion[0] + "NOMBRE_PRODUCTO" + G_caracter_separacion[0] + info_producto[2] + G_caracter_separacion[0] + info_producto[3];
+                }
+
+            }
+
+            return info_retornar;
+            
+        }
 
         public string dar_el_inventario_string_caracter_sep(string direccion_archivo, object caracter_separacion_obj = null)
         {

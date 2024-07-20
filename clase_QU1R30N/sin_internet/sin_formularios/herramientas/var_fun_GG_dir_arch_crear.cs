@@ -910,6 +910,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
         //REGISTROS-------------------------------------------------------------------------------------
+        
         //registro dia
         static public string[,] GG_ventana_reg_dia =
         {
@@ -1669,5 +1670,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
     };
+
+        //direccion_para_hacer_inventarios
+        string GG_direccion_hacer_inventarios = "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_inventario_hecho";
     }
 }

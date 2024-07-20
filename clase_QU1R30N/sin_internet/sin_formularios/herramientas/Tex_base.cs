@@ -162,7 +162,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             
         }
 
-
         public string Agregar_sino_existe
             (string direccion_archivo_a_checar, int num_column_comp, string comparar, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
         {
@@ -250,8 +249,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             return info_a_retornar;
         }
-
-
 
 
         public string Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final

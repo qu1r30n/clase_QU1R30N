@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         _0_proceso_AnalisisDeDatos pr_analisis = new _0_proceso_AnalisisDeDatos();
         _3_proceso_productos_e_inventario pr_prod_inv = new _3_proceso_productos_e_inventario();
 
-        public string compras(string direccion_archivo, string codigos, string cantidades, string precio_compra_piezas, string provedores, string nombres_product_si_no_existen_producto = "", string sucursales = "",double porcentage_ganancia=20)
+        public string compras(string direccion_archivo, string codigos, string cantidades, string precio_compra_piezas, string provedores, string nombres_product_si_no_existen_producto = "", string sucursales = "", double porcentage_ganancia = 20)
         {
             string info_a_retornar = "";
 
@@ -32,7 +32,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string año_mes_dia_hora = fecha_hora.ToString("yyyyMMddHH");
             string año = fecha_hora.ToString("yyyy");
 
-            
+
 
             string[] codigos_espl = codigos.Split(G_caracter_separacion[1][0]);
             string[] cantidades_espl = cantidades.Split(G_caracter_separacion[1][0]);

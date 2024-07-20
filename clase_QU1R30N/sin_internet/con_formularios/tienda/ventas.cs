@@ -14,17 +14,8 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
     public partial class ventas : Form
     {
 
-        Tex_base bas = new Tex_base();
-        string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
-        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
-        string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
-
-        string[] G_direcciones_REGISTROS =
-        {
-            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1,0],//inventario
-            
-        };
-        int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
+        
+        
 
         herramientas_para_elementos_del_form herr_form = new herramientas_para_elementos_del_form();
 

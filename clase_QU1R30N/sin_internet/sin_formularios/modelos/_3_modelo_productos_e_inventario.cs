@@ -77,6 +77,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
                     break;
+                
                 case "AGREGAR":
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
@@ -111,13 +112,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                     break;
 
-                case "SACAR_INVENTARIO":
+                case "EXTRAER_INVENTARIO_STRING":
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
 
                     info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[0]);
 
                     break;
+
+                case "HACER_INVENTARIO":
+
+                    info_a_retornar = proc_inventario.hacer_inventario(datos);
+
+                    break;
+
+
 
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";

@@ -83,7 +83,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             }
 
             
-            mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
+            //mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 
