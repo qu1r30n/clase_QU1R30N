@@ -119,10 +119,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[0]);
 
                     break;
+                
+                case "CREAR_ARCHIVOS_HACER_INVENT":
+
+                    proc_inventario.archivos_inicio_hacer_inventario();
+
+                    break;
 
                 case "HACER_INVENTARIO":
-
-                    info_a_retornar = proc_inventario.hacer_inventario(datos);
+                    
+                    info_a_retornar = proc_inventario.hacer_inventario(datos,año_mes_dia);
 
                     break;
 

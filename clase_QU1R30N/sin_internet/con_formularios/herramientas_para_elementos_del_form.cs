@@ -31,14 +31,15 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         principal enl_princ = new principal();
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
-        var_fun_GG var_GG = new var_fun_GG();
+        var_fun_GG vf_GG = new var_fun_GG();
+        var_fun_GG_dir_arch_crear vf_GG_arc_crear = new var_fun_GG_dir_arch_crear();
 
         Ventana_emergente vent_emergent = new Ventana_emergente();
 
 
         public void fun_hacer_inventario_archivo_inicio()
         {
-            enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~HACER_INVENTARIO§");
+            enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~CREAR_ARCHIVOS_HACER_INVENT§");
         }
 
         //txt------------------------------------------------------------
@@ -640,7 +641,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
             return total;
         }
 
-        public void funciones_de_botones_operaciones_listbox(ListBox lstb_a_configurar, string proceso, string info_extra = "", object[] controles_extra = null)
+        private void funciones_de_botones_operaciones_listbox(ListBox lstb_a_configurar, string proceso, string info_extra = "", object[] controles_extra = null)
         {
             //eliminar_por_item,eliminar_seleccionado,eliminar_ultimo,eliminar_todo
             switch (proceso)
@@ -682,7 +683,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
                     opfd.InitialDirectory = Directory.GetCurrentDirectory() + "\\info_a_usar\\inventarios";
                     if (opfd.ShowDialog() == DialogResult.OK)
                     {
-                        
+                        cargar_archivo_HACER_INVENTARIOS(opfd.FileName, "MOSTRAR_FALTANTES");
                     }
                     break;
 
@@ -914,14 +915,19 @@ namespace clase_QU1R30N.sin_internet.con_formularios
 
         
 
-        public void cargar_archivo_a_listbox(string direccion, ListBox lstb_a_configurar, object caracter_separacion_obj = null)
+        public void cargar_archivo_HACER_INVENTARIOS(string direccion,string accion_a_hacer, object caracter_separacion_obj = null)
         {
             
             Tex_base bas = new Tex_base();
             string[] filas_archivo = bas.Leer(direccion, caracter_separacion_objeto: caracter_separacion_obj);
 
-            string filas_joineadas = string.Join(G_caracter_separacion_funciones_espesificas[0], filas_archivo);
+            
+            filas_archivo = op_arr.ordenar_arreglo(filas_archivo, 3);
+            string filas_joineadas = string.Join(G_caracter_separacion_funciones_espesificas[3], filas_archivo);
+            filas_joineadas = accion_a_hacer + G_caracter_separacion_funciones_espesificas[2] + filas_joineadas;
+
             enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~HACER_INVENTARIO§" + filas_joineadas);
+
 
 
         }

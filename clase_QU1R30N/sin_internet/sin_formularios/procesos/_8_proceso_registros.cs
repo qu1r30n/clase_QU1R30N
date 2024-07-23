@@ -438,7 +438,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 string tipo_de_operacion = "";
                 
-                string Nom_Cantidad_Codbar = "";
+                
                 
                 
                 string[] cant_dat = datos.Split(G_caracter_separacion[1][0]);
@@ -503,7 +503,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     
 
-                    bool fue_creada_la_informacion = false;
+                    //bool fue_creada_la_informacion = false;
                     for (int j = 0; j < datos_codbar.Length; j++)
                     {
                         string[] inf_dat = datos_codbar[j].Split(G_caracter_separacion[2][0]);

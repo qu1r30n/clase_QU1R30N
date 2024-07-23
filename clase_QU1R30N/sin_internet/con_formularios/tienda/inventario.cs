@@ -18,6 +18,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
         {
             InitializeComponent();
 
+            herr_form.fun_hacer_inventario_archivo_inicio();
 
             herr_form.fun_botones(lst_cod_bar, btn_cargar_archivo_inv, "INV_FORM_CARGAR_ARCHIVO");
             herr_form.fun_botones(lst_cod_bar, Btn_eliminar_seleccionado, "ELIMINAR_SELECCIONADO");
@@ -29,6 +30,8 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
             herr_form.fun_botones(lst_todos_los_agregados, Btn_eliminar_seleccionado2, "ELIMINAR_SELECCIONADO");
             herr_form.fun_botones(lst_todos_los_agregados, Btn_eliminar_todo2, "ELIMINAR_TODO");
             herr_form.fun_botones(lst_todos_los_agregados, Btn_elim_ultimo2, "ELIMINAR_ULTIMO");
+
         }
+
     }
 }

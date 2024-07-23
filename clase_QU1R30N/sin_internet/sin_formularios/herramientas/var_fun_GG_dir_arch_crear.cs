@@ -116,38 +116,40 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*22*/ { "1", "DIR_IMG_COMP", "" },
             /*23*/ { "1", "INFO_EXTRA", "" },
             /*24*/ { "1", "PROCESO_CREAR", "||||NO_VISIBLE" },
-            /*25*/ { "2", "NO_PONER_NADA", "" },
+            /*25*/ { "1", "DIR_VID_PROC_CREAR", "" },
+            /*26*/ { "2", "NO_PONER_NADA", "" },
         };
         public static void RecargarVentanaEmergenteProductos(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_emergente_productos = new string[,]
             {
                 /*0*/ { "2", "ID", "" },
-                /*1*/ { "1", "PRODUCTO", "" },
-                /*2*/ { "1", "CONTENIDO", "0|SOLO_NUMEROS" },
-                /*3*/ { "4", "TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2] },
-                /*4*/ { "1", "PRECIO_VENTA", "0|SOLO_NUMEROS" },
-                /*5*/ { "2", "COD_BARRAS", GG_variables_string[0] },
-                /*6*/ { "1", "CANTIDAD", "1|SOLO_NUMEROS" },
-                /*7*/ { "1", "COSTO_COMP", "0|SOLO_NUMEROS" },
-                /*8*/ { "4", "PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] },
-                /*9*/ { "4", "GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬33¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬49¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬23¬PRODUCTO_PIEZA╦PRODUCTO_CANTIDAD╦VENTA_INGREDIENTE" },
-                /*10*/ { "1", "CANT_X_PAQUET", "1|SOLO_NUMEROS" },
-                /*11*/ { "4", "ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION" },
-                /*12*/ { "1", "CODBAR_PAQUETE", "" },
-                /*13*/ { "1", "CODBAR_IND_PAQ", "||||NO_VISIBLE" },
-                /*14*/ { "1", "LIGAR_PROD_SAB", "" },
-                /*15*/ { "1", "IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" },
-                /*16*/ { "1", "INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" },
-                /*17*/ { "1", "CADUCIDAD", "0|SOLO_NUMEROS" },
-                /*18*/ { "1", "ULTIMO_MOV", "0|SOLO_NUMEROS" },
-                /*19*/ { "1", "SUCUR_VENT", "" },
-                /*20*/ { "1", "CLAF_PROD", "" },
-                /*21*/ { "1", "DIR_IMG_INTER", "" },
-                /*22*/ { "1", "DIR_IMG_COMP", "" },
-                /*23*/ { "1", "INFO_EXTRA", "" },
-                /*24*/ { "1", "PROCESO_CREAR", "||||NO_VISIBLE" },
-                /*25*/ { "2", "NO_PONER_NADA", "" },
+            /*1*/ { "1", "PRODUCTO", "" },
+            /*2*/ { "1", "CONTENIDO", "0|SOLO_NUMEROS" },
+            /*3*/ { "4", "TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2] },
+            /*4*/ { "1", "PRECIO_VENTA", "0|SOLO_NUMEROS" },
+            /*5*/ { "2", "COD_BARRAS", GG_variables_string[0] },
+            /*6*/ { "1", "CANTIDAD", "1|SOLO_NUMEROS" },
+            /*7*/ { "1", "COSTO_COMP", "0|SOLO_NUMEROS" },
+            /*8*/ { "4", "PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] },
+            /*9*/ { "4", "GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬29¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬45¬PRODUCTO_ELABORADO" },
+            /*10*/ { "1", "CANT_X_PAQUET", "1|SOLO_NUMEROS" },
+            /*11*/ { "4", "ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION" },
+            /*12*/ { "1", "CODBAR_PAQUETE", "" },
+            /*13*/ { "1", "COD_BAR_INDIVIDUAL_ES_PAQ", "" },
+            /*14*/ { "1", "LIGAR_PROD_SAB", "" },
+            /*15*/ { "1", "IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" },
+            /*16*/ { "1", "INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" },
+            /*17*/ { "1", "CADUCIDAD", "0|SOLO_NUMEROS" },
+            /*18*/ { "1", "ULTIMO_MOV", "0|SOLO_NUMEROS" },
+            /*19*/ { "1", "SUCUR_VENT", "" },
+            /*20*/ { "1", "CLAF_PROD", "" },
+            /*21*/ { "1", "DIR_IMG_INTER", "" },
+            /*22*/ { "1", "DIR_IMG_COMP", "" },
+            /*23*/ { "1", "INFO_EXTRA", "" },
+            /*24*/ { "1", "PROCESO_CREAR", "||||NO_VISIBLE" },
+            /*25*/ { "1", "DIR_VID_PROC_CREAR", "" },
+            /*26*/ { "2", "NO_PONER_NADA", "" },
             };
 
 
@@ -189,7 +191,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
         }
-        
+
         //cosas no estaban en el inventario
         static public string[,] GG_ventana_COSAS_NO_ESTABAN_INVENTARIO =
         {
@@ -269,7 +271,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" },
             { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","" },
             { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","" },
-            
+
 
         };
         public static void RecargarVentanaEmergenteProvedor(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -339,7 +341,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-        
+
         //ventana APRENDICES_E
         static public string[,] GG_ventana_APRENDICES_E =
         {
@@ -375,7 +377,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","29_ÚLTIMO_AUMENTO_DE_SALARIO","" },
             { "1","30_TIPO_EMPLEADO","" },
             { "1","31_RANGO_CALIF","" },
-            
+
         };
         public static void RecargarVentanaEmergenteAPRENDICES_E(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
@@ -451,7 +453,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
         }
-       
+
         //ventana afiliados_simples
         static public string[,] GG_ventana_afiliados_simples =
         {
@@ -645,8 +647,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-        
-        
+
+
         //ventana niv_afiliados_comp
         static public string[,] GG_ventana_niv_afiliados_comp =
         {
@@ -910,7 +912,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
         //REGISTROS-------------------------------------------------------------------------------------
-        
+
         //registro dia
         static public string[,] GG_ventana_reg_dia =
         {
@@ -1001,7 +1003,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
         };
-        public static void RecargarVentanaEmergenteRegMes (string al_finalizar_que_borrar_para_proxima_ventana = "")
+        public static void RecargarVentanaEmergenteRegMes(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
 
             GG_ventana_reg_mes = new string[,]
@@ -1266,7 +1268,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_mes =
         {
 
-            
+
             { "1","0_NOMBRE_PRODUCTO","" },
             { "1","1_CANTIDAD","" },
             { "1","2_COD_BAR","" },
@@ -1569,7 +1571,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             GG_ventana_TIPOS_DE_MEDIDA = new string[,]
             {
                 { "1","0_TIPO_DE_MEDIDA","" },
-                
+
             };
 
 
@@ -1635,7 +1637,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
         static public string[] GG_direccion_carpetas_base = { "" };
-        
+
 
 
         static public string[,] GG_dir_nom_archivos =
@@ -1672,6 +1674,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
     };
 
         //direccion_para_hacer_inventarios
-        string GG_direccion_hacer_inventarios = "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_inventario_hecho";
+        public string[,] GG_direccion_hacer_inventarios =
+        {
+            { "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_VENTAS_DURANTE_INV.TXT", "CODBAR|nombre_producto|CANTIDA|ULTIMO_MOVIMIENTO" },
+            { "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_SOBRANTES.TXT", "CODBAR|nombre_producto|CANTIDA|ULTIMO_MOVIMIENTO" },
+            { "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_FALTANTES.TXT", "CODBAR|nombre_producto|CANTIDA|ULTIMO_MOVIMIENTO" },
+            { "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_NO_ESTAN_EN_EL_FISICO.TXT", "CODBAR|nombre_producto|CANTIDA|ULTIMO_MOVIMIENTO" },
+            { "CONFIG\\INF\\INVENTARIO\\HACER_INVENTARIO\\" + DateTime.Now.ToString("yyyyMMdd") + "_NO_ESTAN_EN_EL_FISICO_PERO_PUEDE_QUE_FALTEN.TXT", "CODBAR|nombre_producto|CANTIDA|ULTIMO_MOVIMIENTO" },
+
+        };
     }
 }

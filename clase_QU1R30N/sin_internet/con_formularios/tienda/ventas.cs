@@ -14,12 +14,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios.tienda
     public partial class ventas : Form
     {
 
-        
-        
-
         herramientas_para_elementos_del_form herr_form = new herramientas_para_elementos_del_form();
-
-
 
 
         public ventas()

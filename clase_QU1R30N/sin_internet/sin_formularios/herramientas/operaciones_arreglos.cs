@@ -395,14 +395,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-        
-
-
-        
-
-
-        
-
 
         public string[] editar_busqueda_profunda_arreglo(string[] areglo, string columnas_a_recorrer, string comparar, object columnas_a_recorrer_editar, string info_a_sustituir, object caracter_separacion_objeto = null)
         {
@@ -1065,5 +1057,83 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] arrelgo_a_devolver = info_a_devolver.Split(caracter_separacion[0][0]);
             return arrelgo_a_devolver;
         }
+
+        public string[] juntar_dos_arreglos(string[] arreglo1, string[] arreglo2)
+        {
+            string[] arreglo_retornar = null;
+
+            if (arreglo2 != null)
+            {
+
+                // Crear un nuevo arreglo con el tamaño combinado de los dos arreglos de entrada
+                arreglo_retornar = new string[arreglo1.Length + arreglo2.Length];
+
+                // Usar un solo bucle para copiar elementos de ambos arreglos al nuevo arreglo
+                for (int i = 0; i < arreglo_retornar.Length; i++)
+                {
+                    if (i < arreglo1.Length)
+                    {
+                        // Copiar los elementos del primer arreglo
+                        arreglo_retornar[i] = arreglo1[i];
+                    }
+                    else
+                    {
+                        // Copiar los elementos del segundo arreglo
+                        arreglo_retornar[i] = arreglo2[i - arreglo1.Length];
+                    }
+                }
+            }
+            else
+            {
+                arreglo_retornar = arreglo1;
+            }
+            // Retornar el nuevo arreglo combinado
+            return arreglo_retornar;
+        }
+
+
+        public string[] ordenar_arreglo(string[] arreglo, int columna, string tipo = "MENOR_A_MAYOR", object caracter_separacion_obj = null)
+        {
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+
+            
+            string variable_para_hacer_intercambio = "";
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                string[] info_1 = arreglo[i].Split(caracter_separacion[0][0]);
+                for (int j = i+1; j < arreglo.Length; j++)
+                {
+                    string[] info_2 = arreglo[j].Split(caracter_separacion[0][0]);
+
+                    double valor_1 = Convert.ToDouble(info_1[columna]);
+                    double valor_2 = Convert.ToDouble(info_2[columna]);
+
+                    if (tipo == "MENOR_A_MAYOR")
+                    {
+                        if (valor_1 > valor_2)
+                        {
+                            variable_para_hacer_intercambio = arreglo[i];
+                            arreglo[i] = arreglo[j];
+                            arreglo[j] = variable_para_hacer_intercambio;
+                        }
+                    }
+                    else if (tipo == "MAYOR_A_MENOR")
+                    {
+                        if (valor_1 < valor_2)
+                        {
+                            variable_para_hacer_intercambio = arreglo[i];
+                            arreglo[i] = arreglo[j];
+                            arreglo[j] = variable_para_hacer_intercambio;
+                        }
+                    }
+                }
+                
+
+            }
+            
+
+            return arreglo;
+        }
+
     }
 }

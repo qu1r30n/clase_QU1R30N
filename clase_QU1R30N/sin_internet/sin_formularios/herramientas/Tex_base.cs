@@ -590,32 +590,35 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     resultado = op_arr.agregar_registro_del_array(resultado, palabra);
                 }
 
-                // Cerrar el StreamReader ya que se ha completado el procesamiento
-                sr.Close();
-
-                // Copiar el resultado a un nuevo arreglo para evitar referencias no deseadas
-                string[] arreglo_a_retornar = new string[resultado.Length];
-                for (int fila = iniciar_desde_que_fila; fila < resultado.Length; fila++)
-                {
-                    arreglo_a_retornar[fila] = "" + resultado[fila];
-                }
-
-                // Devolver el resultado
-                return arreglo_a_retornar;
             }
 
             // Cerrar el StreamReader ya que se ha completado el procesamiento
             sr.Close();
 
-            // Copiar el contenido de "linea" a un nuevo arreglo para evitar referencias no deseadas
-            string[] t2 = new string[linea.Length];
-            for (int mnm = 0; mnm < linea.Length; mnm++)
+            
+            if (linea!=null)
             {
-                t2[mnm] = "" + linea[mnm];
-            }
 
-            // Devolver el resultado
-            return t2;
+                if ((linea.Length - iniciar_desde_que_fila) > 0)
+                {
+
+
+                    // Copiar el contenido de "linea" a un nuevo arreglo para evitar referencias no deseadas
+                    string[] arreglo_a_retornar = new string[linea.Length- iniciar_desde_que_fila];
+                    for (int k = iniciar_desde_que_fila; k < linea.Length; k++)
+                    {
+                        arreglo_a_retornar[k - iniciar_desde_que_fila] = "" + linea[k];
+                    }
+
+                    // Devolver el resultado
+                    return arreglo_a_retornar;
+                }
+                else { return null; }
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public string sacar_indice_del_arreglo_de_direccion(string direccion_archivo)

@@ -579,6 +579,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string retornar = string.Join(caracter_separacion[0], espliteado_texto);
             return retornar;
         }
+        
         public string editar_inc_agregar_edicion_profunda_multiple_comparacion_final_string
             (
     string texto, 
