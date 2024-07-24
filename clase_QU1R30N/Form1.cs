@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.con_formularios.tienda;
+using clase_QU1R30N.con_internet.herramientas_internet;
 
 namespace clase_QU1R30N
 {
@@ -45,17 +46,33 @@ namespace clase_QU1R30N
             //info_resultado = enl_princ.enlasador("MODELO_PROVEDORES~REGISTRO_PROVEDOR§EJEMPLO_1_NOMBRE_EMPRESA|EJEMPLO_2_NOMBRE_ENCARGADO|EJEMPLO_3_DIRECCIÓN_EMPRESA|EJEMPLO_4_CIUDAD_EMPRESA|EJEMPLO_5_ESTADO_EMPRESA|EJEMPLO_6_CÓDIGO_POSTAL|EJEMPLO_7_PAÍS|EJEMPLO_8_CORREO_ELECTRÓNICO|EJEMPLO_9_TELÉFONO_ENCARGADO|EJEMPLO_10_TELEFONO_EMPRESA|EJEMPLO_11_TIPO_DE_PROVEEDOR|EJEMPLO_12_PRODUCTOS_SERVICIOS_SUMINISTRADOS|EJEMPLO_13_CUENTA_BANCO|EJEMPLO_14_UBICACIÓN_(GPS)|EJEMPLO_15_NOTAS|EJEMPLO_16_RECORDATORIO|EJEMPLO_17_ACTIVO_O_NO_ACTIVO|EJEMPLO_18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0|EJEMPLO_19_COMENTARIOS_PREVENTA_ENTREGA|EJEMPLO_20_SUCURSALES_QUE_LE_COMPRAN|EJEMPLO_21_DINERO_A_COMPRARLE|EJEMPLO_22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1|EJEMPLO_23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1");
             //info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~AGREGAR_SINO_EXISTE§EJEMPLO_PRODUCTO|12.34|EJEMPLO_TIPO_MEDIDA|56.78|EJEMPLO_COD_BARRAS|9.01|23.45|EJEMPLO_PROVEDOR|EJEMPLO_GRUPO|67.89|EJEMPLO_COD_BAR_PAQUETE|EJEMPLO_LIGAR_PRODUC_SAB|EJEMPLO_IMPUESTOS|EJEMPLO_MATERIA_PRIMA|EJEMPLO_CADUCIDAD|2|EJEMPLO_SUCURSAL_VENT|EJEMPLO_CLASIFICACION_PRODUCTO|EJEMPLO_DIRECCION_IMAGEN_INTERNET|EJEMPLO_DIRECCION_IMAGEN_COMPUTADORA|EJEMPLO_NO_PONER_NADA");
 
-            
+            /*
             ventas ventas = new ventas();
             ventas.Show();
-            
-            
+            */
+            /*
             compras comp = new compras();
             comp.Show();
-            
+            */
+            /*
             inventario invent = new inventario();
             invent.Show();
-            
+            */
+
+            conexion con = new conexion();
+
+            for (int i = 0; i < 4; i++)
+            {
+                con.datos_entrada("contacto1", "mensaje1ws:", "ws");
+                con.datos_entrada("contacto1", "mensaje2ws:", "ws");
+                con.datos_salida_y_borrado("ia");
+                con.datos_entrada("contacto1", "mensaje1ia:", "ia");
+                con.datos_entrada("contacto1", "mensaje2ia:", "ia");
+                con.datos_salida_y_borrado("ws");
+
+            }
+
+
         }
     }
 }

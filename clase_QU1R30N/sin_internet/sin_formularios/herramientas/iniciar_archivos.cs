@@ -38,6 +38,17 @@ namespace clase_QU1R30N
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
             }
 
+
+            // Crear archivos del programa SIN ARREGLO GG
+            for (int i = 0; i < var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG.GetLength(0); i++)
+            {
+                bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(
+                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 0],
+                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 1],
+                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
+            }
+
+
             string[] res_indice = bas.sacar_indice_del_arreglo_de_direccion(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
             int indice = Convert.ToInt32(res_indice[1]);
 

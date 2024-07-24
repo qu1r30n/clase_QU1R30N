@@ -1673,6 +1673,25 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
     };
 
+        static public string[,] GG_dir_nom_archivos_SIN_ARREGLOS_GG =
+        {
+            //archivos transferencia informacion
+            /*0*/{ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\xerox\\config\\inf\\bklkfjc\\banderas.txt", "SIN_INFO", "1§2§3§7§8§9"},//no_hacer_caso
+            /*1*/{ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\xerox\\config\\inf\\bklkfjc\\1.txt", "SIN_INFO", ""},//preguntas
+            /*2*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\2.txt", "SIN_INFO", ""},//respuestas
+            /*3*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\3.txt", "SIN_INFO", ""},//pedidos
+            /*4*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\4.txt", "SIN_INFO", ""},//agregar preguntas para_watsap desde el watsap o lectura del chatbot depende la bandera
+            /*5*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\5.txt", "SIN_INFO", ""},//agregar respuestas  para_chatbot desde el watsap o lectura del chatbot depende la bandera
+            /*6*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\6.txt", "SIN_INFO", ""},//agregar pedidos para_watsap desde el watsap o lectura del chatbot depende la bandera
+            /*7*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\7.txt", "SIN_INFO", ""},//agregar pregunta  para_chatbot desde el watsap o lectura del chatbot depende la bandera
+            /*8*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\8.txt", "SIN_INFO", ""},//agregar respuesta para_watsap desde el watsap o lectura del chatbot depende la bandera
+            /*9*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\9.txt", "SIN_INFO", ""},//agregar pedidos  para_chatbot desde el watsap o lectura del chatbot depende la bandera
+            /*10*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\10.txt", "SIN_INFO", ""},//agregar pregunta  para_chatbot desde el watsap o lectura del chatbot depende la bandera
+            /*11*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\11.txt", "SIN_INFO", ""},//agregar respuesta para_watsap desde el watsap o lectura del chatbot depende la bandera
+            /*12*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\xerox\\config\\inf\\bklkfjc\\12.txt", "SIN_INFO", ""},//agregar pedidos  para_chatbot desde el watsap o lectura del chatbot depende la bandera
+
+        };
+
         //direccion_para_hacer_inventarios
         public string[,] GG_direccion_hacer_inventarios =
         {

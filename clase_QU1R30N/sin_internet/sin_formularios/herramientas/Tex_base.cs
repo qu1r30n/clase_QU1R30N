@@ -154,6 +154,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
             }
 
+            
             StreamWriter sw = new StreamWriter(direccion_archivos, true);
             sw.WriteLine(agregando);
             sw.Close();
@@ -526,6 +527,58 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             return info_a_retornar;
         }
+
+
+
+        public string Editar_fila_espesifica_SIN_ARREGLO_GG(string direccion_archivo, int num_fila, string editar_info)
+        {
+
+
+            StreamReader sr = new StreamReader(direccion_archivo);
+            string dir_tem = direccion_archivo.Replace(".txt", "_tem.txt");
+            StreamWriter sw = new StreamWriter(dir_tem, true);
+            string exito_o_fallo;
+
+            try
+            {
+                int id_linea = 0;
+
+                while (sr.Peek() >= 0)//verificamos si hay mas lineas a leer
+                {
+                    string linea = sr.ReadLine();//leemos linea y lo guardamos en palabra
+                    if (linea != null)
+                    {
+
+                        if (id_linea == num_fila)
+                        {
+                            sw.WriteLine(editar_info);
+
+                        }
+                        else
+                        {
+                            sw.WriteLine(linea);
+                        }
+
+                        id_linea++;
+                    }
+                }
+                exito_o_fallo = "1)exito";
+                sr.Close();
+                sw.Close();
+                File.Delete(direccion_archivo);//borramos el archivo original
+                File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
+
+            }
+            catch (Exception error)
+            {
+                sr.Close();
+                sw.Close();
+                exito_o_fallo = "2)error:" + error;
+                File.Delete(dir_tem);//borramos el archivo original
+            }
+            return exito_o_fallo;
+        }
+
 
 
         public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
