@@ -61,14 +61,10 @@ namespace clase_QU1R30N
 
             conexion con = new conexion();
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
-                con.datos_entrada("contacto1", "mensaje1ws:", "ws");
-                con.datos_entrada("contacto1", "mensaje2ws:", "ws");
-                con.datos_salida_y_borrado("ia");
-                con.datos_entrada("contacto1", "mensaje1ia:", "ia");
-                con.datos_entrada("contacto1", "mensaje2ia:", "ia");
-                con.datos_salida_y_borrado("ws");
+               
+                con.datos_recibidos_a_procesar_y_borrar("ia");
 
             }
 
