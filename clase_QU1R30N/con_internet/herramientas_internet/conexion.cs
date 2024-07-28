@@ -86,7 +86,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         }
 
 
-        public void datos_a_enviar(string contacto, string mensage, string ia_ws,int si_es_ia_enviar_ws_1_o_ws2_2=1)
+        public void datos_a_enviar(string contacto, string mensage, string ia_ws,int si_es_ia_enviar_ws_1_o_prog_1_2=1)
         {
             //E_1_4_ws
             if (ia_ws == "ws")//agrega a archivos pregunta de la ia
@@ -121,8 +121,8 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             }
 
-            //E_1_4_ws2
-            if (ia_ws == "ws2")//agrega a archivos pregunta de la ia
+            //E_1_4_prog_1
+            if (ia_ws == "prog_1")//agrega a archivos pregunta de la ia
             {
                 int[] id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
                 int[] id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
@@ -160,16 +160,16 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 int[] id_atras_actual_adelante_ia_1;
                 int[] id_atras_actual_adelante_ws_2;
 
-                if (si_es_ia_enviar_ws_1_o_ws2_2 == 1)
+                if (si_es_ia_enviar_ws_1_o_prog_1_2 == 1)
                 {
                     id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
-                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o ws2
+                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
 
                 }
                 else
                 {
                     id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(3);//esta es de la ia
-                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws o ws2
+                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws o prog_1
                 }
 
 
@@ -320,7 +320,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
 
             //S_3_6_ws
-            else if (ia_ws == "ws2")//envia info de archivos respuesta y elimina la informacion
+            else if (ia_ws == "prog_1")//envia info de archivos respuesta y elimina la informacion
             {
                 int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(3);//esta es de la ia
                 int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws

@@ -29,6 +29,25 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             // Implementa la lógica aquí
 
 
+            //procesos_usaras------------------------------------------------------------
+            string proceso_que_usaras = "punto_venta";
+
+            if (proceso_que_usaras == "punto_venta")
+            {
+                punt_venta(res_espliteada[0], res_espliteada[1], res_espliteada[2]);
+            }
+            else if (proceso_que_usaras == "repetidor") 
+            {
+                repetidor(res_espliteada[0], res_espliteada[1], res_espliteada[2]);
+            }
+            else if (proceso_que_usaras == "inteligencia_artificial")
+            {
+                inteligencia_artificial(res_espliteada[0], res_espliteada[1], res_espliteada[2]);
+            }
+            else
+            {
+
+            }
 
 
 
@@ -42,7 +61,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 con_ent.datos_a_enviar(res_espliteada[0], mensage_a_enviar, ia_ws, 1);
             }
 
-            else if (res_espliteada[2] == "ws2")
+            else if (res_espliteada[2] == "prog_1")
             {
                 con_ent.datos_a_enviar(res_espliteada[0], mensage_a_enviar, ia_ws, 2);
             }
@@ -54,5 +73,25 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             
         }
+
+
+        //procesos---------------------------------------------------------------------------------------------
+
+        public void punt_venta(string contacto,string info_a_procesar,string programa)
+        {
+
+        }
+
+        public void repetidor(string contacto, string info_a_procesar, string programa)
+        {
+
+        }
+
+        public void inteligencia_artificial(string contacto, string info_a_procesar, string programa)
+        {
+
+        }
+
+        //fin procesos-------------------------------------------------------------------------------------------
     }
 }
