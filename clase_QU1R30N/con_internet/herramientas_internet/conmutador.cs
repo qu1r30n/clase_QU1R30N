@@ -77,9 +77,17 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         //procesos---------------------------------------------------------------------------------------------
 
-        public void punt_venta(string contacto,string info_a_procesar,string programa)
+        public void punt_venta(string contacto, string info_a_procesar, string programa)
         {
 
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            info_a_procesar = info_a_procesar.Replace(G_caracter_separacion_funciones_espesificas[2] + G_caracter_separacion_funciones_espesificas[2], "\r\n");
+            info_a_procesar = info_a_procesar.Replace(G_caracter_separacion_funciones_espesificas[2], "\r\n");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            
+
+            
         }
 
         public void repetidor(string contacto, string info_a_procesar, string programa)
