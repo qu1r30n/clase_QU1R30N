@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using clase_QU1R30N.sin_internet.sin_formularios;
+using clase_QU1R30N.sin_internet.con_formularios.tienda;
 
 namespace clase_QU1R30N.con_internet.herramientas_internet
 {
@@ -17,8 +18,9 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         Tex_base bas = new Tex_base();
 
-        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
+        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
+        string[] G_caracter_para_transferencia_entre_archivos = var_fun_GG.GG_caracter_para_transferencia_entre_archivos;
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
@@ -26,7 +28,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         public void conmutar_datos(string parametro)
         {
-            string[] res_espliteada = parametro.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string[] res_espliteada = parametro.Split(G_caracter_para_transferencia_entre_archivos[0][0]);
 
             // Implementa la lógica aquí
 
@@ -34,19 +36,19 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //procesos_usaras------------------------------------------------------------
 
 
-            if (res_espliteada[0] == "punto_venta")
+            if (res_espliteada[0] == "PUNTO_VENTA")
             {
-                punt_venta(res_espliteada[1],    res_espliteada[2], res_espliteada[3]);
+                punt_venta(res_espliteada[1],    res_espliteada[2], res_espliteada[3], res_espliteada[4]);
             }
-            else if (res_espliteada[0] == "negocio")
+            else if (res_espliteada[0] == "NEGOCIO")
             {
                 negocio(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
             }
-            else if (res_espliteada[0] == "repetidor")
+            else if (res_espliteada[0] == "REPETIDOR")
             {
                 repetidor(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
             }
-            else if (res_espliteada[0] == "inteligencia_artificial")
+            else if (res_espliteada[0] == "INTELIGENCIA_ARTIFICIAL")
             {
                 inteligencia_artificial(res_espliteada[1], res_espliteada[2], res_espliteada[3]); ;
             }
@@ -61,16 +63,18 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         //procesos---------------------------------------------------------------------------------------------
 
-        public void punt_venta(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
+        public void punt_venta(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
         {
             info_a_procesar = info_a_procesar.Replace(" ", "");
             string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
+            conexion con = new conexion();
             switch (proceso)
             {
-                case "extraer_inventario":
-                    
+                case "VENTA":
 
+                    string res = enlace_principal.enlasador(info_a_procesar);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
                     break;
 
 

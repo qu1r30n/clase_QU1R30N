@@ -61,10 +61,10 @@ namespace clase_QU1R30N
 
             conexion con = new conexion();
 
-            for (int i = 0; i < 5; i++)
+            while(true)
             {
                
-                con.datos_recibidos_a_procesar_y_borrar("ia");
+                con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }
 

@@ -37,8 +37,9 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         Tex_base bas = new Tex_base();
 
-        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
+        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
+        string[] G_caracter_para_transferencia_entre_archivos = var_fun_GG.GG_caracter_para_transferencia_entre_archivos;
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
@@ -102,105 +103,16 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1])
             {
-                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_separacion_funciones_espesificas[1] + info_a_enviar, false);
+                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
                 bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 2, id_atras_actual_adelante_ia_1[2] + "");
             }
             else
             {
-                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_separacion_funciones_espesificas[1] + info_a_enviar, false);
+                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
             }
-
-
-            /*
-             
-
-            //E_2_5_ia
-            //segun 3_6 es para peticiones o talves otro programa como otra conexion ws pero creo que es exesivo
-            if (ia_ws == "ia")//agrega a archivos pregunta de la ia
-            {
-                int[] id_atras_actual_adelante_ia_1;
-                int[] id_atras_actual_adelante_ws_2;
-
-
-                id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
-                id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
-
-
 
 
             
-                string[] pedido_sie_es_mas_de_1 = mensage.Split(G_caracter_separacion_funciones_espesificas[2][0]);
-                if (pedido_sie_es_mas_de_1.Length <= 1)
-                {
-                    if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1])
-                    {
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage, false);
-                        bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 2, id_atras_actual_adelante_ia_1[2] + "");
-                    }
-                    else
-                    {
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage, false);
-                    }
-                }
-                else
-                {
-                    int[] id_atras_actual_adelante_pedido_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(3);//esta es de la ia
-                    int[] id_atras_actual_adelante_pedido_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws
-
-                    if (id_atras_actual_adelante_pedido_ws_2[1] == id_atras_actual_adelante_pedido_ia_1[1])
-                    {
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_pedido_ia_1[2]], "Vendedores" + G_caracter_separacion_funciones_espesificas[1] + contacto + G_caracter_separacion[0] + mensage, false);
-                        bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 3, id_atras_actual_adelante_pedido_ia_1[2] + "");
-
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + "ya fue mandado su pedido", false);
-                        bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 2, id_atras_actual_adelante_ia_1[2] + "");
-                    }
-                    else
-                    {
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_pedido_ia_1[1]], "Vendedores" + G_caracter_separacion_funciones_espesificas[1] + contacto + G_caracter_separacion + pedido_sie_es_mas_de_1[1], false);
-
-                        bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + "ya fue mandado su pedido", false);
-                    }
-                }
-
-
-
-            }
-
-
-            //E_1_4_ws
-            if (ia_ws == "ws")//agrega a archivos pregunta de la ia
-            {
-                int[] id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
-                int[] id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
-
-
-
-
-                string contacto_solo_los_ultimos_digitos = "";
-                for (int i = 0; i < 4 && i < contacto.Length; i++)
-                {
-                    contacto_solo_los_ultimos_digitos = contacto_solo_los_ultimos_digitos + contacto[i];
-                }
-
-
-
-                if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1] || id_atras_actual_adelante_ws_2[0] == id_atras_actual_adelante_ia_1[1])
-                {
-
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "        cliente: hola soy: " + contacto_solo_los_ultimos_digitos + " " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + "soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 4, (id_atras_actual_adelante_ws_2[2]) + "");
-                }
-                else
-                {
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                }
-
-
-            }
-            */
 
         
 
@@ -209,7 +121,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         public void datos_recibidos_a_procesar_y_borrar(string ia_ws)
         {
             //S_1_4_ia
-            if (ia_ws == "ia")//envia info de archivos respuesta y elimina la informacion
+            if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {
                 int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
                 int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
@@ -259,7 +171,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
 
             //S_2_5_ws
-            else if (ia_ws == "ws")//envia info de archivos respuesta y elimina la informacion
+            else if (ia_ws == "WS")//envia info de archivos respuesta y elimina la informacion
             {
                 int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
                 int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws
