@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,94 +87,48 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         }
 
 
-        public void datos_a_enviar(string contacto, string mensage, string ia_ws,int si_es_ia_enviar_ws_1_o_prog_1_2=1)
+        public void datos_a_enviar(string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_enviar)
         {
-            //E_1_4_ws
-            if (ia_ws == "ws")//agrega a archivos pregunta de la ia
+            //E_2_5_ia
+            //segun 3_6 es para peticiones o talves otro programa como otra conexion ws pero creo que es exesivo
+
+            int[] id_atras_actual_adelante_ia_1;
+            int[] id_atras_actual_adelante_ws_2;
+
+
+            id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
+            id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
+
+
+            if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1])
             {
-                int[] id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
-                int[] id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
-
-
-
-
-                string contacto_solo_los_ultimos_digitos = "";
-                for (int i = 0; i < 4 && i < contacto.Length; i++)
-                {
-                    contacto_solo_los_ultimos_digitos = contacto_solo_los_ultimos_digitos + contacto[i];
-                }
-
-
-
-                if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1] || id_atras_actual_adelante_ws_2[0] == id_atras_actual_adelante_ia_1[1])
-                {
-
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "        cliente: hola soy: " + contacto_solo_los_ultimos_digitos + " " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + "soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 4, (id_atras_actual_adelante_ws_2[2]) + "");
-                }
-                else
-                {
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                }
-
-
+                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_separacion_funciones_espesificas[1] + info_a_enviar, false);
+                bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 2, id_atras_actual_adelante_ia_1[2] + "");
+            }
+            else
+            {
+                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_separacion_funciones_espesificas[1] + info_a_enviar, false);
             }
 
-            //E_1_4_prog_1
-            if (ia_ws == "prog_1")//agrega a archivos pregunta de la ia
-            {
-                int[] id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
-                int[] id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
 
+            /*
+             
 
-
-
-                string contacto_solo_los_ultimos_digitos = "";
-                for (int i = 0; i < 4 && i < contacto.Length; i++)
-                {
-                    contacto_solo_los_ultimos_digitos = contacto_solo_los_ultimos_digitos + contacto[i];
-                }
-
-
-
-                if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1] || id_atras_actual_adelante_ws_2[0] == id_atras_actual_adelante_ia_1[1])
-                {
-
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "        cliente: hola soy: " + contacto_solo_los_ultimos_digitos + " " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + "soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 4, (id_atras_actual_adelante_ws_2[2]) + "");
-                }
-                else
-                {
-                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage);
-                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
-                }
-
-
-            }
-
-            //E_2_5_o_3_6_ia
-            else if (ia_ws == "ia")//agrega a archivos pregunta de la ia
+            //E_2_5_ia
+            //segun 3_6 es para peticiones o talves otro programa como otra conexion ws pero creo que es exesivo
+            if (ia_ws == "ia")//agrega a archivos pregunta de la ia
             {
                 int[] id_atras_actual_adelante_ia_1;
                 int[] id_atras_actual_adelante_ws_2;
 
-                if (si_es_ia_enviar_ws_1_o_prog_1_2 == 1)
-                {
-                    id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
-                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
 
-                }
-                else
-                {
-                    id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(3);//esta es de la ia
-                    id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws o prog_1
-                }
+                id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
+                id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
 
 
 
+
+            
                 string[] pedido_sie_es_mas_de_1 = mensage.Split(G_caracter_separacion_funciones_espesificas[2][0]);
                 if (pedido_sie_es_mas_de_1.Length <= 1)
                 {
@@ -213,6 +168,41 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
 
 
+            //E_1_4_ws
+            if (ia_ws == "ws")//agrega a archivos pregunta de la ia
+            {
+                int[] id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
+                int[] id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
+
+
+
+
+                string contacto_solo_los_ultimos_digitos = "";
+                for (int i = 0; i < 4 && i < contacto.Length; i++)
+                {
+                    contacto_solo_los_ultimos_digitos = contacto_solo_los_ultimos_digitos + contacto[i];
+                }
+
+
+
+                if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1] || id_atras_actual_adelante_ws_2[0] == id_atras_actual_adelante_ia_1[1])
+                {
+
+                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "        cliente: hola soy: " + contacto_solo_los_ultimos_digitos + " " + mensage);
+                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[2]], contacto + G_caracter_separacion_funciones_espesificas[1] + "soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
+                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 4, (id_atras_actual_adelante_ws_2[2]) + "");
+                }
+                else
+                {
+                    //bas.Agregar_a_archivo_sin_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + mensage1 + "      menu:" + mensage3 + "      " + mensage2 + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage);
+                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ws_2[1]], contacto + G_caracter_separacion_funciones_espesificas[1] + "hola soy " + contacto_solo_los_ultimos_digitos + ": " + mensage, false);
+                }
+
+
+            }
+            */
+
+        
 
         }
 
@@ -237,14 +227,13 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
                         for (int i = G_donde_inicia_la_tabla; i < respuestas_ia.Length; i++)
                         {
-                            //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas_ia[i], ia_ws);
+                            //preferentemente pon funciones aqui
+                            conmut.conmutar_datos(respuestas_ia[i]);
 
                         }
+                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
-                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_1[1]], new string[] { "sin_informacion" });
-
-                        bas.Editar_fila_espesifica_SIN_ARREGLO_GG(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "config\\chatbot\\respondiendo_a_una_pregunta.txt", 1, "0");//este le dice al chatbot que puede volver a preguntar
+                        
                     }
                 }
                 else
@@ -255,13 +244,13 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         for (int i = G_donde_inicia_la_tabla; i < respuestas_ia.Length; i++)
                         {
                             //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas_ia[i],ia_ws);
+                            conmut.conmutar_datos(respuestas_ia[i]);
 
 
                         }
 
                         bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_1[1]], new string[] { "sin_informacion" });
-                        bas.Editar_fila_espesifica_SIN_ARREGLO_GG(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "config\\chatbot\\respondiendo_a_una_pregunta.txt", 1, "0");//este le dice al chatbot que puede volver a preguntar
+                        
                     }
                     bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 1, id_atras_actual_adelante_1[2] + "");
                 }
@@ -289,7 +278,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         for (int i = G_donde_inicia_la_tabla; i < respuestas.Length; i++)
                         {
                             //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas[i],ia_ws);
+                            conmut.conmutar_datos(respuestas[i]);
 
                         }
 
@@ -305,7 +294,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         {
 
                             //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas[i], ia_ws);
+                            conmut.conmutar_datos(respuestas[i]);
 
 
 
@@ -319,52 +308,9 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
 
 
-            //S_3_6_ws
-            else if (ia_ws == "prog_1")//envia info de archivos respuesta y elimina la informacion
+            
+            else
             {
-                int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(3);//esta es de la ia
-                int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(6);//este es del ws
-
-
-                string[] respuestas = bas.Leer(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]]);
-
-                if (id_atras_actual_adelante_1[1] == id_atras_actual_adelante_2[1])
-                {
-
-
-                    if (respuestas.Length > 1)
-                    {
-
-
-                        for (int i = G_donde_inicia_la_tabla; i < respuestas.Length; i++)
-                        {
-                            //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas[i], ia_ws);
-
-                        }
-
-                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
-                    }
-                }
-                else
-                {
-
-                    if (respuestas.Length > 1)
-                    {
-                        for (int i = G_donde_inicia_la_tabla; i < respuestas.Length; i++)
-                        {
-
-                            //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(respuestas[i], ia_ws);
-
-
-
-                        }
-
-                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
-                    }
-                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 5, id_atras_actual_adelante_2[2] + "");
-                }
 
             }
 
