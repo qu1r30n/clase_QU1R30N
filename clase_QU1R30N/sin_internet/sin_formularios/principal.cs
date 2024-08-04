@@ -38,14 +38,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string info_a_retornar = null;
 
             string[] a_donde_enviara_la_informacion = INFO_ENTRADA.Split(G_caracter_separacion_funciones_espesificas[0][0]);
-            string[] datos_spliteados=a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
-            
+            string[] datos_spliteados = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
+
             string modelo = a_donde_enviara_la_informacion[0];
             string proceso = datos_spliteados[0];
             string datos = datos_spliteados[1];
             string yyyyMMddHHmmss = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-            
+
 
             switch (modelo)
             {
@@ -82,13 +82,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
 
             }
 
-            
+
             //mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 
         }
 
-        
+
     }
 }

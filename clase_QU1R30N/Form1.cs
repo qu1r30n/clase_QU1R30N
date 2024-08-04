@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.con_formularios.tienda;
 using clase_QU1R30N.con_internet.herramientas_internet;
+using System.Threading;
 
 namespace clase_QU1R30N
 {
@@ -63,7 +64,8 @@ namespace clase_QU1R30N
 
             while(true)
             {
-               
+
+                Thread.Sleep(2000);
                 con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }

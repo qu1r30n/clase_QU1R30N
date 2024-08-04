@@ -86,20 +86,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     
                     break;
 
+                
                 case "BUSCAR":
-
-                    if (info_espliteada.Length > 1)
-                    {
-                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
-                    }
-                    else
-                    {
-                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0]);
-                    }
-
-                    break;
-
-                case "EXTRAER_INFO_PRODUC_DE_PAQ":
 
                     if (info_espliteada.Length > 1)
                     {

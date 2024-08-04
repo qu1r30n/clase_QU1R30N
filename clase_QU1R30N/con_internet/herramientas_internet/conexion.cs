@@ -12,7 +12,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 {
     internal class conexion
     {
-        
+
         public string[] G_dir_arch_transferencia =
         {
             var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0,0],
@@ -112,9 +112,9 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
 
 
-            
 
-        
+
+
 
         }
 
@@ -145,7 +145,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         }
                         bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
-                        
+
                     }
                 }
                 else
@@ -162,7 +162,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         }
 
                         bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_1[1]], new string[] { "sin_informacion" });
-                        
+
                     }
                     bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 1, id_atras_actual_adelante_1[2] + "");
                 }
@@ -220,7 +220,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
 
 
-            
+
             else
             {
 

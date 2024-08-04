@@ -12,7 +12,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 {
     internal class conmutador
     {
-        
+
         operaciones_arreglos op_arr = new operaciones_arreglos();
         operaciones_textos op_tex = new operaciones_textos();
 
@@ -38,11 +38,11 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             if (res_espliteada[0] == "PUNTO_VENTA")
             {
-                punt_venta(res_espliteada[1],    res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+                punt_venta(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
             }
-            else if (res_espliteada[0] == "NEGOCIO")
+            else if (res_espliteada[0] == "PRODUCTOS")
             {
-                negocio(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
+                producto(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
             }
             else if (res_espliteada[0] == "REPETIDOR")
             {
@@ -87,19 +87,19 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         }
 
 
-        public void negocio(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
+        public void producto(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
         {
             conexion con = new conexion();
             switch (proceso)
             {
-                case "extraer_inventario":
+                case "EXTRAER_INVENTARIO":
 
 
                     string inventario = enlace_principal.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~EXTRAER_INVENTARIO_STRING§");
                     con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, inventario);
                     break;
 
-                    
+
 
 
                 default:
@@ -111,7 +111,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         {
             switch (proceso)
             {
-                case "peticiones":
+                case "PETICIONES":
                     break;
 
 
@@ -126,7 +126,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         {
             switch (proceso)
             {
-                case "peticiones":
+                case "PETICIONES":
                     break;
 
 
