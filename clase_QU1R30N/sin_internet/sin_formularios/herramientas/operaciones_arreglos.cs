@@ -484,7 +484,91 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
+        public string editar_incr_string_funcion_recursiva(string texto, object columnas_a_recorrer, string info_a_sustituir, string edit_0_o_increm_1 = null, object caracter_separacion_objeto = null, string caracter_separacion_dif_a_texto = null)
+        {
+            //string texto="0|1|2¬3°4¬5|6", object columnas_a_recorrer="2°1°1", string info_a_sustituir="10", string edit_0_o_increm_1 = "1",  string[] caracter_separacion = null, string caracter_separacion_dif_a_texto = "°"
 
+            /*ejemplo puesto
+                    string[] indices_espliteado = indices_a_editar.Split(caracter_separacion[0][0]);
+                    string[] info_editar_espliteado = info_editar.Split(caracter_separacion[0][0]);
+                    string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion[0][0]);
+                    for (int k = 0; k < indices_espliteado.Length; k++)
+                    {
+                        areglo[i] = editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto:"°");
+                    }
+            
+            */
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
+
+            string[] espliteado_columnas_recorrer = { };
+
+            //Sí es un string lo splitea Este normalmente es al inicio de la función 
+            if (columnas_a_recorrer is string)
+            {
+                if (caracter_separacion_dif_a_texto == null)
+                {
+                    espliteado_columnas_recorrer = columnas_a_recorrer.ToString().Split(caracter_separacion[0][0]);
+
+                }
+                else
+                {
+                    espliteado_columnas_recorrer = columnas_a_recorrer.ToString().Split(caracter_separacion_dif_a_texto[0]);
+                }
+
+            }
+            else if (columnas_a_recorrer is string[] temp)
+            {
+
+                espliteado_columnas_recorrer = temp;
+            }
+
+            string[] espliteado_texto = texto.Split(caracter_separacion[0][0]);
+
+            //En esta parte Se inicia desde el segundo elemento y se guardan los caracteres y
+            //las columnas para sí hay otro elemento En el arreglo múltiple 
+            string texto_a_retornar = "";
+
+            string[] tem_array_caracter_separacion = caracter_separacion;
+            if (espliteado_columnas_recorrer.Length > 0)
+            {
+                string[] tem_array_col_recorrer = espliteado_columnas_recorrer;
+                //espliteado_texto = texto.Split(Convert.ToChar(tem_array_caracter_separacion[0]));
+                texto_a_retornar = espliteado_texto[Convert.ToInt32(tem_array_col_recorrer[0])];
+
+                tem_array_col_recorrer = new string[espliteado_columnas_recorrer.Length - 1];
+                tem_array_caracter_separacion = new string[caracter_separacion.Length - 1];
+                for (int i = 1; i < espliteado_columnas_recorrer.Length; i++)
+                {
+
+                    tem_array_col_recorrer[i - 1] = espliteado_columnas_recorrer[i];
+
+                }
+                for (int i = 1; i < caracter_separacion.Length; i++)
+                {
+                    tem_array_caracter_separacion[i - 1] = caracter_separacion[i];
+                }
+
+
+                espliteado_texto[Convert.ToInt32(espliteado_columnas_recorrer[0])] = editar_incr_string_funcion_recursiva(texto_a_retornar, tem_array_col_recorrer, info_a_sustituir, edit_0_o_increm_1, tem_array_caracter_separacion); // Llamada recursiva
+
+
+            }
+            else
+            {
+                if (edit_0_o_increm_1 == "1")
+                {
+                    espliteado_texto[0] = "" + (Convert.ToDouble(espliteado_texto[0]) + Convert.ToDouble(info_a_sustituir));
+                }
+                else
+                {
+                    espliteado_texto[0] = info_a_sustituir;
+                }
+
+            }
+
+            string retornar = string.Join(caracter_separacion[0], espliteado_texto);
+            return retornar;
+        }
 
 
         public string si_no_existe_agrega_string(string[] areglo, string columnas_a_recorrer, string comparar, string texto_a_agregar)

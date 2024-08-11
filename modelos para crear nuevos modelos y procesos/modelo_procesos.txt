@@ -2,48 +2,50 @@ using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 
 
-string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
-string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
-string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-var_fun_GG vf_GG = new var_fun_GG();
+        string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
+        string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
+        string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
+        var_fun_GG vf_GG = new var_fun_GG();
 
-Tex_base bas = new Tex_base();
+        int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
+        Tex_base bas = new Tex_base();
 
-
-
-    public string funcion_a_hacer1(string direccion_archivo,string parametro1,string parametro1, string parametro2, object caracter_separacion_obj = null)
-    {
-
-        string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
-        string info_a_retornar = "";
+        operaciones_textos op_tex = new operaciones_textos();
+        operaciones_arreglos op_arr = new operaciones_arreglos();
 
 
-        string direccion_archivo_aprendices_emp = direccion_archivo;
-        string resultado_archivo_aprendices_emp = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_emp);
-        string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
-        if (res_esp_archivo_emp[0] != "0")
+        string[] G_direcciones =
         {
-            
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[2, 0],//string G_direccion_negocio = "config\\sismul2\\negocio.txt";
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//string G_direccion_patrocinadores_complejos = "config\\sismul2\\patrocinadores_complejos.txt";
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4, 0],//string G_direccion_porcentages = "config\\sismul2\\porcentajes\\porcentajes.txt";
+        };
 
-        }
 
-        else
+
+        public string dinero_de_venta(string direccion_archivo, string id_usuario, string din, object caracter_separacion_obj = null)
         {
-            info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro la direccion";
+
+            string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            string info_a_retornar = "";
+
+
+            string direccion_archivo_aprendices_emp = direccion_archivo;
+            string resultado_archivo_aprendices_emp = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_aprendices_emp);
+            string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (res_esp_archivo_emp[0] != "0")
+            {
+                entrada_dinero_simple_y_complejo(G_direcciones[0], id_usuario, din);
+
+            }
+
+            else
+            {
+                info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro la direccion";
+            }
+
+            return info_a_retornar;
         }
-
-        return info_a_retornar;
-    }
-
-
-public string funcion_a_hacer2(string parametro1,string parametro2)
-{
-    string info_a_retornar = null;
-
-    return info_a_retornar;
-}
-

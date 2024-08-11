@@ -77,6 +77,11 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                     con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
                     break;
 
+                case "COMICION_UNIFICADA_VENTA":
+
+                    string res_COMICION_VENTA = enlace_principal.enlasador(info_a_procesar);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res_COMICION_VENTA + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                    break;
 
 
 
