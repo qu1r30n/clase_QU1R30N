@@ -246,16 +246,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
 
-
-
-
-
-
-
-
-
-
-
             return info_a_retornar;
 
         }
