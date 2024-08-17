@@ -1208,6 +1208,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         //registros productos
 
+        
         //registro produc dia
         static public string[,] GG_ventana_reg_prod_dia =
         {
@@ -1215,7 +1216,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","0_HORA","" },
             { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" },
             { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" },
-
+            
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Dia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1225,6 +1226,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","0_HORA","" },
                 { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" },
                 { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" },
+                
             };
 
 
@@ -1273,6 +1275,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","1_CANTIDAD","" },
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
+            { "1","4_HISTORIAL","" },
+            { "1","5_COLUMNA_RANKING","" },
+            { "1","6_COLUMNAS_PROMEDIO","" },
+            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1283,6 +1289,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","1_CANTIDAD","" },
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
+                { "1","4_HISTORIAL","" },
+                { "1","5_COLUMNA_RANKING","" },
+                { "1","6_COLUMNAS_PROMEDIO","" },
+                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 
@@ -1330,6 +1340,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","1_CANTIDAD","" },
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
+            { "1","4_HISTORIAL","" },
+            { "1","5_COLUMNA_RANKING","" },
+            { "1","6_COLUMNAS_PROMEDIO","" },
+            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1340,6 +1354,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","1_CANTIDAD","" },
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
+                { "1","4_HISTORIAL","" },
+                { "1","5_COLUMNA_RANKING","" },
+                { "1","6_COLUMNAS_PROMEDIO","" },
+                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 
@@ -1387,6 +1405,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","1_CANTIDAD","" },
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
+            { "1","4_HISTORIAL","" },
+            { "1","5_COLUMNA_RANKING","" },
+            { "1","6_COLUMNAS_PROMEDIO","" },
+            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1397,6 +1419,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","1_CANTIDAD","" },
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
+                { "1","4_HISTORIAL","" },
+                { "1","5_COLUMNA_RANKING","" },
+                { "1","6_COLUMNAS_PROMEDIO","" },
+                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 

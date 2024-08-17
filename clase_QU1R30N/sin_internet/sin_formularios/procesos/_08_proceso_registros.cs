@@ -512,29 +512,45 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             + G_caracter_separacion[2] + inf_dat[2]
                             + G_caracter_separacion[2] + inf_dat[3];
 
+                        string si_no_tiene_historial_ranking_semanas = "";
+                        for (int i = 0; i < 52; i++)
+                        {
+                            si_no_tiene_historial_ranking_semanas = si_no_tiene_historial_ranking_semanas + G_caracter_separacion[1];
+                        }
                         string sino_lo_encuentra =
                             info_producto_bas[1]                    //0_NOMBRE
                             + G_caracter_separacion[0] + inf_dat[1] //1_CANTIDAD
                             + G_caracter_separacion[0] + inf_dat[0] //2_CODIGO
                             + G_caracter_separacion[0] + "SIN_COMENTARIOS" //3_COMENTARIO
+                            + G_caracter_separacion[0] + inf_dat[1] + si_no_tiene_historial_ranking_semanas //4_HISTORIAL
+                            + G_caracter_separacion[0] + inf_dat[1] //5_columna_ranking
+                            + G_caracter_separacion[0] + inf_dat[1] //6_columnas_promedio
+                            + G_caracter_separacion[0] + "7" //7_columna_veces_que_supera_promedio//ponemos 7 para que sean 2 meses porque son 4 semanas por mes
                             ;
+                        ;
 
+                        //columna_historial,columna_ranking,columnas_promedio,columna_veces_que_supera_promedio,
+                        //|//0_NOMBRE_PRODUCTO|1_CANTIDAD|2_COD_BAR|3_COMENTARIO
+
+
+
+                        
                         bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
                                     (
-                                    //comparaciones YY
-                                    direccion_archivo,
+                                    direccion_archivo
+                                    ,
                                         2                                                   //2_codbar
                                     ,
                                         inf_dat[0]
                                     ,
 
-                                      "1"
+                                      "1" + G_caracter_separacion_funciones_espesificas[0] + "4" + G_caracter_separacion_funciones_espesificas[0] + "5"
                                     ,
-                                      inf_dat[1]
-                                    ,  
+                                      inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1]
+                                    ,
                                       ""
                                     ,
-                                      "1"
+                                      "1" + G_caracter_separacion_funciones_espesificas[0] + "1" + G_caracter_separacion_funciones_espesificas[0] + "1"
                                     ,
                                       sino_lo_encuentra
                                     );

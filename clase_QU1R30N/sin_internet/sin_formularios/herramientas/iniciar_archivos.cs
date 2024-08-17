@@ -62,5 +62,51 @@ namespace clase_QU1R30N
             var_fun_GG.GG_inv_solo_lect = Array.AsReadOnly(Tex_base.GG_base_arreglo_de_arreglos[indice]);
 
         }
+
+
+        /*
+        private void ranking()
+        {
+            string dir_ranking_dia = "inf\\ranking\\dia\\" + fecha_hora.ToString("yyyyMMdd") + "_ranking.txt";
+
+            if (bas.existe_archivo(dir_ranking_dia))
+            {
+                bas.Crear_archivo_y_directorio(dir_ranking_dia);
+                bas.si_existe_suma_sino_agega_extra(direccion3, 0, "con_dia_sem", "1", "1", "con_dia_sem|1");
+            }
+
+            string dir_ranking_año = "inf\\ranking\\" + fecha_hora.ToString("yyyy") + "_ranking.txt";
+            bas.Crear_archivo_y_directorio(dir_ranking_año);
+            string info_con_dia = bas.Seleccionar(direccion3, 0, "con_dia_sem", "1");
+            int num_dia = Convert.ToInt32(info_con_dia);
+            if (num_dia >= 7)
+            {
+
+                bas.Editar_espesifico(direccion3, 0, "con_dia_sem", "1", "1");
+                bas.Editar_una_columna(dir_ranking_año, 2, "0");
+                string[] info_ranking = bas.Leer(dir_ranking_año);
+
+                for (int i = 0; i < info_ranking.Length; i++)
+                {
+                    string[] info_producto = info_ranking[i].Split('|');
+                    string[] historial_ranking = info_producto[4].Split('°');
+                    for (int j = historial_ranking.Length - 2; j >= 0; j--)
+                    {
+                        historial_ranking[j + 1] = historial_ranking[j];
+                    }
+                    historial_ranking[0] = "0";
+                    info_producto[4] = string.Join("°", historial_ranking);
+                    bas.Editar_fila(dir_ranking_año, 0, info_producto[0], string.Join("|", info_producto));
+
+                }
+                bas.Editar_espesifico(direccion3, 0, "con_dia_sem", "1", "0");
+
+            }
+        }
+
+        */
+
+
+        //fin clase-----------------------------------------------------------------------------
     }
 }

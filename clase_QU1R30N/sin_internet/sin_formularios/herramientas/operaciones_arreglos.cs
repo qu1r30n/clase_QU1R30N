@@ -471,7 +471,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     string[] edit_0_o_increm_1_espliteado = edit_0_o_increm_1.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
                     for (int k = 0; k < indices_espliteado.Length; k++)
                     {
-                        areglo[i] = op_tex.editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_dif_a_texto: caracter_separacion_para_busqueda_multiple_profuda[0]);
+                        areglo[i] = op_tex.editar_incr_string_funcion_recursiva(areglo[i], indices_espliteado[k], info_editar_espliteado[k], edit_0_o_increm_1_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion_para_busqueda_multiple_profuda[0]);
                     }
 
                     return areglo;

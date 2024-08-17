@@ -90,7 +90,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     {
                         if (caracter_separacion_objeto.ToString() != GG_caracter_separacion_funciones_espesificas[i])
                         {
-                            caracter_separacion = caracter_separacion_objeto.ToString().Split(GG_caracter_separacion_funciones_espesificas[0][i]);
+                            caracter_separacion = caracter_separacion_objeto.ToString().Split(GG_caracter_separacion_funciones_espesificas[i][0]);
                             return caracter_separacion;
                         }
                     }

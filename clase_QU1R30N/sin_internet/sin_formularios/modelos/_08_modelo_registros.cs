@@ -30,7 +30,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         //proceso al que se dirigira//_7_procesos_sucursales pr_sucursales = new _7_procesos_sucursales();
         _08_proceso_registros pr_reg = new _08_proceso_registros();
-        _00_proceso_AnalisisDeDatos pr_an = new _00_proceso_AnalisisDeDatos();
         public string registro_movimiento(string modelo, string proceso, string datos, string fecha_yyyyMMddHHmmss)
         {
             string info_a_retornar = null;
@@ -87,10 +86,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 {
                     // Código correspondiente al caso "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_"
                 }
-                else if (proceso == "PREDICCION_COMPRA")
-                {
-                    //pr_an()
-                }
+                
 
 
 

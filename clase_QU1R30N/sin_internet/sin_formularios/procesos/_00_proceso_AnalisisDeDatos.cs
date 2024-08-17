@@ -21,6 +21,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
+        string[] G_direcciones =
+        {
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
+        };
+
 
         public string existe_informacion(string direccion_archivo, string informacion, string columnas_a_recorrer)
         {
@@ -84,12 +89,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
         string[] inventario;
-        private string[] compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
+        public string[] prediccion_arreglo_compra(string[] todo_el_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
         {
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
-            string[] todo_el_ranking = bas.Leer(direccion_ranking);
-            string dir_invent = "inf\\inventario\\invent.txt";
+            string dir_invent = G_direcciones[0];
             inventario = bas.Leer(dir_invent, "3|1|4|5|7");
             List<string> ranking_con_cant_invent = new List<string>();
 
@@ -172,6 +176,96 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             }
             return lista_final;
         }
+
+        public string[] prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
+        {
+            //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
+
+            string[] todo_el_ranking = bas.Leer(direccion_ranking);
+            string dir_invent = G_direcciones[0];
+            inventario = bas.Leer(dir_invent, "3|1|4|5|7");
+            List<string> ranking_con_cant_invent = new List<string>();
+
+            for (int i = 0; i < todo_el_ranking.Length; i++)
+            {
+                string[] ranking_espliteado = todo_el_ranking[i].Split(caracter_separacion);
+                string[] historial_producto = ranking_espliteado[columna_historial].Split('°');
+
+                if (ranking_espliteado[columna_promedio_compra] == "" && historial_producto[0] != "")
+                {
+                    ranking_espliteado[columna_promedio_compra] = historial_producto[0];
+                }
+
+                for (int k = 0; k < inventario.Length; k++)
+                {
+                    string[] invent_split = inventario[k].Split('|');
+                    if (ranking_espliteado[0] == invent_split[0])
+                    {
+                        ranking_espliteado[8] = invent_split[2];
+                        ranking_espliteado[9] = invent_split[4];
+                        ranking_espliteado[10] = invent_split[3];
+                    }
+                }
+
+                double primera_sem_cantidad = Convert.ToDouble(historial_producto[0]);
+                double promedio_normal_compra = Convert.ToDouble(ranking_espliteado[columna_promedio_compra]);
+                for (int j = 0; j < historial_producto.Length; j++)
+                {
+                    if (historial_producto[j] == "")
+                    {
+                        break;
+                    }
+                    if (j < 3)
+                    {
+                        if (primera_sem_cantidad > promedio_normal_compra)
+                        {
+                            ranking_espliteado[columna_promedio_compra] = "" + primera_sem_cantidad;
+                        }
+                    }
+                    else
+                    {
+                        if (primera_sem_cantidad > promedio_normal_compra)
+                        {
+                            int veses_sup_prom = Convert.ToInt32(ranking_espliteado[columna_veses_supera_promedio]);
+                            int limite_veses_supera_promedio = 4;
+
+                            if (veses_sup_prom < limite_veses_supera_promedio)
+                            {
+                                ranking_espliteado[columna_veses_supera_promedio] = (veses_sup_prom + 1) + "";
+                            }
+                            else
+                            {
+                                double promedio = 0;
+                                for (int k = 0; k < limite_veses_supera_promedio; k++)
+                                {
+                                    promedio = promedio + Convert.ToDouble(historial_producto[k]);
+                                }
+                                ranking_espliteado[columna_promedio_compra] = "" + promedio;
+                            }
+
+
+                        }
+                        else
+                        {
+                            ranking_espliteado[columna_veses_supera_promedio] = "0";
+                        }
+                    }
+                }
+                todo_el_ranking[i] = string.Join("|", ranking_espliteado);
+            }
+
+            string[] lista_final = calculo_pred_compra(todo_el_ranking);
+            for (int i = 0; i < lista_final.Length; i++)
+            {
+                //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
+                string[] a_cambiar = lista_final[i].Split(caracter_separacion);
+
+                lista_final[i] = a_cambiar[11] + caracter_separacion + a_cambiar[1] + caracter_separacion + a_cambiar[0] + caracter_separacion + a_cambiar[3] + caracter_separacion + a_cambiar[8] + caracter_separacion + a_cambiar[10] + caracter_separacion;
+                //lista_final//0_codigo|1_nombre_producto|2_codigo_de_barras|3_provedor|4_uso_multi_cantidad_invent|5_costo_compra|
+            }
+            return lista_final;
+        }
+
 
         private string[] calculo_pred_compra(string[] rank_y_cant_inv)
         {
