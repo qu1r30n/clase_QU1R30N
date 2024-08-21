@@ -1276,9 +1276,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
             { "1","4_HISTORIAL","" },
-            { "1","5_COLUMNA_RANKING","" },
-            { "1","6_COLUMNAS_PROMEDIO","" },
-            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","5_RANKING","" },
+            { "1","6_PROMEDIO","" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1290,9 +1290,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
                 { "1","4_HISTORIAL","" },
-                { "1","5_COLUMNA_RANKING","" },
-                { "1","6_COLUMNAS_PROMEDIO","" },
-                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","5_RANKING","" },
+                { "1","6_PROMEDIO","" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 
@@ -1341,9 +1341,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
             { "1","4_HISTORIAL","" },
-            { "1","5_COLUMNA_RANKING","" },
-            { "1","6_COLUMNAS_PROMEDIO","" },
-            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","5_RANKING","" },
+            { "1","6_PROMEDIO","" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1355,9 +1355,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
                 { "1","4_HISTORIAL","" },
-                { "1","5_COLUMNA_RANKING","" },
-                { "1","6_COLUMNAS_PROMEDIO","" },
-                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","5_RANKING","" },
+                { "1","6_PROMEDIO","" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 
@@ -1406,9 +1406,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","2_COD_BAR","" },
             { "1","3_COMENTARIO","" },
             { "1","4_HISTORIAL","" },
-            { "1","5_COLUMNA_RANKING","" },
-            { "1","6_COLUMNAS_PROMEDIO","" },
-            { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","5_RANKING","" },
+            { "1","6_PROMEDIO","" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
 
         };
         public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1420,9 +1420,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","2_COD_BAR","" },
                 { "1","3_COMENTARIO","" },
                 { "1","4_HISTORIAL","" },
-                { "1","5_COLUMNA_RANKING","" },
-                { "1","6_COLUMNAS_PROMEDIO","" },
-                { "1","7_COLUMNA_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","5_RANKING","" },
+                { "1","6_PROMEDIO","" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
             };
 
 

@@ -422,7 +422,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     {
 
                         string[] producto_esp = inventario_en_existencia[i].Split(caracter_separacion[0][0]);
-                        string resultado = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final
+                        string resultado = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
                             (G_direcciones[0],
                             5,
                             producto_esp[0],

@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt",
             /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\afiliados_unificado.txt",
             /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt",
-            /*7*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[13,0]
+            /*7*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[14,0]//CONFIG\\INF\\REGISTROS\\ACUMULADO_REGISTRO.TXT
 
         };
         
@@ -90,21 +90,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                     DateTime fecha = DateTime.Now;
                     string direccion_ranking = "inf\\ranking\\" + fecha.ToString("yyyy") + "_ranking.txt";
-                    //8000500126936
-                    //|ferrero 50g
-                    //|0
-                    //|casa vargas
-                    //|0°2°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-                    //|1
-                    //|0
-                    //|0
-                    //|0
-                    //|0
-                    //|0
-                    //|0
                     
-                    //columna_historial,columna_ranking,columnas_promedio,columna_veces_que_supera_promedio,
-                    //|//0_NOMBRE_PRODUCTO|1_CANTIDAD|2_COD_BAR|3_COMENTARIO
                     string[] lista_prdocutos_nesesita = pr_an_dat.prediccion_archivo_compra(G_direcciones[7], 4, 5, 6, 7);
 
 

@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         _00_proceso_AnalisisDeDatos pr_analisis = new _00_proceso_AnalisisDeDatos();
         _03_proceso_productos_e_inventario pr_prod_inv = new _03_proceso_productos_e_inventario();
 
-        public string compras(string direccion_archivo, string codigos, string cantidades, string precio_compra_piezas, string provedores, string nombres_product_si_no_existen_producto = "", string sucursales = "", double porcentage_ganancia = 20)
+        public string compras(string direccion_archivo, string codigos_cantidad_precio_id   , string provedores, string nombres_product_si_no_existen_producto = "", string sucursales = "", double porcentage_ganancia = 20)
         {
             string info_a_retornar = "";
 
@@ -34,17 +34,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
 
-            string[] codigos_espl = codigos.Split(G_caracter_separacion[1][0]);
-            string[] cantidades_espl = cantidades.Split(G_caracter_separacion[1][0]);
-            string[] precio_compra_piezas_espl = precio_compra_piezas.Split(G_caracter_separacion[1][0]);
+            string[] info_produc = codigos_cantidad_precio_id.Split(G_caracter_separacion[1][0]);
             string[] provedores_espl = provedores.Split(G_caracter_separacion[1][0]);
             string[] nombres_product_si_no_existen_producto_espl = nombres_product_si_no_existen_producto.Split(G_caracter_separacion[1][0]);
             string[] sucursales_espl = sucursales.Split(G_caracter_separacion[1][0]);
 
-            for (int i = 0; i < codigos_espl.Length; i++)
+            for (int i = 0; i < info_produc.Length; i++)
             {
-                double nuevo_precio_venta = Convert.ToDouble(precio_compra_piezas_espl[i]) * (1 + (porcentage_ganancia / 100));
-                string res_edicion = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigos_espl[i]
+                string[] cod_cant_precio_id_split = info_produc[i].Split(G_caracter_separacion[2][0]);
+                double nuevo_precio_venta = Convert.ToDouble(cod_cant_precio_id_split[2]) * (1 + (porcentage_ganancia / 100));
+                info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                    (direccion_archivo, 5, cod_cant_precio_id_split[0]
                     ,
                       //columnas a editar
                       /*0*/"6"//cantidad
@@ -53,30 +53,30 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion_funciones_espesificas[0]
                      /*2*/+ "8"//provedor
                      + G_caracter_separacion_funciones_espesificas[0]
-                     /*3*/+ "17"//ultimo movimiento
+                     /*3*/+ "18"//ultimo movimiento
                      + G_caracter_separacion_funciones_espesificas[0]
-                     /*4*/+ "18"//sucursal
+                     /*4*/+ "19"//sucursal
 
 
                     ,
                       //info a editar o incrementar o agregar
-                      /*0*/cantidades_espl[i] //cantidad
+                      /*0*/cod_cant_precio_id_split[1] //cantidad
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*1*/+ precio_compra_piezas_espl[i] //costo de compra
+                      /*1*/+ cod_cant_precio_id_split[2] //costo de compra
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*2*/+ nuevo_precio_venta //provedor
+                      /*2*/+ provedores //provedor
                       + G_caracter_separacion_funciones_espesificas[0]
                       /*3*/+ año_mes_dia_hora  //ultimo movimiento
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*4*/+ nuevo_precio_venta  //sucursal
+                      /*4*/+ sucursales  //sucursal
 
                       ,
                       //comparacion para edicion dejar en blanco si no hay comparacion
                       // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
                       // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
-                      /*0*/  "b" //cantidad
+                      /*0*/  "" //cantidad
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*1*/+ "d" //costo de compra
+                      /*1*/+ "" //costo de compra
                       + G_caracter_separacion_funciones_espesificas[0]
                       /*2*/+ provedores_espl[i] //provedor
                       + G_caracter_separacion_funciones_espesificas[0]
@@ -94,14 +94,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                       + G_caracter_separacion_funciones_espesificas[0]
                       /*3*/+ "0"//editar//ultimo movimiento
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*4*/+ 0  //sucursal
+                      /*4*/+ "0"  //sucursal
                       ,
                       ""
-
+                      ,posicion_producto: cod_cant_precio_id_split[3]
 
                       );
 
-                string[] res_esp = res_edicion.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                string[] res_esp = info_a_retornar.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
                 //edicion fue exitosa?
                 if (Convert.ToInt32(res_esp[0]) > 0) //si res es mayor a 0 la operacioon fue exitosa si no hubo un error
@@ -109,10 +109,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     if (res_esp[0] == "1")
                     {
                         string[] info_res = res_esp[1].Split(G_caracter_separacion[0][0]);
-                        if (Convert.ToDouble(info_res[4]) <= Convert.ToDouble(precio_compra_piezas_espl[i]))
+                        //presio de venta es menor o igual al costo de compra?
+                        if (Convert.ToDouble(info_res[4]) <= Convert.ToDouble(cod_cant_precio_id_split[2]))
                         {
 
-                            info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final(direccion_archivo, 5, codigos_espl[i], "4", nuevo_precio_venta + "", "", "0");
+                            string[] temp = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID(direccion_archivo, 5, info_produc[i], "4", nuevo_precio_venta + "", "", "0").Split(G_caracter_para_confirmacion_o_error[0][0]);
+                            if (temp[0] == "1")
+                            {
+                                info_a_retornar = info_a_retornar + G_caracter_para_confirmacion_o_error[0] + nuevo_precio_venta;
+                            }
+
                         }
 
                     }
@@ -131,13 +137,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + nuevo_precio_venta//4_precio_venta
                     + G_caracter_separacion[0]
-                    + codigos_espl[i]//5_cod_barras
+                    + info_produc[i]//5_cod_barras
                     + G_caracter_separacion[0]
-                    + cantidades_espl[i]//6_cantidad
+                    + cod_cant_precio_id_split[1]//6_cantidad
                     + G_caracter_separacion[0]
-                    + precio_compra_piezas_espl[i]//7_costo_comp
+                    + cod_cant_precio_id_split[2]//7_costo_comp
                     + G_caracter_separacion[0]
-                    + provedores_espl[i] + G_caracter_separacion[2] + precio_compra_piezas_espl[i]//8_provedor
+                    + provedores_espl[i] + G_caracter_separacion[2] + cod_cant_precio_id_split[2]//8_provedor
                     + G_caracter_separacion[0]
                     + "NOSE"//9_grupo
                     + G_caracter_separacion[0]

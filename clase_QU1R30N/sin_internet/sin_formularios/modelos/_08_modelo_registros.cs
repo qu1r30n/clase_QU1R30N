@@ -99,7 +99,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 if (proceso == "COMPRA")
                 {
-                    string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                    string res_regist = pr_reg.registrar_compra(G_direcciones_REGISTROS[0], datos, año_mes_dia_hora_minuto_segundo);
                     string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
                     if (Convert.ToInt32(res_regist_esp[0]) > 0)
@@ -148,7 +148,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
             else if (modelo == "MODELO_VENTAS")
             {
-                string res_regist = pr_reg.registrar_movimiento(G_direcciones_REGISTROS[0], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
+                string res_regist = pr_reg.registrar_venta(G_direcciones_REGISTROS[0], datos, año_mes_dia_hora_minuto_segundo);
                 string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
                 if (proceso == "VENTA")

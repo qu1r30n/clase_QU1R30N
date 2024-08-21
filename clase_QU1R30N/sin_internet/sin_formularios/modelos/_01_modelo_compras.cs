@@ -33,16 +33,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         {
             string info_a_retornar = null;
 
-            string[] cant_datos = datos.Split(G_caracter_separacion[1][0]);
+            string[] cant_datos = datos.Split(G_caracter_separacion_funciones_espesificas[2][0]);
 
 
             for (int i = 0; i < cant_datos.Length; i++)
             {
-                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[2][0]);
+                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[0][0]);
                 switch (proceso)
                 {
                     case "COMPRA":
-                        info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], sucursales: info_espliteada[4]);
+                        info_a_retornar = pr_Comp.compras(G_direcciones[0], info_espliteada[0],info_espliteada[1], info_espliteada[2], info_espliteada[3]);
                         break;
                     case "COMPRA_MAYOREO":
 
