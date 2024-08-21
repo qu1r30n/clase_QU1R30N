@@ -97,7 +97,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                       /*4*/+ "0"  //sucursal
                       ,
                       ""
-                      ,posicion_producto: cod_cant_precio_id_split[3]
+                      ,posicion_fila: cod_cant_precio_id_split[3]
 
                       );
 

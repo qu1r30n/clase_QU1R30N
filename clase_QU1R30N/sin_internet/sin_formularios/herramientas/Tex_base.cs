@@ -253,7 +253,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
         public string Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
-            (string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_producto = "")
+            (string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -277,9 +277,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     int posicion_confirmada_del_producto = -1;
 
                     //hay posicion de la fila del producto?
-                    if (posicion_producto != "")
+                    if (posicion_fila != "")
                     {
-                        int posicion_posible = Convert.ToInt32(posicion_producto);
+                        int posicion_posible = Convert.ToInt32(posicion_fila);
                         resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
                         res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
                         //encontro el producto en la posicion o  lo buscara en toda la base?
@@ -417,7 +417,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
     
         public string Editar_incr_o_agrega_MULTIPLESCOMPARACIONES_AL_FINAL_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_BUSQUEDA_ID
-            (string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string comparar_y_edicion_COMPARACION_FINAL, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_producto = "")
+            (string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string comparar_y_edicion_COMPARACION_FINAL, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -442,9 +442,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     int posicion_confirmada_del_producto = -1;
                     
                     //hay posicion de la fila del producto?
-                    if (posicion_producto != "")
+                    if (posicion_fila != "")
                     {
-                        int posicion_posible = Convert.ToInt32(posicion_producto);
+                        int posicion_posible = Convert.ToInt32(posicion_fila);
                         resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
                         res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
                         //encontro el producto en la posicion o  lo buscara en toda la base?
@@ -574,7 +574,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
         public string Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
-    (string direccion_archivo_a_checar, string num_column_comp, string comparar, string numero_columnas_editar, string comparar_con_editar_columna, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_producto = "")
+    (string direccion_archivo_a_checar, string num_column_comp, string comparar, string numero_columnas_editar, string comparar_con_editar_columna, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             
@@ -599,9 +599,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     string[] res_esp = null;
                     int posicion_confirmada_del_producto = -1;
 
-                    if (posicion_producto != "")
+                    if (posicion_fila != "")
                     {
-                        int posicion_posible = Convert.ToInt32(posicion_producto);
+                        int posicion_posible = Convert.ToInt32(posicion_fila);
                         resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
                         res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
                         //encontro el producto en la posicion o  lo buscara en toda la base?
@@ -760,7 +760,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
 
-        public string[] Editar_o_incr_espesifico_si_no_esta_agrega_linea(string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string edit_0_o_increm_1 = null, string linea_a_agregar_si_no_lo_encuentra = null, object caracter_separacion_objeto = null)
+        public string[] Editar_o_incr_espesifico_si_no_esta_agrega_linea(string direccion_archivo, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string edit_0_o_increm_1 = null, string linea_a_agregar_si_no_lo_encuentra = null, object caracter_separacion_objeto = null, string posicion_fila = "")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
@@ -768,21 +768,93 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             int num_indice_de_direccion_int = Convert.ToInt32(sacar_indice_del_arreglo_de_direccion(direccion_archivo));
 
 
-            bool se_encontro = false;
-            for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+            bool encotro_info = false;
+            string info_a_procesar = "";
+            string resul_busqueda = null;
+            string[] res_esp = null;
+            int posicion_confirmada_del_producto = -1;
+
+            if (posicion_fila != "")
             {
-                string[] columnas = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i].Split(caracter_separacion[0][0]);
-
-                if (columnas[num_column_comp] == comparar)
+                int posicion_posible = Convert.ToInt32(posicion_fila);
+                resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
+                res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                
+                if (Convert.ToInt32(res_esp[0]) > 0)
                 {
-                    se_encontro = true;
-                    GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i] = op_arr.editar_incr_string_funcion_recursiva(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+                    if (res_esp[0] == "1")
+                    {
+                        encotro_info = true;
+                        info_a_procesar = res_esp[1];
+                        posicion_confirmada_del_producto = posicion_posible;
+                    }
+                }
 
-                    cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
-                    break;
+                else
+                {
+                    for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+                    {
+                        string[] columnas = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i].Split(caracter_separacion[0][0]);
+
+                        resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], "" + num_column_comp, comparar);
+                        res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+
+                        if (Convert.ToInt32(res_esp[0]) > 0)
+                        {
+                            if (res_esp[0] == "1")
+                            {
+                                encotro_info = true;
+                                info_a_procesar = res_esp[1];
+                                posicion_confirmada_del_producto = i;
+
+                                break;
+                            }
+                        }
+
+
+
+                    }
+                }
+
+            }
+            else
+            {
+                for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+                {
+                    string[] columnas = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i].Split(caracter_separacion[0][0]);
+
+                    resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i], "" + num_column_comp, comparar);
+                    res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+
+                    if (Convert.ToInt32(res_esp[0]) > 0)
+                    {
+                        if (res_esp[0] == "1")
+                        {
+                            encotro_info = true;
+                            info_a_procesar = res_esp[1];
+                            posicion_confirmada_del_producto = i;
+
+                            break;
+                        }
+                    }
+
+                    
+
                 }
             }
-            if (se_encontro == false)
+
+                
+
+            //no encontro la se encontro la info?
+            if (encotro_info == true)
+            {
+                GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_confirmada_del_producto] = op_arr.editar_incr_string_funcion_recursiva(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_confirmada_del_producto], numero_columnas_editar, editar_columna, edit_0_o_increm_1);
+
+                cambiar_archivo_con_arreglo(direccion_archivo, GG_base_arreglo_de_arreglos[num_indice_de_direccion_int]);
+            }
+            else
             {
                 if (linea_a_agregar_si_no_lo_encuentra != null)
                 {
