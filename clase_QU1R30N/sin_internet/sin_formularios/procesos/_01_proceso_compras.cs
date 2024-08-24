@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         _00_proceso_AnalisisDeDatos pr_analisis = new _00_proceso_AnalisisDeDatos();
         _03_proceso_productos_e_inventario pr_prod_inv = new _03_proceso_productos_e_inventario();
 
-        public string compras(string direccion_archivo, string codigos_cantidad_precio_id   , string provedores, string nombres_product_si_no_existen_producto = "", string sucursales = "", double porcentage_ganancia = 20)
+        public string compras(string direccion_archivo, string codigos_cantidad_precio_id   , string provedores,  string sucursales = "", double porcentage_ganancia = 20)
         {
             string info_a_retornar = "";
 
@@ -35,9 +35,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
             string[] info_produc = codigos_cantidad_precio_id.Split(G_caracter_separacion[1][0]);
-            string[] provedores_espl = provedores.Split(G_caracter_separacion[1][0]);
-            string[] nombres_product_si_no_existen_producto_espl = nombres_product_si_no_existen_producto.Split(G_caracter_separacion[1][0]);
-            string[] sucursales_espl = sucursales.Split(G_caracter_separacion[1][0]);
+            
+            
 
             for (int i = 0; i < info_produc.Length; i++)
             {
@@ -78,11 +77,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                       + G_caracter_separacion_funciones_espesificas[0]
                       /*1*/+ "" //costo de compra
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*2*/+ provedores_espl[i] //provedor
+                      /*2*/+ provedores //provedor
                       + G_caracter_separacion_funciones_espesificas[0]
                       /*3*/+ "" //ultimo movimiento
                       + G_caracter_separacion_funciones_espesificas[0]
-                      /*4*/+ sucursales_espl[i]  //sucursal
+                      /*4*/+ sucursales  //sucursal
 
                     ,
                       // 0:editar  1:incrementar 2:agregar
@@ -129,7 +128,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     string texto_o_fila_que_ingresara_si_no_esta_el_producto =
 
-                    "" + nombres_product_si_no_existen_producto_espl[i] //1_producto
+                    "" + cod_cant_precio_id_split[2] //1_producto
                     + G_caracter_separacion[0]
                     + "0"//2_contenido
                     + G_caracter_separacion[0]
@@ -143,7 +142,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + cod_cant_precio_id_split[2]//7_costo_comp
                     + G_caracter_separacion[0]
-                    + provedores_espl[i] + G_caracter_separacion[2] + cod_cant_precio_id_split[2]//8_provedor
+                    + provedores + G_caracter_separacion[2] + cod_cant_precio_id_split[2]//8_provedor
                     + G_caracter_separacion[0]
                     + "NOSE"//9_grupo
                     + G_caracter_separacion[0]
@@ -161,7 +160,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + ""//16_ultimo_movimiento
                     + G_caracter_separacion[0]
-                    + sucursales_espl[i] + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
+                    + sucursales + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
                     + G_caracter_separacion[0]
                     + "NOSE"//18_clasificacion_producto
                     + G_caracter_separacion[0]

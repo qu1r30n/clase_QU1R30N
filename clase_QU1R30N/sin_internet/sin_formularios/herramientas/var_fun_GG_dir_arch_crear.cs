@@ -1690,7 +1690,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*17*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\REGISTROS\\FECHAS\\" + DateTime.Now.ToString("yyyy") + "_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_año,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*18*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT", columnas_concatenadas(GG_ventana_reg_prod_total,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //impuestos
-            /*19*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\IMPUESTOS\\IMPUESTOS.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE|0|SIN DESCRIPCION|NOSE|3"},
+            /*19*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\IMPUESTOS\\IMPUESTOS.TXT", columnas_concatenadas(GG_ventana_IMPUESTOS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE|0|SIN DESCRIPCION|INFO_EXTRA_NOSE|3§IVA|16|SIN DESCRIPCION|INFO_EXTRA_NOSE|2"},
             /*20*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\IMPUESTOS\\DEDUSIBLES.TXT", columnas_concatenadas(GG_ventana_DEDUSIBLES,1,var_fun_GG.GG_caracter_separacion[0]),""},
             //herramientas
             /*21*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\COSAS_NO_ESTABAN.TXT", columnas_concatenadas(GG_ventana_COSAS_NO_ESTABAN_INVENTARIO,1,var_fun_GG.GG_caracter_separacion[0]),""},

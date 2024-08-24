@@ -920,7 +920,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 for (int i = 0; i < GG_base_arreglo_de_arreglos[indice].Length; i++)
                 {
                     string[] info_produc_esp = GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
-                    if (dato_a_buscar == info_produc_esp[5])
+                    if (dato_a_buscar == info_produc_esp[columna])
                     {
                         inf_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
                         encontro_producto = true;
