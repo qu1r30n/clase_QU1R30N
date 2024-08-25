@@ -97,19 +97,38 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             int[] id_atras_actual_adelante_ia_1;
             int[] id_atras_actual_adelante_ws_2;
 
-
-            id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la iax
+            int ID_IA = 2;
+            id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(ID_IA);//esta es de la ia
             id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
 
+            int posicion_adelante = 2;
+            int posicion_actual = 1;
+            int posicion_atras = 0;
 
-            if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[1])
+            if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[posicion_actual])
             {
-                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[2]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
-                bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 2, id_atras_actual_adelante_ia_1[2] + "");
+                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_adelante]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
+                bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], ID_IA, (id_atras_actual_adelante_ia_1[posicion_atras]) + "");//id_atras_actual_adelante_ia_1[0] este lo ponemos en la posicion 0 por si estan igual lo ponga atras del que va a leer el ia
             }
             else
             {
-                bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[1]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
+                if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[posicion_adelante])
+                {
+                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_atras]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
+                }
+
+                
+                else if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[posicion_atras])
+                {
+                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_actual]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
+                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], ID_IA, (id_atras_actual_adelante_ia_1[posicion_adelante]) + "");//id_atras_actual_adelante_ia_1[0] este lo ponemos en la posicion 0 por si estan igual lo ponga atras del que va a leer el ia
+                }
+                else
+                {
+                    bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_atras]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
+                }
+                
+                
             }
 
 
