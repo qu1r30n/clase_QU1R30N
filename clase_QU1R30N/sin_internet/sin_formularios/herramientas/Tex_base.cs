@@ -1080,7 +1080,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     }
 
                     // Agregar la palabra procesada al arreglo "resultado"
-                    resultado = op_arr.agregar_registro_del_array(resultado, palabra);
+                    linea = op_arr.agregar_registro_del_array(linea, palabra);
                 }
 
             }

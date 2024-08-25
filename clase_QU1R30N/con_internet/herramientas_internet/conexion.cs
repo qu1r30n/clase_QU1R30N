@@ -93,11 +93,12 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //E_2_5_ia
             //segun 3_6 es para peticiones o talves otro programa como otra conexion ws pero creo que es exesivo
 
+
             int[] id_atras_actual_adelante_ia_1;
             int[] id_atras_actual_adelante_ws_2;
 
 
-            id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la ia
+            id_atras_actual_adelante_ia_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(2);//esta es de la iax
             id_atras_actual_adelante_ws_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(5);//este es del ws o prog_1
 
 
@@ -123,8 +124,10 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //S_1_4_ia
             if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {
-                int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia
-                int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(4);//este es del ws
+                int posicion_lectura_clase_qu1r30n = 4;
+
+                int[] id_atras_actual_adelante_1 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(1);//esta es de la ia//
+                int[] id_atras_actual_adelante_2 = checar_numero_de_direccion_de_archivo_atras_actual_adelante(posicion_lectura_clase_qu1r30n);//este es del ws //lee el comando
 
 
                 string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]]);
@@ -143,6 +146,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                             conmut.conmutar_datos(respuestas_ia[i]);
 
                         }
+
                         bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
 
@@ -161,10 +165,10 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
                         }
 
-                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_1[1]], new string[] { "sin_informacion" });
+                        bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
                     }
-                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 1, id_atras_actual_adelante_1[2] + "");
+                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], posicion_lectura_clase_qu1r30n, id_atras_actual_adelante_2[2] + "");
                 }
 
             }

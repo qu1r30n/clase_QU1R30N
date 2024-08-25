@@ -42,13 +42,38 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     case "COMICION_VENTA_BUSQUEDA_POR_TELEFONO":
                         string telefono = info_espliteada[0];
                         id = pr_mul.busqueda_id_con_telefono(telefono);
-                        info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        if (id != "")
+                        {
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        }
+                        
+                        break;
+
+                    case "COMICION_VENTA_BUSQUEDA_POR_CURP":
+                        string curp = info_espliteada[0];
+                        id = pr_mul.busqueda_id_con_curp(curp);
+                        if (id != "")
+                        {
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        }
+                        break;
+
+                    case "COMICION_VENTA_BUSQUEDA_POR_INE":
+                        string ine = info_espliteada[0];
+                        id = pr_mul.busqueda_id_con_clave_elector(ine);
+                        if (id != "")
+                        {
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        }
                         break;
 
                     case "COMICION_VENTA_BUSQUEDA_POR_IDENTIFICACION_OFICIAL":
                         string identificacion_oficial = info_espliteada[0];
-                        id = pr_mul.busqueda_id_con_telefono(identificacion_oficial);
-                        info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        id = pr_mul.busqueda_id_con_otra_identificacion_oficial(identificacion_oficial);
+                        if (id != "")
+                        {
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1]);
+                        }
                         break;
 
 

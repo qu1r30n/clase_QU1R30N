@@ -1,3 +1,3 @@
 0_NOMBRE_PRODUCTO|1_CANTIDAD|2_COD_BAR|3_COMENTARIO|4_HISTORIAL|5_RANKING|6_PROMEDIO|7_VECES_QUE_SUPERA_PROMEDIO
-PRODUCTO|26|COD_BAR1|SIN_COMENTARIOS|0°22°2°2°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°|26|2|7
-PRODUCTO|10|COD_BAR|SIN_COMENTARIOS|0°8°1°1°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°|10|1|7
+PRODUCTO|35|COD_BAR1|SIN_COMENTARIOS|9°3°3°3°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°|35|2|7
+PRODUCTO|16|COD_BAR|SIN_COMENTARIOS|6°2°2°2°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°|16|1|7

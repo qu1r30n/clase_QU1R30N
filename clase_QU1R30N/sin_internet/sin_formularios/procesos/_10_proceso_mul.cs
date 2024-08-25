@@ -380,7 +380,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 for (int i = 0; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
                 {
                     string fila = Tex_base.GG_base_arreglo_de_arreglos[indice][i];
-                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "4|4", curp).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|4", curp).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
                         string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
@@ -406,7 +406,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 for (int i = 0; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
                 {
                     string fila = Tex_base.GG_base_arreglo_de_arreglos[indice][i];
-                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "4|5", clave_elector).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|5", clave_elector).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
                         string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
@@ -432,7 +432,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 for (int i = 0; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
                 {
                     string fila = Tex_base.GG_base_arreglo_de_arreglos[indice][i];
-                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "4|7", otra_identificacion_oficial).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|6", otra_identificacion_oficial).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
                         string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
@@ -450,15 +450,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         {
             string info_a_retornar = "";
 
-            string[] res = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            string[] res = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (res[0]=="1")
             {
                 int indice = Convert.ToInt32(res[1]);
 
-                for (int i = 0; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
+                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
                 {
                     string fila = Tex_base.GG_base_arreglo_de_arreglos[indice][i];
-                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "4|7", num_telefono).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|7", num_telefono).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
                         string[] info_esp=res_busqueda[1].Split(G_caracter_separacion[0][0]);

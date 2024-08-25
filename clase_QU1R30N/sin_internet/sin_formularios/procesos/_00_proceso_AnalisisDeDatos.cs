@@ -181,9 +181,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         {
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
-            string[] todo_el_ranking = bas.Leer(direccion_ranking);
+            string[] todo_el_ranking = bas.Leer(direccion_ranking, iniciar_desde_que_fila: G_donde_inicia_la_tabla);
             string dir_invent = G_direcciones[0];
-            inventario = bas.Leer(dir_invent, "3|1|4|5|7");
+            inventario = bas.Leer(dir_invent, "5|1|6|7|9",iniciar_desde_que_fila:G_donde_inicia_la_tabla);
             List<string> ranking_con_cant_invent = new List<string>();
 
             for (int i = 0; i < todo_el_ranking.Length; i++)

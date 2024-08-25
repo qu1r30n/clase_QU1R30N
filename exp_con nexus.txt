@@ -1,0 +1,7 @@
+sin_informacion
+4// este envia nexus+ 3 si son iguales  esta posicion y posicion [4]es el 10
+5 
+3
+10
+2//este lee nexus//este lee nexus//borra este nexus y edita esta bandera//este deja de modificarse si la posicion [2]=5 es igual a esta posicion
+9
