@@ -19,7 +19,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            //direccion_archivo//Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
+            //direccion_archivo//Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.TXT",
         };
 
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)

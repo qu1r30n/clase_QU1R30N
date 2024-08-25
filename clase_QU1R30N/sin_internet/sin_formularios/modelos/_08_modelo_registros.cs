@@ -86,7 +86,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 {
                     // Código correspondiente al caso "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_"
                 }
-                
+
 
 
 
@@ -99,6 +99,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             {
                 if (proceso == "COMPRA")
                 {
+                    // registro DINERO DIA
                     string res_regist = pr_reg.registrar_compra(G_direcciones_REGISTROS[0], datos, año_mes_dia_hora_minuto_segundo);
                     string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
@@ -106,17 +107,28 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     {
                         if (res_regist_esp[0] == "1")
                         {
+                            // registro PRODUCTO dia
                             string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
                             string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
+                            
+
                             // registro dinero
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
+                            pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);//registros del MES
+                            pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);//registros del AÑO
+                            pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[3], res_regist_esp[1], año);//registros del TOTAL
                             // registro productos
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//registros del MES
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);//registros del AÑO
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);//registros del TOTAL
+
+
+                            //modificar historial ranking
+                            pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//
+                            pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
+                            pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+
+
                             info_a_retornar = res_regist;
                         }
                         else
@@ -148,6 +160,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
             else if (modelo == "MODELO_VENTAS")
             {
+                // registro DINERO DIA
                 string res_regist = pr_reg.registrar_venta(G_direcciones_REGISTROS[0], datos, año_mes_dia_hora_minuto_segundo);
                 string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
@@ -157,17 +170,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     {
                         if (res_regist_esp[0] == "1")
                         {
+                            // registro PRODUCTO DIA
                             string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
                             string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
                             // registro dinero
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);
-                            pr_reg.registro_incrementar(G_direcciones_REGISTROS[3], res_regist_esp[1], año);
+                            pr_reg.registro_incrementar_venta(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);//registros del MES
+                            pr_reg.registro_incrementar_venta(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);//registros del AÑO
+                            pr_reg.registro_incrementar_venta(G_direcciones_REGISTROS[3], res_regist_esp[1], año);//registros del TOTAL
                             // registro productos
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//registros del MES
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);//registros del AÑO
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);//registros del TOTAL
                             info_a_retornar = res_regist;
                         }
                         else

@@ -67,7 +67,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 if (info_esp[9] == "PRODUCTO_PIEZA")
                                 {
                                     //edita inventario
-                                    info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID(direccion_archivo, 5, codigos_espliteados[i]
+                                    info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                                        (direccion_archivo, 5, codigos_espliteados[i]
                                         ,
                                           //columnas a editar
                                           /*0*/"6"//cantidad

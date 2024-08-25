@@ -112,7 +112,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         if (Convert.ToDouble(info_res[4]) <= Convert.ToDouble(cod_cant_precio_id_split[2]))
                         {
 
-                            string[] temp = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID(direccion_archivo, 5, info_produc[i], "4", nuevo_precio_venta + "", "", "0").Split(G_caracter_para_confirmacion_o_error[0][0]);
+                            string[] temp = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID(direccion_archivo, 5, cod_cant_precio_id_split[0], "4", nuevo_precio_venta + "", "", "0").Split(G_caracter_para_confirmacion_o_error[0][0]);
                             if (temp[0] == "1")
                             {
                                 info_a_retornar = info_a_retornar + G_caracter_para_confirmacion_o_error[0] + nuevo_precio_venta;

@@ -17,14 +17,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
-            /*1*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4,0],//"config\\afiliados\\afiliados_simple.txt",
-            /*2*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[6,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.txt",
-            /*3*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[5,0],//"config\\afiliados\\afiliados_complejo.txt",
-            /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.txt",
-            /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\afiliados_unificado.txt",
-            /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.txt",
-            /*7*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[14,0]//CONFIG\\INF\\REGISTROS\\ACUMULADO_REGISTRO.TXT
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.TXT",
+            /*1*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4,0],//"config\\afiliados\\afiliados_simple.TXT",
+            /*2*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[6,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_simple.TXT",
+            /*3*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[5,0],//"config\\afiliados\\afiliados_complejo.TXT",
+            /*4*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[7,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_complejo.TXT",
+            /*5*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[8,0],//"config\\afiliados\\afiliados_unificado.TXT",
+            /*6*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[9,0],//"config\\afiliados\\niveles_e_id_horisontal_afiliados_unificado.TXT",
+            /*7*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[14,0],//CONFIG\\INF\\REGISTROS\\ACUMULADO_REGISTRO.TXT
+            /*8*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[18,0],//CONFIG\\INF\\REGISTROS\\ACUMULADO_PRODUC_REGISTRO.TXT
+
+
 
         };
         
@@ -87,11 +90,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
                 
                 case "PREDICCION_NECESIDADES_COMPRA":
-
-                    DateTime fecha = DateTime.Now;
-                    string direccion_ranking = "inf\\ranking\\" + fecha.ToString("yyyy") + "_ranking.txt";
                     
-                    string[] lista_prdocutos_nesesita = pr_an_dat.prediccion_archivo_compra(G_direcciones[7], 4, 5, 6, 7);
+                    string[] lista_prdocutos_nesesita = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], 4, 5, 6, 7);
 
 
 

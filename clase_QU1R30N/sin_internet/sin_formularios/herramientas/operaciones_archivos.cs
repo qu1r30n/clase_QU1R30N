@@ -138,7 +138,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }//if tipo
 
 
-            string dir_tem = direccion_archivo.Replace(".txt", "_tem.txt");
+            string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
             StreamWriter sw = new StreamWriter(dir_tem, true);
             for (int k = 0; k < lineas.Length; k++)
             {

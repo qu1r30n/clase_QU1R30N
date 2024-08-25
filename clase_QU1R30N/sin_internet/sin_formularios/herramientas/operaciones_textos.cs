@@ -377,7 +377,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
 
-        public string busqueda_profunda_string(string texto, string columnas_a_recorrer, string comparar, string columnas_a_retornar = null, object caracter_separacion_objeto = null)
+        public string busqueda_profunda_string(string texto, string columnas_a_recorrer, string comparar___, string columnas_a_retornar = null, object caracter_separacion_objeto = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
@@ -400,7 +400,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
             //comparacion--------------------------------------------------------------------------
-            if (tem_linea == comparar)
+            if (tem_linea == comparar___)
             {
                 return "1" + G_caracter_para_confirmacion_o_error[0] + texto;
             }
@@ -419,7 +419,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             //caracter_separacion[0][0] el primer [0] es la celda y el segundo [0] es el caracter para no usar convert.tochar
             string[] arr_comparaciones_a_rec = columnas_a_recorrer.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
-            string[] arr_comparaciones = comparaciones.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
+            string[] arr_comparaciones___ = comparaciones.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
 
             
 
@@ -454,7 +454,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     //string tem_linea_2 = "";
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
-                    if (tem_linea == arr_comparaciones[l])
+                    if (tem_linea == arr_comparaciones___[l])
                     {
                         chequeo_todas_las_comparaciones[l] = true;
 
@@ -733,6 +733,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     if (res_ext_esp[0] == "1")
                     {
+                        
                         string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
                         bool encontro_dato_a_editar = false;
 
@@ -870,7 +871,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                             }
                         }
-
+                        
                         res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
                         //si no encuentra dato_a_editar lo agrega
                         if (!encontro_dato_a_editar)
@@ -878,14 +879,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                             //si no lo encuentra agrega
                             if (edit_0_o_increm_1_agrega_2_espliteado[k] == "2")
                             {
-                                res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                if (comparacion_con_edicion_esp[k] != "" || comparacion_con_edicion_esp.Length > 1)
+                                {
+                                    res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
+                                }
+                                
                             }
                             else
                             {
                                 //no se si recuerdo como funciona el comentado pero para efectos practicos  use el segundo por que lo nesesito
                                 //res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
                                 //lo puse para resolver rapido el problema pero hay que checar
-                                res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter]+ comparacion_con_edicion_esp[k];
+                                if (comparacion_con_edicion_esp[k] != "" || comparacion_con_edicion_esp.Length > 1)
+                                {
+                                    if (res_ext_esp[1] == "")
+                                    {
+                                        res_ext_esp[1] = comparacion_con_edicion_esp[k];
+                                    }
+                                    else
+                                    {
+                                        res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + comparacion_con_edicion_esp[k];
+                                    }
+                                    
+                                }
                                 edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                             }
 
@@ -894,12 +910,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                         texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion_profunda[0]);
                     }
+                
+                
                 }
             }
 
             return texto;
         }
 
+        
 
 
         // Función para editar o incrementar información en un arreglo de datos

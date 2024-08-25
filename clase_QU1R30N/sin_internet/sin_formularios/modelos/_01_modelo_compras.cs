@@ -23,7 +23,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.txt",
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.TXT",
         };
 
         

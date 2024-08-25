@@ -67,7 +67,7 @@ namespace clase_QU1R30N
         /*
         private void ranking()
         {
-            string dir_ranking_dia = "inf\\ranking\\dia\\" + fecha_hora.ToString("yyyyMMdd") + "_ranking.txt";
+            string dir_ranking_dia = "inf\\ranking\\dia\\" + fecha_hora.ToString("yyyyMMdd") + "_ranking.TXT";
 
             if (bas.existe_archivo(dir_ranking_dia))
             {
@@ -75,7 +75,7 @@ namespace clase_QU1R30N
                 bas.si_existe_suma_sino_agega_extra(direccion3, 0, "con_dia_sem", "1", "1", "con_dia_sem|1");
             }
 
-            string dir_ranking_año = "inf\\ranking\\" + fecha_hora.ToString("yyyy") + "_ranking.txt";
+            string dir_ranking_año = "inf\\ranking\\" + fecha_hora.ToString("yyyy") + "_ranking.TXT";
             bas.Crear_archivo_y_directorio(dir_ranking_año);
             string info_con_dia = bas.Seleccionar(direccion3, 0, "con_dia_sem", "1");
             int num_dia = Convert.ToInt32(info_con_dia);

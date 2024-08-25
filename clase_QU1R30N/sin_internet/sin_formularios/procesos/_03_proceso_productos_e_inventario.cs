@@ -30,7 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         
         string[] G_direcciones =
         {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.txt",
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.TXT",
         };
 
         public string agregar_producto(string direccion_archivo, string producto, string columnas_son_numerico = "")

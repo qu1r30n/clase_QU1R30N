@@ -20,7 +20,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[2, 0],//"config\\inf\\dat\\provedores.txt",
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[2, 0],//"config\\inf\\dat\\provedores.TXT",
         };
 
         operaciones_arreglos op_arr = new operaciones_arreglos();

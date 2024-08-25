@@ -28,9 +28,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         string[] G_direcciones =
         {
-            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[2, 0],//string G_direccion_negocio = "config\\sismul2\\negocio.txt";
-            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//string G_direccion_patrocinadores_complejos = "config\\sismul2\\patrocinadores_complejos.txt";
-            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4, 0],//string G_direccion_porcentages = "config\\sismul2\\porcentajes\\porcentajes.txt";
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[2, 0],//string G_direccion_negocio = "config\\sismul2\\negocio.TXT";
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//string G_direccion_patrocinadores_complejos = "config\\sismul2\\patrocinadores_complejos.TXT";
+            Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4, 0],//string G_direccion_porcentages = "config\\sismul2\\porcentajes\\porcentajes.TXT";
         };
 
 
@@ -93,7 +93,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 DateTime fecha_hora = DateTime.Now;
                 string año_mes_dia = fecha_hora.ToString("yyyyMMdd");
-                string dir = carpetas + "\\reg\\" + año_mes_dia + "registro_simple_mov.txt";
+                string dir = carpetas + "\\reg\\" + año_mes_dia + "registro_simple_mov.TXT";
                 bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir, "registro_simple|dir_tabla|id_usuario|datos_usuario|dinero_registro|id_encargado_simple|", leer_y_agrega_al_arreglo: false);
                 string info_movimiento = "registro_simple" + caracter_separacion[0] + direccion + caracter_separacion[0] + cantidad_de_registros + caracter_separacion[0] + datos_usuario + caracter_separacion[0] + dinero_registro + caracter_separacion[0] + id_encargado_simple + caracter_separacion[0];
                 bas.Agregar(dir, info_movimiento, false);
@@ -139,7 +139,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 DateTime fecha_hora = DateTime.Now;
                 string año_mes_dia = fecha_hora.ToString("yyyyMMdd");
-                string dir = carpetas + "\\reg\\" + año_mes_dia + "registro_simple_mov.txt";
+                string dir = carpetas + "\\reg\\" + año_mes_dia + "registro_simple_mov.TXT";
                 bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir, "registro_simple|dir_tabla|id_usuario|datos_usuario|dinero_registro|id_encargado_simple|", leer_y_agrega_al_arreglo: false);
                 string info_movimiento = "registro_complejo" + caracter_separacion[0] + direccion + caracter_separacion[0] + cantidad_de_registros + caracter_separacion[0] + datos_usuario + caracter_separacion[0] + dinero_registro + caracter_separacion[0] + id_encargado_simple + caracter_separacion[0] + id_encargado_complejo + caracter_separacion[0];
                 bas.Agregar(dir, info_movimiento, false);

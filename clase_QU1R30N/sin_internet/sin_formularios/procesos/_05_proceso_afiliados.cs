@@ -35,7 +35,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 DateTime fecha_hora = DateTime.Now;
                 string año_mes_dia_hora_min = fecha_hora.ToString("yyyyMMddHHmm");
                 string año = fecha_hora.ToString("yyyy");
-                string dir = "config\\afiliados\\reg\\" + año + "_reg.txt";
+                string dir = "config\\afiliados\\reg\\" + año + "_reg.TXT";
                 bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir, leer_y_agrega_al_arreglo: false);
                 string info_movimiento = "reg_sim" + caracter_separacion_string[0] + id_enc_simple + caracter_separacion_string[0] + tabla_enc_simp + caracter_separacion_string[0] + datos + caracter_separacion_string[0];
                 bas.Agregar(dir, info_movimiento, con_arreglo_GG: false);
