@@ -117,16 +117,20 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                             pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);//registros del MES
                             pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[2], res_regist_esp[1], año_mes);//registros del AÑO
                             pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[3], res_regist_esp[1], año);//registros del TOTAL
-                            // registro productos
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//registros del MES
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);//registros del AÑO
-                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);//registros del TOTAL
 
 
                             //modificar historial ranking
                             pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//
                             pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);
                             pr_reg.modificar_historial_ranking(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);
+
+
+                            // registro productos
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[5], res_regist_pr_esp[1], año_mes_dia);//registros del MES
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[6], res_regist_pr_esp[1], año_mes);//registros del AÑO
+                            pr_reg.registro_incrementar_productos(G_direcciones_REGISTROS[7], res_regist_pr_esp[1], año);//registros del TOTAL
+
+
 
 
                             info_a_retornar = res_regist;

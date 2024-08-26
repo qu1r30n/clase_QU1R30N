@@ -1279,6 +1279,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","5_RANKING","" },
             { "1","6_PROMEDIO","" },
             { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","8_USO_MULTIPLE","" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1293,6 +1297,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","5_RANKING","" },
                 { "1","6_PROMEDIO","" },
                 { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","8_USO_MULTIPLE","" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
             };
 
 
@@ -1344,6 +1352,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","5_RANKING","" },
             { "1","6_PROMEDIO","" },
             { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","8_USO_MULTIPLE","" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1358,6 +1370,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","5_RANKING","" },
                 { "1","6_PROMEDIO","" },
                 { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","8_USO_MULTIPLE","" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
             };
 
 
@@ -1397,10 +1413,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-        //registro produc año
+        //registro produc total
         static public string[,] GG_ventana_reg_prod_total =
         {
-
             { "1","0_NOMBRE_PRODUCTO","" },
             { "1","1_CANTIDAD","" },
             { "1","2_COD_BAR","" },
@@ -1409,6 +1424,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","5_RANKING","" },
             { "1","6_PROMEDIO","" },
             { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+            { "1","8_USO_MULTIPLE","" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
+
 
         };
         public static void RecargarVentanaEmergenteReg_prod_total(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1423,6 +1443,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 { "1","5_RANKING","" },
                 { "1","6_PROMEDIO","" },
                 { "1","7_VECES_QUE_SUPERA_PROMEDIO","" },
+                { "1","8_USO_MULTIPLE","" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" },        // Nueva columna
+
             };
 
 

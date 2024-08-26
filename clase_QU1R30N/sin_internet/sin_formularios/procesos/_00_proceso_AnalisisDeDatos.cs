@@ -257,6 +257,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] lista_final = calculo_pred_compra(todo_el_ranking);
             for (int i = 0; i < lista_final.Length; i++)
             {
+
                 //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
                 string[] a_cambiar = lista_final[i].Split(caracter_separacion);
 

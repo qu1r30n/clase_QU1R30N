@@ -3,5 +3,5 @@ sin_informacion
 5 //este envia clase qu1r30n + 3 si son iguales  esta posicion y posicion [5]es el 2
 3 
 10// este lee  clase qu1r30n//borra este clase qu1r30n y edita esta bandera//este deja de modificarse si la posicion [1]=4 es igual a esta posicion
-2//este lee nexus
+2//este lee nexus//borra este nexus y edita esta bandera//este deja de modificarse si la posicion [2]=5 es igual a esta posicion
 9

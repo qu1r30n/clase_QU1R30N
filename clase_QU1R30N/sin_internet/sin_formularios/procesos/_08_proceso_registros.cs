@@ -699,13 +699,26 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] datos_codbar = datos_esp[2].Split(G_caracter_separacion[1][0]);
 
 
-                    datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
+                    
+                    
+
+                    if (datos_esp[1] == "VENTA")
+                    {
+                        datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
+                    }
+                    else if (datos_esp[1] == "COMPRA") 
+                    {
+                        datos_codbar = junta_y_pone_a_cero_la_cantidad(datos_codbar);
+                    }
+                    else
+                    {
+                        datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
+                    }
                     datos_esp[2] = string.Join(G_caracter_separacion[1], datos_codbar);
-
-
                     string[] res_indice_invent = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     int indice_inventario = Convert.ToInt32(res_indice_invent[1]);
                     string[] info_producto_bas = null;
+                    
                     for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_inventario].Length; i++)
                     {
                         string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[indice_inventario][i].Split(G_caracter_separacion[0][0]);
@@ -740,6 +753,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             + G_caracter_separacion[0] + inf_dat[1] //5_columna_ranking
                             + G_caracter_separacion[0] + inf_dat[1] //6_columnas_promedio
                             + G_caracter_separacion[0] + "7" //7_columna_veces_que_supera_promedio//ponemos 7 para que sean 2 meses porque son 4 semanas por mes
+                            + G_caracter_separacion[0] + "0" //8_columna_uso_multiple
+                            + G_caracter_separacion[0] + "0" //9_columna_usomulti_tipo_de_producto
+                            + G_caracter_separacion[0] + "0" //10_columna_multi_costo_compra
+                            + G_caracter_separacion[0] + "0" //11_nivel_nesesidad
                             ;
                         ;
 
@@ -754,7 +771,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                     direccion_archivo
                                     , 2                                                   //2_codbar
                                     , inf_dat[0]
-                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "4" + G_caracter_separacion_funciones_espesificas[0] + "5"
+                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "4" + G_caracter_separacion[0] +"0" + G_caracter_separacion_funciones_espesificas[0] + "5"
                                     , inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1]
                                     , ""
                                     , "1" + G_caracter_separacion_funciones_espesificas[0] + "1" + G_caracter_separacion_funciones_espesificas[0] + "1"
@@ -865,6 +882,31 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 }
                             }
                         }
+
+                        arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
+                    }
+                }
+            }
+            else
+            {
+                arr_retornar = produc_cantidad;
+            }
+
+            return arr_retornar;
+        }
+
+        private string[] junta_y_pone_a_cero_la_cantidad(string[] produc_cantidad)
+        {
+            string[] arr_retornar = new string[0];
+            //hay mas de uno para comparar?
+            if (produc_cantidad.Length > 1)
+            {
+                for (int i = 0; i < produc_cantidad.Length; i++)
+                {
+                    if (produc_cantidad[i] != "")
+                    {
+                        string[] comp_prod_1 = produc_cantidad[i].Split(G_caracter_separacion[2][0]);
+                        comp_prod_1[1] = "0";
 
                         arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
                     }

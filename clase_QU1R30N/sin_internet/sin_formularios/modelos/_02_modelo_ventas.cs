@@ -16,13 +16,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
-        
+
         string[] G_direcciones =
         {
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.TXT",
         };
 
-        
+
 
         _02_proceso_ventas pr_vent = new _02_proceso_ventas();
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)

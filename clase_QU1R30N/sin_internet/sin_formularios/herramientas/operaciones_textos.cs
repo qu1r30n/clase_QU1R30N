@@ -693,7 +693,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
 
 
-                        texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion_profunda);
+                        //texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion_profunda);
+                        texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion);
                     }
                 }
             }

@@ -1,0 +1,7 @@
+busca el codigo para errores y modificaciones
+//cod_mod__01--------------------------------------------------------------------------
+en ventas al dar imp y el precio de compra se toma del producto al precio actual de la ultima compra
+//lo cual puede ser un pequeño error porque si se compro mas barato y al aser segunda compra este sube el precio anterior  estaria como si lo ubieramos comprado a ese presio lo cual
+pero aparte se soluciona por que todo lo que se declara a impuestos se hace mediante factura pero seria bueno checar que se podria hacer hay
+//------------------------------------------------------------------------
+		

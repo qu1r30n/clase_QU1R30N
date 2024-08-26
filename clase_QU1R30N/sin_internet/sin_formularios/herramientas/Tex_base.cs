@@ -668,14 +668,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         cont_temp++;
                         if (cont_temp == 6 || cont_temp == 3)
                         {
-                           
+
                         }
 
-                        
-                        string checador=GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_confirmada_del_producto]
-                                        = 
+
+                        string checador = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_confirmada_del_producto]
+                                        =
                                         op_tex.editar_inc_agregar_edicion_profunda_multiple_comparacion_final_MULTIPLE_A_CHECAR_string
-                                        
+
                                         (res_esp[1],
                                         numero_columnas_editar,
                                         comparar_con_editar_columna,

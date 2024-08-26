@@ -117,7 +117,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                     bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_atras]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
                 }
 
-                
+
                 else if (id_atras_actual_adelante_ws_2[1] == id_atras_actual_adelante_ia_1[posicion_atras])
                 {
                     bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_actual]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
@@ -127,8 +127,8 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 {
                     bas.Agregar(G_dir_arch_transferencia[id_atras_actual_adelante_ia_1[posicion_atras]], folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[0] + info_a_enviar, false);
                 }
-                
-                
+
+
             }
 
 
