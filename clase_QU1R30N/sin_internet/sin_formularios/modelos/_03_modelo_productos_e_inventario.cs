@@ -62,16 +62,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
 
-            string res_ind_ar = "";
+            string[] res_ind_ar = null;
+            int indice = -1;
             
             switch (proceso)
             {
                 case "AGREGAR_SINO_EXISTE":
 
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
+                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    indice = Convert.ToInt32(res_ind_ar[1]);
                     if (datos!="")
                     {
-                        info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[0], datos);
+                        info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[indice], datos);
                     }
                     
 
@@ -80,9 +82,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 
                 case "AGREGAR":
 
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
-                    
-                    info_a_retornar = proc_inventario.agregar_producto(G_direcciones[0],datos);
+                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    indice = Convert.ToInt32(res_ind_ar[1]);
+                    info_a_retornar = proc_inventario.agregar_producto(G_direcciones[indice],datos);
                     
                     break;
 
@@ -102,9 +104,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                 case "EXTRAER_INVENTARIO_STRING":
 
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]);
-
-                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[0]);
+                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    indice = Convert.ToInt32(res_ind_ar[1]);
+                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[indice]);
 
                     break;
                 

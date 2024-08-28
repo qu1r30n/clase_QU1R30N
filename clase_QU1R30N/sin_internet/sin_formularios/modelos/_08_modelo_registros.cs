@@ -111,7 +111,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                             string res_regist_pr = pr_reg.registrar_movimiento_productos(G_direcciones_REGISTROS[4], modelo, proceso, datos, año_mes_dia_hora_minuto_segundo);
                             string[] res_regist_pr_esp = res_regist_pr.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
-                            
+
 
                             // registro dinero
                             pr_reg.registro_incrementar_compra(G_direcciones_REGISTROS[1], res_regist_esp[1], año_mes_dia);//registros del MES
@@ -165,6 +165,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             else if (modelo == "MODELO_VENTAS")
             {
                 // registro DINERO DIA
+
                 string res_regist = pr_reg.registrar_venta(G_direcciones_REGISTROS[0], datos, año_mes_dia_hora_minuto_segundo);
                 string[] res_regist_esp = res_regist.Split(G_caracter_para_confirmacion_o_error[0][0]);
 

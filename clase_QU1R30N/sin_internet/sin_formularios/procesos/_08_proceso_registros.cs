@@ -85,6 +85,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         }
 
+
         public string registrar_venta(string direccion_archivo, string datos, string fecha_o_hora, object caracter_separacion_obj = null)
         {
 
@@ -315,7 +316,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     double precio = Convert.ToDouble(info_dat[2]);
                     double tot_com_producto = cantidad * precio;
 
-                    string nombre_produc = "";
+                    string nombre_produc = "NO_SE_ENCONTRO_PRODUCTO";
 
                     //encontro archivo?
                     if (res_esp_archivo[0] == "1")
@@ -418,6 +419,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         //total_pagar_imp = "";
 
                     }
+                    
 
                 }
 
@@ -502,14 +504,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                     //columnas a comparar
                                     "0" + G_caracter_separacion_funciones_espesificas[0] + "1"
                                     ,//comparar
-                                    fecha+ G_caracter_separacion_funciones_espesificas[0]+ datos_tip_operacion[j]//tipo_operacion
+                                    fecha + G_caracter_separacion_funciones_espesificas[0] + datos_tip_operacion[j]//tipo_operacion
                                     ,//columnas a editar
                                       "3"//3_productos
                                     , //edicion
                                       info_dat_prod//3_productos
                                     ,// 0:editar  1:incrementar 2:agregar
                                       "1"                                                  //3_productos
-                                    ,sino_lo_encuentra
+                                    , sino_lo_encuentra
                                     );
 
                         string[] res_esp = res.Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -525,7 +527,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     if (fue_creada_la_informacion == false)
                     {
 
-                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "2", datos_iva, "1","VENTA");
+                        rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "2", datos_iva, "1", "VENTA");
                         rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "5", datos_esp[5], "1", "VENTA");
                         rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "6", datos_esp[6], "1", "VENTA");
                         rep_funcion_cantidad_del_arreglo(direccion_archivo, "0", fecha, "7", datos_esp[7], "1", "VENTA");
@@ -593,7 +595,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                     (//columnas a comparar
                                     direccion_archivo,
                                     //fecha y tipo_operacion
-                                    "0"  + G_caracter_separacion_funciones_espesificas[0]+ "1"
+                                    "0" + G_caracter_separacion_funciones_espesificas[0] + "1"
                                     ,//comparar
                                     fecha + G_caracter_separacion_funciones_espesificas[0] + datos_tip_operacion[j]//tipo_operacion
                                     ,//columnas a editar
@@ -602,11 +604,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                       info_dat_prod//3_productos
                                     ,// 0:editar  1:incrementar 2:agregar
                                       "1"                                                  //3_productos
-                                    ,sino_lo_encuentra
+                                    , sino_lo_encuentra
                                     );
 
                         string[] res_esp = res.Split(G_caracter_para_confirmacion_o_error[0][0]);
-                        if (res_esp[0] == "2"){fue_creada_la_informacion = true;}
+                        if (res_esp[0] == "2") { fue_creada_la_informacion = true; }
 
                     }
                     //ESTE ES IMPORTANTE ESTE ES EL QUE HACE LOS PROCESOS CON LA INFORMACION
@@ -638,6 +640,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         public string registrar_movimiento_productos(string direccion_archivo, string modelo, string proceso, string datos, string fecha_o_hora, object caracter_separacion_obj = null)
         {
 
+            
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
@@ -645,6 +648,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             string resultado_archivo = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
             string[] res_esp_archivo = resultado_archivo.Split(G_caracter_para_confirmacion_o_error[0][0]);
+            //encontro archivo?
             if (Convert.ToInt32(res_esp_archivo[0]) > 0)
             {
                 int indice = Convert.ToInt32(res_esp_archivo[1]);
@@ -659,14 +663,38 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 cant_dat = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(cant_dat);
 
+                string info_agregar = "";
+                cant_dat = extraer_datos_producto_reg(cant_dat);
+                if (temp.Length > 1)
+                {
+
+                    info_agregar =
+                        fecha_o_hora
+                        + caracter_separacion_string[0]
+                        + proceso
+                        + caracter_separacion_string[0]
+                        + string.Join(G_caracter_separacion[1], cant_dat)
+                        + caracter_separacion_string[0]
+                        + temp[1]
+                        + caracter_separacion_string[0]
+                        + temp[2];
+                }
+                else
+                {
+                    
+                    info_agregar =
+                        fecha_o_hora
+                        + caracter_separacion_string[0]
+                        + proceso
+                        + caracter_separacion_string[0]
+                        + string.Join(G_caracter_separacion[1], cant_dat);
+
+                }
 
 
-                string info_agregar =
-                    fecha_o_hora
-                    + caracter_separacion_string[0]
-                    + proceso
-                    + caracter_separacion_string[0]
-                    + string.Join(G_caracter_separacion[1], cant_dat);
+
+
+
 
                 info_a_retornar = bas.Agregar(direccion_archivo, info_agregar);
 
@@ -698,35 +726,32 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] datos_tip_operacion = datos_esp[1].Split(G_caracter_separacion[1][0]);
                     string[] datos_codbar = datos_esp[2].Split(G_caracter_separacion[1][0]);
 
+                    string provedores = "SIN_PROVEDOR";
+                    string provedores_sin_cantidad = "";
 
-                    
-                    
+
+
+
+
 
                     if (datos_esp[1] == "VENTA")
                     {
+                        
                         datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
                     }
-                    else if (datos_esp[1] == "COMPRA") 
+                    else if (datos_esp[1] == "COMPRA")
                     {
+                        provedores = datos_esp[3] + G_caracter_separacion[2] + "0";
+                        provedores_sin_cantidad = datos_esp[3];
                         datos_codbar = junta_y_pone_a_cero_la_cantidad(datos_codbar);
+
                     }
                     else
                     {
                         datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
                     }
                     datos_esp[2] = string.Join(G_caracter_separacion[1], datos_codbar);
-                    string[] res_indice_invent = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-                    int indice_inventario = Convert.ToInt32(res_indice_invent[1]);
-                    string[] info_producto_bas = null;
-                    
-                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_inventario].Length; i++)
-                    {
-                        string[] info_bas = Tex_base.GG_base_arreglo_de_arreglos[indice_inventario][i].Split(G_caracter_separacion[0][0]);
-                        if (true)
-                        {
-                            info_producto_bas = info_bas;
-                        }
-                    }
+
 
 
 
@@ -734,25 +759,35 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     for (int j = 0; j < datos_codbar.Length; j++)
                     {
                         string[] inf_dat = datos_codbar[j].Split(G_caracter_separacion[2][0]);
-                        string info_dat_prod = info_producto_bas[1]
-                            + G_caracter_separacion[2] + inf_dat[1]
-                            + G_caracter_separacion[2] + inf_dat[2]
-                            + G_caracter_separacion[2] + inf_dat[3];
+                        
 
                         string si_no_tiene_historial_ranking_semanas = "";
+
+
+                        string nombre = "";
+                        if (datos_esp[1] == "VENTA")
+                        {
+                            nombre = inf_dat[5];
+                            provedores = inf_dat[4].Replace(G_caracter_separacion[4], G_caracter_separacion[2]);
+                            provedores = provedores.Replace(G_caracter_separacion[3], G_caracter_separacion[1]);
+                        }
+                        if (datos_esp[1] == "COMPRA")
+                        {
+                            nombre = inf_dat[6];
+                        }
                         for (int i = 0; i < 52; i++)
                         {
                             si_no_tiene_historial_ranking_semanas = si_no_tiene_historial_ranking_semanas + G_caracter_separacion[1];
                         }
                         string sino_lo_encuentra =
-                            info_producto_bas[1]                    //0_NOMBRE
+                            nombre
                             + G_caracter_separacion[0] + inf_dat[1] //1_CANTIDAD
                             + G_caracter_separacion[0] + inf_dat[0] //2_CODIGO
-                            + G_caracter_separacion[0] + "SIN_COMENTARIOS" //3_COMENTARIO
+                            + G_caracter_separacion[0] + provedores //3_PROVEDORES
                             + G_caracter_separacion[0] + inf_dat[1] + si_no_tiene_historial_ranking_semanas //4_HISTORIAL
                             + G_caracter_separacion[0] + inf_dat[1] //5_columna_ranking
                             + G_caracter_separacion[0] + inf_dat[1] //6_columnas_promedio
-                            + G_caracter_separacion[0] + "7" //7_columna_veces_que_supera_promedio//ponemos 7 para que sean 2 meses porque son 4 semanas por mes
+                            + G_caracter_separacion[0] + "4" //7_columna_veces_que_supera_promedio//ponemos 7 para que sean 2 meses porque son 4 semanas por mes
                             + G_caracter_separacion[0] + "0" //8_columna_uso_multiple
                             + G_caracter_separacion[0] + "0" //9_columna_usomulti_tipo_de_producto
                             + G_caracter_separacion[0] + "0" //10_columna_multi_costo_compra
@@ -771,12 +806,29 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                     direccion_archivo
                                     , 2                                                   //2_codbar
                                     , inf_dat[0]
-                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "4" + G_caracter_separacion[0] +"0" + G_caracter_separacion_funciones_espesificas[0] + "5"
-                                    , inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1]
-                                    , ""
-                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "1" + G_caracter_separacion_funciones_espesificas[0] + "1"
+                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "4" + G_caracter_separacion[0] + "0" + G_caracter_separacion_funciones_espesificas[0] + "5"
+                                    , inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + inf_dat[1] + G_caracter_separacion_funciones_espesificas[0] + provedores
+                                    , "" + G_caracter_separacion_funciones_espesificas[0] + "" + G_caracter_separacion_funciones_espesificas[0] + "" + G_caracter_separacion_funciones_espesificas[0] + provedores
+                                    , "1" + G_caracter_separacion_funciones_espesificas[0] + "1" + G_caracter_separacion_funciones_espesificas[0] + "1" + G_caracter_separacion_funciones_espesificas[0] + "2"
                                     , sino_lo_encuentra
                                     );
+
+                        if (datos_esp[1] == "COMPRA")
+                        {
+                            bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                                    (
+                                    direccion_archivo
+                                    , 2                                                   //2_codbar
+                                    , inf_dat[0]
+                                    , "3"
+                                    , inf_dat[2]
+                                    , provedores_sin_cantidad
+                                    , "0"
+
+                                    );
+                        }
+
+
 
                     }
 
@@ -858,6 +910,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return arr_retornar;
         }
 
+
         private string[] si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(string[] produc_cantidad)
         {
             string[] arr_retornar = new string[0];
@@ -895,6 +948,55 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return arr_retornar;
         }
 
+
+        private string[] extraer_datos_producto_reg(string[] productos)
+        {
+            string[] arr_retornar = new string[0];
+            //hay mas de uno para comparar?
+            if (productos.Length > 1)
+            {
+                for (int i = 0; i < productos.Length; i++)
+                {
+                    if (productos[i] != "")
+                    {
+                        string[] comp_prod_1 = productos[i].Split(G_caracter_separacion[2][0]);
+                        string[] res_busq_produc = bas.buscar(G_direcciones[0], comp_prod_1[0], 5).Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+                        if (res_busq_produc[0] == "1")
+                        {
+
+
+                            string[] info_produc = res_busq_produc[1].Split(G_caracter_separacion[0][0]);
+                            //op_arr.agregar_registro_del_array()
+
+                            string provedores = info_produc[8].Replace(G_caracter_separacion[2], G_caracter_separacion[4]);
+                            provedores = provedores.Replace(G_caracter_separacion[1], G_caracter_separacion[3]);
+
+
+                            comp_prod_1 = op_arr.agregar_registro_del_array(comp_prod_1, provedores);
+
+                            comp_prod_1 = op_arr.agregar_registro_del_array(comp_prod_1, info_produc[1] + " " + info_produc[2] + " " + info_produc[3]);
+
+                            arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
+                        }
+                        else
+                        {
+                            comp_prod_1 = op_arr.agregar_registro_del_array(comp_prod_1, "SIN_PROVEDOR");
+                            comp_prod_1 = op_arr.agregar_registro_del_array(comp_prod_1, "NOM_PRODUCTO_SI_NO_ESTA");
+                            arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
+                        }
+                    }
+                }
+            }
+            else
+            {
+                arr_retornar = productos;
+            }
+
+            return arr_retornar;
+        }
+
+
         private string[] junta_y_pone_a_cero_la_cantidad(string[] produc_cantidad)
         {
             string[] arr_retornar = new string[0];
@@ -911,6 +1013,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         arr_retornar = op_arr.agregar_registro_del_array(arr_retornar, string.Join(G_caracter_separacion[2], comp_prod_1));
                     }
                 }
+
             }
             else
             {
@@ -956,7 +1059,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion_funciones_espesificas[0]
                                     + "1"//1_tipo_operacion
                                          ,
-                    comparar 
+                    comparar
                     + G_caracter_separacion_funciones_espesificas[0]
                                     + tipo_operacion//tipo_operacion
                     ,
@@ -982,5 +1085,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             }
         }
+
+
+
     }
 }

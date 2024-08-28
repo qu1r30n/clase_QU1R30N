@@ -937,6 +937,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string inf_retornar = "";
             string[] res_busq = sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
             int indice = Convert.ToInt32(res_busq[1]);
+
             if (id_producto_string != "")
             {
                 int id_producto = Convert.ToInt32(id_producto_string);
@@ -976,7 +977,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                 break;
                             }
                         }
+                        
 
+                    }
+                    if (encontro_producto==false)
+                    {
+                        inf_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el producto";
                     }
                 }
             }
@@ -998,9 +1004,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     inf_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el producto";
                 }
             }
+
+
+
             return inf_retornar;
         }
 
+
+
+
+        
 
         public string seleccionar(string direccion_archivo, int num_column_comp, string comparar, object caracter_separacion_objeto = null)
         {
@@ -1113,6 +1126,113 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 return null;
             }
         }
+
+        public string[] Ordenar(string direccion_archivo, int columna_comparar, string tipo = "numero", string orden = "mayor_menor", char caracter_separacion = '|', int fila_donde_comiensa = 0)
+        {
+            string[] res_indice = sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            string[] lineas = null;
+            if (res_indice[0] == "1")
+            {
+                int indice = Convert.ToInt32(res_indice[1]);
+                lineas = GG_base_arreglo_de_arreglos[indice];
+            }
+            else
+            {
+                lineas = Leer(direccion_archivo);
+            }
+            
+
+            if (tipo == "numero")
+            {
+                if (orden == "mayor_menor")
+                {
+
+
+                    string temporal_apoyo;
+                    for (int i = fila_donde_comiensa; i < lineas.Length; i++)
+                    {
+                        for (int j = i + 1; j < lineas.Length; j++)
+                        {
+
+                            string[] num1 = lineas[i].Split(caracter_separacion);
+                            decimal num1_decimal = Convert.ToDecimal(num1[columna_comparar]);
+                            string[] num2 = lineas[j].Split(caracter_separacion);
+                            decimal num2_decimal = Convert.ToDecimal(num2[columna_comparar]);
+                            if (num1_decimal < num2_decimal)
+                            {
+                                temporal_apoyo = lineas[j];
+                                lineas[j] = lineas[i];
+                                lineas[i] = temporal_apoyo;
+                            }
+                            else if (num1_decimal >= num2_decimal)
+                            {
+                                //no_hacer_nada
+                            }
+                            else
+                            {
+                                //error
+                            }
+
+
+
+
+
+                        }//for linea_de_abajo
+                    }//for linea_de_arriba
+                }//if orden
+
+                else if (orden == "menor_mayor")
+                {
+                    string temporal_apoyo;
+                    for (int i = fila_donde_comiensa; i < lineas.Length; i++)
+                    {
+                        for (int j = i + 1; j < lineas.Length; j++)
+                        {
+
+                            string[] num1 = lineas[i].Split(caracter_separacion);
+                            decimal num1_decimal = Convert.ToDecimal(num1[columna_comparar]);
+                            string[] num2 = lineas[j].Split(caracter_separacion);
+                            decimal num2_decimal = Convert.ToDecimal(num2[columna_comparar]);
+                            if (num1_decimal > num2_decimal)
+                            {
+                                temporal_apoyo = lineas[j];
+                                lineas[j] = lineas[i];
+                                lineas[i] = temporal_apoyo;
+                            }
+                            else if (num1_decimal <= num2_decimal)
+                            {
+                                //no_hacer_nada
+                            }
+                            else
+                            {
+                                //error
+                            }
+
+
+
+
+
+                        }//for linea_de_abajo
+                    }//for linea_de_arriba
+                }//if orden alrreves
+            }//if tipo
+
+
+            string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
+            StreamWriter sw = new StreamWriter(dir_tem, true);
+            for (int k = 0; k < lineas.Length; k++)
+            {
+                sw.WriteLine(lineas[k]);
+
+            }
+            sw.Close();
+            File.Delete(direccion_archivo);//borramos el archivo original
+            File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
+            return lineas;
+        }
+
+
 
         public string sacar_indice_del_arreglo_de_direccion(string direccion_archivo)
         {

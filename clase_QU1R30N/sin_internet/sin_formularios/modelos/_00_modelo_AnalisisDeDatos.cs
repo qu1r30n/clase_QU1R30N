@@ -90,8 +90,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
                 
                 case "PREDICCION_NECESIDADES_COMPRA":
+
                     
-                    string[] lista_prdocutos_nesesita = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], 4, 5, 6, 7);
+                    info_a_retornar = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], 4, 5, 6, 7);
                     
                     break;
 

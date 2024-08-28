@@ -177,8 +177,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return lista_final;
         }
 
-        public string[] prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
+        public string prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
         {
+
+            bas.Ordenar(direccion_ranking, 5,fila_donde_comiensa:1);
+
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
             string[] todo_el_ranking = bas.Leer(direccion_ranking, iniciar_desde_que_fila: G_donde_inicia_la_tabla);
@@ -264,7 +267,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 lista_final[i] = a_cambiar[11] + caracter_separacion + a_cambiar[1] + caracter_separacion + a_cambiar[0] + caracter_separacion + a_cambiar[3] + caracter_separacion + a_cambiar[8] + caracter_separacion + a_cambiar[10] + caracter_separacion;
                 //lista_final//0_codigo|1_nombre_producto|2_codigo_de_barras|3_provedor|4_uso_multi_cantidad_invent|5_costo_compra|
             }
-            return lista_final;
+
+
+            string info_a_retornar = string.Join(G_caracter_separacion_funciones_espesificas[0], lista_final);
+            return info_a_retornar;
         }
 
 

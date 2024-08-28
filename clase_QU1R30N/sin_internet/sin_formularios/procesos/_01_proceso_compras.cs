@@ -128,7 +128,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     string texto_o_fila_que_ingresara_si_no_esta_el_producto =
 
-                    "" + cod_cant_precio_id_split[2] //1_producto
+                    "" + cod_cant_precio_id_split[4] //1_producto
                     + G_caracter_separacion[0]
                     + "0"//2_contenido
                     + G_caracter_separacion[0]
@@ -136,7 +136,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + G_caracter_separacion[0]
                     + nuevo_precio_venta//4_precio_venta
                     + G_caracter_separacion[0]
-                    + info_produc[i]//5_cod_barras
+                    + cod_cant_precio_id_split[0]//5_cod_barras
                     + G_caracter_separacion[0]
                     + cod_cant_precio_id_split[1]//6_cantidad
                     + G_caracter_separacion[0]

@@ -98,10 +98,13 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             switch (proceso)
             {
                 case "EXTRAER_INVENTARIO":
-
-
                     string inventario = enlace_principal.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~EXTRAER_INVENTARIO_STRING§");
                     con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, inventario);
+                    break;
+
+                case "PREDICCION_COMPRA":
+                    string PREDICCION = enlace_principal.enlasador("MODELO_ANALISIS_DATOS~PREDICCION_NECESIDADES_COMPRA§");
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, PREDICCION);
                     break;
 
 
