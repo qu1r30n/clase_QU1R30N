@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.con_formularios.tienda;
+using System.Diagnostics.Contracts;
+using System.Windows.Forms;
 
 namespace clase_QU1R30N.con_internet.herramientas_internet
 {
@@ -44,6 +46,16 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             {
                 producto(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
             }
+            else if (res_espliteada[0] == "COMPRAS")
+            {
+                
+                compras(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+            }
+            else if (res_espliteada[0] == "ADMINISTRACION")
+            {
+                administracion(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+            }
+
             else if (res_espliteada[0] == "REPETIDOR")
             {
                 repetidor(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
@@ -113,6 +125,69 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 default:
                     break;
             }
+        }
+
+        public void compras(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto )
+        {
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            conexion con = new conexion();
+
+            if (proceso=="COMPRA")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+            }
+            else if (proceso == "PREDICCION_COMPRA")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+
+        }
+
+        public void administracion(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
+        {
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            conexion con = new conexion();
+
+            if (proceso == "VENTAS_DEL_DIA")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+            else if (proceso == "VENTAS_DEL_MES")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+            else if (proceso == "VENTAS_DEL_AÑO")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+            else if (proceso == "VENTAS_DEL_DIA")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+            else if (proceso == "PREDICCION_COMPRA")
+            {
+                string res = enlace_principal.enlasador(info_a_procesar);
+                
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+
+            }
+
+
         }
 
         public void repetidor(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)

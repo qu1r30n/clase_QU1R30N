@@ -106,7 +106,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     indice = Convert.ToInt32(res_ind_ar[1]);
-                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[indice]);
+                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[indice,0]);
 
                     break;
                 

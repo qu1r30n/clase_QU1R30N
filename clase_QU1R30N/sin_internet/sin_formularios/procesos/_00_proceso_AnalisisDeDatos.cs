@@ -270,6 +270,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
             string info_a_retornar = string.Join(G_caracter_separacion_funciones_espesificas[0], lista_final);
+            info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + info_a_retornar;
             return info_a_retornar;
         }
 

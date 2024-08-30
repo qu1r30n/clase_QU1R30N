@@ -953,7 +953,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         {
             string[] arr_retornar = new string[0];
             //hay mas de uno para comparar?
-            if (productos.Length > 1)
+            if (productos.Length > 0)
             {
                 for (int i = 0; i < productos.Length; i++)
                 {
