@@ -16,6 +16,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         
 
         var_fun_GG vf_GG = new var_fun_GG();
+        var_fun_GG_dir_arch_crear vf_GG_arc_cr = new var_fun_GG_dir_arch_crear();
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
@@ -126,49 +127,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 else
                 {
 
-                    string texto_o_fila_que_ingresara_si_no_esta_el_producto =
+                    string texto_o_fila_que_ingresara_si_no_esta_el_producto = var_fun_GG_dir_arch_crear.GG_NUEVA_INFO_DEFAUL(var_fun_GG_dir_arch_crear.GG_ventana_emergente_productos,
+                        "1|4|5|6|7|8|17"
+                        ,
+                        cod_cant_precio_id_split[4] +//1_producto
+                        G_caracter_separacion[0] +
+                        nuevo_precio_venta +//4_precio_venta
+                        G_caracter_separacion[0] +
+                        cod_cant_precio_id_split[0] +//5_cod_barras
+                        G_caracter_separacion[0] +
+                        cod_cant_precio_id_split[1] +//6_cantidad
+                        G_caracter_separacion[0] +
+                        cod_cant_precio_id_split[2] +//7_costo_comp
+                        G_caracter_separacion[0] +
+                        provedores + G_caracter_separacion[2] + cod_cant_precio_id_split[2]+//8_provedor
+                        G_caracter_separacion[0] +
+                        sucursales + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
+                        ,"0"
+                        );
 
-                    "" + cod_cant_precio_id_split[4] //1_producto
-                    + G_caracter_separacion[0]
-                    + "0"//2_contenido
-                    + G_caracter_separacion[0]
-                    + "NOSE"//3_tipo_medida
-                    + G_caracter_separacion[0]
-                    + nuevo_precio_venta//4_precio_venta
-                    + G_caracter_separacion[0]
-                    + cod_cant_precio_id_split[0]//5_cod_barras
-                    + G_caracter_separacion[0]
-                    + cod_cant_precio_id_split[1]//6_cantidad
-                    + G_caracter_separacion[0]
-                    + cod_cant_precio_id_split[2]//7_costo_comp
-                    + G_caracter_separacion[0]
-                    + provedores + G_caracter_separacion[2] + cod_cant_precio_id_split[2]//8_provedor
-                    + G_caracter_separacion[0]
-                    + "NOSE"//9_grupo
-                    + G_caracter_separacion[0]
-                    + "1"//10_cant_produc_x_paquet
-                    + G_caracter_separacion[0]
-                    + ""//11_cod_barras_paquete
-                    + G_caracter_separacion[0]
-                    + ""//12_ligar_produc_sab
-                    + G_caracter_separacion[0]
-                    + "NOSE"//13_impuestos
-                    + G_caracter_separacion[0]
-                    + ""//14_si_es_elaborado_que_materia_prima_usa_y_cantidad
-                    + G_caracter_separacion[0]
-                    + ""//15_caducidad
-                    + G_caracter_separacion[0]
-                    + ""//16_ultimo_movimiento
-                    + G_caracter_separacion[0]
-                    + sucursales + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
-                    + G_caracter_separacion[0]
-                    + "NOSE"//18_clasificacion_producto
-                    + G_caracter_separacion[0]
-                    + ""//19_direccion_imagen_internet
-                    + G_caracter_separacion[0]
-                    + ""//20_direccion_imagen_computadora
-                    + G_caracter_separacion[0]
-                    ;
+
+
 
                     //no encontro archivo
                     if (res_esp[0] == "0")

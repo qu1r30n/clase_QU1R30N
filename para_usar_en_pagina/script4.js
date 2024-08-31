@@ -308,3 +308,44 @@ function actualizarPrecioTotal() {
   });
   document.getElementById('precioTotal').innerText = `Precio Total: $${precioTotal.toFixed(2)}`;
 }
+
+
+function cargarInventario() {
+  const archivoInput = document.getElementById('archivoInventario');
+  const archivo = archivoInput.files[0];
+
+  if (archivo) {
+      const lector = new FileReader();
+      lector.onload = function(evento) {
+          const contenido = evento.target.result;
+          procesarInventario(contenido);
+      };
+      lector.readAsText(archivo);
+  } else {
+      alert("Por favor, selecciona un archivo de inventario.");
+  }
+}
+
+function procesarInventario(contenido) {
+  const lineas = contenido.split('\n');
+  productos = []; // Reiniciar la lista de productos
+
+  lineas.forEach(linea => {
+      const datos = linea.split('|');
+      if (datos.length >= 6) { // Asegurarse de que haya suficientes datos
+          const nuevoProducto = {
+              id: parseInt(datos[5]), // COD_BARRAS como ID
+              nombre: datos[1],
+              imagen: datos[21], // DIR_IMG_INTER como imagen
+              cantidad: parseInt(datos[6]),
+              precio: parseFloat(datos[4]),
+              extra: datos[23], // INFO_EXTRA como campo extra
+              total: 0 // Inicializar el total en 0
+          };
+          productos.push(nuevoProducto);
+      }
+  });
+
+  renderizarProductos(productos); // Renderizar la lista de productos actualizada
+}
+

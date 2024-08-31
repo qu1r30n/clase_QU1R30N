@@ -281,8 +281,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     if (posicion_fila != "")
                     {
                         int posicion_posible = Convert.ToInt32(posicion_fila);
-                        resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
-                        res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        if (GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length> posicion_posible)
+                        {
+                            resul_busqueda = op_tex.busqueda_profunda_string(GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][posicion_posible], "" + num_column_comp, comparar);
+                            res_esp = resul_busqueda.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        }
+                        else
+                        {
+                            string temp="-2" + G_caracter_para_confirmacion_o_error[0] + "no esta el producto";
+                            res_esp = temp.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                        }
                         //encontro el producto en la posicion o  lo buscara en toda la base?
                         if (Convert.ToInt32(res_esp[0]) > 0)
                         {
