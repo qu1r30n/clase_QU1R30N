@@ -89,7 +89,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
         string[] inventario;
-        public string[] prediccion_arreglo_compra(string[] todo_el_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
+        public string[] prediccion_arreglo_compra(string[] todo_el_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio)
         {
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
@@ -99,8 +99,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             for (int i = 0; i < todo_el_ranking.Length; i++)
             {
-                string[] ranking_espliteado = todo_el_ranking[i].Split(caracter_separacion);
-                string[] historial_producto = ranking_espliteado[columna_historial].Split('°');
+                string[] ranking_espliteado = todo_el_ranking[i].Split(G_caracter_separacion[0][0]);
+                string[] historial_producto = ranking_espliteado[columna_historial].Split(G_caracter_separacion[1][0]);
 
                 if (ranking_espliteado[columna_promedio_compra] == "" && historial_producto[0] != "")
                 {
@@ -109,7 +109,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 for (int k = 0; k < inventario.Length; k++)
                 {
-                    string[] invent_split = inventario[k].Split('|');
+                    string[] invent_split = inventario[k].Split(G_caracter_separacion[0][0]);
                     if (ranking_espliteado[0] == invent_split[0])
                     {
                         ranking_espliteado[8] = invent_split[2];
@@ -162,37 +162,40 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         }
                     }
                 }
-                todo_el_ranking[i] = string.Join("|", ranking_espliteado);
+                todo_el_ranking[i] = string.Join(G_caracter_separacion[0], ranking_espliteado);
             }
 
+
+
             string[] lista_final = calculo_pred_compra(todo_el_ranking);
+            
             for (int i = 0; i < lista_final.Length; i++)
             {
                 //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
-                string[] a_cambiar = lista_final[i].Split(caracter_separacion);
+                string[] a_cambiar = lista_final[i].Split(G_caracter_separacion[0][0]);
 
-                lista_final[i] = a_cambiar[11] + caracter_separacion + a_cambiar[1] + caracter_separacion + a_cambiar[0] + caracter_separacion + a_cambiar[3] + caracter_separacion + a_cambiar[8] + caracter_separacion + a_cambiar[10] + caracter_separacion;
+                lista_final[i] = a_cambiar[11] + G_caracter_separacion[0] + a_cambiar[1] + G_caracter_separacion[0] + a_cambiar[0] + G_caracter_separacion[0] + a_cambiar[3] + G_caracter_separacion[0] + a_cambiar[8] + G_caracter_separacion[0] + a_cambiar[10] + G_caracter_separacion[0];
                 //lista_final//0_codigo|1_nombre_producto|2_codigo_de_barras|3_provedor|4_uso_multi_cantidad_invent|5_costo_compra|
             }
             return lista_final;
         }
 
-        public string prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio, char caracter_separacion = '|')
+        public string prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio)
         {
 
             bas.Ordenar(direccion_ranking, 5,fila_donde_comiensa:1);
 
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
-            string[] todo_el_ranking = bas.Leer(direccion_ranking, iniciar_desde_que_fila: G_donde_inicia_la_tabla);
+            string[] todo_el_ranking = bas.Leer(direccion_ranking,"2|0|6|3|4|5|6|7|8|9|10|11", iniciar_desde_que_fila: G_donde_inicia_la_tabla);
             string dir_invent = G_direcciones[0];
             inventario = bas.Leer(dir_invent, "5|1|6|7|9",iniciar_desde_que_fila:G_donde_inicia_la_tabla);
             List<string> ranking_con_cant_invent = new List<string>();
 
             for (int i = 0; i < todo_el_ranking.Length; i++)
             {
-                string[] ranking_espliteado = todo_el_ranking[i].Split(caracter_separacion);
-                string[] historial_producto = ranking_espliteado[columna_historial].Split('°');
+                string[] ranking_espliteado = todo_el_ranking[i].Split(G_caracter_separacion[0][0]);
+                string[] historial_producto = ranking_espliteado[columna_historial].Split(G_caracter_separacion[1][0]);
 
                 if (ranking_espliteado[columna_promedio_compra] == "" && historial_producto[0] != "")
                 {
@@ -201,7 +204,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 for (int k = 0; k < inventario.Length; k++)
                 {
-                    string[] invent_split = inventario[k].Split('|');
+                    string[] invent_split = inventario[k].Split(G_caracter_separacion[0][0]);
                     if (ranking_espliteado[0] == invent_split[0])
                     {
                         ranking_espliteado[8] = invent_split[2];
@@ -254,17 +257,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         }
                     }
                 }
-                todo_el_ranking[i] = string.Join("|", ranking_espliteado);
+                todo_el_ranking[i] = string.Join(G_caracter_separacion[0], ranking_espliteado);
             }
 
             string[] lista_final = calculo_pred_compra(todo_el_ranking);
             for (int i = 0; i < lista_final.Length; i++)
             {
-
+                
                 //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
-                string[] a_cambiar = lista_final[i].Split(caracter_separacion);
-
-                lista_final[i] = a_cambiar[11] + caracter_separacion + a_cambiar[1] + caracter_separacion + a_cambiar[0] + caracter_separacion + a_cambiar[3] + caracter_separacion + a_cambiar[8] + caracter_separacion + a_cambiar[10] + caracter_separacion;
+                string[] a_cambiar = lista_final[i].Split(G_caracter_separacion[0][0]);
+                double posible_cantidad_a_comprar = Convert.ToDouble(a_cambiar[6]) - Convert.ToDouble(a_cambiar[8]);
+                lista_final[i] = posible_cantidad_a_comprar + G_caracter_separacion[0] + a_cambiar[1] + G_caracter_separacion[0] + a_cambiar[0] + G_caracter_separacion[0] + a_cambiar[3] + G_caracter_separacion[0] + a_cambiar[8] + G_caracter_separacion[0] + a_cambiar[10] + G_caracter_separacion[0];
                 //lista_final//0_codigo|1_nombre_producto|2_codigo_de_barras|3_provedor|4_uso_multi_cantidad_invent|5_costo_compra|
             }
 
@@ -284,25 +287,23 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             for (int i = 0; i < rank_y_cant_inv.Length; i++)
             {
 
-                string[] rank_y_cant_inv_split = rank_y_cant_inv[i].Split('|');
+                string[] rank_y_cant_inv_split = rank_y_cant_inv[i].Split(G_caracter_separacion[0][0]);
                 double cantidad_en_inventario = Convert.ToDouble(rank_y_cant_inv_split[8]);
                 double posicion_ranking = Convert.ToDouble(rank_y_cant_inv_split[5]);
                 double promedio_normal_compra = Convert.ToDouble(rank_y_cant_inv_split[6]);
-                string[] tipo_de_producto = rank_y_cant_inv_split[9].Split('°');
-                int tipo_producto = Convert.ToInt32(tipo_de_producto[0]);
+                string tipo_producto = rank_y_cant_inv_split[9];
 
                 int rango_de_necesidad = posicion_rango_nesecidad(promedio_normal_compra, cantidad_en_inventario);
 
                 for (int j = i + 1; j < rank_y_cant_inv.Length; j++)
                 {
-                    string[] rank_y_cant_inv_split2 = rank_y_cant_inv[j].Split('|');
-                    double cantidad_en_inventario2 = Convert.ToDouble(rank_y_cant_inv_split[8]);
-                    double posicion_ranking2 = Convert.ToDouble(rank_y_cant_inv_split[5]);
-                    double promedio_normal_compra2 = Convert.ToDouble(rank_y_cant_inv_split[6]);
-                    string[] tipo_de_producto2 = rank_y_cant_inv_split2[9].Split('°');
-                    int tipo_producto2 = Convert.ToInt32(tipo_de_producto2[0]);
+                    string[] rank_y_cant_inv_split2 = rank_y_cant_inv[j].Split(G_caracter_separacion[0][0]);
+                    double cantidad_en_inventario2 = Convert.ToDouble(rank_y_cant_inv_split2[8]);
+                    double posicion_ranking2 = Convert.ToDouble(rank_y_cant_inv_split2[5]);
+                    double promedio_normal_compra2 = Convert.ToDouble(rank_y_cant_inv_split2[6]);
+                    string tipo_producto2 = rank_y_cant_inv_split2[9];
 
-                    int rango_de_necesidad2 = posicion_rango_nesecidad(promedio_normal_compra, cantidad_en_inventario);
+                    int rango_de_necesidad2 = posicion_rango_nesecidad(promedio_normal_compra2, cantidad_en_inventario2);
 
                     //rango_de_nesecidad----------------------------------------
                     if (rango_de_necesidad > rango_de_necesidad2)
@@ -312,18 +313,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         rank_y_cant_inv[i] = rank_y_cant_inv[j];
                         rank_y_cant_inv[j] = tem;
                         //recarga de variables al hacer cambio de posicion-----------------------------------------
-                        rank_y_cant_inv_split = rank_y_cant_inv[i].Split('|');
+                        rank_y_cant_inv_split = rank_y_cant_inv[i].Split(G_caracter_separacion[0][0]);
                         cantidad_en_inventario = Convert.ToDouble(rank_y_cant_inv_split[8]);
                         posicion_ranking = Convert.ToDouble(rank_y_cant_inv_split[5]);
                         promedio_normal_compra = Convert.ToDouble(rank_y_cant_inv_split[6]);
-                        tipo_producto = Convert.ToInt32(rank_y_cant_inv_split[9]);
+                        tipo_producto = rank_y_cant_inv_split[9];
                         rango_de_necesidad = posicion_rango_nesecidad(promedio_normal_compra, cantidad_en_inventario);
 
-                        rank_y_cant_inv_split2 = rank_y_cant_inv[j].Split('|');
+                        rank_y_cant_inv_split2 = rank_y_cant_inv[j].Split(G_caracter_separacion[0][0]);
                         cantidad_en_inventario2 = Convert.ToDouble(rank_y_cant_inv_split2[8]);
                         posicion_ranking2 = Convert.ToDouble(rank_y_cant_inv_split2[5]);
                         promedio_normal_compra2 = Convert.ToDouble(rank_y_cant_inv_split2[6]);
-                        tipo_producto2 = Convert.ToInt32(rank_y_cant_inv_split2[9]);
+                        tipo_producto2 = rank_y_cant_inv_split2[9];
                         rango_de_necesidad2 = posicion_rango_nesecidad(promedio_normal_compra2, cantidad_en_inventario2);
                         //----------------------------------------------------------------------------
 
