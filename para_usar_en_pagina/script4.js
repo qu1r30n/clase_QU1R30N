@@ -3,6 +3,7 @@ const listaDeProductos = document.getElementById('listaDeProductos');
 let productos = [];
 
 
+
 document.addEventListener("DOMContentLoaded", function() 
 {
   for (let i = 0; i < productos_a_mover.length; i++) 
@@ -165,7 +166,7 @@ function agregarProducto(datos)
   const datosSeparados = datos.split('|');
   
   const nuevoProducto = {
-    id: parseInt(datosSeparados[0]),
+    id: datosSeparados[0],
     nombre: datosSeparados[1],
     imagen: datosSeparados[2],
     cantidad: parseInt(datosSeparados[3]),
@@ -233,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
     limpiarListaDeProductos()
 
     const idBuscado = parseInt(event.target.value);
-    if (!isNaN(idBuscado)) {
+    if (idProducto !== "" && idProducto !== null) {
       const productosFiltrados = productos.filter(producto => producto.id === idBuscado);
       renderizarProductos(productosFiltrados);
     } else {
@@ -252,8 +253,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Agregar evento al presionar la tecla "Enter" en el campo de ingresar cantidad
   ingresarCantidad.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-      const idProducto = parseInt(ingresarCantidad.value);
-      if (!isNaN(idProducto)) {
+      const idProducto = ingresarCantidad.value;
+      if (idProducto !== "" && idProducto !== null) {
         const productoEncontrado = buscarProductoPorId(productos, idProducto);
         if (productoEncontrado) {
           const nombreProducto = productoEncontrado.nombre;
@@ -299,6 +300,53 @@ async function obtenerYMostrarUbicacion() {
 
 document.getElementById("obtenerUbicacionBtn").addEventListener("click", obtenerYMostrarUbicacion);
 
+document.getElementById("cargarInventario").addEventListener("click", function() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.txt'; // Puedes filtrar por tipo de archivo si es necesario
+  input.style.display = 'none';
+
+  input.addEventListener('change', function(event) {
+      const archivo = event.target.files[0];
+      if (archivo) {
+          const lector = new FileReader();
+          lector.onload = function(e) {
+              const contenido = e.target.result;
+              procesarInventario(contenido);
+          };
+          lector.readAsText(archivo);
+      }
+  });
+
+  document.body.appendChild(input);
+  input.click();
+  document.body.removeChild(input);
+});
+
+function procesarInventario(contenido) {
+  const lineas = contenido.split('\n');
+
+  limpiarListaDeProductos();
+  for (let i = 1; i < lineas.length; i++) {
+      const linea = lineas[i];
+      const datos = linea.split('|');
+      if (datos.length >= 24) {  // Asegura que la línea tenga el número correcto de campos
+          const nuevoProducto = {
+              id: datos[5], // cod_barras
+              nombre: datos[1], // nombre_producto
+              imagen: datos[21], // dir_img_inter
+              cantidad: 0, // cantidad
+              precio: parseFloat(datos[4]), // precio_venta
+              extra: "", // info_extra
+              total: 0 // Inicializar el precio total en 0
+          };
+          productos.push(nuevoProducto);
+      }
+  }
+  renderizarProductos(productos);
+}
+
+
 
 //fin-localisacion------------------------------------------------------------------------------------------------
 function actualizarPrecioTotal() {
@@ -310,42 +358,5 @@ function actualizarPrecioTotal() {
 }
 
 
-function cargarInventario() {
-  const archivoInput = document.getElementById('archivoInventario');
-  const archivo = archivoInput.files[0];
 
-  if (archivo) {
-      const lector = new FileReader();
-      lector.onload = function(evento) {
-          const contenido = evento.target.result;
-          procesarInventario(contenido);
-      };
-      lector.readAsText(archivo);
-  } else {
-      alert("Por favor, selecciona un archivo de inventario.");
-  }
-}
-
-function procesarInventario(contenido) {
-  const lineas = contenido.split('\n');
-  productos = []; // Reiniciar la lista de productos
-
-  lineas.forEach(linea => {
-      const datos = linea.split('|');
-      if (datos.length >= 6) { // Asegurarse de que haya suficientes datos
-          const nuevoProducto = {
-              id: parseInt(datos[5]), // COD_BARRAS como ID
-              nombre: datos[1],
-              imagen: datos[21], // DIR_IMG_INTER como imagen
-              cantidad: parseInt(datos[6]),
-              precio: parseFloat(datos[4]),
-              extra: datos[23], // INFO_EXTRA como campo extra
-              total: 0 // Inicializar el total en 0
-          };
-          productos.push(nuevoProducto);
-      }
-  });
-
-  renderizarProductos(productos); // Renderizar la lista de productos actualizada
-}
 
