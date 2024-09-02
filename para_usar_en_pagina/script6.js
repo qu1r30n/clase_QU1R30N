@@ -2,34 +2,27 @@ const listaDeProductos = document.getElementById('listaDeProductos');
 
 let productos = [];
 
-
-
-document.addEventListener("DOMContentLoaded", function() 
-{
-  for (let i = 0; i < productos_a_mover.length; i++) 
-  {
-    agregarProducto(productos_a_mover[i].id +"|"+productos_a_mover[i].nombre+"|"+productos_a_mover[i].imagen+"|"+productos_a_mover[i].cantidad+"|"+productos_a_mover[i].precio+"|"+productos_a_mover[i].extra);
-  }  
+// Esperar a que el contenido del DOM esté cargado
+document.addEventListener("DOMContentLoaded", function() {
+  // Inicializar productos con datos de prueba
+  for (let i = 0; i < productos_a_mover.length; i++) {
+    agregarProducto(productos_a_mover[i].id + "|" + productos_a_mover[i].nombre + "|" + productos_a_mover[i].imagen + "|" + productos_a_mover[i].cantidad + "|" + productos_a_mover[i].precio + "|" + productos_a_mover[i].extra + "|" + productos_a_mover[i].provedor);
+  }
   renderizarProductos(productos);
 });
 
-function actualizarCantidad(idProducto, cantidad) 
-{
+function actualizarCantidad(idProducto, cantidad) {
   const producto = buscarProductoPorId(productos, idProducto);
-  if (producto) 
-  {
-    let es_mayor_a_cero=producto.cantidad+cantidad;
-    if (es_mayor_a_cero>=0) 
-    {
+  if (producto) {
+    let es_mayor_a_cero = producto.cantidad + cantidad;
+    if (es_mayor_a_cero >= 0) {
       producto.cantidad += cantidad;
       producto.total = producto.cantidad * producto.precio; // Actualizar el precio total del producto
       limpiarListaDeProductos();
       fila = document.createElement('div');
       renderizarProductos(productos);
       actualizarPrecioTotal(); // Llamar a la función para actualizar el precio total
-    }
-    else
-    {
+    } else {
       producto.cantidad = 0;
       producto.total = producto.cantidad * producto.precio; // Actualizar el precio total del producto
       limpiarListaDeProductos();
@@ -40,55 +33,38 @@ function actualizarCantidad(idProducto, cantidad)
   }
 }
 
-function buscarProductoPorId(productos, idProducto) 
-{
-  for (let i = 0; i < productos.length; i++) 
-  {
-    if (productos[i].id === idProducto) 
-    {
-      return productos[i];
-    }
-  }
-  return null; // Devolver null si el producto no se encuentra
+function buscarProductoPorId(productos, idProducto) {
+  return productos.find(producto => producto.id == idProducto) || null;
 }
 
-function limpiarListaDeProductos() 
-{
-  while (listaDeProductos.firstChild) 
-  {
+function limpiarListaDeProductos() {
+  while (listaDeProductos.firstChild) {
     listaDeProductos.removeChild(listaDeProductos.firstChild);
   }
-  fila=null
   fila = document.createElement('div');
-
 }
 
-function renderizarProductos(productos) 
-{
+function renderizarProductos(productos) {
   listaDeProductos.innerHTML = '';
-  j = 0;
-  for (let i = 0; i < productos.length; i++) 
-  {
-    const { id, nombre, imagen, cantidad, precio, extra, total } = productos[i];
-    if (j > 1) 
-    {
-      renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, true);
+  let j = 0;
+  for (let i = 0; i < productos.length; i++) {
+    const { id, nombre, imagen, cantidad, precio, extra, total, provedor } = productos[i];
+    if (j > 1) {
+      renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, provedor, true);
       j = 0;
-    } 
-    else 
-    {
-      renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, false);
+    } else {
+      renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, provedor, false);
     }
     j++;
   }
 }
 
 let fila = document.createElement('div');
-function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, hacerNuevoDiv = false) {
+function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, provedor, hacerNuevoDiv = false) {
   fila.style.display = 'flex';
   if (hacerNuevoDiv) {
-      fila = document.createElement('div');
-      fila.style.display = 'flex';
+    fila = document.createElement('div');
+    fila.style.display = 'flex';
   }
 
   const productoDiv = document.createElement('div');
@@ -97,13 +73,17 @@ function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, 
   const img = document.createElement('img');
   img.src = imagen;
   img.addEventListener('click', () => {
-      img.classList.toggle('enlarged');
+    img.classList.toggle('enlarged');
   });
   productoDiv.appendChild(img);
 
   const nombreElemento = document.createElement('p');
   nombreElemento.textContent = nombre;
   productoDiv.appendChild(nombreElemento);
+
+  const provedorElemento = document.createElement('p');
+  provedorElemento.textContent = provedor;
+  productoDiv.appendChild(provedorElemento);
 
   const precioElemento = document.createElement('p');
   precioElemento.textContent = `Precio: $${precio.toFixed(2)}`;
@@ -120,16 +100,16 @@ function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, 
   inputCantidad.type = 'number';
   inputCantidad.value = cantidad;
   inputCantidad.addEventListener('input', (event) => {
-      const nuevaCantidad = parseInt(event.target.value);
-      const producto = buscarProductoPorId(productos, id);
-      if (!isNaN(nuevaCantidad) && producto) {
-          let res = producto.cantidad + nuevaCantidad;
-          if (res > 0) {
-              producto.cantidad = nuevaCantidad;
-              producto.total = nuevaCantidad * precio;
-              actualizarPrecioTotal();
-          }
+    const nuevaCantidad = parseInt(event.target.value);
+    const producto = buscarProductoPorId(productos, id);
+    if (!isNaN(nuevaCantidad) && producto) {
+      let res = producto.cantidad + nuevaCantidad;
+      if (res > 0) {
+        producto.cantidad = nuevaCantidad;
+        producto.total = nuevaCantidad * precio;
+        actualizarPrecioTotal();
       }
+    }
   });
   productoDiv.appendChild(inputCantidad);
 
@@ -144,11 +124,11 @@ function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, 
   inputextra.type = 'text';
   inputextra.value = extra;
   inputextra.addEventListener('input', (event) => {
-      const nuevoValorExtra = event.target.value;
-      const producto = buscarProductoPorId(productos, id);
-      if (producto) {
-          producto.extra = nuevoValorExtra;
-      }
+    const nuevoValorExtra = event.target.value;
+    const producto = buscarProductoPorId(productos, id);
+    if (producto) {
+      producto.extra = nuevoValorExtra;
+    }
   });
   productoDiv.appendChild(inputextra);
 
@@ -160,9 +140,7 @@ function renderizarProducto(id, nombre, imagen, cantidad, precio, extra, total, 
   listaDeProductos.appendChild(fila);
 }
 
-
-function agregarProducto(datos) 
-{
+function agregarProducto(datos) {
   const datosSeparados = datos.split('|');
   
   const nuevoProducto = {
@@ -172,38 +150,35 @@ function agregarProducto(datos)
     cantidad: parseInt(datosSeparados[3]),
     precio: parseFloat(datosSeparados[4]),
     extra: datosSeparados[5],
-    total: 0 // Inicializar el precio total en 0
+    total: 0, // Inicializar el precio total en 0
+    provedor: datosSeparados[6],
   };
 
   productos.push(nuevoProducto);
 }
 
 function procesarPedido() {
-  // Recopilar la información de los productos en el formato requerido
   let textoPedido = '';
-  let textoDescripcion='';
+  let textoDescripcion = '';
   let precioTotalPedido = 0; // Inicializar el precio total del pedido
-  for (let i = 0; i < productos.length; i++) 
-  {
-      const { id, nombre, cantidad, extra, total } = productos[i];
-      if (cantidad > 0) 
-      {
-          textoPedido += `${id}:${cantidad}\n`;
-          textoDescripcion += `${id}|${nombre}|${cantidad}|${total}\n`;
-          if (extra) {
-              textoPedido += `extra: ${extra}\n`;
-              textoDescripcion += `extra: ${extra}\n`;
-          }
-          precioTotalPedido += total; // Sumar el precio total del producto al precio total del pedido
+  for (let i = 0; i < productos.length; i++) {
+    const { id, nombre, cantidad, extra, total } = productos[i];
+    if (cantidad > 0) {
+      textoPedido += `${id}:${cantidad}\n`;
+      textoDescripcion += `${id}|${nombre}|${cantidad}|${total}\n`;
+      if (extra) {
+        textoPedido += `extra: ${extra}\n`;
+        textoDescripcion += `extra: ${extra}\n`;
       }
+      precioTotalPedido += total; // Sumar el precio total del producto al precio total del pedido
+    }
   }
   
   var elementoUbicacion = document.getElementById("ubicacion");
   var textoUbicacion = elementoUbicacion.value;
-  if (textoUbicacion!="")
-  {
-      textoPedido=textoPedido+"ubi:"+textoUbicacion;
-  } 
+  if (textoUbicacion != "") {
+    textoPedido = textoPedido + "ubi:" + textoUbicacion;
+  }
   
   // Mostrar el texto del pedido y el precio total en el contenedor de contenido
   document.getElementById('contenido').innerText = textoPedido;
@@ -211,8 +186,7 @@ function procesarPedido() {
   document.getElementById('precioTotal').innerText = `Precio Total: $${precioTotalPedido.toFixed(2)}`;
 }
 
-function copiarContenido() 
-{
+function copiarContenido() {
   var contenidoDiv = document.getElementById('contenido');
   var rangoSeleccion = document.createRange();
   rangoSeleccion.selectNode(contenidoDiv);
@@ -224,31 +198,43 @@ function copiarContenido()
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Otro código de inicialización aquí...
-
+  // Obtener los elementos del DOM
   const buscarProducto = document.getElementById('buscarProducto');
   const buscarPorNombre = document.getElementById('buscarPorNombre');
-  const ingresarCantidad = document.getElementById('ingresarCantidad'); // Nuevo campo de entrada para ingresar el ID y la cantidad
+  const buscarPorProvedor = document.getElementById('buscarPorProvedor');
+  const ingresarCantidad = document.getElementById('ingresarCantidad');
 
+  // Filtro por ID de producto
   buscarProducto.addEventListener('input', function(event) {
-    limpiarListaDeProductos()
+    limpiarListaDeProductos();
 
     const idBuscado = parseInt(event.target.value);
-    if (idProducto !== "" && idProducto !== null) {
-      const productosFiltrados = productos.filter(producto => producto.id === idBuscado);
+    if (!isNaN(idBuscado)) {
+      const productosFiltrados = productos.filter(producto => producto.id == idBuscado);
       renderizarProductos(productosFiltrados);
     } else {
       renderizarProductos(productos);
     }
   });
 
+  // Filtro por nombre de producto
   buscarPorNombre.addEventListener('input', function(event) {
     limpiarListaDeProductos();
 
-    const nombreBuscado = event.target.value.toLowerCase(); // Convertir el nombre buscado a minúsculas
+    const nombreBuscado = event.target.value.toLowerCase();
     const productosFiltrados = productos.filter(producto => producto.nombre.toLowerCase().includes(nombreBuscado));
     renderizarProductos(productosFiltrados);
   });
+
+  // Filtro por proveedor
+  buscarPorProvedor.addEventListener('input', function(event) {
+    limpiarListaDeProductos();
+
+    const provedorBuscado = event.target.value.toLowerCase();
+    const productosFiltrados = productos.filter(producto => producto.provedor.toLowerCase().includes(provedorBuscado));
+    renderizarProductos(productosFiltrados);
+  });
+
 
   // Agregar evento al presionar la tecla "Enter" en el campo de ingresar cantidad
   ingresarCantidad.addEventListener('keydown', function(event) {
@@ -269,8 +255,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
-});
 
+  
+
+});
 //localisacion------------------------------------------------------------------------------------------------
 async function obtenerUbicacion() {
   if (navigator.geolocation) {
@@ -356,7 +344,3 @@ function actualizarPrecioTotal() {
   });
   document.getElementById('precioTotal').innerText = `Precio Total: $${precioTotal.toFixed(2)}`;
 }
-
-
-
-
