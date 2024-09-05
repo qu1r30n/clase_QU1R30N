@@ -45,7 +45,7 @@ namespace clase_QU1R30N
 
 
             //info_resultado = enl_princ.enlasador("MODELO_VENTAS~VENTA§" + "COD_BAR1¬3¬2¬NOM_PRODUCTO_SI_NO_ESTA°COD_BAR¬1¬1¬NOM_PRODUCTO_SI_NO_ESTA");
-            info_resultado = enl_princ.enlasador("MODELO_COMPRAS~COMPRA§COD_BAR_12¬1¬200¬1¬NOM_PRODUCTO_SI_NO_ESTA_-_°COD_BAR1¬1¬200¬2¬NOM_PRODUCTO_SI_NO_ESTA|PROVEDOR1|SUC_9");
+            //info_resultado = enl_princ.enlasador("MODELO_COMPRAS~COMPRA§COD_BAR_12¬1¬200¬1¬NOM_PRODUCTO_SI_NO_ESTA_-_°COD_BAR1¬1¬200¬2¬NOM_PRODUCTO_SI_NO_ESTA|PROVEDOR1|SUC_9");
 
 
 
@@ -70,7 +70,7 @@ namespace clase_QU1R30N
             invent.Show();
             */
 
-            /*
+            
             conexion con = new conexion();
 
             while(true)
@@ -80,7 +80,7 @@ namespace clase_QU1R30N
                 con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }
-            */            
+                        
             
         }
     }

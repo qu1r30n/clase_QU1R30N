@@ -157,7 +157,8 @@ function agregarProducto(datos) {
   productos.push(nuevoProducto);
 }
 
-function procesarPedido() {
+function procesarPedido() 
+{
   let textoPedido = '';
   let textoDescripcion = '';
   let precioTotalPedido = 0; // Inicializar el precio total del pedido
@@ -186,7 +187,8 @@ function procesarPedido() {
   document.getElementById('precioTotal').innerText = `Precio Total: $${precioTotalPedido.toFixed(2)}`;
 }
 
-function copiarContenido() {
+function copiarContenido() 
+{
   var contenidoDiv = document.getElementById('contenido');
   var rangoSeleccion = document.createRange();
   rangoSeleccion.selectNode(contenidoDiv);
@@ -245,7 +247,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (productoEncontrado) {
           const nombreProducto = productoEncontrado.nombre;
           const cantidadProducto = productoEncontrado.cantidad + 1; // Incrementar la cantidad
-          alert(`Producto: ${nombreProducto}, Cantidad: ${cantidadProducto}`);
+          
+          productoEncontrado.precio = parseFloat(prompt(`Producto: ${productoEncontrado.nombre}\nIntroduce el nuevo PRECIO POR PRODDUCTO para este producto:`));
+          
           actualizarCantidad(idProducto, 1); // Incrementar la cantidad del producto correspondiente
           ingresarCantidad.value = ''; // Limpiar el campo de entrada después de incrementar la cantidad
         } else {
