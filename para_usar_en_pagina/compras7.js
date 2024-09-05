@@ -162,10 +162,21 @@ function procesarPedido()
   let textoPedido = '';
   let textoDescripcion = '';
   let precioTotalPedido = 0; // Inicializar el precio total del pedido
+
+  
   for (let i = 0; i < productos.length; i++) {
-    const { id, nombre, cantidad, extra, total } = productos[i];
+    const { id, nombre, extra, precio,cantidad, total } = productos[i];
     if (cantidad > 0) {
-      textoPedido += `${id}:${cantidad}\n`;
+      //COMP:COD_BAR1&1&200&2&NOM_PRODUCTO_SI_NO_ESTA#COD_BAR1&1&200&2&NOM_PRODUCTO_SI_NO_ESTA:PROVEDOR1
+      if(textoPedido==""){
+        textoPedido += `${id}&${cantidad}&${precio}&&nom_produc_no_esta`;  
+      }
+      else{
+
+        textoPedido += `#${id}&${cantidad}&${precio}&&nom_produc_no_esta`;
+
+      }
+      
       textoDescripcion += `${id}|${nombre}|${cantidad}|${total}\n`;
       if (extra) {
         textoPedido += `extra: ${extra}\n`;
@@ -174,11 +185,13 @@ function procesarPedido()
       precioTotalPedido += total; // Sumar el precio total del producto al precio total del pedido
     }
   }
-  
+
+  let prov_comp = prompt(`Provedor:`);
+  textoPedido = `comp:`+textoPedido+`:`+prov_comp+`:`+`suc12`;
   var elementoUbicacion = document.getElementById("ubicacion");
   var textoUbicacion = elementoUbicacion.value;
   if (textoUbicacion != "") {
-    textoPedido = textoPedido + "ubi:" + textoUbicacion;
+    textoPedido = textoPedido + "\nubi:" + textoUbicacion;
   }
   
   // Mostrar el texto del pedido y el precio total en el contenedor de contenido
