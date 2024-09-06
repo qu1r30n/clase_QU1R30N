@@ -21,13 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
     const listbox = document.getElementById('listbox');
-    const outputText = document.getElementById('texto_a_copiar');
+    const texbox_tex_a_copiar = document.getElementById('texto_a_copiar');
 
 
 
 
-    document.getElementById('add-button').addEventListener('click', function () {
+    document.getElementById('boton_agregar').addEventListener('click', function () {
 
         // ESTE VAMOA A CAMBIAR PARA RECIBIR LO DE EL IFRAME QUE SE ESTA USANDO EN ESTE MOMENTO
 
@@ -50,23 +51,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    document.getElementById('remove-selected-button').addEventListener('click', function () {
+    document.getElementById('boton_eliminar_seleccionado').addEventListener('click', function () {
         Array.from(listbox.selectedOptions).forEach(option => option.remove());
     });
 
-    document.getElementById('remove-all-button').addEventListener('click', function () {
+    document.getElementById('boton_eliminar_todos').addEventListener('click', function () {
         listbox.innerHTML = '';
     });
 
-    document.getElementById('remove-last-button').addEventListener('click', function () {
+    document.getElementById('boton_eliminar_ultimo').addEventListener('click', function () {
         if (listbox.options.length > 0) {
             listbox.remove(listbox.options.length - 1);
         }
     });
 
-    document.getElementById('copy-button').addEventListener('click', function () {
+    document.getElementById('boton_copiar').addEventListener('click', function () {
         const options = Array.from(listbox.options).map(option => option.text).join('\n');
-        outputText.value = options;
+        texbox_tex_a_copiar.value = options;
+        copiarContenidoTextarea("texto_a_copiar");
     });
 });
 
@@ -80,17 +82,17 @@ function copiarContenidoTextarea(idTextarea)
     if (textarea) {
         // Seleccionar el contenido del textarea
         textarea.select();
-        textarea.setSelectionRange(0, 999999999999999); // Para móviles
+        textarea.setSelectionRange(0, 99999); // Para móviles
 
         // Intentar copiar el contenido al portapapeles
         try {
             document.execCommand('copy');
-            console.log('Contenido copiado al portapapeles');
+            alert('Contenido copiado al portapapeles');
         } catch (err) {
-            console.error('No se pudo copiar el contenido: ', err);
+            alert('No se pudo copiar el contenido: ', err);
         }
     } else {
-        console.error('Textarea con ID ' + idTextarea + ' no encontrado');
+        alert('Textarea con ID ' + idTextarea + ' no encontrado');
     }
 }
 
