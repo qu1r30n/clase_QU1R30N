@@ -67,32 +67,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('boton_copiar').addEventListener('click', function () {
         const options = Array.from(listbox.options).map(option => option.text).join('\n');
-        texbox_tex_a_copiar.value = options;
-        copiarContenidoTextarea("texto_a_copiar");
+                
+        // Copia el texto al portapapeles
+        navigator.clipboard.writeText(options)
+        .then(() => alert('Texto copiado al portapapeles')) // Notifica al usuario que el texto se ha copiado
+        .catch(err => alert('Error al copiar texto: ' + err)); // Notifica al usuario si hubo un error
+
+
     });
+
+
+
+
 });
-
-
-function copiarContenidoTextarea(idTextarea) 
-{
-    // Obtener el textarea por su ID
-    var textarea = document.getElementById(idTextarea);
-    
-    // Verificar que el textarea existe
-    if (textarea) {
-        // Seleccionar el contenido del textarea
-        textarea.select();
-        textarea.setSelectionRange(0, 99999); // Para móviles
-
-        // Intentar copiar el contenido al portapapeles
-        try {
-            document.execCommand('copy');
-            alert('Contenido copiado al portapapeles');
-        } catch (err) {
-            alert('No se pudo copiar el contenido: ', err);
-        }
-    } else {
-        alert('Textarea con ID ' + idTextarea + ' no encontrado');
-    }
-}
 
