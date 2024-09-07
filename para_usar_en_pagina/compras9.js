@@ -179,7 +179,7 @@ function procesarPedido()
       
       textoDescripcion += `${id}|${nombre}|${cantidad}|${total}\n`;
       if (extra) {
-        textoPedido += `extra: ${extra}\n`;
+        textoPedido += `extra: ${extra}~`;
         textoDescripcion += `extra: ${extra}\n`;
       }
       precioTotalPedido += total; // Sumar el precio total del producto al precio total del pedido
@@ -191,7 +191,7 @@ function procesarPedido()
   var elementoUbicacion = document.getElementById("ubicacion");
   var textoUbicacion = elementoUbicacion.value;
   if (textoUbicacion != "") {
-    textoPedido = textoPedido + "\nubi:" + textoUbicacion;
+    textoPedido = textoPedido + "~ubi:" + textoUbicacion;
   }
   
   // Mostrar el texto del pedido y el precio total en el contenedor de contenido

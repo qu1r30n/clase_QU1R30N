@@ -187,10 +187,10 @@ function procesarPedido() {
       const { id, nombre, cantidad, extra, total } = productos[i];
       if (cantidad > 0) 
       {
-          textoPedido += `${id}:${cantidad}\n`;
+          textoPedido += `${id}:${cantidad}~`;
           textoDescripcion += `${id}|${nombre}|${cantidad}|${total}\n`;
           if (extra) {
-              textoPedido += `extra: ${extra}\n`;
+              textoPedido += `extra: ${extra}~`;
               textoDescripcion += `extra: ${extra}\n`;
           }
           precioTotalPedido += total; // Sumar el precio total del producto al precio total del pedido

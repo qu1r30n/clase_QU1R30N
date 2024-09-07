@@ -29,22 +29,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     document.getElementById('boton_agregar').addEventListener('click', function () {
-
-        // ESTE VAMOA A CAMBIAR PARA RECIBIR LO DE EL IFRAME QUE SE ESTA USANDO EN ESTE MOMENTO
-
-
-
-        const newOption = prompt('Ingresa el nuevo valor para agregar:');
+        // Obtener la pestaña activa
+        const activeTab = document.querySelector('.tab-pane.active');
+        let iframe = null;
+    
+        // Verificar cuál iframe está en la pestaña activa
+        if (activeTab.querySelector('#iframe1')) {
+            iframe = document.getElementById('iframe1');
+        } else if (activeTab.querySelector('#iframe2')) {
+            iframe = document.getElementById('iframe2');
+        } else if (activeTab.querySelector('#iframe3')) {
+            iframe = document.getElementById('iframe3');
+        }
+    
+        let newOption;
+        if (iframe) {
+            // Obtener el documento del iframe
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    
+            // Buscar el contenido dentro del iframe
+            const contenido = iframeDocument.getElementById('contenido');
+            if (contenido) {
+                // Si se encuentra el contenido, lo agregamos al listbox
+                newOption = contenido.innerText || contenido.textContent;
+            } else {
+                // Si no se encuentra el contenido, solicitamos al usuario que ingrese manualmente
+                newOption = prompt('No se encontró el contenido en el iframe. Ingresa el nuevo valor para agregar:');
+            }
+        } else {
+            // Si no hay iframe en la pestaña activa, pedimos el valor manualmente
+            newOption = prompt('No hay un iframe en la pestaña activa. Ingresa el nuevo valor para agregar:');
+        }
+    
+        // Si se ha obtenido un valor (del iframe o del usuario), lo agregamos al listbox
         if (newOption) {
             const option = document.createElement('option');
             option.value = newOption;
             option.textContent = newOption;
-            listbox.appendChild(option);
+            document.getElementById('listbox').appendChild(option);
         }
-
-
-
     });
+    
 
 
 
@@ -65,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.getElementById('boton_copiar').addEventListener('click', function () {
+    document.getElementById('boton_copiar').addEventListener('click', function () 
+    {
         const options = Array.from(listbox.options).map(option => option.text).join('\n');
                 
         // Copia el texto al portapapeles
