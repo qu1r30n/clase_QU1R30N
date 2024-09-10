@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Código de Barras Offline</title>
+    <!-- Cargar la librería localmente -->
+    <script src="JsBarcode.all.min.js"></script>
+</head>
+<body>
+    <h1>Generar y Descargar Código de Barras</h1>
+
+    <!-- Elemento canvas donde se generará el código de barras -->
+    <canvas id="barcodeCanvas"></canvas>
+
+    <!-- Formulario para ingresar el valor del código de barras -->
+    <input type="text" id="barcodeValue" placeholder="Escribe el código">
+    <button onclick="generateBarcode()">Generar Código de Barras</button>
+    <br><br>
+
+    <!-- Botón para descargar la imagen -->
+    <a id="downloadLink" href="#" download="codigo_barras.png" style="display:none;">
+        Descargar Código de Barras
+    </a>
+
+    <script>
+        function generateBarcode() {
+            var value = document.getElementById('barcodeValue').value;
+
+            // Generar el código de barras en el canvas
+            JsBarcode("#barcodeCanvas", value, {
+                format: "CODE128",
+                lineColor: "#000",
+                width: 2,
+                height: 100,
+                displayValue: true
+            });
+
+            // Convertir el canvas a una imagen y habilitar el botón de descarga
+            var canvas = document.getElementById('barcodeCanvas');
+            var dataURL = canvas.toDataURL("image/png");
+
+            // Crear enlace de descarga
+            var downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = dataURL;
+            downloadLink.style.display = 'inline'; // Mostrar el botón
+        }
+    </script>
+</body>
+</html>
