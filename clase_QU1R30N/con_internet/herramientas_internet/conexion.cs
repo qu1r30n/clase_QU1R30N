@@ -96,7 +96,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             string info_a_enviar = programa_enviar + G_caracter_para_transferencia_entre_archivos[0] + var_fun_GG.GG_id_programa + G_caracter_para_transferencia_entre_archivos[1] + folio_o_palbra_clave_a_del_que_lo_recibira + G_caracter_para_transferencia_entre_archivos[1] + info;
 
 
-            bas.Agregar(G_dir_arch_transferencia[8], info_a_enviar, false);
+            bas.Agregar(G_dir_arch_transferencia[2], info_a_enviar, false);
 
 
 
@@ -110,7 +110,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {
                 
-                string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[7]);
+                string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[1]);
 
 
 
@@ -129,7 +129,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
                     }
 
-                    bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[7], 0, var_fun_GG.GG_id_programa, G_caracter_para_transferencia_entre_archivos[0]);
+                    bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[1], 0, var_fun_GG.GG_id_programa, G_caracter_para_transferencia_entre_archivos[0]);
                     //bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
                 }
