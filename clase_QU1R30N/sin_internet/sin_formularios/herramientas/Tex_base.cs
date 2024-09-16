@@ -155,10 +155,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
             }
 
-
             StreamWriter sw = new StreamWriter(direccion_archivos, true);
-            sw.WriteLine(agregando);
-            sw.Close();
+            try
+            {
+                
+                sw.WriteLine(agregando);
+                sw.Close();
+            }
+            catch 
+            {
+                sw.Close();
+
+            }
+            
 
             return info_a_retornar;
 
@@ -1058,56 +1067,63 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             // Crear un objeto StreamReader para leer el archivo
             StreamReader sr = new StreamReader(direccionArchivo);
-
-            // Si posString es null, se lee el archivo línea por línea y se agrega cada línea a "linea"
-            if (posString == null)
+            try
             {
-                while ((palabra = sr.ReadLine()) != null)
+                // Si posString es null, se lee el archivo línea por línea y se agrega cada línea a "linea"
+                if (posString == null)
                 {
-                    if (palabra != "")
+                    while ((palabra = sr.ReadLine()) != null)
                     {
+                        if (palabra != "")
+                        {
+                            linea = op_arr.agregar_registro_del_array(linea, palabra);
+                        }
+                    }
+                }
+                // Si posString no es null, se extraen las columnas especificadas y se agregan a "resultado"
+                else
+                {
+                    posSplit = posString.Split(caracter_separacion[0][0]);
+                    posiciones = new int[posSplit.Length];
+
+                    // Convertir las posiciones de las columnas de string a int
+                    for (int i = 0; i < posiciones.Length; i++)
+                    {
+                        posiciones[i] = Convert.ToInt32(posSplit[i]);
+                    }
+
+                    // Leer el archivo línea por línea y procesar según las posiciones especificadas
+                    for (int i = 0; (palabra = sr.ReadLine()) != null; i++)
+                    {
+                        string[] splLinea = palabra.Split(caracter_separacion[0][0]);
+
+                        palabra = "";
+                        for (int j = 0; j < posiciones.Length; j++)
+                        {
+                            if (j < posiciones.Length - 1)
+                            {
+                                palabra = palabra + splLinea[posiciones[j]] + caracter_separacion[0];
+                            }
+                            else
+                            {
+                                palabra = palabra + splLinea[posiciones[j]];
+                            }
+                        }
+
+                        // Agregar la palabra procesada al arreglo "resultado"
                         linea = op_arr.agregar_registro_del_array(linea, palabra);
                     }
+
                 }
+
+                // Cerrar el StreamReader ya que se ha completado el procesamiento
+                sr.Close();
             }
-            // Si posString no es null, se extraen las columnas especificadas y se agregan a "resultado"
-            else
+            catch 
             {
-                posSplit = posString.Split(caracter_separacion[0][0]);
-                posiciones = new int[posSplit.Length];
-
-                // Convertir las posiciones de las columnas de string a int
-                for (int i = 0; i < posiciones.Length; i++)
-                {
-                    posiciones[i] = Convert.ToInt32(posSplit[i]);
-                }
-
-                // Leer el archivo línea por línea y procesar según las posiciones especificadas
-                for (int i = 0; (palabra = sr.ReadLine()) != null; i++)
-                {
-                    string[] splLinea = palabra.Split(caracter_separacion[0][0]);
-
-                    palabra = "";
-                    for (int j = 0; j < posiciones.Length; j++)
-                    {
-                        if (j < posiciones.Length - 1)
-                        {
-                            palabra = palabra + splLinea[posiciones[j]] + caracter_separacion[0];
-                        }
-                        else
-                        {
-                            palabra = palabra + splLinea[posiciones[j]];
-                        }
-                    }
-
-                    // Agregar la palabra procesada al arreglo "resultado"
-                    linea = op_arr.agregar_registro_del_array(linea, palabra);
-                }
-
+                sr.Close();
             }
-
-            // Cerrar el StreamReader ya que se ha completado el procesamiento
-            sr.Close();
+            
 
 
             if (linea != null)
@@ -1245,12 +1261,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
-            string dir_bandera = direccion_archivo.Replace(".txt", "_bandera.txt");
+            string dir_bandera = direccion_archivo.Replace(".TXT", "_BANDERA.TXT");
             StreamWriter sw_bandera = new StreamWriter(dir_bandera, true);
             //------------------------------------------------------------------------------------------
 
             StreamReader sr = new StreamReader(direccion_archivo);
-            string dir_tem = direccion_archivo.Replace(".txt", "_tem.txt");
+            string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
             StreamWriter sw = new StreamWriter(dir_tem, true);
 
 
@@ -1339,16 +1355,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     sw.WriteLine(arreglo[i]);
                 }
                 exito_o_fallo = "1" + G_caracter_para_confirmacion_o_error[0] + "exito";
+                sw.Close();
             }
             catch (Exception e)
             {
 
                 exito_o_fallo = "0" + G_caracter_para_confirmacion_o_error[0] + "fallo: " + e;
-
+                sw.Close();
             }
 
 
-            sw.Close();
+            
             File.Delete(direccion_archivo);//borramos el archivo original
             File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
