@@ -21,9 +21,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[] GG_caracter_para_confirmacion_o_error = { "╣", "╠" };
 
-        static public string[] GG_caracter_para_transferencia_entre_archivos = { "┴" };
+        static public string[] GG_caracter_para_transferencia_entre_archivos = { "┴", "■" };
 
-
+        static public string GG_id_programa = "CLASE_QU1R30N";
 
         //funciones---------------------------------------------------------------------------------------------------------
 

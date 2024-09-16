@@ -9,6 +9,7 @@ using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.con_formularios.tienda;
 using System.Diagnostics.Contracts;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace clase_QU1R30N.con_internet.herramientas_internet
 {
@@ -30,7 +31,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         public void conmutar_datos(string parametro)
         {
-            string[] res_espliteada = parametro.Split(G_caracter_para_transferencia_entre_archivos[0][0]);
+            string[] res_espliteada = parametro.Split(G_caracter_para_transferencia_entre_archivos[1][0]);
 
             // Implementa la lógica aquí
 
@@ -38,31 +39,31 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //procesos_usaras------------------------------------------------------------
 
 
-            if (res_espliteada[0] == "PUNTO_VENTA")
+            if (res_espliteada[1] == "PUNTO_VENTA")
             {
-                punt_venta(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+                punt_venta(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
             }
-            else if (res_espliteada[0] == "PRODUCTOS")
+            else if (res_espliteada[1] == "PRODUCTOS")
             {
-                producto(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
+                producto(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
             }
             else if (res_espliteada[0] == "COMPRAS")
             {
                 
-                compras(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+                compras(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
             }
-            else if (res_espliteada[0] == "ADMINISTRACION")
+            else if (res_espliteada[1] == "ADMINISTRACION")
             {
-                administracion(res_espliteada[1], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
+                administracion(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
             }
 
-            else if (res_espliteada[0] == "REPETIDOR")
+            else if (res_espliteada[1] == "REPETIDOR")
             {
-                repetidor(res_espliteada[1], res_espliteada[2], res_espliteada[3]);
+                repetidor(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
             }
-            else if (res_espliteada[0] == "INTELIGENCIA_ARTIFICIAL")
+            else if (res_espliteada[1] == "INTELIGENCIA_ARTIFICIAL")
             {
-                inteligencia_artificial(res_espliteada[1], res_espliteada[2], res_espliteada[3]); ;
+                inteligencia_artificial(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]); ;
             }
             else
             {
@@ -75,24 +76,31 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         //procesos---------------------------------------------------------------------------------------------
 
-        public void punt_venta(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
+        public void punt_venta(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
         {
             info_a_procesar = info_a_procesar.Replace(" ", "");
             string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             conexion con = new conexion();
+
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
+
+
+            /*
             switch (proceso)
             {
                 case "VENTA":
 
                     string res = enlace_principal.enlasador(info_a_procesar);
-                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[1] + contacto, id_prog_a_enviar);
                     break;
 
                 case "COMICION_UNIFICADA_VENTA":
 
                     string res_COMICION_VENTA = enlace_principal.enlasador(info_a_procesar);
-                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res_COMICION_VENTA + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res_COMICION_VENTA + G_caracter_para_transferencia_entre_archivos[1] + contacto, id_prog_a_enviar);
                     break;
 
 
@@ -100,23 +108,26 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 default:
                     break;
             }
-
+            */
         }
 
 
-        public void producto(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
+        public void producto(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
         {
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
             conexion con = new conexion();
             switch (proceso)
             {
                 case "EXTRAER_INVENTARIO":
                     string inventario = enlace_principal.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~EXTRAER_INVENTARIO_STRING§");
-                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, inventario);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, inventario, id_prog_a_enviar);
                     break;
 
                 case "PREDICCION_COMPRA":
                     string PREDICCION = enlace_principal.enlasador("MODELO_ANALISIS_DATOS~PREDICCION_NECESIDADES_COMPRA§");
-                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, PREDICCION);
+                    con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, PREDICCION, id_prog_a_enviar);
                     break;
 
 
@@ -127,71 +138,92 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
         }
 
-        public void compras(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto )
+        public void compras(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto )
         {
             info_a_procesar = info_a_procesar.Replace(" ", "");
             string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             conexion con = new conexion();
 
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
+
+
+            /*
             if (proceso=="COMPRA")
             {
                 string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[1] + contacto, id_prog_a_enviar);
             }
             else if (proceso == "PREDICCION_COMPRA")
             {
                 string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[1] + contacto, id_prog_a_enviar);
 
             }
-
+            */
         }
 
-        public void administracion(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
+        public void administracion(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
         {
             info_a_procesar = info_a_procesar.Replace(" ", "");
             string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             conexion con = new conexion();
 
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
+            
+            /*
             if (proceso == "VENTAS_DEL_DIA")
             {
-                string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                
+                
 
             }
             else if (proceso == "VENTAS_DEL_MES")
             {
-                string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
 
             }
             else if (proceso == "VENTAS_DEL_AÑO")
             {
-                string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
 
             }
             else if (proceso == "VENTAS_DEL_DIA")
             {
-                string res = enlace_principal.enlasador(info_a_procesar);
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
 
             }
             else if (proceso == "PREDICCION_COMPRA")
             {
-                string res = enlace_principal.enlasador(info_a_procesar);
                 
-                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, res + G_caracter_para_transferencia_entre_archivos[0] + contacto);
+                
+                con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
 
             }
-
+            */
 
         }
 
-        public void repetidor(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
+        public void repetidor(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
         {
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            conexion con = new conexion();
+
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
+
+            /*
             switch (proceso)
             {
                 case "PETICIONES":
@@ -203,10 +235,20 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 default:
                     break;
             }
+            */
         }
 
-        public void inteligencia_artificial(string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar)
+        public void inteligencia_artificial(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto = "")
         {
+            info_a_procesar = info_a_procesar.Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            conexion con = new conexion();
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
+
+            /*
             switch (proceso)
             {
                 case "PETICIONES":
@@ -218,6 +260,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 default:
                     break;
             }
+            */
         }
 
         //fin procesos-------------------------------------------------------------------------------------------
