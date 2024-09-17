@@ -145,7 +145,16 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         public void quitar_id_prog_del_archivo()
         {
+            string[] vieja_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
             bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[0], 0, var_fun_GG.GG_id_programa);
+            string[] nueva_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+
+            if (vieja_info_arch[0] == var_fun_GG.GG_id_programa)
+            {
+                bas.Agregar(G_dir_arch_transferencia[0], nueva_info_arch[0], false);
+            }
+
+            
         }
 
 
