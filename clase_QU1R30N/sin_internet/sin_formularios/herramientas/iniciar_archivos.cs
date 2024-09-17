@@ -47,6 +47,21 @@ namespace clase_QU1R30N
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 1],
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
             }
+            string[] inf_arc = bas.Leer(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0]);
+            if (inf_arc == null)
+            {
+                bas.Agregar_sino_existe(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0], 0, var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa + "\n" + var_fun_GG.GG_id_programa);
+            }
+            else if (inf_arc.Length == 1 && inf_arc[0] == "")
+            {
+                bas.Agregar_sino_existe(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0], 0, var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa + "\n" + var_fun_GG.GG_id_programa);
+            }
+            else
+            {
+                bas.Agregar_sino_existe(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0], 0, var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa);
+            }
+            
+
 
 
             string[] res_indice = bas.sacar_indice_del_arreglo_de_direccion(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -60,6 +75,10 @@ namespace clase_QU1R30N
                 var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(info_esp[1] + " " + info_esp[2] + info_esp[3] + G_caracter_separacion[0] + info_esp[5] + G_caracter_separacion[0] + i);
             }
             var_fun_GG.GG_inv_solo_lect = Array.AsReadOnly(Tex_base.GG_base_arreglo_de_arreglos[indice]);
+
+
+            
+
 
         }
 

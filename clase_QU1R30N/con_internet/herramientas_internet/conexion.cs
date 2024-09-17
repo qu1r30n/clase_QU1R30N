@@ -99,53 +99,54 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //S_1_4_ia
             if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {
-                
-                string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[1]);
+                string[] usuarios_lectura = bas.Leer(G_dir_arch_transferencia[0]);
 
-
-
-
-                if (respuestas_ia.Length > 1)
+                if (usuarios_lectura[0] == var_fun_GG.GG_id_programa)
                 {
-                    for (int i = G_donde_inicia_la_tabla; i < respuestas_ia.Length; i++)
-                    {
-                        string[] id_programa_comparar = respuestas_ia[i].Split(G_caracter_para_transferencia_entre_archivos[0][0]);
-                        if (id_programa_comparar[0] == var_fun_GG.GG_id_programa)
-                        {
 
-                            //preferentemente pon funciones aqui 
-                            conmut.conmutar_datos(id_programa_comparar[1]);
+                    string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[1]);
+
+                    if (respuestas_ia.Length > 1)
+                    {
+                        for (int i = G_donde_inicia_la_tabla; i < respuestas_ia.Length; i++)
+                        {
+                            string[] id_programa_comparar = respuestas_ia[i].Split(G_caracter_para_transferencia_entre_archivos[0][0]);
+                            if (id_programa_comparar[0] == var_fun_GG.GG_id_programa)
+                            {
+
+                                //preferentemente pon funciones aqui 
+                                conmut.conmutar_datos(id_programa_comparar[1]);
+                            }
+
                         }
+
+                        bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[1], 0, var_fun_GG.GG_id_programa, G_caracter_para_transferencia_entre_archivos[0]);
+                        //bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
 
                     }
 
-                    bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[1], 0, var_fun_GG.GG_id_programa, G_caracter_para_transferencia_entre_archivos[0]);
-                    //bas.cambiar_archivo_con_arreglo(G_dir_arch_transferencia[id_atras_actual_adelante_2[1]], new string[] { "sin_informacion" });
-
+                    cambiar_id_programa_al_siguiente(usuarios_lectura);
                 }
-                
 
             }
-
-
-            
-
-
-
-            else
-            {
-
-            }
-
-
-
-
         }
 
 
+        public void cambiar_id_programa_al_siguiente(string[] usuarios)
+        {
+            for (int i = G_donde_inicia_la_tabla; i < usuarios.Length; i++)
+            {
+                if (usuarios[i]== var_fun_GG.GG_id_programa)
+                {
 
+                }
+            }
+        }
 
-
+        public void quitar_id_prog_del_archivo()
+        {
+            bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[0], 0, var_fun_GG.GG_id_programa);
+        }
 
 
     }

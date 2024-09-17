@@ -83,5 +83,11 @@ namespace clase_QU1R30N
                         
             
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conexion con = new conexion();
+            con.quitar_id_prog_del_archivo();
+        }
     }
 }
