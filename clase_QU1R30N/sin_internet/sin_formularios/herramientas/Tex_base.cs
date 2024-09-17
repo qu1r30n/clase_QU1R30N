@@ -12,7 +12,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
     class Tex_base
     {
 
-        string G_direccion_base_archivos_bandera = "";
+        string G_direccion_base_archivos_bandera = "BANDERAS_ARCH\\";
 
         //para funciones globales
 
@@ -161,16 +161,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             StreamWriter sw = new StreamWriter(direccion_archivos, true);
             try
             {
-                
+
                 sw.WriteLine(agregando);
                 sw.Close();
             }
-            catch 
+            catch
             {
                 sw.Close();
 
             }
-            
+
 
             return info_a_retornar;
 
@@ -222,10 +222,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                 break;
                             }
                         }
-                        
+
 
                     }
-                    if (encontro_producto==false)
+                    if (encontro_producto == false)
                     {
                         inf_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no encontro el producto";
                     }
@@ -343,11 +343,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 // Cerrar el StreamReader ya que se ha completado el procesamiento
                 sr.Close();
             }
-            catch 
+            catch
             {
                 sr.Close();
             }
-            
+
 
 
             if (linea != null)
@@ -389,7 +389,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             {
                 lineas = Leer(direccion_archivo);
             }
-            
+
 
             if (tipo == "numero")
             {
@@ -484,9 +484,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
+            string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo);
+            dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
+            string dir_bandera = dir_sep[0] + "\\" + dir_sep[1] + "." + dir_sep[2];
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
-            string dir_bandera = G_direccion_base_archivos_bandera + direccion_archivo.Replace(".TXT", "_BANDERA.TXT");
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera,leer_y_agrega_al_arreglo:false);
+            dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
+            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
             StreamWriter sw_bandera = new StreamWriter(dir_bandera);
             //------------------------------------------------------------------------------------------
 
@@ -525,7 +528,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
                 sw_bandera.Close();
-                
+
 
             }
             catch (Exception error)
@@ -535,7 +538,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 File.Delete(dir_tem);//borramos el archivo temporal
 
                 sw_bandera.Close();
-                
+
             }
 
 
@@ -699,7 +702,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
                         if (esta == false)
                         {
-                            Agregar(direccion_archivo, texto_a_agregar_si_no_esta,false);
+                            Agregar(direccion_archivo, texto_a_agregar_si_no_esta, false);
                         }
 
                     }
@@ -738,7 +741,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
                 string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
-                
+
 
                 string direccion_archivo = direccion_archivo_a_checar;
                 string resultado_archivo = sacar_indice_del_arreglo_de_direccion(direccion_archivo);
@@ -1282,7 +1285,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             StreamWriter sw_bandera = new StreamWriter(dir_bandera);
             //------------------------------------------------------------------------------------------
 
-            
+
 
 
 
@@ -1427,7 +1430,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             try
             {
 
-                
+
 
 
                 bool encotro_info = false;
@@ -1535,7 +1538,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
 
-            
+
             return GG_base_arreglo_de_arreglos[num_indice_de_direccion_int];
         }
 

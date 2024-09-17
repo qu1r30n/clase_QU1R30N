@@ -17,27 +17,27 @@ namespace clase_QU1R30N
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
-        
-        
+
+
 
 
         Tex_base bas = new Tex_base();
         public void iniciar()
         {
             bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(
-                var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[0, 0], 
+                var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[0, 0],
                 var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[0, 1],
                 var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[0, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
 
-            
-            
+
+
             // Crear archivos del programa
             for (int i = G_donde_inicia_la_tabla; i < var_fun_GG_dir_arch_crear.GG_dir_nom_archivos.GetLength(0); i++)
             {
 
                 bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(
-                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 0], 
-                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 1], 
+                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 0],
+                    var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 1],
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]));
             }
 
@@ -52,9 +52,9 @@ namespace clase_QU1R30N
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 1],
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]), leer_y_agrega_al_arreglo: false);
             }
-            
+
             string[] inf_arc = bas.Leer(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0]);
-            
+
             if (inf_arc == null)
             {
                 bas.Agregar_sino_existe(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0], 0, var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa + "\n" + var_fun_GG.GG_id_programa);
@@ -67,7 +67,7 @@ namespace clase_QU1R30N
             {
                 bas.Agregar_sino_existe(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0], 0, var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa);
             }
-            
+
 
 
 
@@ -84,13 +84,13 @@ namespace clase_QU1R30N
             var_fun_GG.GG_inv_solo_lect = Array.AsReadOnly(Tex_base.GG_base_arreglo_de_arreglos[indice]);
 
 
-            
+
 
 
         }
 
 
-        
+
 
 
         //fin clase-----------------------------------------------------------------------------

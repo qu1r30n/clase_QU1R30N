@@ -18,7 +18,7 @@ namespace clase_QU1R30N
     public partial class Form1 : Form
     {
         iniciar_archivos inicio = new iniciar_archivos();
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -70,18 +70,18 @@ namespace clase_QU1R30N
             invent.Show();
             */
 
-            
+
             conexion con = new conexion();
 
-            while(true)
+            while (true)
             {
 
                 Thread.Sleep(2000);
                 con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }
-                        
-            
+
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

@@ -151,7 +151,11 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             if (vieja_info_arch[0] == var_fun_GG.GG_id_programa)
             {
-                bas.Agregar(G_dir_arch_transferencia[0], nueva_info_arch[0], false);
+                if (nueva_info_arch != null)
+                {
+                    bas.Agregar(G_dir_arch_transferencia[0], nueva_info_arch[0], false);
+                }
+                
             }
 
             
