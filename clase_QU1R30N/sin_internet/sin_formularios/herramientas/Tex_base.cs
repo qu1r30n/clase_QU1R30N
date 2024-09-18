@@ -11,6 +11,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 {
     class Tex_base
     {
+        
 
         string G_direccion_base_archivos_bandera = "BANDERAS_ARCH\\";
 
@@ -35,7 +36,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         public string[] G_separador_para_funciones_espesificas_ = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         public string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
-
+        public string[] G_caracter_para_transferencia_entre_archivos = var_fun_GG.GG_caracter_para_transferencia_entre_archivos;
 
         /*Aquí poner las funciones de las otras clases Si te vas a llevar esta clase solamente --------------------------------
        Ver poniendo también los nombres de las funciones que estás usando para no pasar toda la clase -----------------------
@@ -114,6 +115,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             if (creo_algo)
             {
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "CREACION_ARCHIVO", "");
                 return direccion_archivo;
             }
 
@@ -164,6 +166,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                 sw.WriteLine(agregando);
                 sw.Close();
+
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivos, "AGREGAR", agregando);
             }
             catch
             {
@@ -475,8 +479,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             }
             sw.Close();
+            
             File.Delete(direccion_archivo);//borramos el archivo original
             File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
+
+            registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "ORDENAR", "");
+
             return lineas;
         }
 
@@ -526,6 +534,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                 File.Delete(direccion_archivo);//borramos el archivo original
                 File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
+
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "ELIMINAR_MULTIPLE_FILA", "");
+
 
                 sw_bandera.Close();
 
@@ -1103,7 +1114,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         int cont_temp = 0;
         public string Editar_incr_o_agrega_COMPARACION_YY_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
-    (string direccion_archivo_a_checar, string num_column_comp, string comparar__, string numero_columnas_editar, string comparar_con_editar_columna, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
+            (string direccion_archivo_a_checar, string num_column_comp, string comparar__, string numero_columnas_editar, string comparar_con_editar_columna, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
@@ -1323,6 +1334,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 File.Delete(direccion_archivo);//borramos el archivo original
                 File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR", "" + num_fila);
                 sw_bandera.Close();
 
             }
@@ -1395,6 +1407,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 File.Delete(direccion_archivo);//borramos el archivo original
                 File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
+
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR", "" + num_fila);
                 sw_bandera.Close();
 
             }
@@ -1573,6 +1587,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 exito_o_fallo = "1" + caracter_separacion[0] + "exito";
                 sw.Close();
 
+
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR_MULTIPLE_FILAS", "" );
                 sw_bandera.Close();
             }
             catch (Exception e)
@@ -1590,6 +1606,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             return exito_o_fallo;
         }
+
+
+        private string G_direccion_reg_modifiacion_archivo = "C:\\XEROX\\CONFIG\\REG_" + DateTime.Now.ToString("yyyyMMdd");
+        public void registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(string direccion_archivo_modificado, string operacion, string num_fila_o_si_es_agregue_datos)
+        {
+
+            //operacion= CREACION_ARCHIVO  AGREGAR ORDENAR EDITAR     EDITAR_MULTIPLE_FILAS  BORRAR_DATOS  ELIMINAR_FILA ELIMINAR_MULTIPLE_FILA  
+            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(G_direccion_reg_modifiacion_archivo);
+            string hora = DateTime.Now.ToString("HHmmss");
+            string datos = hora + G_caracter_para_transferencia_entre_archivos[0] + direccion_archivo_modificado + G_caracter_para_transferencia_entre_archivos[0] + operacion + G_caracter_para_transferencia_entre_archivos[0] + num_fila_o_si_es_agregue_datos;
+            Agregar(G_direccion_reg_modifiacion_archivo, datos);
+        }
+
+
+        
 
 
 
