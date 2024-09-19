@@ -1729,9 +1729,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_dir_nom_archivos_SIN_ARREGLOS_GG =
         {
             //archivos transferencia informacion
-            /*0*/{ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\XEROX\\CONFIG\\INF\\BKLKFJC\\BANDERAS.TXT", "SIN_INFO", var_fun_GG.GG_id_programa},//no_hacer_caso
-            /*1*/{ Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\XEROX\\CONFIG\\INF\\BKLKFJC\\1.TXT", "SIN_INFO", ""},//preguntas
-            /*2*/{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\XEROX\\CONFIG\\INF\\BKLKFJC\\2.TXT", "SIN_INFO", ""},//respuestas
+            /*0*/{ "C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\BANDERAS.TXT", var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa},//no_hacer_caso
+            /*1*/{ "C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\1.TXT", "SIN_INFO", ""},//preguntas
+            /*2*/{"C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\2.TXT", "SIN_INFO", ""},//respuestas
 
         };
 

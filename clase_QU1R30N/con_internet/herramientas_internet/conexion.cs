@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,7 +145,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                     {
                         if (i >= (usuarios.Length - 1))
                         {
-                            id_nuevo = 0;
+                            id_nuevo = 1;
                             break;
                         }
                         else
@@ -154,8 +155,11 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         }
                     }
                 }
-
-                bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 0, usuarios[id_nuevo]);
+                if (usuarios.Length>2)
+                {
+                    bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 0, usuarios[id_nuevo]);
+                }
+                
 
             }
 
@@ -163,19 +167,52 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         public void quitar_id_prog_del_archivo()
         {
-            string[] vieja_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
-            bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[0], 0, var_fun_GG.GG_id_programa);
-            string[] nueva_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+            string direccion_base_archivos_bandera = "BANDERAS_ARCH\\";
+            string[] dir_sep = bas.extraer_separado_carpetas_nombreArchivo_extencion(G_dir_arch_transferencia[0]);
+            dir_sep[0] = dir_sep[0] + "\\" + direccion_base_archivos_bandera;
+            string dir_bandera = dir_sep[0] + "\\" + dir_sep[1] + "." + dir_sep[2];
+            //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
+            dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
+            bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
 
-            if (vieja_info_arch[0] == var_fun_GG.GG_id_programa)
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
             {
-                if (nueva_info_arch != null)
+                try
                 {
-                    bas.Agregar(G_dir_arch_transferencia[0], nueva_info_arch[0], false);
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
                 }
-                
+                catch { }
             }
+            //------------------------------------------------------------------------------------------
 
+            try
+            {
+                string[] vieja_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+                bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[0], 0, var_fun_GG.GG_id_programa);
+                string[] nueva_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+
+                if (vieja_info_arch[0] == var_fun_GG.GG_id_programa)
+                {
+                    if (nueva_info_arch != null)
+                    {
+                        bas.Agregar(G_dir_arch_transferencia[0], nueva_info_arch[0], false);
+                    }
+
+                }
+                sw_bandera.Close();
+            }
+            catch
+            {
+
+                sw_bandera.Close();
+            }
+            
+
+            
             
         }
 

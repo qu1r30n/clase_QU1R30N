@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 using System.IO;
 using Microsoft.SqlServer.Server;
+using System.Windows.Forms;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 {
     class Tex_base
     {
-        
+
 
         string G_direccion_base_archivos_bandera = "BANDERAS_ARCH\\";
 
@@ -479,7 +480,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             }
             sw.Close();
-            
+
             File.Delete(direccion_archivo);//borramos el archivo original
             File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
@@ -498,7 +499,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
             StreamReader sr = new StreamReader(direccion_archivo);
@@ -615,7 +628,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
             string info_a_retornar = "";
@@ -743,7 +768,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
             string info_a_retornar = "";
 
@@ -946,7 +983,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
             try
@@ -1127,7 +1176,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
             try
@@ -1293,7 +1354,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
 
@@ -1367,7 +1440,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
 
@@ -1436,7 +1521,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
             int num_indice_de_direccion_int = Convert.ToInt32(sacar_indice_del_arreglo_de_direccion(direccion_archivo));
@@ -1568,7 +1665,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
             dir_bandera = dir_bandera + direccion_archivo.Replace(".TXT", "_BANDERA_CAA.TXT");
             Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-            StreamWriter sw_bandera = new StreamWriter(dir_bandera);
+
+
+            StreamWriter sw_bandera = null;
+            bool esta_libre = false;
+            while (esta_libre == false)
+            {
+                try
+                {
+                    sw_bandera = new StreamWriter(dir_bandera);
+                    esta_libre = true;
+                }
+                catch { }
+            }
             //------------------------------------------------------------------------------------------
 
 
@@ -1588,7 +1697,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 sw.Close();
 
 
-                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR_MULTIPLE_FILAS", "" );
+                registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR_MULTIPLE_FILAS", "");
                 sw_bandera.Close();
             }
             catch (Exception e)
@@ -1608,21 +1717,39 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
 
-        private string G_direccion_reg_modifiacion_archivo = "C:\\XEROX\\CONFIG\\REG_" + DateTime.Now.ToString("yyyyMMdd");
+        private string[] G_direcciones_no_rara_registros =
+            {
+            "C:\\XEROX\\CONFIG\\REG\\REG_" + DateTime.Now.ToString("yyyyMMdd"),//archivo_donde_se_hacen_los_registros
+            var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0,0],
+            var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[1,0],
+            var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[2, 0],
+            };
         public void registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(string direccion_archivo_modificado, string operacion, string num_fila_o_si_es_agregue_datos)
         {
 
             //operacion= CREACION_ARCHIVO  AGREGAR ORDENAR EDITAR     EDITAR_MULTIPLE_FILAS  BORRAR_DATOS  ELIMINAR_FILA ELIMINAR_MULTIPLE_FILA  
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(G_direccion_reg_modifiacion_archivo);
+            num_fila_o_si_es_agregue_datos = num_fila_o_si_es_agregue_datos.Replace("\n", G_caracter_para_transferencia_entre_archivos[1]);
+            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(G_direcciones_no_rara_registros[0]);
             string hora = DateTime.Now.ToString("HHmmss");
             string datos = hora + G_caracter_para_transferencia_entre_archivos[0] + direccion_archivo_modificado + G_caracter_para_transferencia_entre_archivos[0] + operacion + G_caracter_para_transferencia_entre_archivos[0] + num_fila_o_si_es_agregue_datos;
-            Agregar(G_direccion_reg_modifiacion_archivo, datos);
+
+            bool es_archivo_que_debe_registrar = true;
+            for (int i = 0; i < G_direcciones_no_rara_registros.Length; i++)
+            {
+                string temp_direccion_bandera = G_direcciones_no_rara_registros[i].Replace(".TXT", "_BANDERA.TXT");
+                if (direccion_archivo_modificado == G_direcciones_no_rara_registros[i]|| direccion_archivo_modificado == temp_direccion_bandera)
+                {
+                    es_archivo_que_debe_registrar = false;
+                    break;
+                }
+            }
+            if (es_archivo_que_debe_registrar)
+            {
+                string archivo_donde_se_registran = G_direcciones_no_rara_registros[0];
+                Agregar(archivo_donde_se_registran, datos);
+            }
+            
         }
-
-
-        
-
-
 
     }
 }
