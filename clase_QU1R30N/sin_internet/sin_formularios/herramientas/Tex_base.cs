@@ -622,6 +622,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string Agregar_sino_existe
             (string direccion_archivo_a_checar, int num_column_comp, string comparar, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null)
         {
+            /*
+            //---------------------------------------------------------------------------------------------------------
             string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo_a_checar);
             dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
             string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
@@ -642,7 +644,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 catch { }
             }
             //------------------------------------------------------------------------------------------
-
+            */
             string info_a_retornar = "";
 
             try
@@ -744,12 +746,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     }
 
                 }
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
             catch
             {
 
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
 
 
@@ -761,7 +763,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
             (string direccion_archivo_a_checar, int num_column_comp, string comparar, string numero_columnas_editar, string editar_columna, string comparar_columna_a_editar, string edit_0_increm_1_o_agregar_si_no_esta_2, string texto_a_agregar_si_no_esta = "", object caracter_separacion_obj = null, string posicion_fila = "")
         {
-
+            /*
+            //------------------------------------------------------------------------------------------------
             string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo_a_checar);
             dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
             string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
@@ -782,6 +785,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 catch { }
             }
             //------------------------------------------------------------------------------------------
+            */
             string info_a_retornar = "";
 
             try
@@ -956,11 +960,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
 
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
             catch
             {
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
 
 
@@ -975,8 +979,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
-
-
+            /*
+            //-------------------------------------------------------------------------------------------------------
             string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo);
             dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
             string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
@@ -997,7 +1001,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 catch { }
             }
             //------------------------------------------------------------------------------------------
-
+            */
             try
             {
 
@@ -1149,11 +1153,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
 
 
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
             catch
             {
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
 
 
@@ -1168,8 +1172,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
-
-
+            /*
+            //-------------------------------------------------------------------------------------------
             string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo_a_checar);
             dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
             string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
@@ -1190,7 +1194,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 catch { }
             }
             //------------------------------------------------------------------------------------------
-
+            */
             try
             {
 
@@ -1328,11 +1332,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                 }
 
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
             catch
             {
-                sw_bandera.Close();
+                //sw_bandera.Close();
             }
 
 
@@ -1719,7 +1723,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         private string[] G_direcciones_no_rara_registros =
             {
-            "C:\\XEROX\\CONFIG\\REG\\REG_" + DateTime.Now.ToString("yyyyMMdd"),//archivo_donde_se_hacen_los_registros
+            var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3,0],//archivo_donde_se_hacen_los_registros
             var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0,0],
             var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[1,0],
             var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[2, 0],
@@ -1729,7 +1733,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             //operacion= CREACION_ARCHIVO  AGREGAR ORDENAR EDITAR     EDITAR_MULTIPLE_FILAS  BORRAR_DATOS  ELIMINAR_FILA ELIMINAR_MULTIPLE_FILA  
             num_fila_o_si_es_agregue_datos = num_fila_o_si_es_agregue_datos.Replace("\n", G_caracter_para_transferencia_entre_archivos[1]);
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(G_direcciones_no_rara_registros[0]);
+            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3,0]);
             string hora = DateTime.Now.ToString("HHmmss");
             string datos = hora + G_caracter_para_transferencia_entre_archivos[0] + direccion_archivo_modificado + G_caracter_para_transferencia_entre_archivos[0] + operacion + G_caracter_para_transferencia_entre_archivos[0] + num_fila_o_si_es_agregue_datos;
 
@@ -1745,7 +1749,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             if (es_archivo_que_debe_registrar)
             {
-                string archivo_donde_se_registran = G_direcciones_no_rara_registros[0];
+                string archivo_donde_se_registran = var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3, 0];
                 Agregar(archivo_donde_se_registran, datos);
             }
             

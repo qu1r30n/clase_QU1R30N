@@ -155,11 +155,11 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                         }
                     }
                 }
-                if (usuarios.Length>2)
+                if (usuarios.Length > 2)
                 {
                     bas.Editar_fila_espesifica_SIN_ARREGLO_GG(G_dir_arch_transferencia[0], 0, usuarios[id_nuevo]);
                 }
-                
+
 
             }
 
@@ -210,10 +210,10 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
                 sw_bandera.Close();
             }
-            
 
-            
-            
+
+
+
         }
 
 

@@ -49,7 +49,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
             else if (res_espliteada[0] == "COMPRAS")
             {
-                
+
                 compras(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
             }
             else if (res_espliteada[1] == "ADMINISTRACION")
@@ -138,7 +138,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             }
         }
 
-        public void compras(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto )
+        public void compras(string id_prog_a_enviar, string proceso, string folio_o_palbra_clave_a_del_que_lo_recibira, string info_a_procesar, string contacto)
         {
             info_a_procesar = info_a_procesar.Replace(" ", "");
             string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
@@ -175,7 +175,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             string res = enlace_principal.enlasador(info_a_procesar);
             string info_a_enviar = res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
             con.datos_a_enviar(folio_o_palbra_clave_a_del_que_lo_recibira, info_a_enviar, id_prog_a_enviar);
-            
+
             /*
             if (proceso == "VENTAS_DEL_DIA")
             {
