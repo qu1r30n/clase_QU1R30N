@@ -295,7 +295,22 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string palabra = null;
 
             // Crear un objeto StreamReader para leer el archivo
-            StreamReader sr = new StreamReader(direccionArchivo);
+            StreamReader sr = null;
+            while (sr == null)
+            {
+
+
+                try
+                {
+                    sr = new StreamReader(direccionArchivo);
+
+                }
+                catch (Exception e)
+                {
+                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    chequeo_error_try(direccionArchivo, e, checador[1]);
+                }
+            }
             try
             {
                 // Si posString es null, se lee el archivo línea por línea y se agrega cada línea a "linea"
@@ -489,55 +504,60 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return lineas;
         }
 
-        public void eliminar_fila_PARA_MULTIPLES_PROGRAMAS(string direccion_archivo, int columna_a_comparar, string comparar, object caracter_separacion_objeto = null)
+        public void eliminar_fila_PARA_MULTIPLES_PROGRAMAS(string direccion_archivo, int columna_a_comparar, string comparar, object caracter_separacion_objeto = null, int donde_inica = 0)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
-            string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo);
-            dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
-            string dir_bandera = dir_sep[0] + "\\" + dir_sep[1] + "." + dir_sep[2];
-            //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
-            dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
 
 
-            StreamWriter sw_bandera = null;
-            bool esta_libre = false;
-            while (esta_libre == false)
+
+
+
+            StreamReader sr = null;
+            while (sr == null)
             {
+
+
                 try
                 {
-                    sw_bandera = new StreamWriter(dir_bandera);
-                    esta_libre = true;
-                }
-                catch { }
-            }
-            //------------------------------------------------------------------------------------------
+                    sr = new StreamReader(direccion_archivo);
 
-            StreamReader sr = new StreamReader(direccion_archivo);
+                }
+                catch (Exception e)
+                {
+                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    chequeo_error_try(direccion_archivo, e, checador[1]);
+                }
+            }
+
             string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
             StreamWriter sw = new StreamWriter(dir_tem, true);
 
 
             try
             {
-
+                int cont = 0;
                 while (sr.Peek() >= 0)//verificamos si hay mas lineas a leer
                 {
+
                     string linea = sr.ReadLine();//leemos linea y lo guardamos en linea
+
                     if (linea != null)
                     {
-
-                        string[] linea_espliteada = linea.Split(caracter_separacion[0][0]);
-                        if (linea_espliteada[columna_a_comparar] != comparar)
+                        if (cont >= donde_inica)
+                        {
+                            string[] linea_espliteada = linea.Split(caracter_separacion[0][0]);
+                            if (linea_espliteada[columna_a_comparar] != comparar)
+                            {
+                                sw.WriteLine(linea);
+                            }
+                        }
+                        else
                         {
                             sw.WriteLine(linea);
                         }
-
-
-
                     }
-
+                    cont++;
                 }
 
 
@@ -551,7 +571,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "ELIMINAR_MULTIPLE_FILA", "");
 
 
-                sw_bandera.Close();
+
 
 
             }
@@ -561,7 +581,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 sw.Close();
                 File.Delete(dir_tem);//borramos el archivo temporal
 
-                sw_bandera.Close();
 
             }
 
@@ -1350,34 +1369,22 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string Editar_fila_espesifica_SIN_ARREGLO_GG(string direccion_archivo, int num_fila, string editar_info)
         {
 
-
-
-            string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo);
-            dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
-            string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
-            //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
-            dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
-
-
-            StreamWriter sw_bandera = null;
-            bool esta_libre = false;
-            while (esta_libre == false)
+            StreamReader sr = null;
+            while (sr == null)
             {
+
+
                 try
                 {
-                    sw_bandera = new StreamWriter(dir_bandera);
-                    esta_libre = true;
+                    sr = new StreamReader(direccion_archivo);
+
                 }
-                catch { }
+                catch (Exception e)
+                {
+                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    chequeo_error_try(direccion_archivo, e, checador[1]);
+                }
             }
-            //------------------------------------------------------------------------------------------
-
-
-
-
-
-            StreamReader sr = new StreamReader(direccion_archivo);
             string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
             StreamWriter sw = new StreamWriter(dir_tem, true);
             string exito_o_fallo;
@@ -1412,7 +1419,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 File.Move(dir_tem, direccion_archivo);//renombramos el archivo temporal por el que tenia el original
 
                 registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR", "" + num_fila);
-                sw_bandera.Close();
+
 
             }
             catch (Exception error)
@@ -1422,7 +1429,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 exito_o_fallo = "2)error:" + error;
                 File.Delete(dir_tem);//borramos el archivo original
 
-                sw_bandera.Close();
+
             }
             return exito_o_fallo;
         }
@@ -1438,31 +1445,26 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
 
-            string[] dir_sep = extraer_separado_carpetas_nombreArchivo_extencion(direccion_archivo);
-            dir_sep[0] = dir_sep[0] + "\\" + G_direccion_base_archivos_bandera;
-            string dir_bandera = dir_sep[0] + dir_sep[1] + "." + dir_sep[2];
-            //este archivo bandera es para que no se agarre el archivo otro programa antes de sustituirlo
-            dir_bandera = dir_bandera.Replace(".TXT", "_BANDERA.TXT");
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(dir_bandera, leer_y_agrega_al_arreglo: false);
 
 
-            StreamWriter sw_bandera = null;
-            bool esta_libre = false;
-            while (esta_libre == false)
+
+            StreamReader sr = null;
+            while (sr == null)
             {
+
+
                 try
                 {
-                    sw_bandera = new StreamWriter(dir_bandera);
-                    esta_libre = true;
+                    sr = new StreamReader(direccion_archivo);
+
                 }
-                catch { }
+                catch (Exception e)
+                {
+                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    chequeo_error_try(direccion_archivo, e, checador[1]);
+                }
             }
-            //------------------------------------------------------------------------------------------
 
-
-
-
-            StreamReader sr = new StreamReader(direccion_archivo);
             string dir_tem = direccion_archivo.Replace(".TXT", "_TEM.TXT");
             StreamWriter sw = new StreamWriter(dir_tem, true);
             string exito_o_fallo;
@@ -1498,7 +1500,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
 
                 registro_cambio_datos_archivo_para_actualisacion_en_multiples_programas(direccion_archivo, "EDITAR", "" + num_fila);
-                sw_bandera.Close();
+
 
             }
             catch (Exception error)
@@ -1508,7 +1510,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 exito_o_fallo = "2)error:" + error;
                 File.Delete(dir_tem);//borramos el archivo original
 
-                sw_bandera.Close();
             }
             return exito_o_fallo;
         }
@@ -1733,7 +1734,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             //operacion= CREACION_ARCHIVO  AGREGAR ORDENAR EDITAR     EDITAR_MULTIPLE_FILAS  BORRAR_DATOS  ELIMINAR_FILA ELIMINAR_MULTIPLE_FILA  
             num_fila_o_si_es_agregue_datos = num_fila_o_si_es_agregue_datos.Replace("\n", G_caracter_para_transferencia_entre_archivos[1]);
-            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3,0]);
+            Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3, 0]);
             string hora = DateTime.Now.ToString("HHmmss");
             string datos = hora + G_caracter_para_transferencia_entre_archivos[0] + direccion_archivo_modificado + G_caracter_para_transferencia_entre_archivos[0] + operacion + G_caracter_para_transferencia_entre_archivos[0] + num_fila_o_si_es_agregue_datos;
 
@@ -1741,7 +1742,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             for (int i = 0; i < G_direcciones_no_rara_registros.Length; i++)
             {
                 string temp_direccion_bandera = G_direcciones_no_rara_registros[i].Replace(".TXT", "_BANDERA.TXT");
-                if (direccion_archivo_modificado == G_direcciones_no_rara_registros[i]|| direccion_archivo_modificado == temp_direccion_bandera)
+                if (direccion_archivo_modificado == G_direcciones_no_rara_registros[i] || direccion_archivo_modificado == temp_direccion_bandera)
                 {
                     es_archivo_que_debe_registrar = false;
                     break;
@@ -1752,8 +1753,28 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 string archivo_donde_se_registran = var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[3, 0];
                 Agregar(archivo_donde_se_registran, datos);
             }
-            
+
         }
 
+        public void chequeo_error_try(string direccionArchivo, Exception e, string numero_chequeo)
+        {
+            DialogResult result = MessageBox.Show(e.Message, e.Message + "\nError quieres crear el archivo sie es el error \"No\" para volver a intentar \"cancelar\" para cerrar el programa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error);
+
+            if (result == DialogResult.Yes)
+            {
+                Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(direccionArchivo, "sin informacion");
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                Environment.Exit(0);
+            }
+        }
+
+
+        //fin clase------------------------------------------------------------------
     }
 }

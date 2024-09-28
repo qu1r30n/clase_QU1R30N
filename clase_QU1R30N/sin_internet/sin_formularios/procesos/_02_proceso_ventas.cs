@@ -63,6 +63,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 double cantidad_doubl = Convert.ToDouble(cantidades_espliteados[i]);
                                 double precio_unitario = Convert.ToDouble(info_esp[4]);
                                 double total_pagar = cantidad_doubl * precio_unitario;
+                                
                                 //grupo_al_que_forma_el_producto
                                 if (info_esp[9] == "PRODUCTO_PIEZA")
                                 {
@@ -142,6 +143,46 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                                 }
+
+                                else if (info_esp[9] == "PRODUCTO_ELABORADO")
+                                {
+                                    //edita inventario
+                                    info_a_retornar = bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                                        (direccion_archivo, 5, codigos_espliteados[i]
+                                        ,
+                                          //columnas a editar
+                                          /*0*/"6"//cantidad
+                                        + G_caracter_separacion_funciones_espesificas[0]
+                                         /*1*/+ "17"//_17_ultimo_movimiento
+
+                                        ,
+                                          //info a editar o incrementar o agregar
+                                          /*0*/"" + (cantidad_doubl * -1) //cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ DateTime.Now.ToString("yyyyMMddHH") //_17_ultimo_movimiento
+
+                                          ,
+                                          //comparacion para edicion dejar en blanco si no hay comparacion
+                                          // si cuando se hace el espliteo de la info extraida del archivo solo es 1 celda no comparara
+                                          // ejemplo correcto "a¬1" ejemplo donde no comparara  "provedor" y este sera comparado con la info de edicion
+                                          /*0*/  "" //cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ "" //_17_ultimo_movimiento
+
+                                        ,
+                                          // 0:editar  1:incrementar 2:agregar
+                                          /*0*/"1"//incrementar//cantidad
+                                          + G_caracter_separacion_funciones_espesificas[0]
+                                          /*1*/+ "0"//editar//_17_ultimo_movimiento
+
+
+
+
+                                     );
+
+
+
+                                }
                             }
 
 
@@ -175,5 +216,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             return info_a_retornar;
         }
+
+        
     }
 }

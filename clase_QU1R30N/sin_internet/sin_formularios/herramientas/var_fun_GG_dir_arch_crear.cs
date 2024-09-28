@@ -1733,6 +1733,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             /*1*/{ "C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\1.TXT", "SIN_INFO", ""},//preguntas
             /*2*/{"C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\2.TXT", "SIN_INFO", ""},//respuestas
             /*3*/{"C:\\XEROX\\CONFIG\\REG\\REG_" + DateTime.Now.ToString("yyyyMMdd"),"" , "" },//reg_modificacion archivos
+            /*4*/{"CONFIG\\INF\\RECORDATORIO\\RECORDATORIO.TXT","" , "" },//reg_modificacion archivos
 
         };
 

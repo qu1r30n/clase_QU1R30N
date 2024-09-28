@@ -64,31 +64,31 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             string[] res_ind_ar = null;
             int indice = -1;
-            
+
             switch (proceso)
             {
                 case "AGREGAR_SINO_EXISTE":
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     indice = Convert.ToInt32(res_ind_ar[1]);
-                    if (datos!="")
+                    if (datos != "")
                     {
                         info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[indice], datos);
                     }
-                    
+
 
 
                     break;
-                
+
                 case "AGREGAR":
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     indice = Convert.ToInt32(res_ind_ar[1]);
-                    info_a_retornar = proc_inventario.agregar_producto(G_direcciones[indice],datos);
-                    
+                    info_a_retornar = proc_inventario.agregar_producto(G_direcciones[indice], datos);
+
                     break;
 
-                
+
                 case "BUSCAR":
 
                     if (info_espliteada.Length > 1)
@@ -106,10 +106,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
                     res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     indice = Convert.ToInt32(res_ind_ar[1]);
-                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[indice,0]);
+                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[indice, 0]);
 
                     break;
-                
+
                 case "CREAR_ARCHIVOS_HACER_INVENT":
 
                     proc_inventario.archivos_inicio_hacer_inventario();
@@ -117,8 +117,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
 
                 case "HACER_INVENTARIO":
-                    
-                    info_a_retornar = proc_inventario.hacer_inventario(datos,año_mes_dia);
+
+                    info_a_retornar = proc_inventario.hacer_inventario(datos, año_mes_dia);
 
                     break;
 

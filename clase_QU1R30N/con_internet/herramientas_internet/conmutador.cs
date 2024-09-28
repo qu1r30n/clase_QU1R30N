@@ -36,39 +36,20 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             // Implementa la lógica aquí
 
 
-            //procesos_usaras------------------------------------------------------------
+            string info_a_procesar = res_espliteada[2].Replace(" ", "");
+            string[] lineas_del_mensaje = info_a_procesar.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            conexion con = new conexion();
+
+            string res = enlace_principal.enlasador(info_a_procesar);
+            string contacto = res_espliteada[3];
+            string[] temp1 = info_a_procesar.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string[] proceso = temp1[0].Split(G_caracter_separacion_funciones_espesificas[0][0]);
+
+            string info_a_enviar = proceso[1] + G_caracter_para_transferencia_entre_archivos[1] + res + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+            con.datos_a_enviar(res_espliteada[1], info_a_enviar, res_espliteada[0]);
 
 
-            if (res_espliteada[1] == "PUNTO_VENTA")
-            {
-                punt_venta(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
-            }
-            else if (res_espliteada[1] == "PRODUCTOS")
-            {
-                producto(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
-            }
-            else if (res_espliteada[0] == "COMPRAS")
-            {
-
-                compras(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
-            }
-            else if (res_espliteada[1] == "ADMINISTRACION")
-            {
-                administracion(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4], res_espliteada[5]);
-            }
-
-            else if (res_espliteada[1] == "REPETIDOR")
-            {
-                repetidor(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]);
-            }
-            else if (res_espliteada[1] == "INTELIGENCIA_ARTIFICIAL")
-            {
-                inteligencia_artificial(res_espliteada[0], res_espliteada[2], res_espliteada[3], res_espliteada[4]); ;
-            }
-            else
-            {
-
-            }
 
 
         }

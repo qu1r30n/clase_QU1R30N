@@ -11,6 +11,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
     internal class _09_proceso_funciones_diversas
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
+        string[] G_caracter_para_transferencia_entre_archivos = var_fun_GG.GG_caracter_para_transferencia_entre_archivos;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
@@ -43,7 +44,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     }
                     info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + info_a_retornar;
                 }
-                
+
             }
 
             else
@@ -52,16 +53,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 {
                     info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro la direccion";
                 }
-                
+
             }
 
             return info_a_retornar;
         }
 
 
-        public string funcion_a_hacer2(string parametro1, string parametro2)
+        public string recordatorio(string direccion_archivo, string mensaje, string horario, string CONTACTO, string ID_PROGRAMA = "NEXOPORTALARCANO")
         {
             string info_a_retornar = null;
+
+            string info_a_agregar = ID_PROGRAMA + G_caracter_para_transferencia_entre_archivos[0] + var_fun_GG.GG_id_programa + G_caracter_para_transferencia_entre_archivos[1] + "WS_RS" + G_caracter_para_transferencia_entre_archivos[1] + "RECORDATORIO" + G_caracter_para_transferencia_entre_archivos[1] + mensaje + G_caracter_para_transferencia_entre_archivos[1] + horario + G_caracter_para_transferencia_entre_archivos[1] + CONTACTO;
+            bas.Agregar(direccion_archivo, info_a_agregar, false);
+
+            info_a_retornar = "recordatorio guardado";
 
             return info_a_retornar;
         }
@@ -70,3 +76,4 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
     }
 }
+
