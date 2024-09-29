@@ -142,13 +142,13 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                     string[] informacion_prog = lista_recordatorioas[i].Split(G_caracter_para_transferencia_entre_archivos[0][0]);
                     string programa_a_responder = informacion_prog[0];
                     string[] informacion = informacion_prog[1].Split(G_caracter_para_transferencia_entre_archivos[1][0]);
-                    long horar_recordatorio = Convert.ToInt64(informacion[3]);
+                    long horar_recordatorio = Convert.ToInt64(informacion[4]);
                     long fechaHoraActual = Convert.ToInt64(DateTime.Now.ToString("yyyyMMddHHmm"));
 
                     if (horar_recordatorio <= fechaHoraActual)
                     {
                         lista_de_recordatorios_a_eliminar = op_arr.agregar_registro_del_array(lista_de_recordatorios_a_eliminar, horar_recordatorio + "");
-                        string info_a_mandar = programa_a_responder + G_caracter_para_transferencia_entre_archivos[0] + var_fun_GG.GG_id_programa + G_caracter_para_transferencia_entre_archivos[1] + informacion[1] + G_caracter_para_transferencia_entre_archivos[1] + informacion[2] + G_caracter_para_transferencia_entre_archivos[1] + informacion[4];
+                        string info_a_mandar = programa_a_responder + G_caracter_para_transferencia_entre_archivos[0] + var_fun_GG.GG_id_programa + G_caracter_para_transferencia_entre_archivos[1] + informacion[1] + G_caracter_para_transferencia_entre_archivos[1] + informacion[2] + G_caracter_para_transferencia_entre_archivos[1] + informacion[3] + G_caracter_para_transferencia_entre_archivos[1] + informacion[5];
                         bas.Agregar(G_dir_arch_transferencia[2], info_a_mandar);
                         //NEXOPORTALARCANO┴CLASE_QU1R30N■PREGUNTAS_WS■■■contactos
 
@@ -158,7 +158,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 {
                     for (int i = 0; i < lista_de_recordatorios_a_eliminar.Length; i++)
                     {
-                        bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[3], 3, lista_de_recordatorios_a_eliminar[i] + "", G_caracter_para_transferencia_entre_archivos[1], G_donde_inicia_la_tabla);
+                        bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[3], 4, lista_de_recordatorios_a_eliminar[i] + "", G_caracter_para_transferencia_entre_archivos[1], G_donde_inicia_la_tabla);
                     }
                 }
             }
@@ -173,7 +173,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 int id_nuevo = 0;
                 for (int i = G_donde_inicia_la_tabla; i < usuarios.Length; i++)
                 {
-                    if (usuarios[0] == var_fun_GG.GG_id_programa)
+                    if (usuarios[i] == var_fun_GG.GG_id_programa)
                     {
                         if (i >= (usuarios.Length - 1))
                         {
