@@ -23,11 +23,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
 
+
         //proceso al que se dirigira//_7_procesos_sucursales pr_sucursales = new _7_procesos_sucursales();
         _09_proceso_funciones_diversas pr_funciones_div = new _09_proceso_funciones_diversas();
         public string operacion_a_hacer(string operacion, string datos, string fecha_hora)
         {
             string info_a_retornar = null;
+
+
             string[] a_donde_enviara_la_informacion = datos.Split(G_caracter_separacion[0][0]);
 
             switch (operacion)

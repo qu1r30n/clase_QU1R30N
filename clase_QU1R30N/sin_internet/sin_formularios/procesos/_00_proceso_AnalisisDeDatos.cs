@@ -31,7 +31,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         {
             string info_a_retornar = null;
 
-            
+
 
             string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
 
@@ -78,7 +78,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     return info_a_retornar;
                 }
             }
-            
+
 
             info_a_retornar = resultado[0] + G_caracter_para_confirmacion_o_error[0] + resultado[1];
 
@@ -168,7 +168,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
             string[] lista_final = calculo_pred_compra(todo_el_ranking);
-            
+
             for (int i = 0; i < lista_final.Length; i++)
             {
                 //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
@@ -183,13 +183,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         public string prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio)
         {
 
-            bas.Ordenar(direccion_ranking, 5,fila_donde_comiensa:1);
+            bas.Ordenar(direccion_ranking, 5, fila_donde_comiensa: 1);
 
             //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses_supera_el_promedio|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|11_
 
-            string[] todo_el_ranking = bas.Leer(direccion_ranking,"2|0|6|3|4|5|6|7|8|9|10|11", iniciar_desde_que_fila: G_donde_inicia_la_tabla);
+            string[] todo_el_ranking = bas.Leer(direccion_ranking, "2|0|6|3|4|5|6|7|8|9|10|11", iniciar_desde_que_fila: G_donde_inicia_la_tabla);
             string dir_invent = G_direcciones[0];
-            inventario = bas.Leer(dir_invent, "5|1|6|7|9",iniciar_desde_que_fila:G_donde_inicia_la_tabla);
+            inventario = bas.Leer(dir_invent, "5|1|6|7|9", iniciar_desde_que_fila: G_donde_inicia_la_tabla);
             List<string> ranking_con_cant_invent = new List<string>();
 
             for (int i = 0; i < todo_el_ranking.Length; i++)
@@ -263,7 +263,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] lista_final = calculo_pred_compra(todo_el_ranking);
             for (int i = 0; i < lista_final.Length; i++)
             {
-                
+
                 //ranikng //0_codigo|1_nombre_producto|2_cantidad_vendida_estos_7_dias|3_provedores|4_historial_por_semana°|5_ranking|6_promedio_normal|7_cantidad_veses|8_usomulti_cant_invent|9_usomulti_tipo_de_producto|10_multi_costo_compra|
                 string[] a_cambiar = lista_final[i].Split(G_caracter_separacion[0][0]);
                 double posible_cantidad_a_comprar = Convert.ToDouble(a_cambiar[6]) - Convert.ToDouble(a_cambiar[8]);

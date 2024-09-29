@@ -23,6 +23,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[] GG_caracter_para_transferencia_entre_archivos = { "┴", "■" };
 
+        static public string[] GG_caracter_para_usar_como_enter_y_nuevo_mensaje = { "•", "∆" };
+
         static public string GG_id_programa = "CLASE_QU1R30N";
 
         static public string GG_direccion_control_errores_try = "config\\chatbot\\errores_try\\control_errore.txt";
