@@ -93,7 +93,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         }
 
         public void datos_recibidos_a_procesar_y_borrar(string ia_ws)
-        {
+         {
             //S_1_4_ia
             if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {

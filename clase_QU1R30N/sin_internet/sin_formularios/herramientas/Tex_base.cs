@@ -182,17 +182,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         }
 
 
-        public string buscar(string direccion_archivo, string dato_a_buscar, int columna, string id_producto_string = "")
+        public string buscar(string direccion_archivo, string dato_a_buscar, int columna, string id_posicion_informacion = "")
         {
             string inf_retornar = "";
             string[] res_busq = sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
             int indice = Convert.ToInt32(res_busq[1]);
 
-            if (id_producto_string != "")
+            if (id_posicion_informacion != "")
             {
-                int id_producto = Convert.ToInt32(id_producto_string);
+                int id_producto = Convert.ToInt32(id_posicion_informacion);
                 string[] info_produc_esp = GG_base_arreglo_de_arreglos[indice][id_producto].Split(G_caracter_separacion[0][0]);
-                if (dato_a_buscar == info_produc_esp[5])
+                if (dato_a_buscar == info_produc_esp[columna])
                 {
                     inf_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[indice][id_producto] + G_caracter_para_confirmacion_o_error[0] + id_producto;
                 }
@@ -206,7 +206,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     for (int i = indice_iniciar_busqueda; i < id_producto; i++)
                     {
                         string[] info_prod_bas = GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
-                        if (dato_a_buscar == info_prod_bas[5])
+                        if (dato_a_buscar == info_prod_bas[columna])
                         {
                             inf_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
                             encontro_producto = true;
@@ -220,7 +220,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         {
                             string[] info_prod_bas = GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
 
-                            if (dato_a_buscar == info_prod_bas[5])
+                            if (dato_a_buscar == info_prod_bas[columna])
                             {
                                 inf_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
                                 encontro_producto = true;

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using clase_QU1R30N.con_internet.herramientas_internet;
 using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
@@ -14,6 +15,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
+        string[] G_caracter_para_transferencia_entre_archivos = var_fun_GG.GG_caracter_para_transferencia_entre_archivos;
 
         var_fun_GG vf_GG = new var_fun_GG();
 
@@ -100,9 +102,40 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string funcion_a_hacer(string parametro1, string parametro2)
+        public string trabajos(string direccion_archivo_emp,string proceso, string inf_a_proc)
         {
             string info_a_retornar = null;
+
+            string[] info_a_procesar = inf_a_proc.Split(G_caracter_separacion[1][0]);
+
+            string id_trab = info_a_procesar[0];
+            string trabajo_a_hacer= info_a_procesar[1];
+            string dias = info_a_procesar[2];
+            string id_prog = info_a_procesar[3];
+
+            string[] encontro_trabajador = bas.buscar(direccion_archivo_emp, id_trab, 0, id_trab).Split(G_caracter_para_confirmacion_o_error[0][0]);
+
+            if (Convert.ToInt32(encontro_trabajador[0]) > 0)
+            {
+                if (encontro_trabajador[0] == "1")
+                {
+                    string[] info_trabajador = encontro_trabajador[1].Split(G_caracter_separacion[0][0]);
+                    string contacto = info_trabajador[12];
+                    conexion con = new conexion();
+                    string info_a_enviar = proceso + G_caracter_para_transferencia_entre_archivos[1] + trabajo_a_hacer + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+                    con.datos_a_enviar("WS_RS", info_a_enviar, id_prog);
+                    info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "trabajador_encontrado_y_enviado";
+                }
+            }
+            else
+            {
+                if (encontro_trabajador[0] == "0")
+                {
+                    info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "trabajador_NO_encontrado";
+                }
+            }
+            
+
 
             return info_a_retornar;
         }

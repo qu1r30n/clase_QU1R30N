@@ -50,8 +50,6 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             con.datos_a_enviar(res_espliteada[1], info_a_enviar, res_espliteada[0]);
 
 
-
-
         }
 
 

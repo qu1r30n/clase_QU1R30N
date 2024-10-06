@@ -71,13 +71,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     info_a_retornar = mod_afil.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_PROVEDORES":
+                    
                     info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_SUCURSALES":
+                    
                     info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
 
                 case "MODELO_FUNCIONES_DIVERSAS":
+                    
                     info_a_retornar = mod_fun_div.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
 
