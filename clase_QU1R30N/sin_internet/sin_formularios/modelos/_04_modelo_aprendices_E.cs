@@ -60,13 +60,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
 
-            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
+            string[] info_espliteada = datos.Split(G_caracter_separacion[1][0]);
 
 
             switch (proceso)
             {
 
-                case "REGISTRO_APRENDICES_E":
+                case "REGISTRO_APRENDIS":
 
                     info_a_retornar = pr_apr_E.registro_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
                     break;
@@ -77,12 +77,35 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
-                case "TRABAJO_DIAS":
+                case "TRABAJO_EVENTUAL_HECHO":
 
                     info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
+                case "TRABAJO_HECHO_DIAS":
 
+                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    break;
+
+                case "TRABAJO_AGREGAR_DIAS":
+
+                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    break;
+
+                case "TRABAJO_MOSTRAR_DIAS":
+
+                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    break;
+
+                case "TRABAJO_ELIMINAR_DIAS":
+
+                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    break;
+
+                case "TRABAJO_CAMBIAR_DIAS":
+
+                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    break;
 
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";

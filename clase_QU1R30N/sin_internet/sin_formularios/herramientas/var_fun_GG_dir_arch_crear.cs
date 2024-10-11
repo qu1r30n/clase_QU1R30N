@@ -1619,7 +1619,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","0_COD_BAR","","" },
 
         };
-        public static void RecargarVentanaEmergente_TIPOS_DE_MEDIDA(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        public static void RecargarVentanaEmergente_HERRAMIENTAS(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_HERRAMIENTAS = new string[,]
             {
@@ -1663,6 +1663,59 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
         }
+
+
+        //trabajos_por_dia
+        static public string[,] GG_trabajos_dia =
+        {
+            { "1","trabajos_cada_fila_es_un_dia","","" },
+
+        };
+        public static void RecargarVentanaEmergente_TRABAJOS_DIA(string al_finalizar_que_borrar_para_proxima_ventana = "")
+        {
+            GG_ventana_HERRAMIENTAS = new string[,]
+            {
+                { "1","trabajos_cada_fila_es_un_dia","","" },
+
+            };
+
+
+            if (al_finalizar_que_borrar_para_proxima_ventana != null)
+            {
+
+
+                string[] datos_a_borrar = al_finalizar_que_borrar_para_proxima_ventana.ToString().Split(Convert.ToChar(var_fun_GG.GG_caracter_separacion[0]));
+
+                for (int i = 0; i < datos_a_borrar.Length; i++)
+                {
+
+                    if (datos_a_borrar[i] == "TODO")
+                    {
+                        GG_variables_string = new[]
+                        {
+                            /*0*/ "",//tex_esplit[0]//codbar
+                            /*1*/ "",//prov_anterior
+                            /*2*/ "", //provedores_txt//todos_los_provedores
+                            /*3*/ "",//impuesto anterior
+                            /*4*/ "", //impuestos_txt//todos_los_impuestos
+                            /*5*/ "",//tipo_medida_producto_anterior
+                            /*6*/ ""//tipo_medida_producto_txt//todos_los_tipos_de_medida
+           
+                        };
+                    }
+
+                    else if (datos_a_borrar[i] == "") { }
+
+                    else
+                    {
+                        GG_variables_string[Convert.ToInt32(datos_a_borrar[i])] = "";
+                    }
+
+                }
+            }
+
+        }
+
 
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1722,7 +1775,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //herramientas
             /*21*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\COSAS_NO_ESTABAN.TXT", columnas_concatenadas(GG_ventana_COSAS_NO_ESTABAN_INVENTARIO,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*22*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\TIPOS_DE_MEDIDA.TXT", columnas_concatenadas(GG_ventana_HERRAMIENTAS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE§ML§GR§KG"},
-
+            /*23*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\DAT\\TRABAJOS_POR_DIA.TXT", columnas_concatenadas(GG_trabajos_dia,1,var_fun_GG.GG_caracter_separacion[0]),"§§§§§§"},
 
     };
 

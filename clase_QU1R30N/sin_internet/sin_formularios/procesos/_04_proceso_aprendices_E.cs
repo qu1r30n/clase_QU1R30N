@@ -36,7 +36,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             if (Convert.ToInt32(res_esp_archivo_E[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
             {
 
-                string[] datos_espliteado = datos.Split(caracter_separacion_string[0][0]);
+                string[] datos_espliteado = datos.Split(caracter_separacion_string[2][0]);
 
 
                 string ID = "";
@@ -71,24 +71,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 string País = datos_espliteado[9];
                 string Correo_electrónico = datos_espliteado[10];
                 string Teléfono = datos_espliteado[11];
-                string Fecha_de_ingreso = datos_espliteado[12];
-                string Sueldo = datos_espliteado[13];
-                string Cargo = datos_espliteado[14];
-                string Estado_de_aprendis_E = datos_espliteado[15];
-                string Supervisor = datos_espliteado[16];
-                string Notas = datos_espliteado[17];
-                string Afiliado = datos_espliteado[18];
-                string Fecha_de_terminación = datos_espliteado[19];
-                string Motivo_de_terminación = datos_espliteado[20];
-                string Horas_trabajadas = datos_espliteado[21];
-                string Evaluaciones_de_desempeño = datos_espliteado[22];
-                string Habilidades_y_certificaciones = datos_espliteado[23];
-                string Idiomas = datos_espliteado[24];
-                string Fecha_de_última_promoción = datos_espliteado[25];
-                string ID_del_departamento_de_supervisión = datos_espliteado[26];
-                string Historial_de_capacitación = datos_espliteado[27];
-                string Último_aumento_de_salario = datos_espliteado[28];
-                string tipo_de_aprendis_E = datos_espliteado[29];
+
+                string Fecha_de_ingreso = "TODAVIA_NO_A_SIDO_ACEPTADO";
+                string Sueldo = "NO_DEFINIDO";
+                string Cargo = "NO_DEFINIDO";
+                string Estado_de_aprendis_E = "NO_DEFINIDO";
+                string Supervisor = "NO_DEFINIDO";
+                string Notas = "";
+                string Afiliado = "";
+                string Fecha_de_terminación = "NO_DEFINIDO";
+                string Motivo_de_terminación = "";
+                string Horas_trabajadas = "NO_DEFINIDO";
+                string Evaluaciones_de_desempeño = "NO_DEFINIDO";
+                
+                string Habilidades_y_certificaciones = datos_espliteado[12];
+                string Idiomas = datos_espliteado[13];
+                
+                string Fecha_de_última_promoción = "NO_DEFINIDO";
+                string ID_del_departamento_de_supervisión = "NO_DEFINIDO";
+                string Historial_de_capacitación = "NO_DEFINIDO";
+                string Último_aumento_de_salario = "NO_DEFINIDO";
+                string tipo_de_aprendis_E = "NO_DEFINIDO";
 
 
                 string datos_a_agregar = ID + caracter_separacion_string[0] + Nombre + caracter_separacion_string[0] + Apellido_paterno + caracter_separacion_string[0] + Apellido_materno + caracter_separacion_string[0] + Fecha_de_nacimiento + caracter_separacion_string[0] + Género + caracter_separacion_string[0] + Dirección + caracter_separacion_string[0] + Ciudad + caracter_separacion_string[0] + Estado_Provincia + caracter_separacion_string[0] + Código_postal + caracter_separacion_string[0] + País + caracter_separacion_string[0] + Correo_electrónico + caracter_separacion_string[0] + Teléfono + caracter_separacion_string[0] + Fecha_de_ingreso + caracter_separacion_string[0] + Sueldo + caracter_separacion_string[0] + Cargo + caracter_separacion_string[0] + Estado_de_aprendis_E + caracter_separacion_string[0] + Supervisor + caracter_separacion_string[0] + Notas + caracter_separacion_string[0] + Afiliado + caracter_separacion_string[0] + Fecha_de_terminación + caracter_separacion_string[0] + Motivo_de_terminación + caracter_separacion_string[0] + Horas_trabajadas + caracter_separacion_string[0] + Evaluaciones_de_desempeño + caracter_separacion_string[0] + Habilidades_y_certificaciones + caracter_separacion_string[0] + Idiomas + caracter_separacion_string[0] + Fecha_de_última_promoción + caracter_separacion_string[0] + ID_del_departamento_de_supervisión + caracter_separacion_string[0] + Historial_de_capacitación + caracter_separacion_string[0] + Último_aumento_de_salario + caracter_separacion_string[0] + tipo_de_aprendis_E;
