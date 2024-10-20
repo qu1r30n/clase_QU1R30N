@@ -1,8 +1,8 @@
-trabajos_cada_fila_es_un_dia
-
-
-
-
-
-
-
+dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar
+LUN
+MAR
+MIE
+JUE
+VIE
+SAB|BARRER°1¬3°NO_HECHO°°NEXOPORTALARCANO
+DOM

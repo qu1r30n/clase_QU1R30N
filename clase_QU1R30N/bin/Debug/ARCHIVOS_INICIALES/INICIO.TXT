@@ -1,2 +1,3 @@
 dato_de_configuracion|descripcion_de_configuracion
-2|id ultimo usuario
+|DIA_SE_ABRIO
+1|ULTIMO_ID_VEND

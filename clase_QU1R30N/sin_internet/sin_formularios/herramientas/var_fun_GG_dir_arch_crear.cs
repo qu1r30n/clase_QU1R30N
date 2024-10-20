@@ -1668,14 +1668,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //trabajos_por_dia
         static public string[,] GG_trabajos_dia =
         {
-            { "1","trabajos_cada_fila_es_un_dia","","" },
+            { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" },
 
         };
         public static void RecargarVentanaEmergente_TRABAJOS_DIA(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_HERRAMIENTAS = new string[,]
             {
-                { "1","trabajos_cada_fila_es_un_dia","","" },
+                { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" },
 
             };
 
@@ -1748,7 +1748,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[,] GG_dir_nom_archivos =
         {
-            /*0*/{ GG_direccion_carpetas_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT",columnas_concatenadas(GG_ventana_datos_conf,1,var_fun_GG.GG_caracter_separacion[0]),"2|id ultimo usuario"},
+            /*0*/{ GG_direccion_carpetas_base[0] + "ARCHIVOS_INICIALES\\INICIO.TXT",columnas_concatenadas(GG_ventana_datos_conf,1,var_fun_GG.GG_caracter_separacion[0]),"|DIA_SE_ABRIO§1|ULTIMO_ID_VEND"},
             /*1*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\INVENTARIO.TXT", columnas_concatenadas(GG_ventana_emergente_productos,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*2*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\DAT\\PROVEDORES.TXT", columnas_concatenadas(GG_ventana_provedor,1,var_fun_GG.GG_caracter_separacion[0]),"1|NOSE|2_NOMBRE_ENCARGADO|3_DIRECCIÓN_EMPRESA|4_CIUDAD_EMPRESA|5_ESTADO_EMPRESA|6_CÓDIGO_POSTAL|7_PAÍS|8_CORREO_ELECTRÓNICO|9_TELÉFONO_ENCARGADO|10_TELEFONO_EMPRESA|11_TIPO_DE_PROVEEDOR|12_PRODUCTOS_SERVICIOS_SUMINISTRADOS|13_CUENTA_BANCO|14_UBICACIÓN_(GPS)|15_NOTAS|16_RECORDATORIO|17_ACTIVO_O_NO_ACTIVO|18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0|19_COMENTARIOS_PREVENTA_ENTREGA|20_SUCURSALES_QUE_LE_COMPRAN|0|22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1|23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1§2|NOSE2|2_NOMBRE_ENCARGADO2|3_DIRECCIÓN_EMPRESA|4_CIUDAD_EMPRESA|5_ESTADO_EMPRESA|6_CÓDIGO_POSTAL|7_PAÍS|8_CORREO_ELECTRÓNICO|9_TELÉFONO_ENCARGADO|10_TELEFONO_EMPRESA|11_TIPO_DE_PROVEEDOR|12_PRODUCTOS_SERVICIOS_SUMINISTRADOS|13_CUENTA_BANCO|14_UBICACIÓN_(GPS)|15_NOTAS|16_RECORDATORIO|17_ACTIVO_O_NO_ACTIVO|18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0|19_COMENTARIOS_PREVENTA_ENTREGA|20_SUCURSALES_QUE_LE_COMPRAN|0|22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1|23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1"},
             /*3*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\DAT\\APRENDICES_E.TXT", columnas_concatenadas(GG_ventana_APRENDICES_E,1,var_fun_GG.GG_caracter_separacion[0]),""},
@@ -1775,7 +1775,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             //herramientas
             /*21*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\COSAS_NO_ESTABAN.TXT", columnas_concatenadas(GG_ventana_COSAS_NO_ESTABAN_INVENTARIO,1,var_fun_GG.GG_caracter_separacion[0]),""},
             /*22*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\INVENTARIO\\TIPOS_DE_MEDIDA.TXT", columnas_concatenadas(GG_ventana_HERRAMIENTAS,1,var_fun_GG.GG_caracter_separacion[0]),"NOSE§ML§GR§KG"},
-            /*23*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\DAT\\TRABAJOS_POR_DIA.TXT", columnas_concatenadas(GG_trabajos_dia,1,var_fun_GG.GG_caracter_separacion[0]),"§§§§§§"},
+            /*23*/{ GG_direccion_carpetas_base[0] + "CONFIG\\INF\\DAT\\TRABAJOS_POR_DIA.TXT", columnas_concatenadas(GG_trabajos_dia,1,var_fun_GG.GG_caracter_separacion[0]),"LUN§MAR§MIE§JUE§VIE§SAB§DOM"},
 
     };
 

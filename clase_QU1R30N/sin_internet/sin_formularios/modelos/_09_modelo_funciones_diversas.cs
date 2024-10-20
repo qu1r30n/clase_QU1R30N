@@ -41,7 +41,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
 
                 case "RECORDATORIO":
-                    info_a_retornar = pr_funciones_div.recordatorio(G_direcciones[1], a_donde_enviara_la_informacion[0], a_donde_enviara_la_informacion[1], a_donde_enviara_la_informacion[2], a_donde_enviara_la_informacion[3]);
+                    info_a_retornar = pr_funciones_div.guardar_recordatorio(G_direcciones[1], a_donde_enviara_la_informacion[0], a_donde_enviara_la_informacion[1], a_donde_enviara_la_informacion[2], a_donde_enviara_la_informacion[3]);
+                    break;
+
+                case "CHECAR_RECORDATORIO":
+                    pr_funciones_div.checar_recordatorios();
+                    break;
+
+                case "TRABAJO_DIA":
+                    info_a_retornar = pr_funciones_div.trabajo_por_dia();
                     break;
 
                 default:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N
@@ -85,12 +85,13 @@ namespace clase_QU1R30N
 
 
 
-
+            
 
         }
 
 
 
+        
 
 
         //fin clase-----------------------------------------------------------------------------

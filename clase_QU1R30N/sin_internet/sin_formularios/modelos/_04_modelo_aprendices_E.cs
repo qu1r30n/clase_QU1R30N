@@ -18,6 +18,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         string[] G_direcciones =
         {
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[3, 0],//"config\\tienda\\inf\\dat\\aprendices_E.TXT",
+            /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[23, 0],//"CONFIG\\INF\\DAT\\TRABAJOS_POR_DIA.TXT",
         };
 
         
@@ -71,40 +72,49 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_apr_E.registro_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
                     break;
 
+                case "BUSCAR_APRENDIS":
+
+                    info_a_retornar = pr_apr_E.buscar_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
+                    break;
+
+                case "EXTRAER_APRENDIS":
+
+                    info_a_retornar = pr_apr_E.extraer_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
+                    break;
 
                 case "TRABAJO_EVENTUAL":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, datos);
                     break;
 
                 case "TRABAJO_EVENTUAL_HECHO":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
                 case "TRABAJO_HECHO_DIAS":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
                 case "TRABAJO_AGREGAR_DIAS":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.agregar_trabajos_dias(G_direcciones[1], proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
                     break;
 
                 case "TRABAJO_MOSTRAR_DIAS":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
                 case "TRABAJO_ELIMINAR_DIAS":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
                 case "TRABAJO_CAMBIAR_DIAS":
 
-                    info_a_retornar = pr_apr_E.trabajos(G_direcciones[0], proceso, info_espliteada[0]);
+                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
                     break;
 
                 default:

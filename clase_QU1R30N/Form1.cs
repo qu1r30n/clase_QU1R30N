@@ -29,8 +29,13 @@ namespace clase_QU1R30N
         {
             principal enl_princ = new principal();
 
+            
+
             string info_resultado = null;
 
+            info_resultado = enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~TRABAJO_DIA§");
+
+            /*
             //info_resultado = enl_princ.enlasador("analisis_datos~existe_producto§codigo");
             //0_id_usuario|1_id_pat_comp|2_tabla_pat_comp|3_id_enc_simp|4_tabla_enc_simp|5_puntos_d|6_puntos_d_a_dar|7_datos|8_niveles|9_id_horizontal
 
@@ -56,7 +61,7 @@ namespace clase_QU1R30N
             //info_resultado = enl_princ.enlasador("MODELO_ANALISIS_DATOS~PREDICCION_NECESIDADES_COMPRA§");
 
             //info_resultado = enl_princ.enlasador("MODELO_PRODUCTOS_E_INVENTARIO~EXTRAER_INVENTARIO_STRING§");
-
+            */
             /*
             ventas ventas = new ventas();
             ventas.Show();
@@ -71,8 +76,10 @@ namespace clase_QU1R30N
             */
 
 
-            conexion con = new conexion();
 
+            conexion con = new conexion();
+            
+            
             while (true)
             {
 
@@ -89,5 +96,8 @@ namespace clase_QU1R30N
             conexion con = new conexion();
             con.quitar_id_prog_del_archivo();
         }
+
+        
+
     }
 }
