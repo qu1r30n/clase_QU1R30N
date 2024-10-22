@@ -9,7 +9,7 @@ using clase_QU1R30N.sin_internet.sin_formularios.procesos;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 {
-    internal class _10_modelo_mul
+        internal class _10_modelo_mul
     {
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -19,8 +19,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         string[] G_direcciones =
         {
-            //direccion_archivo//Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.TXT",
-        };
+                //direccion_archivo//Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0]//"config\\inf\\inventario\\inventario.TXT",
+            };
 
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
         {

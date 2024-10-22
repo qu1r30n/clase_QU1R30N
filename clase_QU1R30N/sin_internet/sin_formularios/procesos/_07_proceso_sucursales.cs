@@ -21,14 +21,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
 
 
-        public string registrar_sucursal(string direccion_archivo,string datos, object caracter_separacion_obj = null)
+        public string registrar_sucursal(string direccion_archivo, string datos, object caracter_separacion_obj = null)
         {
 
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
 
-            
+
             string resultado_archivo_aprendices_E = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
             string[] res_esp_archivo = resultado_archivo_aprendices_E.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (Convert.ToInt32(res_esp_archivo[0]) > 0)//si res es mayor a 0 la operacioon fue exitosa si no hubo un error
@@ -38,10 +38,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     int indice = Convert.ToInt32(res_esp_archivo[1]);
                     string texto_agregar = Tex_base.GG_base_arreglo_de_arreglos[indice].Length + caracter_separacion_string[0] + datos;
 
-                    
+
                     bas.Agregar(direccion_archivo, texto_agregar);
-                    
-                    
+
+
                     info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + texto_agregar;
                 }
 

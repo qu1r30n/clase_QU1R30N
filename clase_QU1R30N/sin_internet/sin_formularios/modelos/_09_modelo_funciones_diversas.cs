@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
+using clase_QU1R30N.sin_internet.sin_formularios.procesos;
+
 namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 {
-
-    using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-    using clase_QU1R30N.sin_internet.sin_formularios.procesos;
-
     internal class _09_modelo_funciones_diversas
     {
         string[] G_direcciones =
@@ -35,7 +34,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
             switch (operacion)
             {
-                
+
                 case "EXTRAER_TIPOS_DE_MEDIDA":
                     info_a_retornar = pr_funciones_div.extraer_tipos_de_medida(G_direcciones[0]);
                     break;

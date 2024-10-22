@@ -13,7 +13,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
-        
+
 
         var_fun_GG vf_GG = new var_fun_GG();
         var_fun_GG_dir_arch_crear vf_GG_arc_cr = new var_fun_GG_dir_arch_crear();
@@ -21,11 +21,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
         Tex_base bas = new Tex_base();
-        
+
         _00_proceso_AnalisisDeDatos pr_analisis = new _00_proceso_AnalisisDeDatos();
         _03_proceso_productos_e_inventario pr_prod_inv = new _03_proceso_productos_e_inventario();
 
-        public string compras(string direccion_archivo, string codigos_cantidad_precio_id   , string provedores,  string sucursales = "", double porcentage_ganancia = 20)
+        public string compras(string direccion_archivo, string codigos_cantidad_precio_id, string provedores, string sucursales = "", double porcentage_ganancia = 20)
         {
             string info_a_retornar = "";
 
@@ -36,8 +36,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
             string[] info_produc = codigos_cantidad_precio_id.Split(G_caracter_separacion[1][0]);
-            
-            
+
+
 
             for (int i = 0; i < info_produc.Length; i++)
             {
@@ -97,7 +97,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                       /*4*/+ "0"  //sucursal
                       ,
                       ""
-                      ,posicion_fila: cod_cant_precio_id_split[3]
+                      , posicion_fila: cod_cant_precio_id_split[3]
 
                       );
 
@@ -140,10 +140,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         G_caracter_separacion[0] +
                         cod_cant_precio_id_split[2] +//7_costo_comp
                         G_caracter_separacion[0] +
-                        provedores + G_caracter_separacion[2] + cod_cant_precio_id_split[2]+//8_provedor
+                        provedores + G_caracter_separacion[2] + cod_cant_precio_id_split[2] +//8_provedor
                         G_caracter_separacion[0] +
                         sucursales + G_caracter_separacion[2] + nuevo_precio_venta//17_sucursal_vent¬cost_vent
-                        ,"0"
+                        , "0"
                         );
 
 

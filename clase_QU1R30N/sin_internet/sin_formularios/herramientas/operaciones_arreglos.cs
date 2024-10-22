@@ -20,7 +20,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         var_fun_GG vf_GG = new var_fun_GG();
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
-        
+
 
         public string[] agregar_registro_del_array(string[] arreglo, string registro, string al_inicio = null)
         {
@@ -297,7 +297,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         niveles_de_profundidad = agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, tem_linea.Split(caracter_separacion[0][0]));
                         tem_linea = niveles_de_profundidad[0][Convert.ToInt32(arr_col_rec[0])];
                     }
-                    
+
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
                     if (tem_linea == arr_comparaciones[l])
@@ -363,7 +363,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         j++;
                     } while (j < arr_col_rec.Length);
 
-                    
+
                     //comparacion--------------------------------------------------------------------------
                     chequeo_todas_las_comparaciones[l] = false;
                     if (tem_linea == arr_comparaciones[l])
@@ -421,12 +421,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     j++;
                 } while (j < arr_col_rec.Length);
 
-                
+
                 //compa
                 //racion--------------------------------------------------------------------------
                 if (tem_linea == comparar)
                 {
-                    areglo[i] =  op_tex.editar_incr_string_funcion_recursiva(areglo[i], columnas_a_recorrer_editar, info_a_sustituir);
+                    areglo[i] = op_tex.editar_incr_string_funcion_recursiva(areglo[i], columnas_a_recorrer_editar, info_a_sustituir);
                     return areglo;
                 }
 
@@ -460,7 +460,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     j++;
                 } while (j < arr_col_rec.Length);
 
-                
+
                 //comparacion--------------------------------------------------------------------------
                 if (tem_linea == comparaciones)
                 {
@@ -574,7 +574,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string si_no_existe_agrega_string(string[] areglo, string columnas_a_recorrer, string comparar, string texto_a_agregar)
 
         {
-            
+
             string res_bus = busqueda_profunda_arreglo(areglo, columnas_a_recorrer, comparar);
             string[] res_bus_esp = res_bus.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (Convert.ToInt32(res_bus_esp[0]) > 0)
@@ -714,7 +714,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         h++;
                     } while (h < col_rec_espliteado.Length);
 
-                    
+
                     //comparacion--------------------------------------------------------------------------
 
                     if (tem_linea == comparar_espliteado[j])
@@ -771,14 +771,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     texto_enviar_arreglo_string = (string[])texto_enviar_arreglo_objeto;
                 }
 
-                if (texto_enviar_arreglo_objeto is double[]|| texto_enviar_arreglo_objeto is int[])
+                if (texto_enviar_arreglo_objeto is double[] || texto_enviar_arreglo_objeto is int[])
                 {
 
                     double[] temp = (double[])texto_enviar_arreglo_objeto;
-                    string[] temp2= new string[temp.Length];
+                    string[] temp2 = new string[temp.Length];
                     for (int i = 0; i < temp.Length; i++)
                     {
-                        temp2[i]= temp[i].ToString();
+                        temp2[i] = temp[i].ToString();
                     }
                     texto_enviar_arreglo_string = temp2;
                 }
@@ -1099,7 +1099,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                 cantidad_de_elementos[i, 1] = "1";
                                 if (cont == 0)
                                 {
-                                    cont = 1; 
+                                    cont = 1;
                                 }
                             }
                         }
@@ -1180,12 +1180,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
 
-            
+
             string variable_para_hacer_intercambio = "";
             for (int i = 0; i < arreglo.Length; i++)
             {
                 string[] info_1 = arreglo[i].Split(caracter_separacion[0][0]);
-                for (int j = i+1; j < arreglo.Length; j++)
+                for (int j = i + 1; j < arreglo.Length; j++)
                 {
                     string[] info_2 = arreglo[j].Split(caracter_separacion[0][0]);
 
@@ -1211,10 +1211,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
                     }
                 }
-                
+
 
             }
-            
+
 
             return arreglo;
         }

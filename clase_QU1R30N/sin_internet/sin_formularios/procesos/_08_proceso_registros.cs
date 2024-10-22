@@ -419,7 +419,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                         //total_pagar_imp = "";
 
                     }
-                    
+
 
                 }
 
@@ -640,7 +640,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         public string registrar_movimiento_productos(string direccion_archivo, string modelo, string proceso, string datos, string fecha_o_hora, object caracter_separacion_obj = null)
         {
 
-            
+
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
             string info_a_retornar = "";
 
@@ -681,7 +681,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 else
                 {
-                    
+
                     info_agregar =
                         fecha_o_hora
                         + caracter_separacion_string[0]
@@ -736,7 +736,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     if (datos_esp[1] == "VENTA")
                     {
-                        
+
                         datos_codbar = si_hay_iguales_en_codigo_suma_cantidad_proceso_registros(datos_codbar);
                     }
                     else if (datos_esp[1] == "COMPRA")
@@ -759,7 +759,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     for (int j = 0; j < datos_codbar.Length; j++)
                     {
                         string[] inf_dat = datos_codbar[j].Split(G_caracter_separacion[2][0]);
-                        
+
 
                         string si_no_tiene_historial_ranking_semanas = "";
 

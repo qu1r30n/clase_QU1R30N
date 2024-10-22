@@ -30,7 +30,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         };
-        
+
 
         _00_proceso_AnalisisDeDatos pr_an_dat = new _00_proceso_AnalisisDeDatos();
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
@@ -88,12 +88,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                 case "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_":
                     info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|6");
                     break;
-                
+
                 case "PREDICCION_NECESIDADES_COMPRA":
 
-                    
+
                     info_a_retornar = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], 4, 5, 6, 7);
-                    
+
                     break;
 
 

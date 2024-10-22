@@ -451,7 +451,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string info_a_retornar = "";
 
             string[] res = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (res[0]=="1")
+            if (res[0] == "1")
             {
                 int indice = Convert.ToInt32(res[1]);
 
@@ -461,16 +461,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|7", num_telefono).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
-                        string[] info_esp=res_busqueda[1].Split(G_caracter_separacion[0][0]);
+                        string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
                         info_a_retornar = info_esp[0];
                         break;
                     }
                 }
             }
-            
+
 
             return info_a_retornar;
         }
-        
+
     }
 }

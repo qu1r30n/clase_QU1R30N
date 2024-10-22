@@ -26,7 +26,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         operaciones_arreglos op_arr = new operaciones_arreglos();
         operaciones_textos op_tex = new operaciones_textos();
 
-        
+
 
         _06_proceso_provedores pr_provedores = new _06_proceso_provedores();
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
@@ -107,9 +107,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_provedores.extraer_nombre_provedores_y_dinero(G_direcciones[0], datos);
                     break;
 
-                    
 
-            default:
+
+                default:
                     info_a_retornar = "-3" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
             }

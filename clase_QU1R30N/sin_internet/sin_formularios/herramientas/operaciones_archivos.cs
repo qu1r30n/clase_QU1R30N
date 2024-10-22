@@ -96,7 +96,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         public string[] Ordenar(string direccion_archivo, int columna_comparar, string tipo, char caracter_separacion = '|')
         {
-            
+
             tipo = tipo.ToUpper();
 
             Tex_base bas = new Tex_base();

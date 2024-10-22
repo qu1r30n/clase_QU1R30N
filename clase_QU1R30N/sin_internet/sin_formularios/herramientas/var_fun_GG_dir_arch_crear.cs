@@ -192,7 +192,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-        
+
 
         //cosas no estaban en el inventario
         static public string[,] GG_ventana_COSAS_NO_ESTABAN_INVENTARIO =
@@ -988,7 +988,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
 
         }
- 
+
         //registro mes
         static public string[,] GG_ventana_reg_mes =
         {
@@ -1210,7 +1210,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         //registros productos
 
-        
+
         //registro produc dia
         static public string[,] GG_ventana_reg_prod_dia =
         {
@@ -1218,7 +1218,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             { "1","0_HORA","" ,"0"},
             { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" , "NOSE"},
             { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" , "NOSE"},
-            
+
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Dia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -1801,13 +1801,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         };
 
-        public static string GG_NUEVA_INFO_DEFAUL(string[,] arreglo_info, string columnas_a_ingresar_info_NO_DEFAUL, string info_NO_DEFAUL, string columnas_que_no_quieres_que_aparescan="")
+        public static string GG_NUEVA_INFO_DEFAUL(string[,] arreglo_info, string columnas_a_ingresar_info_NO_DEFAUL, string info_NO_DEFAUL, string columnas_que_no_quieres_que_aparescan = "")
         {
             string info_a_retornar = "";
 
-            
 
-            string[] copia_arreglo = new  string [arreglo_info.GetLength(0)];
+
+            string[] copia_arreglo = new string[arreglo_info.GetLength(0)];
 
             for (int i = 0; i < arreglo_info.GetLength(0); i++)
             {
@@ -1841,7 +1841,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                             agregar = false;
                             break;
                         }
-                        
+
                     }
                     if (agregar == true)
                     {

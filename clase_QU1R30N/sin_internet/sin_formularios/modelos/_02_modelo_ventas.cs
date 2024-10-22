@@ -41,7 +41,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                         info_a_retornar = pr_vent.ventas(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2]);
                         break;
 
-                    
+
 
                     default:
                         info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";

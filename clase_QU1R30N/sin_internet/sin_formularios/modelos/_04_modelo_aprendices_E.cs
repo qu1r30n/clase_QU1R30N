@@ -21,7 +21,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[23, 0],//"CONFIG\\INF\\DAT\\TRABAJOS_POR_DIA.TXT",
         };
 
-        
+
 
         _04_proceso_aprendices_E pr_apr_E = new _04_proceso_aprendices_E();
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)

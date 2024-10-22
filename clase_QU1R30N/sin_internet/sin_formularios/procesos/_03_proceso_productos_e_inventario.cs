@@ -16,8 +16,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
-        
-        
+
+
 
         var_fun_GG vf_GG = new var_fun_GG();
         var_fun_GG_dir_arch_crear vf_GG_arc_crear = new var_fun_GG_dir_arch_crear();
@@ -27,7 +27,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         Tex_base bas = new Tex_base();
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
-        
+
         string[] G_direcciones =
         {
             /*0*/Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[1, 0],//"config\\tienda\\inf\\inventario\\inventario.TXT",
@@ -38,7 +38,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string info_a_retornar = "";
             string res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo);
             string[] res_esp = res_ind_ar.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            
+
 
             if (Convert.ToInt32(res_ind_ar[0]) > 0)
             {
@@ -53,7 +53,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 //tiene la misma cantidad de columnas para agregar?
                 //el -1 es porque el id_no_lo_tiene_y_hay_que_agregarlo
-                if (cantidad_columnas_inventario - 1 == cantidad_columnas_nuevo_productos) 
+                if (cantidad_columnas_inventario - 1 == cantidad_columnas_nuevo_productos)
                 {
                     //checa que todos las columnas como dinero y presio entre otros tengan el tipo numerico
                     for (int i = 0; i < columnas_son_numerico_espl.Length; i++)
@@ -63,27 +63,27 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             int indice_a_checar = Convert.ToInt32(columnas_son_numerico_espl[i]);
                             double variable_numerica = Convert.ToDouble(producto_espliteado[indice_a_checar]);
                         }
-                        
+
                     }
                 }
 
 
-                
-                
+
+
 
                 info_a_retornar = bas.Agregar(direccion_archivo, Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length + G_caracter_separacion[0] + producto);
                 string temp_1 = "";
-                
-                temp_1 = producto_espliteado[4] + G_caracter_separacion[0] + producto_espliteado[0] + " " + producto_espliteado[1] + producto_espliteado[2] + G_caracter_separacion[0] + (Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length-1);
+
+                temp_1 = producto_espliteado[4] + G_caracter_separacion[0] + producto_espliteado[0] + " " + producto_espliteado[1] + producto_espliteado[2] + G_caracter_separacion[0] + (Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length - 1);
                 var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(temp_1);
-                temp_1 = producto_espliteado[0] + G_caracter_separacion[0] + producto_espliteado[4] + " " + producto_espliteado[1] + producto_espliteado[2] + G_caracter_separacion[0] + (Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length-1);
+                temp_1 = producto_espliteado[0] + G_caracter_separacion[0] + producto_espliteado[4] + " " + producto_espliteado[1] + producto_espliteado[2] + G_caracter_separacion[0] + (Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo].Length - 1);
                 var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(temp_1);
 
 
                 //Mod__ falta registrar ingreso de nuevo producto
                 _08_proceso_registros reg = new _08_proceso_registros();
 
-                
+
 
             }
 
@@ -92,11 +92,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             else
             {
-                if (res_esp[0]=="0")
+                if (res_esp[0] == "0")
                 {
                     return "0";
                 }
-                else if(res_esp[0]=="-1") 
+                else if (res_esp[0] == "-1")
                 {
                     return "-1";
                 }
@@ -176,15 +176,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     info_a_retornar = bas.Agregar_sino_existe(direccion_archivo, 5, _5_COD_BARRAS, todo_unido);
                     string[] resultado_espliteado = info_a_retornar.Split(G_caracter_para_confirmacion_o_error[0][0]);
 
-                    if (resultado_espliteado[0]=="1")
+                    if (resultado_espliteado[0] == "1")
                     {
                         var_fun_GG.GG_autoCompleteCollection_codbar_venta.Add(_5_COD_BARRAS + G_caracter_separacion[0] + _1_NOM_PRODUCTO + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
                         var_fun_GG.GG_autoCompleteCollection_nom_produc_venta.Add(_1_NOM_PRODUCTO + G_caracter_separacion[0] + _5_COD_BARRAS + " " + _2_CONTENIDO + _3_TIPO_MEDIDA + G_caracter_separacion[0] + _0_id);
 
                     }
-                    
 
-                    
+
+
 
 
                 }
@@ -209,10 +209,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string buscar(string direccion_archivo, string cod_bar,string id_producto_string="")
+        public string buscar(string direccion_archivo, string cod_bar, string id_producto_string = "")
         {
             string inf_retornar = "";
-            string[]res_busq=bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            string[] res_busq = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
             int indice = Convert.ToInt32(res_busq[1]);
             if (id_producto_string != "")
             {
@@ -226,12 +226,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 {
                     bool encontro_producto = false;
                     int indice_iniciar_busqueda = id_producto;
-                    if (id_producto>9) { indice_iniciar_busqueda = indice_iniciar_busqueda - 10; }
-                    else{ indice_iniciar_busqueda = G_donde_inicia_la_tabla; }
+                    if (id_producto > 9) { indice_iniciar_busqueda = indice_iniciar_busqueda - 10; }
+                    else { indice_iniciar_busqueda = G_donde_inicia_la_tabla; }
 
                     for (int i = indice_iniciar_busqueda; i < id_producto; i++)
                     {
-                        string[] info_prod_bas= Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
+                        string[] info_prod_bas = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(G_caracter_separacion[0][0]);
                         if (cod_bar == info_prod_bas[5])
                         {
                             inf_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + Tex_base.GG_base_arreglo_de_arreglos[indice][i] + G_caracter_para_confirmacion_o_error[0] + i;
@@ -353,11 +353,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         public void archivos_inicio_hacer_inventario()
         {
             bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(vf_GG_arc_crear.GG_direccion_hacer_inventarios[0, 0], vf_GG_arc_crear.GG_direccion_hacer_inventarios[0, 1], leer_y_agrega_al_arreglo: false);
-            
+
 
         }
 
-        public string hacer_inventario(string informacion,string año_mes_dia, object caracter_separacion_obj = null, object caracter_separacion_obj_funciones_espesificas_obj = null)
+        public string hacer_inventario(string informacion, string año_mes_dia, object caracter_separacion_obj = null, object caracter_separacion_obj_funciones_espesificas_obj = null)
         {
             string info_retornar = "";
 
@@ -381,7 +381,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             arreglo_juntos = op_arr.ordenar_arreglo(arreglo_juntos, 3);
             List<string> inventario_en_existencia = new List<string>();
-            
+
             for (int i = 0; i < arreglo_juntos.Length; i++)
             {
                 string[] items_atras = arreglo_juntos[i].Split(caracter_separacion[0][0]);
@@ -435,7 +435,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     break;
 
                 case "MOSTRAR_FALTANTES":
-                    
+
                     //SOBRANTES
                     bas.Crear_archivo_y_directorio_opcion_leer_y_agrega_arreglo(vf_GG_arc_crear.GG_direccion_hacer_inventarios[1, 0], vf_GG_arc_crear.GG_direccion_hacer_inventarios[1, 1], leer_y_agrega_al_arreglo: false);
                     //FALTANTES
@@ -461,13 +461,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                                 if (produc_EXISTENCIA[0] == produc_INV[5])
                                 {
-                                    
+
                                     productos_BOOL_encontrados_del_inventario[j] = true;
 
                                     encontro_producto = true;
                                     double cant_existencia = Convert.ToDouble(produc_EXISTENCIA[2]);
                                     double cant_en_el_inventario = Convert.ToDouble(produc_INV[6]);
-                                    if (cant_existencia> cant_en_el_inventario)
+                                    if (cant_existencia > cant_en_el_inventario)
                                     {
                                         //sobrantes
                                         bas.Agregar(vf_GG_arc_crear.GG_direccion_hacer_inventarios[1, 0], produc_INV[5] + caracter_separacion[0] + produc_INV[1] + produc_INV[2] + produc_INV[3] + caracter_separacion[0] + produc_EXISTENCIA[2] + caracter_separacion[0] + produc_INV[17]);
@@ -484,10 +484,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                     break;
                                 }
                             }
-                            if (encontro_producto == false) 
+                            if (encontro_producto == false)
                             {
                                 int ultimo_movimiento = Convert.ToInt32(produc_INV[17]);
-                                if (ultimo_movimiento< (Convert.ToInt32(año_mes_dia)-10000))
+                                if (ultimo_movimiento < (Convert.ToInt32(año_mes_dia) - 10000))
                                 {
                                     bas.Agregar(vf_GG_arc_crear.GG_direccion_hacer_inventarios[3, 0], produc_INV[5] + caracter_separacion[0] + produc_INV[1] + produc_INV[2] + produc_INV[3] + caracter_separacion[0] + produc_INV[6] + caracter_separacion[0] + produc_INV[17]);
                                 }
@@ -495,7 +495,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 {
                                     bas.Agregar(vf_GG_arc_crear.GG_direccion_hacer_inventarios[4, 0], produc_INV[5] + caracter_separacion[0] + produc_INV[1] + produc_INV[2] + produc_INV[3] + caracter_separacion[0] + produc_INV[6] + caracter_separacion[0] + produc_INV[17]);
                                 }
-                                
+
                             }
                         }
 
@@ -516,17 +516,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
                     }
-            
-                        
+
+
                     break;
-                
+
                 default:
                     break;
             }
 
 
             return info_retornar;
-            
+
         }
 
         public string dar_el_inventario_string_caracter_sep(string direccion_archivo, object caracter_separacion_obj = null)
@@ -538,7 +538,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string inventario = op_tex.join_paresido_simple(caracter_separacion[0][0], Tex_base.GG_base_arreglo_de_arreglos[indice]);
 
             return inventario;
-            
+
         }
 
     }

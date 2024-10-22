@@ -5,13 +5,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 {
     class operaciones_textos
     {
-        
+
         public string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         public string[] G_separador_para_funciones_espesificas_ = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         public string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
-        
+
         var_fun_GG vf_GG = new var_fun_GG();
 
         public string join_paresido_simple(char caracter_union_filas, string[] texto, string columna_extraer = null, string caracter_union_columnas = null)
@@ -105,10 +105,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
                     }
                 }
-                
+
 
             }
-            
+
             else
             {
                 int cantidad_celdas_a_retornar_del_arreglo = arreglo.Length - restar_cuantas_ultimas_o_primeras_celdas;
@@ -207,7 +207,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                         }
                     }
                 }
-                
+
             }
 
             return a_retornar;
@@ -265,7 +265,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             if (num_indice_del_arreglo[0] == "1")
             {
                 int indice_arreglo_de_arreglos = Convert.ToInt32(num_indice_del_arreglo[1]);
-                
+
                 for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo_de_arreglos].Length; i++)
                 {
                     string num_fil = "";
@@ -276,7 +276,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     texto_a_agregar_concatenacion = concatenacion_caracter_separacion(texto_a_agregar_concatenacion, num_fil + Tex_base.GG_base_arreglo_de_arreglos[indice_arreglo_de_arreglos][i], caracter_separacion[0]);
 
                 }
-                
+
             }
             else if (num_indice_del_arreglo[0] == "0")
             {
@@ -299,10 +299,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return texto_a_agregar_concatenacion;
         }
 
-        public string concatenacion_filas_de_un_arreglo(string[] arreglo, bool poner_num_fila = false,object caracter_separacion_obj=null)
+        public string concatenacion_filas_de_un_arreglo(string[] arreglo, bool poner_num_fila = false, object caracter_separacion_obj = null)
         {
 
-            string[] caracter_separacion=vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
+            string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
 
             string mensaje_de_bienvenida_a_enviar = "";
             for (int i = G_donde_inicia_la_tabla; i < arreglo.Length; i++)
@@ -421,58 +421,58 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] arr_comparaciones_a_rec = columnas_a_recorrer.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
             string[] arr_comparaciones___ = comparaciones.Split(caracter_separacion_para_busqueda_multiple_profuda[0][0]);
 
-            
 
 
-                bool[] chequeo_todas_las_comparaciones = new bool[arr_comparaciones_a_rec.Length];
 
-                string[][] niveles_de_profundidad = null;
-                for (int l = 0; l < arr_comparaciones_a_rec.Length; l++)
+            bool[] chequeo_todas_las_comparaciones = new bool[arr_comparaciones_a_rec.Length];
+
+            string[][] niveles_de_profundidad = null;
+            for (int l = 0; l < arr_comparaciones_a_rec.Length; l++)
+            {
+                string tem_linea = texto;
+                string[] arr_col_rec = arr_comparaciones_a_rec[l].Split(caracter_separacion[0][0]);
+
+
+
+                if (arr_col_rec.Length > 1)
                 {
-                    string tem_linea = texto;
-                    string[] arr_col_rec = arr_comparaciones_a_rec[l].Split(caracter_separacion[0][0]);
 
-
-
-                    if (arr_col_rec.Length > 1)
+                    string temp_opciones_comp = joineada_paraesida_y_quitador_de_extremos_del_string(arr_comparaciones_a_rec[l], restar_cuantas_ultimas_o_primeras_celdas: 1);
+                    string[] arr_info = op_arr.extraer_arreglo_dentro_de_un_string(tem_linea, temp_opciones_comp);
+                    for (int m = 0; m < arr_info.Length; m++)
                     {
-
-                        string temp_opciones_comp = joineada_paraesida_y_quitador_de_extremos_del_string(arr_comparaciones_a_rec[l], restar_cuantas_ultimas_o_primeras_celdas: 1);
-                        string[] arr_info = op_arr.extraer_arreglo_dentro_de_un_string(tem_linea, temp_opciones_comp);
-                        for (int m = 0; m < arr_info.Length; m++)
-                        {
-                            string[] elemento_espliteado = arr_info[m].Split(caracter_separacion[arr_col_rec.Length][0]);
-                            tem_linea = elemento_espliteado[Convert.ToInt32(arr_col_rec[arr_col_rec.Length - 1])];
-                        }
-
-                    }
-                    else
-                    {
-                        niveles_de_profundidad = op_arr.agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, tem_linea.Split(caracter_separacion[0][0]));
-                        tem_linea = niveles_de_profundidad[0][Convert.ToInt32(arr_col_rec[0])];
-                    }
-                    //string tem_linea_2 = "";
-                    //comparacion--------------------------------------------------------------------------
-                    chequeo_todas_las_comparaciones[l] = false;
-                    if (tem_linea == arr_comparaciones___[l])
-                    {
-                        chequeo_todas_las_comparaciones[l] = true;
-
-
+                        string[] elemento_espliteado = arr_info[m].Split(caracter_separacion[arr_col_rec.Length][0]);
+                        tem_linea = elemento_espliteado[Convert.ToInt32(arr_col_rec[arr_col_rec.Length - 1])];
                     }
 
                 }
-                bool estan_todas_las_comparaciones = true;
-                for (int m = 0; m < chequeo_todas_las_comparaciones.Length; m++)
+                else
                 {
-                    if (chequeo_todas_las_comparaciones[m] == false)
-                    {
-                        estan_todas_las_comparaciones = false;
-                        break;
-                    }
+                    niveles_de_profundidad = op_arr.agregar_arreglo_a_arreglo_de_arreglos(niveles_de_profundidad, tem_linea.Split(caracter_separacion[0][0]));
+                    tem_linea = niveles_de_profundidad[0][Convert.ToInt32(arr_col_rec[0])];
                 }
-                if (estan_todas_las_comparaciones)
+                //string tem_linea_2 = "";
+                //comparacion--------------------------------------------------------------------------
+                chequeo_todas_las_comparaciones[l] = false;
+                if (tem_linea == arr_comparaciones___[l])
                 {
+                    chequeo_todas_las_comparaciones[l] = true;
+
+
+                }
+
+            }
+            bool estan_todas_las_comparaciones = true;
+            for (int m = 0; m < chequeo_todas_las_comparaciones.Length; m++)
+            {
+                if (chequeo_todas_las_comparaciones[m] == false)
+                {
+                    estan_todas_las_comparaciones = false;
+                    break;
+                }
+            }
+            if (estan_todas_las_comparaciones)
+            {
 
 
                 return "1" + G_caracter_para_confirmacion_o_error[0] + texto;
@@ -501,7 +501,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             */
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
             string[] caracter_separacion_funciones_especificas = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_funciones_especificas_obj);
-            
+
             string[] espliteado_columnas_recorrer = { };
 
             //Sí es un string lo splitea Este normalmente es al inicio de la función 
@@ -531,9 +531,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             else
             {
                 espliteado_texto = new string[] { texto };
-                
+
             }
-            
+
 
             //En esta parte Se inicia desde el segundo elemento y se guardan los caracteres y
             //las columnas para sí hay otro elemento En el arreglo múltiple 
@@ -580,14 +580,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string retornar = string.Join(caracter_separacion[0], espliteado_texto);
             return retornar;
         }
-        
+
         public string editar_inc_agregar_edicion_profunda_multiple_comparacion_final_string
             (
-    string texto, 
-    string indices_a_editar, 
-    string info_editar, 
+    string texto,
+    string indices_a_editar,
+    string info_editar,
     string comparacion_antes_para_saber_cual_editar,
-    string edit_0_o_increm_1 = null, 
+    string edit_0_o_increm_1 = null,
     object caracter_separacion_objeto = null,
     object caracter_separacion_para_busqueda_multiple_profuda_objeto = null
             )
@@ -634,7 +634,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                         //asi estaba antes if (datos_a_checar_para_editar[0] == info_editar_esp[k])
                                         if (datos_a_checar_para_editar[0] == comparacion_esplit[k])
                                         {
-                                            
+
                                             edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                                             encontro_dato_a_editar = true;
                                         }
@@ -720,7 +720,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
             string[] caracter_separacion_profunda = vf_GG.GG_funcion_caracter_separacion_funciones_especificas(caracter_separacion_para_busqueda_multiple_profuda_objeto);
             string[] indices_a_editar_esp = indices_a_editar.Split(caracter_separacion_profunda[0][0]);
-            
+
             string[] edit_0_o_increm_1_agrega_2_espliteado = edit_0_o_increm_1.Split(caracter_separacion_profunda[0][0]);
             string[] comparacion_con_edicion_esp = comparacion_con_edicion_antes_para_saber_cual_editar.Split(caracter_separacion_profunda[0][0]);
 
@@ -734,7 +734,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     if (res_ext_esp[0] == "1")
                     {
-                        
+
                         string[] info_extraida = res_ext_esp[1].Split(caracter_separacion[indice_caracter][0]);
                         bool encontro_dato_a_editar = false;
 
@@ -872,7 +872,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                             }
                         }
-                        
+
                         res_ext_esp[1] = string.Join(caracter_separacion[indice_caracter], info_extraida);
                         //si no encuentra dato_a_editar lo agrega
                         if (!encontro_dato_a_editar)
@@ -884,7 +884,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                 {
                                     res_ext_esp[1] = agregar_nueva_informacion(res_ext_esp[1], comparacion_con_edicion_esp[k], comparacion_con_edicion_esp[k], num_celdas, new string[] { caracter_separacion[indice_caracter], caracter_separacion[indice_caracter + 1] });
                                 }
-                                
+
                             }
                             else
                             {
@@ -901,7 +901,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                                     {
                                         res_ext_esp[1] = res_ext_esp[1] + caracter_separacion[indice_caracter] + comparacion_con_edicion_esp[k];
                                     }
-                                    
+
                                 }
                                 edit_0_o_increm_1_agrega_2_espliteado[k] = "0";
                             }
@@ -911,19 +911,19 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
                         texto = editar_incr_string_funcion_recursiva(texto, indices_a_editar_esp[k], res_ext_esp[1], edit_0_o_increm_1_agrega_2_espliteado[k], caracter_separacion_funciones_especificas_obj: caracter_separacion_profunda[0]);
                     }
-                
-                
+
+
                 }
             }
 
             return texto;
         }
 
-        
+
 
 
         // Función para editar o incrementar información en un arreglo de datos
-        private string[] editar_o_incrementar_agrega_informacion(string[] datos, string info, string accion,int _0_solo_celda_1_varias_celdas, string caracter_separacion_agregar="°")
+        private string[] editar_o_incrementar_agrega_informacion(string[] datos, string info, string accion, int _0_solo_celda_1_varias_celdas, string caracter_separacion_agregar = "°")
         {
             if (accion == "0") // Si la acción es "0", se edita la información
             {

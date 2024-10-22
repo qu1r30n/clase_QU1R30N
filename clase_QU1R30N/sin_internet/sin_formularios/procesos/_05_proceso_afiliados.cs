@@ -22,7 +22,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         int G_donde_inicia_la_tabla = var_fun_GG.GG_indice_donde_comensar;
 
 
-        
+
 
 
         public string registro_simple_cod1(string direccion_archivo, string dir_arch_niveles, string id_enc_simple, string tabla_enc_simp, string datos, object caracter_separacion_obj = null, bool viene_reg_comp = false)
@@ -51,7 +51,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             if (res_esp_enc_simp[0] == "1" && res_esp_NIV_enc_simp[0] == "1")
             {
-                
+
                 int indic_afil_simp = Convert.ToInt32(res_esp_enc_simp[1]);
                 int indic_niv_afil_simp = Convert.ToInt32(res_esp_NIV_enc_simp[1]);
                 //0_id_usuario|1_id_patrocinador|2_tabla_patrocinador|3_id_encargado|5_tabla_encargado|5_diner|6_a_pagar|7_datos|8_encargados|
@@ -67,14 +67,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     if (info_base_split[0] == id_enc_simple)
                     {
                         nivel_encargados = info_base_split[8];
-                        nivel_usuario=""+(Convert.ToInt32(nivel_encargados)+1);
+                        nivel_usuario = "" + (Convert.ToInt32(nivel_encargados) + 1);
                         break;
                     }
                 }
 
                 bool encontro_nivel_usuario = false;
                 string id_horizontal_usuario_simple = "";
-                for (int j  = G_donde_inicia_la_tabla; j < Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp].Length; j++)
+                for (int j = G_donde_inicia_la_tabla; j < Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp].Length; j++)
                 {
 
                     string[] info_base_split = Tex_base.GG_base_arreglo_de_arreglos[indic_niv_afil_simp][j].Split(caracter_separacion_string[0][0]);
@@ -112,11 +112,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 }
 
-                if (encontro_nivel_usuario==false)
+                if (encontro_nivel_usuario == false)
                 {
                     id_horizontal_usuario_simple = "1";
-                    info_a_retornar=bas.Agregar(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple, nivel_usuario + caracter_separacion_string[0] + id_horizontal_usuario_simple + caracter_separacion_string[0]);
-                    
+                    info_a_retornar = bas.Agregar(direccion_tab_NIVELES_IDHORIZONTAL_enc_simple, nivel_usuario + caracter_separacion_string[0] + id_horizontal_usuario_simple + caracter_separacion_string[0]);
+
                 }
 
                 string info_a_agregar =
@@ -143,7 +143,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     + ""                    //|10_tipo_afiliado| 
                     + caracter_separacion_string[0];
 
-                info_a_retornar=bas.Agregar(direccion_tab_enc_simple, info_a_agregar);
+                info_a_retornar = bas.Agregar(direccion_tab_enc_simple, info_a_agregar);
             }
 
             else
@@ -163,7 +163,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 return info_a_retornar;
             }
             return info_a_retornar;
-        
+
         }
 
 
@@ -383,37 +383,37 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
 
                 string info_a_agregar =
-                    
+
                     (Tex_base.GG_base_arreglo_de_arreglos[indic_afil_unificado].Length - 1 + "")//0_id_usuario
-                    
+
                     + caracter_separacion_string[0]
-                    
+
                     + "" + id_enc + caracter_separacion_string[2] + tabla_enc
-                                                    //1)id_y_proy_a_pagar//1)0idp╦1idp¬0proyecto_p°0idp╦1idp¬1proyecto_p
+                    //1)id_y_proy_a_pagar//1)0idp╦1idp¬0proyecto_p°0idp╦1idp¬1proyecto_p
                     + caracter_separacion_string[0]
-                    
-                    + "" + "0"+ caracter_separacion_string[2] + tabla_enc          //2)puntod_de_proy_a_recibir//2)0puntos_d_r¬0proyecto_r°1puntos_d_r¬1proyecto_r
-                    
+
+                    + "" + "0" + caracter_separacion_string[2] + tabla_enc          //2)puntod_de_proy_a_recibir//2)0puntos_d_r¬0proyecto_r°1puntos_d_r¬1proyecto_r
+
                     + caracter_separacion_string[0]
-                    
+
                     + "" + "0"                      //3)puntos_d_r_totales
-                    
+
                     + caracter_separacion_string[0]
-                    
+
                     + "" + datos                    //4)datos//5)datos
-                    
+
                     + caracter_separacion_string[0]
-                    
+
                     + "" + nivel_usuario            //5)nivel
-                    
+
                     + caracter_separacion_string[0]
-                    
+
                     + "" + id_horizontal_usuario_simple//6)id_horizontal
-                    
+
                     + caracter_separacion_string[0]
-                    
+
                     + ""                            //7)tipo_afiliado
-                    
+
                     + caracter_separacion_string[0];
 
                 info_a_retornar = bas.Agregar(direccion_tab_enc_unificado, info_a_agregar);
@@ -438,7 +438,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
 
         }
-        
+
 
     }
 }

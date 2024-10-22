@@ -157,9 +157,10 @@ function agregarProducto(datos) {
   productos.push(nuevoProducto);
 }
 
+let textoPedido = '';
 function procesarPedido() 
 {
-  let textoPedido = '';
+  
   let textoDescripcion = '';
   let precioTotalPedido = 0; // Inicializar el precio total del pedido
 
@@ -209,6 +210,7 @@ function copiarContenido()
   window.getSelection().addRange(rangoSeleccion);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
+  textoDescripcion = '';
   alert('Contenido copiado al portapapeles.');
 }
 
@@ -266,7 +268,32 @@ document.addEventListener("DOMContentLoaded", function() {
           actualizarCantidad(idProducto, 1); // Incrementar la cantidad del producto correspondiente
           ingresarCantidad.value = ''; // Limpiar el campo de entrada después de incrementar la cantidad
         } else {
-          alert('El producto no está en la lista.'); // Mensaje si el producto no está en la lista
+                alert('El producto no está en la lista.'); // Mensaje si el producto no está en la lista] if (!productoEncontrado) {
+                let nombreProducto = prompt("El código de barras no existe. Ingresa el nombre del producto:");
+                let cantidad_contenido = prompt("Ingresa la cantidad contenido:");
+                let tipoMedida = prompt("Ingresa el tipo de medida (ej. kg, litros):");
+                let cantidad_comprada = prompt("Ingresa la cantidada de productos:");
+                let precio_unidad = prompt("Ingresa la precio:");
+                
+                
+                
+                
+                //COMP:COD_BAR1&1&200&2&NOM_PRODUCTO_SI_NO_ESTA#COD_BAR1&1&200&2&NOM_PRODUCTO_SI_NO_ESTA:PROVEDOR1
+                if(textoPedido=="")
+                {
+                  textoPedido += `${idProducto}&${cantidad_comprada}&${precio_unidad}&&${nombreProducto}&${cantidad_contenido}&${tipoMedida}`;
+                }
+                else
+                {
+        
+                  textoPedido += `#${idProducto}&${cantidad_comprada}&${precio_unidad}&&${nombreProducto}&${cantidad_contenido}&${tipoMedida}`;
+        
+                }
+                
+                
+                
+                
+                
           ingresarCantidad.value = ''; // Limpiar el campo de entrada si el producto no está en la lista
         }
       }

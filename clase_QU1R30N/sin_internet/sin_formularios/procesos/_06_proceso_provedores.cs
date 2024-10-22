@@ -22,10 +22,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         Tex_base bas = new Tex_base();
 
-        
 
 
-        public string registro_provedores_cod3_r_(string direccion_archivo,string datos, object caracter_separacion_obj = null)
+
+        public string registro_provedores_cod3_r_(string direccion_archivo, string datos, object caracter_separacion_obj = null)
         {
             string info_a_retornar = "";
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
@@ -59,7 +59,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "no se encontro ";
                 }
 
-                
+
                 string provedor_de_que_empresa = datos_espliteado[0];
                 string cantidad_vendida = datos_espliteado[1];
                 string Nombre_encargado = datos_espliteado[2];
@@ -103,7 +103,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string direccion_archivo_tipo_medid = direccion_archivo;
             string resultado_archivo_tipo_medida = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_tipo_medid);
             string[] res_esp_archivo_tipo_medida = resultado_archivo_tipo_medida.Split(G_caracter_para_confirmacion_o_error[0][0]);
-            
+
             if (Convert.ToInt32(res_esp_archivo_tipo_medida[0]) > 0)
             {
                 if (res_esp_archivo_tipo_medida[0] == "1")
@@ -151,7 +151,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
                     {
                         string[] info_pro_esp = Tex_base.GG_base_arreglo_de_arreglos[indice][i].Split(caracter_separacion_string[0][0]);
-                        info_a_retornar = op_tex.concatenacion_caracter_separacion(info_a_retornar, info_pro_esp[1]+ caracter_separacion_string[2]+ info_pro_esp[21], caracter_separacion_string[1]);
+                        info_a_retornar = op_tex.concatenacion_caracter_separacion(info_a_retornar, info_pro_esp[1] + caracter_separacion_string[2] + info_pro_esp[21], caracter_separacion_string[1]);
                     }
 
                     info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + info_a_retornar;

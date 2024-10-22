@@ -50,7 +50,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     ID = "" + Tex_base.GG_base_arreglo_de_arreglos[indic_aprendiz_E].Length;
                     resul_agregue = "1";
                     esta_arreglo = true;
-                    
+
                 }
                 else if (res_esp_archivo_E[0] == "-1")
                 {
@@ -85,10 +85,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 string Motivo_de_terminación = "";
                 string Horas_trabajadas = "NO_DEFINIDO";
                 string Evaluaciones_de_desempeño = "NO_DEFINIDO";
-                
+
                 string Habilidades_y_certificaciones = datos_espliteado[12];
                 string Idiomas = datos_espliteado[13];
-                
+
                 string Fecha_de_última_promoción = "NO_DEFINIDO";
                 string ID_del_departamento_de_supervisión = "NO_DEFINIDO";
                 string Historial_de_capacitación = "NO_DEFINIDO";
@@ -141,10 +141,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     esta_arreglo = false;
                 }
 
-            
 
 
-                
+
+
             }
             else
             {
@@ -199,7 +199,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string trabajos_eventual(string direccion_archivo_emp,string proceso, string inf_a_proc)
+        public string trabajos_eventual(string direccion_archivo_emp, string proceso, string inf_a_proc)
         {
             string info_a_retornar = null;
 
@@ -231,7 +231,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     info_a_retornar = "0" + G_caracter_para_confirmacion_o_error[0] + "trabajador_NO_encontrado";
                 }
             }
-            
+
 
 
             return info_a_retornar;
@@ -239,7 +239,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         public string agregar_trabajos_dias(string direccion_archivo_trab_dia, string proceso, string ids_emp, string trabajos, string dias, string id_prog_a_env)
         {
-            
+
 
             string info_a_retornar = null;
 
@@ -250,7 +250,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] dias_esp = dias.Split(G_caracter_separacion[2][0]);
 
             string[] res_ind = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo_trab_dia).Split(G_caracter_para_confirmacion_o_error[0][0]);
-            if (res_ind[0]=="1")
+            if (res_ind[0] == "1")
             {
                 int indice = Convert.ToInt32(res_ind[1]);
                 for (int j = 0; j < dias_esp.Length; j++)
@@ -264,7 +264,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             {
                                 //"dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no¬id_quienlo_iso_si_es_vacio_son_todos    |trabajos2_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no¬id_quienlo_iso_si_es_vacio_son_todos"
                                 Tex_base.GG_base_arreglo_de_arreglos[indice][i] = op_tex.concatenacion_caracter_separacion(Tex_base.GG_base_arreglo_de_arreglos[indice][i], trabajos_esp[k] + G_caracter_separacion[1] + ids_emp + G_caracter_separacion[1] + "NO_HECHO" + G_caracter_separacion[1] + "" + G_caracter_separacion[1] + id_prog_a_env);
-                                
+
                             }
 
                             bas.cambiar_archivo_con_arreglo(direccion_archivo_trab_dia, Tex_base.GG_base_arreglo_de_arreglos[indice]);

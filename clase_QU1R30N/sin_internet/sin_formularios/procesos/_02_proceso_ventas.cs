@@ -14,7 +14,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
         string[] G_caracter_para_confirmacion_o_error = var_fun_GG.GG_caracter_para_confirmacion_o_error;
 
-        
+
 
         var_fun_GG vf_GG = new var_fun_GG();
 
@@ -24,7 +24,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        public string ventas(string direccion_archivo,string codigos, string cantidades, string plataforma = "")
+        public string ventas(string direccion_archivo, string codigos, string cantidades, string plataforma = "")
         {
             string info_a_retornar = null;
 
@@ -63,7 +63,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                                 double cantidad_doubl = Convert.ToDouble(cantidades_espliteados[i]);
                                 double precio_unitario = Convert.ToDouble(info_esp[4]);
                                 double total_pagar = cantidad_doubl * precio_unitario;
-                                
+
                                 //grupo_al_que_forma_el_producto
                                 if (info_esp[9] == "PRODUCTO_PIEZA")
                                 {
@@ -101,7 +101,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                                      );
 
-                                    
+
 
                                 }
 
@@ -196,7 +196,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                             if (res_esp_bus[0] == "0")
                             {
                                 productos_no_encontrados = op_tex.concatenacion_caracter_separacion(productos_no_encontrados, "-1" + G_caracter_para_confirmacion_o_error[0] + codigos_espliteados, G_caracter_para_confirmacion_o_error[1]);
-                                
+
                             }
                         }
 
@@ -211,12 +211,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
             }
 
-            
+
 
 
             return info_a_retornar;
         }
 
-        
+
     }
 }
