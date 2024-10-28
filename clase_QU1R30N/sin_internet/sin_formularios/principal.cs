@@ -23,6 +23,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
         _08_modelo_registros mod_reg = new _08_modelo_registros();
         _09_modelo_funciones_diversas mod_fun_div = new _09_modelo_funciones_diversas();
         _10_modelo_mul mod_mul = new _10_modelo_mul();
+        _11_modelo_intermediario_acendente mod_int = new _11_modelo_intermediario_acendente();
+        _12_modelo_publicidad mod_pub = new _12_modelo_publicidad();
 
         string[] G_caracter_separacion = var_fun_GG.GG_caracter_separacion;
         string[] G_caracter_separacion_funciones_espesificas = var_fun_GG.GG_caracter_separacion_funciones_espesificas;
@@ -89,11 +91,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
                     info_a_retornar = mod_mul.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
 
-                case "INT_ACEN":
+                case "MODELO_INT_ACEN":
 
-                    info_a_retornar = mod_mul.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_int.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
                     break;
 
+                case "MODELO_PUB":
+
+                    info_a_retornar = mod_pub.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    break;
 
             }
 
