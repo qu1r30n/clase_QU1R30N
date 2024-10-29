@@ -12,6 +12,7 @@ using clase_QU1R30N.sin_internet.sin_formularios;
 using clase_QU1R30N.sin_internet.con_formularios.tienda;
 using clase_QU1R30N.con_internet.herramientas_internet;
 using System.Threading;
+using clase_QU1R30N.sin_internet.sin_formularios.procesos;
 
 namespace clase_QU1R30N
 {
@@ -23,6 +24,12 @@ namespace clase_QU1R30N
         {
             InitializeComponent();
             inicio.iniciar();
+
+            //prueba
+            principal enl_princ = new principal();
+
+            //_12_proceso_publicidad pru = new _12_proceso_publicidad();
+            //pru.publicar_face("tex","","PRUEBA3","221020874422000","EAAEpN2qFii0BO7d1RaXLPx741Xif7ZCTPZBS9cZBbcoE26pfxZB4jgqIdyfEAcvS9rJu8gXJcRCZA3l9ZBAn4DtoXUYXC7pEq3rXmgZAteHnxDVphYKAFNfiKVIfADfXJLF4FhfBbiqWWBExX0hEsWC2SoIuh3Ey50W9lrdHEfeLxcZCmy0ut4PrdpNtYaIASRCl3g7GM5TlskKqqPkwZAmvpNjoZD");
         }
 
         private void btn_procesar_Click(object sender, EventArgs e)

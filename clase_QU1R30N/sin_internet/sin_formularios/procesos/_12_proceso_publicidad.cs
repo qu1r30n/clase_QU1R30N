@@ -1,11 +1,11 @@
-﻿using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+
+using clase_QU1R30N.sin_internet.sin_formularios.herramientas;
 
 namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 {
@@ -33,11 +33,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         };
 
 
-        public async void publicar_face(string tipo, string url_sino_es_mensage, string mensage, string pageId, string accessToken)
+        public string publicar_face(string tipo, string url_sino_es_mensage, string mensage, string pageId, string accessToken)
         {
-
-
-
+            string info_publicacion_retornar = null;
             bool published = true; // Indicador de publicación
 
             using (var httpClient = new HttpClient())
@@ -50,25 +48,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     switch (tipo)
                     {
                         case "PUBLICAR_TEXTO_FACEBOOK":
-                            //texto
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
                             mensage_publish = $"message={mensage}&published={published}";
                             content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         case "PUBLICAR_IMAGEN_FACEBOOK":
-                            //imagen
                             requestUri = $"https://graph.facebook.com/{pageId}/photos";
                             mensage_publish = $"url={url_sino_es_mensage}&message={mensage}&published={published}";
                             content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         case "PUBLICAR_VIDEO_FACEBOOK":
-                            //video
                             requestUri = $"https://graph.facebook.com/{pageId}/videos";
                             mensage_publish = $"file_url={url_sino_es_mensage}&message={mensage}&published={published}";
                             content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
                             break;
                         default:
-                            //texto otra vez
                             requestUri = $"https://graph.facebook.com/{pageId}/feed";
                             mensage_publish = $"message={mensage}&published={published}";
                             content = new StringContent(mensage_publish, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded");
@@ -77,31 +71,38 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                     httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
 
-                    var response = await httpClient.PostAsync(requestUri, content);
+                    // Llamada síncrona
+                    var response = httpClient.PostAsync(requestUri, content).Result;
 
                     if (response.IsSuccessStatusCode)
                     {
                         Console.WriteLine("Publicación exitosa en el muro de Facebook.");
-                        MessageBox.Show("Publicación exitosa en el muro de Facebook.");
+                        info_publicacion_retornar = "1" + G_caracter_para_confirmacion_o_error[1] + "Publicación exitosa en el muro de Facebook.";
                     }
                     else
                     {
                         Console.WriteLine("Error al publicar en el muro de Facebook.");
-                        MessageBox.Show("Error al publicar en el muro de Facebook.");
+                        info_publicacion_retornar = "-1" + G_caracter_para_confirmacion_o_error[1] + "Error al publicar en el muro de Facebook.";
                     }
                 }
                 catch (HttpRequestException ex)
                 {
                     Console.WriteLine($"Error en la solicitud HTTP: {ex.Message}");
-                    MessageBox.Show($"Error en la solicitud HTTP: {ex.Message}");
+                    info_publicacion_retornar = "-1" + G_caracter_para_confirmacion_o_error[1] + "Error al publicar en el muro de Facebook.";
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error: {ex.Message}");
-                    MessageBox.Show($"Error: {ex.Message}");
+                    info_publicacion_retornar = "-1" + G_caracter_para_confirmacion_o_error[1] + "Error al publicar en el muro de Facebook.";
                 }
             }
+            return info_publicacion_retornar;
         }
 
+
+
+
+
+        //fin clase---------------------------------------------------------------
     }
 }

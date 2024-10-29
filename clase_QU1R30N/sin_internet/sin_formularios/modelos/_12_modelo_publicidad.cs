@@ -25,37 +25,34 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
         public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
         {
+
+
             string info_a_retornar = null;
 
-            string[] cant_datos = datos.Split(G_caracter_separacion[1][0]);
+            string[] info_espliteada = datos.Split(G_caracter_separacion[1][0]);
 
 
-            for (int i = 0; i < cant_datos.Length; i++)
+
+            switch (proceso)
             {
-                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[2][0]);
-                
-                switch (proceso)
-                {
-                    case "PUBLICAR_TEXTO_FACEBOOK":
-                            pr_pub.publicar_face(proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
-                        break;
+                case "PUBLICAR_TEXTO_FACEBOOK":
+                case "PUBLICAR_IMAGEN_FACEBOOK":
+                case "PUBLICAR_VIDEO_FACEBOOK":
 
-                    case "PUBLICAR_IMAGEN_FACEBOOK":
-                            pr_pub.publicar_face(proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
-                        break;
-
-                    case "PUBLICAR_VIDEO_FACEBOOK":
-                            pr_pub.publicar_face(proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
-                        break;
+                    info_a_retornar = pr_pub.publicar_face(proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
 
 
-                    default:
 
-                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                        break;
-                }
+                    break;
 
+
+                default:
+
+                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                    break;
             }
+
+
             return info_a_retornar;
         }
 
