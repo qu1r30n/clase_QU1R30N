@@ -32,13 +32,24 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             for (int i = 0; i < cant_datos.Length; i++)
             {
                 string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[2][0]);
-                string id = null;
+                
                 switch (proceso)
                 {
-                    case "":
-                        
+                    case "AGREGAR_PRODUCTO_SERVICIO":
+                            pr_int_ace.agregar_producto_servicio(info_espliteada);
                         break;
 
+                    case "VENTA_PRODUCTO_SERVICIO":
+                            pr_int_ace.venta_producto_servicio(info_espliteada);
+                        break;
+
+                    case "INVENTARIO_COMPLETO":
+                        pr_int_ace.obtenerInventarioCompleto(info_espliteada);
+                        break;
+
+                    case "PONER_IMAGEN_A_PRODUCTO":
+                        pr_int_ace.poner_imagen_a_producto(info_espliteada);
+                        break;
 
 
                     default:

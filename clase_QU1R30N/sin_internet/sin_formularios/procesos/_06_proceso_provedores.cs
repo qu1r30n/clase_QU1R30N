@@ -50,7 +50,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 else if (res_esp_archivo_provedores[0] == "-1")
                 {
-                    ID_encargado = "" + bas.Leer(direccion_archivo_provedores).Length;
+                    ID_encargado = "" + bas.leer(direccion_archivo_provedores).Length;
                     resul_agregue = "2";
                     esta_arreglo = false;
                 }

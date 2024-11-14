@@ -280,7 +280,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             else if (num_indice_del_arreglo[0] == "0")
             {
-                string[] info_a_concarenar = bas.Leer(direccion_archivo);
+                string[] info_a_concarenar = bas.leer(direccion_archivo);
                 for (int i = G_donde_inicia_la_tabla; i < info_a_concarenar.Length; i++)
                 {
                     string num_fil = "";

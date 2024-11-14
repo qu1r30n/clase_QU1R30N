@@ -919,7 +919,7 @@ namespace clase_QU1R30N.sin_internet.con_formularios
         {
             
             Tex_base bas = new Tex_base();
-            string[] filas_archivo = bas.Leer(direccion, caracter_separacion_objeto: caracter_separacion_obj);
+            string[] filas_archivo = bas.leer(direccion, caracter_separacion_objeto: caracter_separacion_obj);
 
             
             filas_archivo = op_arr.ordenar_arreglo(filas_archivo, 3);

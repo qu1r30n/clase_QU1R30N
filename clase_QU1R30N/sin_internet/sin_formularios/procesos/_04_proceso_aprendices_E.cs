@@ -54,7 +54,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 else if (res_esp_archivo_E[0] == "-1")
                 {
-                    ID = "" + bas.Leer(direccion_archivo_aprendices_E).Length;
+                    ID = "" + bas.leer(direccion_archivo_aprendices_E).Length;
                     resul_agregue = "2";
                     esta_arreglo = false;
                 }
@@ -136,7 +136,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 else if (res_esp_archivo_E[0] == "-1")
                 {
-                    ID = "" + bas.Leer(direccion_archivo_aprendices_E).Length;
+                    ID = "" + bas.leer(direccion_archivo_aprendices_E).Length;
                     resul_agregue = "2";
                     esta_arreglo = false;
                 }
@@ -182,7 +182,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 }
                 else if (res_esp_archivo_E[0] == "-1")
                 {
-                    ID = "" + bas.Leer(direccion_archivo_aprendices_E).Length;
+                    ID = "" + bas.leer(direccion_archivo_aprendices_E).Length;
                     resul_agregue = "2";
                     esta_arreglo = false;
                 }

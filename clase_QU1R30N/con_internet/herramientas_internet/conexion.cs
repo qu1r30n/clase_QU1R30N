@@ -39,7 +39,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
         principal enl_princ = new principal();
         public int[] checar_numero_de_direccion_de_archivo_atras_actual_adelante(int posicion_bandera)
         {
-            string[] banderas = bas.Leer(G_dir_arch_transferencia[0]);
+            string[] banderas = bas.leer(G_dir_arch_transferencia[0]);
 
 
 
@@ -97,12 +97,12 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
             //S_1_4_ia
             if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
             {
-                string[] usuarios_lectura = bas.Leer(G_dir_arch_transferencia[0]);
+                string[] usuarios_lectura = bas.leer(G_dir_arch_transferencia[0]);
 
                 if (usuarios_lectura[0] == var_fun_GG.GG_id_programa)
                 {
 
-                    string[] respuestas_ia = bas.Leer(G_dir_arch_transferencia[1]);
+                    string[] respuestas_ia = bas.leer(G_dir_arch_transferencia[1]);
 
                     if (respuestas_ia.Length > 1)
                     {
@@ -190,9 +190,9 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
             try
             {
-                string[] vieja_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+                string[] vieja_info_arch = bas.leer(G_dir_arch_transferencia[0]);
                 bas.eliminar_fila_PARA_MULTIPLES_PROGRAMAS(G_dir_arch_transferencia[0], 0, var_fun_GG.GG_id_programa);
-                string[] nueva_info_arch = bas.Leer(G_dir_arch_transferencia[0]);
+                string[] nueva_info_arch = bas.leer(G_dir_arch_transferencia[0]);
 
                 if (vieja_info_arch[0] == var_fun_GG.GG_id_programa)
                 {

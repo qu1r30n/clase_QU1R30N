@@ -367,7 +367,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             string[] OPERACION_A_HACER_DESPUES_DEL_INVENTARIO = informacion.Split(caracter_separacion_funciones_espesificas[2][0]);
             string[] CANTIDAD_INFO_HACER_INV = OPERACION_A_HACER_DESPUES_DEL_INVENTARIO[1].Split(caracter_separacion_funciones_espesificas[3][0]);
-            string[] filas_archivo_ventas_hecha_durante_inv = bas.Leer(vf_GG_arc_crear.GG_direccion_hacer_inventarios[0, 0], caracter_separacion_objeto: caracter_separacion_obj, iniciar_desde_que_fila: 1);
+            string[] filas_archivo_ventas_hecha_durante_inv = bas.leer(vf_GG_arc_crear.GG_direccion_hacer_inventarios[0, 0], caracter_separacion_objeto: caracter_separacion_obj, iniciar_desde_que_fila: 1);
 
             string[] arreglo_juntos = null;
             if (filas_archivo_ventas_hecha_durante_inv != null)

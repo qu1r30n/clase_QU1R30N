@@ -36,15 +36,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string[,] GG_ventana_datos_conf = new string[,]
         {
-                /*0*/ { "2", "dato_de_configuracion", "" },
-                /*1*/ { "2", "descripcion_de_configuracion", "" }
+                /*0*/ { "2", "dato_de_configuracion", "" , "TEXTO" },
+                /*1*/ { "2", "descripcion_de_configuracion", "" , "TEXTO" },
         };
         public static void RecargarVentanaEmergenteDatosConfiguracion(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_datos_conf = new string[,]
             {
-                /*0*/ { "2", "dato_de_configuracion", "" },
-                /*1*/ { "2", "descripcion_de_configuracion", "" }
+                /*0*/ { "2", "dato_de_configuracion", "" , "TEXTO" },
+                /*1*/ { "2", "descripcion_de_configuracion", "" , "TEXTO" },
             };
 
 
@@ -91,65 +91,67 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana productos
         static public string[,] GG_ventana_emergente_productos = new string[,]
         {
-            /*0*/ { "2", "_00_ID", "" ,"-1"},
-                /*1*/ { "1", "_01_PRODUCTO", "", "NOSE"},
-                /*2*/ { "1", "_02_CONTENIDO", "0|SOLO_NUMEROS", "-0" },
-                /*3*/ { "4", "_03_TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2], "NOSE" },
-                /*4*/ { "1", "_04_PRECIO_VENTA", "0|SOLO_NUMEROS", "NOSE" },
-                /*5*/ { "2", "_05_COD_BARRAS", GG_variables_string[0], "NOSE" },
-                /*6*/ { "1", "_06_CANTIDAD", "1|SOLO_NUMEROS" , "-0"},
-                /*7*/ { "1", "_07_COSTO_COMP", "0|SOLO_NUMEROS" , "-0"},
-                /*8*/ { "4", "_08_PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] , "NOSE"},
-                /*9*/ { "4", "_09_GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬29¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬45¬PRODUCTO_ELABORADO", "PRODUCTO_PIEZA"},
-                /*10*/ { "1", "_10_CANT_X_PAQUET", "1|SOLO_NUMEROS" , "-0"},
-                /*11*/ { "4", "_11_ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION", "INDIVIDUAL"},
-                /*12*/ { "1", "_12_CODBAR_PAQUETE", "" , "NOSE"},
-                /*13*/ { "1", "_13_COD_BAR_INDIVIDUAL_ES_PAQ", "" , "NOSE"},
-                /*14*/ { "1", "_14_LIGAR_PROD_SAB", "" , "NOSE"},
-                /*15*/ { "1", "_15_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" , "NOSE"},
-                /*16*/ { "1", "_16_INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" , "NOSE"},
-                /*17*/ { "1", "_17_CADUCIDAD", "0|SOLO_NUMEROS" , "-0"},
-                /*18*/ { "1", "_18_ULTIMO_MOV", "0|SOLO_NUMEROS" , "-0"},
-                /*19*/ { "1", "_19_SUCUR_VENT", "" , "NOSE"},
-                /*20*/ { "1", "_20_CLAF_PROD", "" , "-0"},
-                /*21*/ { "1", "_21_DIR_IMG_INTER", "" , "NOSE"},
-                /*22*/ { "1", "_22_DIR_IMG_COMP", "" , "NOSE"},
-                /*23*/ { "1", "_23_INFO_EXTRA", "" , "NOSE"},
-                /*24*/ { "1", "_24_PROCESO_CREAR", "||||NO_VISIBLE" , "NOSE"},
-                /*25*/ { "1", "_25_DIR_VID_PROC_CREAR", "" , "NOSE"},
-                /*26*/ { "2", "_26_NO_PONER_NADA", "" , ""},
+                /*0*/ { "2", "_00_ID", "" ,"-1", "ENTERO_DECIMAL" },
+                /*1*/ { "1", "_01_PRODUCTO", "", "NOSE", "TEXTO" },
+                /*2*/ { "1", "_02_CONTENIDO", "0|SOLO_NUMEROS", "-0" , "ENTERO_DECIMAL" },
+                /*3*/ { "4", "_03_TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2], "NOSE" , "TEXTO" },
+                /*4*/ { "1", "_04_PRECIO_VENTA", "0|SOLO_NUMEROS", "NOSE" , "ENTERO_DECIMAL" },
+                /*5*/ { "2", "_05_COD_BARRAS", GG_variables_string[0], "NOSE" , "TEXTO" },
+                /*6*/ { "1", "_06_CANTIDAD", "1|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*7*/ { "1", "_07_COSTO_COMP", "0|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*8*/ { "4", "_08_PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] , "NOSE", "TEXTO" },
+                /*9*/ { "4", "_09_GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬29¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬45¬PRODUCTO_ELABORADO", "PRODUCTO_PIEZA", "TEXTO" },
+                /*10*/ { "1", "_10_CANT_X_PAQUET", "1|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*11*/ { "4", "_11_ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION", "INDIVIDUAL", "TEXTO" },
+                /*12*/ { "1", "_12_CODBAR_PAQUETE", "" , "NOSE", "TEXTO" },
+                /*13*/ { "1", "_13_COD_BAR_INDIVIDUAL_ES_PAQ", "" , "NOSE", "TEXTO" },
+                /*14*/ { "1", "_14_LIGAR_PROD_SAB", "" , "NOSE", "TEXTO" },
+                /*15*/ { "1", "_15_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" , "NOSE", "TEXTO" },
+                /*16*/ { "1", "_16_INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" , "NOSE", "TEXTO" },
+                /*17*/ { "1", "_17_CADUCIDAD", "0|SOLO_NUMEROS" , "-0", "TEXTO" },
+                /*18*/ { "1", "_18_ULTIMO_MOV", "0|SOLO_NUMEROS" , "-0", "TEXTO" },
+                /*19*/ { "1", "_19_SUCUR_VENT", "" , "NOSE", "TEXTO" },
+                /*20*/ { "1", "_20_CLAF_PROD", "" , "-0", "ENTERO_DECIMAL" },
+                /*21*/ { "1", "_21_DIR_IMG_INTER", "" , "NOSE", "TEXTO" },
+                /*22*/ { "1", "_22_DIR_IMG_COMP", "" , "NOSE", "TEXTO" },
+                /*23*/ { "1", "_23_INFO_EXTRA", "" , "NOSE", "TEXTO" },
+                /*24*/ { "1", "_24_PROCESO_CREAR", "||||NO_VISIBLE" , "NOSE", "TEXTO" },
+                /*25*/ { "1", "_25_DIR_VID_PROC_CREAR", "" , "NOSE", "TEXTO" },
+                /*26*/ { "1", "_26_TIEMPO_FABRICACION", "0" , "NOSE", "ENTERO_DECIMAL" },
+                /*27*/ { "2", "_27_NO_PONER_NADA", "" , "", "TEXTO" },
         };
         public static void RecargarVentanaEmergenteProductos(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_emergente_productos = new string[,]
             {
-                /*0*/ { "2", "_00_ID", "" ,"-1"},
-                /*1*/ { "1", "_01_PRODUCTO", "", "NOSE"},
-                /*2*/ { "1", "_02_CONTENIDO", "0|SOLO_NUMEROS", "-0" },
-                /*3*/ { "4", "_03_TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2], "NOSE" },
-                /*4*/ { "1", "_04_PRECIO_VENTA", "0|SOLO_NUMEROS", "NOSE" },
-                /*5*/ { "2", "_05_COD_BARRAS", GG_variables_string[0], "NOSE" },
-                /*6*/ { "1", "_06_CANTIDAD", "1|SOLO_NUMEROS" , "-0"},
-                /*7*/ { "1", "_07_COSTO_COMP", "0|SOLO_NUMEROS" , "-0"},
-                /*8*/ { "4", "_08_PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] , "NOSE"},
-                /*9*/ { "4", "_09_GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬29¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬45¬PRODUCTO_ELABORADO", "PRODUCTO_PIEZA"},
-                /*10*/ { "1", "_10_CANT_X_PAQUET", "1|SOLO_NUMEROS" , "-0"},
-                /*11*/ { "4", "_11_ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION", "INDIVIDUAL"},
-                /*12*/ { "1", "_12_CODBAR_PAQUETE", "" , "NOSE"},
-                /*13*/ { "1", "_13_COD_BAR_INDIVIDUAL_ES_PAQ", "" , "NOSE"},
-                /*14*/ { "1", "_14_LIGAR_PROD_SAB", "" , "NOSE"},
-                /*15*/ { "1", "_15_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" , "NOSE"},
-                /*16*/ { "1", "_16_INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" , "NOSE"},
-                /*17*/ { "1", "_17_CADUCIDAD", "0|SOLO_NUMEROS" , "-0"},
-                /*18*/ { "1", "_18_ULTIMO_MOV", "0|SOLO_NUMEROS" , "-0"},
-                /*19*/ { "1", "_19_SUCUR_VENT", "" , "NOSE"},
-                /*20*/ { "1", "_20_CLAF_PROD", "" , "-0"},
-                /*21*/ { "1", "_21_DIR_IMG_INTER", "" , "NOSE"},
-                /*22*/ { "1", "_22_DIR_IMG_COMP", "" , "NOSE"},
-                /*23*/ { "1", "_23_INFO_EXTRA", "" , "NOSE"},
-                /*24*/ { "1", "_24_PROCESO_CREAR", "||||NO_VISIBLE" , "NOSE"},
-                /*25*/ { "1", "_25_DIR_VID_PROC_CREAR", "" , "NOSE"},
-                /*26*/ { "2", "_26_NO_PONER_NADA", "" , ""},
+                /*0*/ { "2", "_00_ID", "" ,"-1", "ENTERO_DECIMAL" },
+                /*1*/ { "1", "_01_PRODUCTO", "", "NOSE", "TEXTO" },
+                /*2*/ { "1", "_02_CONTENIDO", "0|SOLO_NUMEROS", "-0" , "ENTERO_DECIMAL" },
+                /*3*/ { "4", "_03_TIPO_MEDIDA", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[1] + '|' + GG_variables_string[2], "NOSE" , "TEXTO" },
+                /*4*/ { "1", "_04_PRECIO_VENTA", "0|SOLO_NUMEROS", "NOSE" , "ENTERO_DECIMAL" },
+                /*5*/ { "2", "_05_COD_BARRAS", GG_variables_string[0], "NOSE" , "TEXTO" },
+                /*6*/ { "1", "_06_CANTIDAD", "1|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*7*/ { "1", "_07_COSTO_COMP", "0|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*8*/ { "4", "_08_PROVEDOR", "NOSE|TODAS_MAYUSCULAS|" + GG_variables_string[5] + '|' + GG_variables_string[6] , "NOSE", "TEXTO" },
+                /*9*/ { "4", "_09_GRUPO", "PRODUCTO_PIEZA||PRODUCTO_PIEZA|PRODUCTO_PIEZA°PRODUCTO_CANTIDAD°PRODUCTO_ELABORADO°VENTA_INGREDIENTE|OCULTAR_CONTROL¬29¬PRODUCTO_ELABORADO°OCULTAR_CONTROL¬45¬PRODUCTO_ELABORADO", "PRODUCTO_PIEZA", "TEXTO" },
+                /*10*/ { "1", "_10_CANT_X_PAQUET", "1|SOLO_NUMEROS" , "-0", "ENTERO_DECIMAL" },
+                /*11*/ { "4", "_11_ES_PAQUETE", "INDIVIDUAL||INDIVIDUAL|INDIVIDUAL°PAQUETE_MAYOREO°PAQUETE_PROMOCION|OCULTAR_CONTROL¬27¬PAQUETE_MAYOREO╦PAQUETE_PROMOCION", "INDIVIDUAL", "TEXTO" },
+                /*12*/ { "1", "_12_CODBAR_PAQUETE", "" , "NOSE", "TEXTO" },
+                /*13*/ { "1", "_13_COD_BAR_INDIVIDUAL_ES_PAQ", "" , "NOSE", "TEXTO" },
+                /*14*/ { "1", "_14_LIGAR_PROD_SAB", "" , "NOSE", "TEXTO" },
+                /*15*/ { "1", "_15_IMPUESTOS", "|TODAS_MAYUSCULAS|||REYENO_TEXTBOX_VENTANA_IMPU" , "NOSE", "TEXTO" },
+                /*16*/ { "1", "_16_INGREDIENTES", "||||NO_VISIBLE°PRODUCTO_ELABORADO" , "NOSE", "TEXTO" },
+                /*17*/ { "1", "_17_CADUCIDAD", "0|SOLO_NUMEROS" , "-0", "TEXTO" },
+                /*18*/ { "1", "_18_ULTIMO_MOV", "0|SOLO_NUMEROS" , "-0", "TEXTO" },
+                /*19*/ { "1", "_19_SUCUR_VENT", "" , "NOSE", "TEXTO" },
+                /*20*/ { "1", "_20_CLAF_PROD", "" , "-0", "ENTERO_DECIMAL" },
+                /*21*/ { "1", "_21_DIR_IMG_INTER", "" , "NOSE", "TEXTO" },
+                /*22*/ { "1", "_22_DIR_IMG_COMP", "" , "NOSE", "TEXTO" },
+                /*23*/ { "1", "_23_INFO_EXTRA", "" , "NOSE", "TEXTO" },
+                /*24*/ { "1", "_24_PROCESO_CREAR", "||||NO_VISIBLE" , "NOSE", "TEXTO" },
+                /*25*/ { "1", "_25_DIR_VID_PROC_CREAR", "" , "NOSE", "TEXTO" },
+                /*26*/ { "1", "_26_TIEMPO_FABRICACION", "0" , "NOSE", "ENTERO_DECIMAL" },
+                /*27*/ { "2", "_27_NO_PONER_NADA", "" , "", "TEXTO" },
             };
 
 
@@ -197,16 +199,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //cosas no estaban en el inventario
         static public string[,] GG_ventana_COSAS_NO_ESTABAN_INVENTARIO =
         {
-            { "1","0_COD_BAR","", "NOSE"},
-            { "1","1_NOMBRE","" , "NOSE"},
+            { "1","0_COD_BAR","", "NOSE", "TEXTO" },
+            { "1","1_NOMBRE","" , "NOSE", "TEXTO" },
 
         };
         public static void RecargarVentanaEmergente_Cosas_que_no_estaban(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_COSAS_NO_ESTABAN_INVENTARIO = new string[,]
             {
-                { "1","0_COD_BAR","", "NOSE"},
-                { "1","1_NOMBRE","" , "NOSE"},
+                { "1","0_COD_BAR","", "NOSE", "TEXTO" },
+                { "1","1_NOMBRE","" , "NOSE", "TEXTO" },
             };
 
 
@@ -249,30 +251,30 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana provedores
         static public string[,] GG_ventana_provedor =
         {
-            { "1","0_ID_EMPRESA","", "-0"},
-            { "1","1_NOMBRE_EMPRESA","", "NOSE"},
-            { "1","2_NOMBRE_ENCARGADO","", "NOSE" },
-            { "1","3_DIRECCIÓN_EMPRESA","", "NOSE" },
-            { "1","4_CIUDAD_EMPRESA","", "NOSE" },
-            { "1","5_ESTADO_EMPRESA","", "NOSE" },
-            { "1","6_CÓDIGO_POSTAL","", "NOSE" },
-            { "1","7_PAÍS","" , "NOSE"},
-            { "1","8_CORREO_ELECTRÓNICO","" , "NOSE"},
-            { "1","9_TELÉFONO_ENCARGADO","" , "NOSE"},
-            { "1","10_TELEFONO_EMPRESA","" , "NOSE"},
-            { "1","11_TIPO_DE_PROVEEDOR","" , "NOSE"},
-            { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE"},
-            { "1","13_CUENTA_BANCO","" , "NOSE"},
-            { "1","14_UBICACIÓN_(GPS)","" , "-0"},
-            { "1","15_NOTAS","" , "NOSE"},
-            { "1","16_RECORDATORIO","" , ""},
-            { "1","17_ACTIVO_O_NO_ACTIVO","", "ACTIVO"},
-            { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" ,"CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0" },
-            { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" , "NOSE"},
-            { "1","20_SUCURSALES_QUE_LE_COMPRAN","" , "NOSE"},
-            { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" , "0"},
-            { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","","NOSE°NOSE" },
-            { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","","NOSE°NOSE" },
+            { "1","0_ID_EMPRESA","", "-0", "TEXTO" },
+            { "1","1_NOMBRE_EMPRESA","", "NOSE", "TEXTO" },
+            { "1","2_NOMBRE_ENCARGADO","", "NOSE" , "TEXTO" },
+            { "1","3_DIRECCIÓN_EMPRESA","", "NOSE" , "TEXTO" },
+            { "1","4_CIUDAD_EMPRESA","", "NOSE" , "TEXTO" },
+            { "1","5_ESTADO_EMPRESA","", "NOSE" , "TEXTO" },
+            { "1","6_CÓDIGO_POSTAL","", "NOSE" , "TEXTO" },
+            { "1","7_PAÍS","" , "NOSE", "TEXTO" },
+            { "1","8_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+            { "1","9_TELÉFONO_ENCARGADO","" , "NOSE", "TEXTO" },
+            { "1","10_TELEFONO_EMPRESA","" , "NOSE", "TEXTO" },
+            { "1","11_TIPO_DE_PROVEEDOR","" , "NOSE", "TEXTO" },
+            { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE", "TEXTO" },
+            { "1","13_CUENTA_BANCO","" , "NOSE", "TEXTO" },
+            { "1","14_UBICACIÓN_(GPS)","" , "-0", "TEXTO" },
+            { "1","15_NOTAS","" , "NOSE", "TEXTO" },
+            { "1","16_RECORDATORIO","" , "", "TEXTO" },
+            { "1","17_ACTIVO_O_NO_ACTIVO","", "ACTIVO", "TEXTO" },
+            { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" ,"CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0" , "TEXTO" },
+            { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" , "NOSE", "TEXTO" },
+            { "1","20_SUCURSALES_QUE_LE_COMPRAN","" , "NOSE", "TEXTO" },
+            { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" , "0", "TEXTO" },
+            { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","","NOSE°NOSE" , "TEXTO" },
+            { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","","NOSE°NOSE" , "TEXTO" },
 
 
         };
@@ -280,30 +282,30 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_provedor = new string[,]
             {
-                { "1","0_ID_EMPRESA","", "-0"},
-                { "1","1_NOMBRE_EMPRESA","", "NOSE"},
-                { "1","2_NOMBRE_ENCARGADO","", "NOSE" },
-                { "1","3_DIRECCIÓN_EMPRESA","", "NOSE" },
-                { "1","4_CIUDAD_EMPRESA","", "NOSE" },
-                { "1","5_ESTADO_EMPRESA","", "NOSE" },
-                { "1","6_CÓDIGO_POSTAL","", "NOSE" },
-                { "1","7_PAÍS","" , "NOSE"},
-                { "1","8_CORREO_ELECTRÓNICO","" , "NOSE"},
-                { "1","9_TELÉFONO_ENCARGADO","" , "NOSE"},
-                { "1","10_TELEFONO_EMPRESA","" , "NOSE"},
-                { "1","11_TIPO_DE_PROVEEDOR","" , "NOSE"},
-                { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE"},
-                { "1","13_CUENTA_BANCO","" , "NOSE"},
-                { "1","14_UBICACIÓN_(GPS)","" , "-0"},
-                { "1","15_NOTAS","" , "NOSE"},
-                { "1","16_RECORDATORIO","" , ""},
-                { "1","17_ACTIVO_O_NO_ACTIVO","", "ACTIVO"},
-                { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" ,"CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0" },
-                { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" , "NOSE"},
-                { "1","20_SUCURSALES_QUE_LE_COMPRAN","" , "NOSE"},
-                { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" , "0"},
-                { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","","NOSE°NOSE" },
-                { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","","NOSE°NOSE" },
+                { "1","0_ID_EMPRESA","", "-0", "TEXTO" },
+                { "1","1_NOMBRE_EMPRESA","", "NOSE", "TEXTO" },
+                { "1","2_NOMBRE_ENCARGADO","", "NOSE" , "TEXTO" },
+                { "1","3_DIRECCIÓN_EMPRESA","", "NOSE" , "TEXTO" },
+                { "1","4_CIUDAD_EMPRESA","", "NOSE" , "TEXTO" },
+                { "1","5_ESTADO_EMPRESA","", "NOSE" , "TEXTO" },
+                { "1","6_CÓDIGO_POSTAL","", "NOSE" , "TEXTO" },
+                { "1","7_PAÍS","" , "NOSE", "TEXTO" },
+                { "1","8_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+                { "1","9_TELÉFONO_ENCARGADO","" , "NOSE", "TEXTO" },
+                { "1","10_TELEFONO_EMPRESA","" , "NOSE", "TEXTO" },
+                { "1","11_TIPO_DE_PROVEEDOR","" , "NOSE", "TEXTO" },
+                { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE", "TEXTO" },
+                { "1","13_CUENTA_BANCO","" , "NOSE", "TEXTO" },
+                { "1","14_UBICACIÓN_(GPS)","" , "-0", "TEXTO" },
+                { "1","15_NOTAS","" , "NOSE", "TEXTO" },
+                { "1","16_RECORDATORIO","" , "", "TEXTO" },
+                { "1","17_ACTIVO_O_NO_ACTIVO","", "ACTIVO", "TEXTO" },
+                { "1","18_CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0","" ,"CALIFICACION_PREVENTA¬0°CALIFICACION_ENTREGA¬0" , "TEXTO" },
+                { "1","19_COMENTARIOS_PREVENTA_ENTREGA","" , "NOSE", "TEXTO" },
+                { "1","20_SUCURSALES_QUE_LE_COMPRAN","" , "NOSE", "TEXTO" },
+                { "1","21_DINERO_A_COMPRARLE","0|SOLO_NUMEROS" , "0", "TEXTO" },
+                { "1","22_DIAS_DE_PREVENTA_0°DIAS_DE_PREVENTA_1","","NOSE°NOSE" , "TEXTO" },
+                { "1","23_DIAS_DE_ENTREGA_0°DIAS_DE_ENTREGA_1","","NOSE°NOSE" , "TEXTO" },
             };
 
 
@@ -347,76 +349,76 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana APRENDICES_E
         static public string[,] GG_ventana_APRENDICES_E =
         {
-            { "2","0_ID","","-0" },
-            { "1","1_NOMBRE","" , "NOSE"},
-            { "1","2_APELLIDO_PATERNO","" , "NOSE"},
-            { "1","3_APELLIDO_MATERNO","" , "NOSE"},
-            { "1","4_FECHA_DE_NACIMIENTO","" , "NOSE"},
-            { "1","5_GÉNERO","" , "NOSE"},
-            { "1","6_DIRECCIÓN","" , "NOSE"},
-            { "1","7_CIUDAD","" , "NOSE"},
-            { "1","8_ESTADO_PROVINCIA","" , "NOSE"},
-            { "1","9_CÓDIGO_POSTAL","" , "NOSE"},
-            { "1","10_PAÍS","" , "NOSE"},
-            { "1","11_CORREO_ELECTRÓNICO","" , "NOSE"},
-            { "1","12_TELÉFONO","" , "NOSE"},
-            { "1","13_FECHA_DE_INGRESO","" , "NOSE"},
-            { "1","14_SUELDO","" , "NOSE"},
-            { "1","15_CARGO","" , "NOSE"},
-            { "1","16_ESTADO_DE_CURS_APRENDIS_E","" , "NOSE"},
-            { "1","17_SUPERVISOR","" , "NOSE"},
-            { "1","18_NOTAS","" , ""},
-            { "1","19_AFILIADO","" , "NOSE"},
-            { "1","20_FECHA_DE_TERMINACIÓN","0|SOLO_NUMEROS" , "0"},
-            { "1","21_MOTIVO_DE_TERMINACIÓN°DIAS_DE_PREVENTA_1","" , "NOSE"},
-            { "1","22_HORAS_TRABAJADAS","" , "NOSE"},
-            { "1","23_EVALUACIONES_DE_DESEMPEÑO","" , "NOSE"},
-            { "1","24_HABILIDADES_Y_CERTIFICACIONES","" , "NOSE"},
-            { "1","25_IDIOMAS","" , "NOSE"},
-            { "1","26_FECHA_DE_ÚLTIMA_PROMOCIÓN","" , "NOSE"},
-            { "1","27_ID_DEL_DEPARTAMENTO_DE_SUPERVISIÓN","" , "NOSE"},
-            { "1","28_HISTORIAL_DE_CAPACITACIÓN","" , "NOSE"},
-            { "1","29_ÚLTIMO_AUMENTO_DE_SALARIO","" , "NOSE"},
-            { "1","30_TIPO_EMPLEADO","" , "NOSE"},
-            { "1","31_RANGO_CALIF","" , "-0"},
+            { "2","0_ID","","-0" , "TEXTO" },
+            { "1","1_NOMBRE","" , "NOSE", "TEXTO" },
+            { "1","2_APELLIDO_PATERNO","" , "NOSE", "TEXTO" },
+            { "1","3_APELLIDO_MATERNO","" , "NOSE", "TEXTO" },
+            { "1","4_FECHA_DE_NACIMIENTO","" , "NOSE", "TEXTO" },
+            { "1","5_GÉNERO","" , "NOSE", "TEXTO" },
+            { "1","6_DIRECCIÓN","" , "NOSE", "TEXTO" },
+            { "1","7_CIUDAD","" , "NOSE", "TEXTO" },
+            { "1","8_ESTADO_PROVINCIA","" , "NOSE", "TEXTO" },
+            { "1","9_CÓDIGO_POSTAL","" , "NOSE", "TEXTO" },
+            { "1","10_PAÍS","" , "NOSE", "TEXTO" },
+            { "1","11_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+            { "1","12_TELÉFONO","" , "NOSE", "TEXTO" },
+            { "1","13_FECHA_DE_INGRESO","" , "NOSE", "TEXTO" },
+            { "1","14_SUELDO","" , "NOSE", "TEXTO" },
+            { "1","15_CARGO","" , "NOSE", "TEXTO" },
+            { "1","16_ESTADO_DE_CURS_APRENDIS_E","" , "NOSE", "TEXTO" },
+            { "1","17_SUPERVISOR","" , "NOSE", "TEXTO" },
+            { "1","18_NOTAS","" , "", "TEXTO" },
+            { "1","19_AFILIADO","" , "NOSE", "TEXTO" },
+            { "1","20_FECHA_DE_TERMINACIÓN","0|SOLO_NUMEROS" , "0", "TEXTO" },
+            { "1","21_MOTIVO_DE_TERMINACIÓN°DIAS_DE_PREVENTA_1","" , "NOSE", "TEXTO" },
+            { "1","22_HORAS_TRABAJADAS","" , "NOSE", "TEXTO" },
+            { "1","23_EVALUACIONES_DE_DESEMPEÑO","" , "NOSE", "TEXTO" },
+            { "1","24_HABILIDADES_Y_CERTIFICACIONES","" , "NOSE", "TEXTO" },
+            { "1","25_IDIOMAS","" , "NOSE", "TEXTO" },
+            { "1","26_FECHA_DE_ÚLTIMA_PROMOCIÓN","" , "NOSE", "TEXTO" },
+            { "1","27_ID_DEL_DEPARTAMENTO_DE_SUPERVISIÓN","" , "NOSE", "TEXTO" },
+            { "1","28_HISTORIAL_DE_CAPACITACIÓN","" , "NOSE", "TEXTO" },
+            { "1","29_ÚLTIMO_AUMENTO_DE_SALARIO","" , "NOSE", "TEXTO" },
+            { "1","30_TIPO_EMPLEADO","" , "NOSE", "TEXTO" },
+            { "1","31_RANGO_CALIF","" , "-0", "TEXTO" },
 
         };
         public static void RecargarVentanaEmergenteAPRENDICES_E(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_APRENDICES_E = new string[,]
             {
-                { "2","0_ID","","-0" },
-                { "1","1_NOMBRE","" , "NOSE"},
-                { "1","2_APELLIDO_PATERNO","" , "NOSE"},
-                { "1","3_APELLIDO_MATERNO","" , "NOSE"},
-                { "1","4_FECHA_DE_NACIMIENTO","" , "NOSE"},
-                { "1","5_GÉNERO","" , "NOSE"},
-                { "1","6_DIRECCIÓN","" , "NOSE"},
-                { "1","7_CIUDAD","" , "NOSE"},
-                { "1","8_ESTADO_PROVINCIA","" , "NOSE"},
-                { "1","9_CÓDIGO_POSTAL","" , "NOSE"},
-                { "1","10_PAÍS","" , "NOSE"},
-                { "1","11_CORREO_ELECTRÓNICO","" , "NOSE"},
-                { "1","12_TELÉFONO","" , "NOSE"},
-                { "1","13_FECHA_DE_INGRESO","" , "NOSE"},
-                { "1","14_SUELDO","" , "NOSE"},
-                { "1","15_CARGO","" , "NOSE"},
-                { "1","16_ESTADO_DE_CURS_APRENDIS_E","" , "NOSE"},
-                { "1","17_SUPERVISOR","" , "NOSE"},
-                { "1","18_NOTAS","" , ""},
-                { "1","19_AFILIADO","" , "NOSE"},
-                { "1","20_FECHA_DE_TERMINACIÓN","0|SOLO_NUMEROS" , "0"},
-                { "1","21_MOTIVO_DE_TERMINACIÓN°DIAS_DE_PREVENTA_1","" , "NOSE"},
-                { "1","22_HORAS_TRABAJADAS","" , "NOSE"},
-                { "1","23_EVALUACIONES_DE_DESEMPEÑO","" , "NOSE"},
-                { "1","24_HABILIDADES_Y_CERTIFICACIONES","" , "NOSE"},
-                { "1","25_IDIOMAS","" , "NOSE"},
-                { "1","26_FECHA_DE_ÚLTIMA_PROMOCIÓN","" , "NOSE"},
-                { "1","27_ID_DEL_DEPARTAMENTO_DE_SUPERVISIÓN","" , "NOSE"},
-                { "1","28_HISTORIAL_DE_CAPACITACIÓN","" , "NOSE"},
-                { "1","29_ÚLTIMO_AUMENTO_DE_SALARIO","" , "NOSE"},
-                { "1","30_TIPO_EMPLEADO","" , "NOSE"},
-                { "1","31_RANGO_CALIF","" , "-0"},
+                { "2","0_ID","","-0" , "TEXTO" },
+                { "1","1_NOMBRE","" , "NOSE", "TEXTO" },
+                { "1","2_APELLIDO_PATERNO","" , "NOSE", "TEXTO" },
+                { "1","3_APELLIDO_MATERNO","" , "NOSE", "TEXTO" },
+                { "1","4_FECHA_DE_NACIMIENTO","" , "NOSE", "TEXTO" },
+                { "1","5_GÉNERO","" , "NOSE", "TEXTO" },
+                { "1","6_DIRECCIÓN","" , "NOSE", "TEXTO" },
+                { "1","7_CIUDAD","" , "NOSE", "TEXTO" },
+                { "1","8_ESTADO_PROVINCIA","" , "NOSE", "TEXTO" },
+                { "1","9_CÓDIGO_POSTAL","" , "NOSE", "TEXTO" },
+                { "1","10_PAÍS","" , "NOSE", "TEXTO" },
+                { "1","11_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+                { "1","12_TELÉFONO","" , "NOSE", "TEXTO" },
+                { "1","13_FECHA_DE_INGRESO","" , "NOSE", "TEXTO" },
+                { "1","14_SUELDO","" , "NOSE", "TEXTO" },
+                { "1","15_CARGO","" , "NOSE", "TEXTO" },
+                { "1","16_ESTADO_DE_CURS_APRENDIS_E","" , "NOSE", "TEXTO" },
+                { "1","17_SUPERVISOR","" , "NOSE", "TEXTO" },
+                { "1","18_NOTAS","" , "", "TEXTO" },
+                { "1","19_AFILIADO","" , "NOSE", "TEXTO" },
+                { "1","20_FECHA_DE_TERMINACIÓN","0|SOLO_NUMEROS" , "0", "TEXTO" },
+                { "1","21_MOTIVO_DE_TERMINACIÓN°DIAS_DE_PREVENTA_1","" , "NOSE", "TEXTO" },
+                { "1","22_HORAS_TRABAJADAS","" , "NOSE", "TEXTO" },
+                { "1","23_EVALUACIONES_DE_DESEMPEÑO","" , "NOSE", "TEXTO" },
+                { "1","24_HABILIDADES_Y_CERTIFICACIONES","" , "NOSE", "TEXTO" },
+                { "1","25_IDIOMAS","" , "NOSE", "TEXTO" },
+                { "1","26_FECHA_DE_ÚLTIMA_PROMOCIÓN","" , "NOSE", "TEXTO" },
+                { "1","27_ID_DEL_DEPARTAMENTO_DE_SUPERVISIÓN","" , "NOSE", "TEXTO" },
+                { "1","28_HISTORIAL_DE_CAPACITACIÓN","" , "NOSE", "TEXTO" },
+                { "1","29_ÚLTIMO_AUMENTO_DE_SALARIO","" , "NOSE", "TEXTO" },
+                { "1","30_TIPO_EMPLEADO","" , "NOSE", "TEXTO" },
+                { "1","31_RANGO_CALIF","" , "-0", "TEXTO" },
 
             };
 
@@ -460,34 +462,34 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana afiliados_simples
         static public string[,] GG_ventana_afiliados_simples =
         {
-            { "2","0_ID_USUARIO","","-0" },
-            { "1","1_ID_PAT_COMP","","-0" },
-            { "1","2_TABLA_PAT_COMP","","NOSE" },
-            { "1","3_ID_ENC_SIMP","", "-0"},
-            { "1","4_TABLA_ENC_SIMP","","NOSE" },
-            { "1","5_PUNTOS_D","" ,"0"},
-            { "1","6_PUNTOS_D_A_DAR","" ,"0"},
-            { "1","7_DATOS","","" },
-            { "1","8_NIVELES","","0" },
-            { "1","9_ID_HORIZONTAL","","0" },
-            { "1","10_TIPO_AFILIADO","","NOSE" },
+            { "2","0_ID_USUARIO","","-0" , "TEXTO" },
+            { "1","1_ID_PAT_COMP","","-0" , "TEXTO" },
+            { "1","2_TABLA_PAT_COMP","","NOSE" , "TEXTO" },
+            { "1","3_ID_ENC_SIMP","", "-0", "TEXTO" },
+            { "1","4_TABLA_ENC_SIMP","","NOSE" , "TEXTO" },
+            { "1","5_PUNTOS_D","" ,"0", "TEXTO" },
+            { "1","6_PUNTOS_D_A_DAR","" ,"0", "TEXTO" },
+            { "1","7_DATOS","","" , "TEXTO" },
+            { "1","8_NIVELES","","0" , "TEXTO" },
+            { "1","9_ID_HORIZONTAL","","0" , "TEXTO" },
+            { "1","10_TIPO_AFILIADO","","NOSE" , "TEXTO" },
 
         };
         public static void RecargarVentanaEmergenteAfiliados_simples(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_afiliados_simples = new string[,]
             {
-                { "2","0_ID_USUARIO","","-0" },
-                { "1","1_ID_PAT_COMP","","-0" },
-                { "1","2_TABLA_PAT_COMP","","NOSE" },
-                { "1","3_ID_ENC_SIMP","", "-0"},
-                { "1","4_TABLA_ENC_SIMP","","NOSE" },
-                { "1","5_PUNTOS_D","" ,"0"},
-                { "1","6_PUNTOS_D_A_DAR","" ,"0"},
-                { "1","7_DATOS","","" },
-                { "1","8_NIVELES","","0" },
-                { "1","9_ID_HORIZONTAL","","0" },
-                { "1","10_TIPO_AFILIADO","","NOSE" },
+                { "2","0_ID_USUARIO","","-0" , "TEXTO" },
+                { "1","1_ID_PAT_COMP","","-0" , "TEXTO" },
+                { "1","2_TABLA_PAT_COMP","","NOSE" , "TEXTO" },
+                { "1","3_ID_ENC_SIMP","", "-0", "TEXTO" },
+                { "1","4_TABLA_ENC_SIMP","","NOSE" , "TEXTO" },
+                { "1","5_PUNTOS_D","" ,"0", "TEXTO" },
+                { "1","6_PUNTOS_D_A_DAR","" ,"0", "TEXTO" },
+                { "1","7_DATOS","","" , "TEXTO" },
+                { "1","8_NIVELES","","0" , "TEXTO" },
+                { "1","9_ID_HORIZONTAL","","0" , "TEXTO" },
+                { "1","10_TIPO_AFILIADO","","NOSE" , "TEXTO" },
             };
 
 
@@ -530,34 +532,34 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana afiliados_complejos
         static public string[,] GG_ventana_afiliados_complejos =
         {
-            { "2","0_ID_USUARIO","","0" },
-            { "1","1_ID_PAT_COMP","","0" },
-            { "1","2_TABLA_PAT_COMP","","NOSE" },
-            { "1","3_ID_ENC_SIMP","","0" },
-            { "1","4_TABLA_ENC_SIMP","","NOSE" },
-            { "1","5_PUNTOS_D","","0" },
-            { "1","6_PUNTOS_D_A_DAR","","0" },
-            { "1","7_DATOS","","" },
-            { "1","8_NIVELES","","0" },
-            { "1","9_ID_HORIZONTAL","","0" },
-            { "1","10_TIPO_AFILIADO","","0" },
+            { "2","0_ID_USUARIO","","0" , "TEXTO" },
+            { "1","1_ID_PAT_COMP","","0" , "TEXTO" },
+            { "1","2_TABLA_PAT_COMP","","NOSE" , "TEXTO" },
+            { "1","3_ID_ENC_SIMP","","0" , "TEXTO" },
+            { "1","4_TABLA_ENC_SIMP","","NOSE" , "TEXTO" },
+            { "1","5_PUNTOS_D","","0" , "TEXTO" },
+            { "1","6_PUNTOS_D_A_DAR","","0" , "TEXTO" },
+            { "1","7_DATOS","","" , "TEXTO" },
+            { "1","8_NIVELES","","0" , "TEXTO" },
+            { "1","9_ID_HORIZONTAL","","0" , "TEXTO" },
+            { "1","10_TIPO_AFILIADO","","0" , "TEXTO" },
 
         };
         public static void RecargarVentanaEmergenteAfiliados(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_afiliados_complejos = new string[,]
             {
-                { "2","0_ID_USUARIO","","0" },
-                { "1","1_ID_PAT_COMP","","0" },
-                { "1","2_TABLA_PAT_COMP","","NOSE" },
-                { "1","3_ID_ENC_SIMP","","0" },
-                { "1","4_TABLA_ENC_SIMP","","NOSE" },
-                { "1","5_PUNTOS_D","","0" },
-                { "1","6_PUNTOS_D_A_DAR","","0" },
-                { "1","7_DATOS","","" },
-                { "1","8_NIVELES","","0" },
-                { "1","9_ID_HORIZONTAL","","0" },
-                { "1","10_TIPO_AFILIADO","","0" },
+                { "2","0_ID_USUARIO","","0" , "TEXTO" },
+                { "1","1_ID_PAT_COMP","","0" , "TEXTO" },
+                { "1","2_TABLA_PAT_COMP","","NOSE" , "TEXTO" },
+                { "1","3_ID_ENC_SIMP","","0" , "TEXTO" },
+                { "1","4_TABLA_ENC_SIMP","","NOSE" , "TEXTO" },
+                { "1","5_PUNTOS_D","","0" , "TEXTO" },
+                { "1","6_PUNTOS_D_A_DAR","","0" , "TEXTO" },
+                { "1","7_DATOS","","" , "TEXTO" },
+                { "1","8_NIVELES","","0" , "TEXTO" },
+                { "1","9_ID_HORIZONTAL","","0" , "TEXTO" },
+                { "1","10_TIPO_AFILIADO","","0" , "TEXTO" },
             };
 
 
@@ -600,17 +602,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana niveles_afiliados_simples
         static public string[,] GG_ventana_niv_afiliados_simples =
         {
-            { "1","0_NIVEL","","0" },
-            { "1","1_ID_HORIZONTAL","","0" },
-            { "1","2_VACIOS","","" },
+            { "1","0_NIVEL","","0" , "TEXTO" },
+            { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+            { "1","2_VACIOS","","" , "TEXTO" },
         };
         public static void RecargarVentanaEmergente_niv_afiliados_simples(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_niv_afiliados_simples = new string[,]
             {
-                { "1","0_NIVEL","","0" },
-                { "1","1_ID_HORIZONTAL","","0" },
-                { "1","2_VACIOS","","" },
+                { "1","0_NIVEL","","0" , "TEXTO" },
+                { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+                { "1","2_VACIOS","","" , "TEXTO" },
             };
 
 
@@ -650,23 +652,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         }
 
-
-
         //ventana niv_afiliados_comp
         static public string[,] GG_ventana_niv_afiliados_comp =
         {
-            { "1","0_NIVEL","","0" },
-            { "1","1_ID_HORIZONTAL","","0" },
-            { "1","2_VACIOS","","" },
+            { "1","0_NIVEL","","0" , "TEXTO" },
+            { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+            { "1","2_VACIOS","","" , "TEXTO" },
 
         };
         public static void RecargarVentanaEmergente_niv_afiliados_comp(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_niv_afiliados_comp = new string[,]
             {
-                { "1","0_NIVEL","","0" },
-                { "1","1_ID_HORIZONTAL","","0" },
-                { "1","2_VACIOS","","" },
+                { "1","0_NIVEL","","0" , "TEXTO" },
+                { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+                { "1","2_VACIOS","","" , "TEXTO" },
             };
 
 
@@ -709,28 +709,28 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana afiliados_unificados
         static public string[,] GG_ventana_afiliados_unificados =
         {
-            { "1","0)ID_USUARIO","","0" },
-            { "1","1)0IDP╦1IDP¬0PROYECTO_P°0IDP╦1IDP¬1PROYECTO_P","","0╦0¬0°0╦1¬1" },
-            { "1","2)0IPUNTOS_D_R¬0PROYECTO_R°1PUNTOS_D_R¬1PROYECTO_R","","0¬0°0¬0" },
-            { "1","3)PUNTOS_D_R_TOTALES","","0" },
-            { "1","4)DATOS","" , "NOSE"},
-            { "1","5)NIVEL","" ,"0"},
-            { "1","6)ID_HORIZONTAL","" , "0"},
-            { "1","7)TIPO_AFILIADO","" ,"NOSE"},
+            { "1","0)ID_USUARIO","","0" , "TEXTO" },
+            { "1","1)0IDP╦1IDP¬0PROYECTO_P°0IDP╦1IDP¬1PROYECTO_P","","0╦0¬0°0╦1¬1" , "TEXTO" },
+            { "1","2)0IPUNTOS_D_R¬0PROYECTO_R°1PUNTOS_D_R¬1PROYECTO_R","","0¬0°0¬0" , "TEXTO" },
+            { "1","3)PUNTOS_D_R_TOTALES","","0" , "TEXTO" },
+            { "1","4)DATOS","" , "NOSE", "TEXTO" },
+            { "1","5)NIVEL","" ,"0", "TEXTO" },
+            { "1","6)ID_HORIZONTAL","" , "0", "TEXTO" },
+            { "1","7)TIPO_AFILIADO","" ,"NOSE", "TEXTO" },
 
         };
         public static void RecargarVentanaEmergenteAfiliados_unificados(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_afiliados_unificados = new string[,]
             {
-                { "1","0)ID_USUARIO","","0" },
-                { "1","1)0IDP╦1IDP¬0PROYECTO_P°0IDP╦1IDP¬1PROYECTO_P","","0╦0¬0°0╦1¬1" },
-                { "1","2)0IPUNTOS_D_R¬0PROYECTO_R°1PUNTOS_D_R¬1PROYECTO_R","","0¬0°0¬0" },
-                { "1","3)PUNTOS_D_R_TOTALES","","0" },
-                { "1","4)DATOS","" , "NOSE"},
-                { "1","5)NIVEL","" ,"0"},
-                { "1","6)ID_HORIZONTAL","" , "0"},
-                { "1","7)TIPO_AFILIADO","" ,"NOSE"},
+                { "1","0)ID_USUARIO","","0" , "TEXTO" },
+                { "1","1)0IDP╦1IDP¬0PROYECTO_P°0IDP╦1IDP¬1PROYECTO_P","","0╦0¬0°0╦1¬1" , "TEXTO" },
+                { "1","2)0IPUNTOS_D_R¬0PROYECTO_R°1PUNTOS_D_R¬1PROYECTO_R","","0¬0°0¬0" , "TEXTO" },
+                { "1","3)PUNTOS_D_R_TOTALES","","0" , "TEXTO" },
+                { "1","4)DATOS","" , "NOSE", "TEXTO" },
+                { "1","5)NIVEL","" ,"0", "TEXTO" },
+                { "1","6)ID_HORIZONTAL","" , "0", "TEXTO" },
+                { "1","7)TIPO_AFILIADO","" ,"NOSE", "TEXTO" },
 
             };
 
@@ -774,18 +774,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana niv_afiliados_comp
         static public string[,] GG_ventana_niv_afiliados_unificado =
         {
-            { "1","0_NIVEL","","0" },
-            { "1","1_ID_HORIZONTAL","","0" },
-            { "1","2_VACIOS","" ,""},
+            { "1","0_NIVEL","","0" , "TEXTO" },
+            { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+            { "1","2_VACIOS","" ,"", "TEXTO" },
 
         };
         public static void RecargarVentanaEmergente_niv_afiliados_unificado(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_niv_afiliados_unificado = new string[,]
             {
-                { "1","0_NIVEL","","0" },
-                { "1","1_ID_HORIZONTAL","","0" },
-                { "1","2_VACIOS","" ,""},
+                { "1","0_NIVEL","","0" , "TEXTO" },
+                { "1","1_ID_HORIZONTAL","","0" , "TEXTO" },
+                { "1","2_VACIOS","" ,"", "TEXTO" },
             };
 
 
@@ -829,25 +829,25 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana SUCURSALES
         static public string[,] GG_ventana_SUCUR =
         {
-            { "1","0_NOM_ID_SUCUR","","-0" },
-            { "1","1_NOMBRE_SUCUR","" , "NOSE"},
-            { "1","2_NOMBRE_ENCARGADO","" , "NOSE"},
-            { "1","3_DIRECCIÓN_SUCUR","" , "NOSE"},
-            { "1","4_CIUDAD_SUCUR","" , "NOSE"},
-            { "1","5_ESTADO_SUCUR","" , "NOSE"},
-            { "1","6_CÓDIGO_POSTAL","" , "NOSE"},
-            { "1","7_PAÍS","" , "NOSE"},
-            { "1","8_CORREO_ELECTRÓNICO","" , "NOSE"},
-            { "1","9_TELÉFONO_ENCARGADO","" , "NOSE"},
-            { "1","10_TELEFONO_SUCUR","" , "NOSE"},
-            { "1","11_TIPO_DE_SUCUR","" , "NOSE"},
-            { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE"},
-            { "1","13_CUENTA_BANCO","" , "NOSE"},
-            { "1","14_UBICACIÓN_(GPS)","" , "-0"},
-            { "1","15_NOTAS","" , ""},
-            { "1","16_RECORDATORIO","" , "NOSE"},
-            { "1","17_ACTIVO_O_NO_ACTIVO","" , "NOSE"},
-            { "1","18_HORA_ABRIR°HORA_CERRAR","" , "NOSE"},
+            { "1","0_NOM_ID_SUCUR","","-0" , "TEXTO" },
+            { "1","1_NOMBRE_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","2_NOMBRE_ENCARGADO","" , "NOSE", "TEXTO" },
+            { "1","3_DIRECCIÓN_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","4_CIUDAD_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","5_ESTADO_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","6_CÓDIGO_POSTAL","" , "NOSE", "TEXTO" },
+            { "1","7_PAÍS","" , "NOSE", "TEXTO" },
+            { "1","8_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+            { "1","9_TELÉFONO_ENCARGADO","" , "NOSE", "TEXTO" },
+            { "1","10_TELEFONO_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","11_TIPO_DE_SUCUR","" , "NOSE", "TEXTO" },
+            { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE", "TEXTO" },
+            { "1","13_CUENTA_BANCO","" , "NOSE", "TEXTO" },
+            { "1","14_UBICACIÓN_(GPS)","" , "-0", "TEXTO" },
+            { "1","15_NOTAS","" , "", "TEXTO" },
+            { "1","16_RECORDATORIO","" , "NOSE", "TEXTO" },
+            { "1","17_ACTIVO_O_NO_ACTIVO","" , "NOSE", "TEXTO" },
+            { "1","18_HORA_ABRIR°HORA_CERRAR","" , "NOSE", "TEXTO" },
 
 
         };
@@ -855,25 +855,25 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_SUCUR = new string[,]
             {
-                { "1","0_NOM_ID_SUCUR","","-0" },
-                { "1","1_NOMBRE_SUCUR","" , "NOSE"},
-                { "1","2_NOMBRE_ENCARGADO","" , "NOSE"},
-                { "1","3_DIRECCIÓN_SUCUR","" , "NOSE"},
-                { "1","4_CIUDAD_SUCUR","" , "NOSE"},
-                { "1","5_ESTADO_SUCUR","" , "NOSE"},
-                { "1","6_CÓDIGO_POSTAL","" , "NOSE"},
-                { "1","7_PAÍS","" , "NOSE"},
-                { "1","8_CORREO_ELECTRÓNICO","" , "NOSE"},
-                { "1","9_TELÉFONO_ENCARGADO","" , "NOSE"},
-                { "1","10_TELEFONO_SUCUR","" , "NOSE"},
-                { "1","11_TIPO_DE_SUCUR","" , "NOSE"},
-                { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE"},
-                { "1","13_CUENTA_BANCO","" , "NOSE"},
-                { "1","14_UBICACIÓN_(GPS)","" , "-0"},
-                { "1","15_NOTAS","" , ""},
-                { "1","16_RECORDATORIO","" , "NOSE"},
-                { "1","17_ACTIVO_O_NO_ACTIVO","" , "NOSE"},
-                { "1","18_HORA_ABRIR°HORA_CERRAR","" , "NOSE"},
+                { "1","0_NOM_ID_SUCUR","","-0" , "TEXTO" },
+                { "1","1_NOMBRE_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","2_NOMBRE_ENCARGADO","" , "NOSE", "TEXTO" },
+                { "1","3_DIRECCIÓN_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","4_CIUDAD_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","5_ESTADO_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","6_CÓDIGO_POSTAL","" , "NOSE", "TEXTO" },
+                { "1","7_PAÍS","" , "NOSE", "TEXTO" },
+                { "1","8_CORREO_ELECTRÓNICO","" , "NOSE", "TEXTO" },
+                { "1","9_TELÉFONO_ENCARGADO","" , "NOSE", "TEXTO" },
+                { "1","10_TELEFONO_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","11_TIPO_DE_SUCUR","" , "NOSE", "TEXTO" },
+                { "1","12_PRODUCTOS_SERVICIOS_SUMINISTRADOS","" , "NOSE", "TEXTO" },
+                { "1","13_CUENTA_BANCO","" , "NOSE", "TEXTO" },
+                { "1","14_UBICACIÓN_(GPS)","" , "-0", "TEXTO" },
+                { "1","15_NOTAS","" , "", "TEXTO" },
+                { "1","16_RECORDATORIO","" , "NOSE", "TEXTO" },
+                { "1","17_ACTIVO_O_NO_ACTIVO","" , "NOSE", "TEXTO" },
+                { "1","18_HORA_ABRIR°HORA_CERRAR","" , "NOSE", "TEXTO" },
 
             };
 
@@ -920,17 +920,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_dia =
         {
 
-            { "1","0_HORA","" ,"0"},
-            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","","NOSE" },
-            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-            { "1","3_CODIGO_PRECIOTOTAL_PRODUCTOS_CANTIDAD_PLATAFORMA_DATPLATAFORMA","" ,"NOSE"},
-            { "1","4_COMENTARIO","" ,""},
-            { "1","5_TOTAL_VENTA","" ,"0"},
-            { "1","6_TOTAL_COSTO_COMP","","0" },
-            { "1","7_TOTAL_IMPUESTOS","" ,"0"},
-            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" ,"0"},
-            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0"},
-            { "1","10_PLATAFORMA","" ,"NOSE"},
+            { "1","0_HORA","" ,"0", "TEXTO" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","","NOSE" , "TEXTO" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+            { "1","3_CODIGO_PRECIOTOTAL_PRODUCTOS_CANTIDAD_PLATAFORMA_DATPLATAFORMA","" ,"NOSE", "TEXTO" },
+            { "1","4_COMENTARIO","" ,"", "TEXTO" },
+            { "1","5_TOTAL_VENTA","" ,"0", "TEXTO" },
+            { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+            { "1","7_TOTAL_IMPUESTOS","" ,"0", "TEXTO" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" ,"0", "TEXTO" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0", "TEXTO" },
+            { "1","10_PLATAFORMA","" ,"NOSE", "TEXTO" },
 
         };
         public static void RecargarVentanaEmergenteRegDia(string al_finalizar_que_borrar_para_proxima_ventana = "")
@@ -938,17 +938,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             GG_ventana_reg_dia = new string[,]
             {
-                { "1","0_HORA","" ,"0"},
-                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","","NOSE" },
-                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-                { "1","3_CODIGO_PRECIOTOTAL_PRODUCTOS_CANTIDAD_PLATAFORMA_DATPLATAFORMA","" ,"NOSE"},
-                { "1","4_COMENTARIO","" ,""},
-                { "1","5_TOTAL_VENTA","" ,"0"},
-                { "1","6_TOTAL_COSTO_COMP","","0" },
-                { "1","7_TOTAL_IMPUESTOS","" ,"0"},
-                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" ,"0"},
-                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0"},
-                { "1","10_PLATAFORMA","" ,"NOSE"},
+                { "1","0_HORA","" ,"0", "TEXTO" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","","NOSE" , "TEXTO" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+                { "1","3_CODIGO_PRECIOTOTAL_PRODUCTOS_CANTIDAD_PLATAFORMA_DATPLATAFORMA","" ,"NOSE", "TEXTO" },
+                { "1","4_COMENTARIO","" ,"", "TEXTO" },
+                { "1","5_TOTAL_VENTA","" ,"0", "TEXTO" },
+                { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+                { "1","7_TOTAL_IMPUESTOS","" ,"0", "TEXTO" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" ,"0", "TEXTO" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0", "TEXTO" },
+                { "1","10_PLATAFORMA","" ,"NOSE", "TEXTO" },
 
             };
 
@@ -993,16 +993,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_mes =
         {
 
-            { "1","0_DIA","" ,"0"},
-            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE"},
-            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","","0" },
-            { "1","4_COMENTARIO","" ,""},
-            { "1","5_TOTAL_VENTA","" ,"0"},
-            { "1","6_TOTAL_COSTO_COMP","","0" },
-            { "1","7_TOTAL_IMPUESTOS","" ,"0"},
-            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" },
-            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","","0" },
+            { "1","0_DIA","" ,"0", "TEXTO" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE", "TEXTO" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","","0" , "TEXTO" },
+            { "1","4_COMENTARIO","" ,"", "TEXTO" },
+            { "1","5_TOTAL_VENTA","" ,"0", "TEXTO" },
+            { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+            { "1","7_TOTAL_IMPUESTOS","" ,"0", "TEXTO" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" , "TEXTO" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","","0" , "TEXTO" },
 
 
         };
@@ -1011,16 +1011,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
             GG_ventana_reg_mes = new string[,]
             {
-                { "1","0_DIA","" ,"0"},
-                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE"},
-                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","","0" },
-                { "1","4_COMENTARIO","" ,""},
-                { "1","5_TOTAL_VENTA","" ,"0"},
-                { "1","6_TOTAL_COSTO_COMP","","0" },
-                { "1","7_TOTAL_IMPUESTOS","" ,"0"},
-                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" },
-                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","","0" },
+                { "1","0_DIA","" ,"0", "TEXTO" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE", "TEXTO" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","","0" , "TEXTO" },
+                { "1","4_COMENTARIO","" ,"", "TEXTO" },
+                { "1","5_TOTAL_VENTA","" ,"0", "TEXTO" },
+                { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+                { "1","7_TOTAL_IMPUESTOS","" ,"0", "TEXTO" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" , "TEXTO" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","","0" , "TEXTO" },
 
             };
 
@@ -1065,16 +1065,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_año =
         {
 
-            { "1","0_MES","" ,"0"},
-            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE"},
-            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" ,"NOSE"},
-            { "1","4_COMENTARIO","","" },
-            { "1","5_TOTAL_VENTA","","0" },
-            { "1","6_TOTAL_COSTO_COMP","","0" },
-            { "1","7_TOTAL_IMPUESTOS","","0" },
-            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" },
-            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0"},
+            { "1","0_MES","" ,"0", "TEXTO" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE", "TEXTO" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" ,"NOSE", "TEXTO" },
+            { "1","4_COMENTARIO","","" , "TEXTO" },
+            { "1","5_TOTAL_VENTA","","0" , "TEXTO" },
+            { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+            { "1","7_TOTAL_IMPUESTOS","","0" , "TEXTO" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" , "TEXTO" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0", "TEXTO" },
 
 
 
@@ -1084,16 +1084,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_reg_año = new string[,]
             {
-                { "1","0_MES","" ,"0"},
-                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE"},
-                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" },
-                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" ,"NOSE"},
-                { "1","4_COMENTARIO","","" },
-                { "1","5_TOTAL_VENTA","","0" },
-                { "1","6_TOTAL_COSTO_COMP","","0" },
-                { "1","7_TOTAL_IMPUESTOS","","0" },
-                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" },
-                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0"},
+                { "1","0_MES","" ,"0", "TEXTO" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" ,"NOSE", "TEXTO" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","","NOSE¬0" , "TEXTO" },
+                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" ,"NOSE", "TEXTO" },
+                { "1","4_COMENTARIO","","" , "TEXTO" },
+                { "1","5_TOTAL_VENTA","","0" , "TEXTO" },
+                { "1","6_TOTAL_COSTO_COMP","","0" , "TEXTO" },
+                { "1","7_TOTAL_IMPUESTOS","","0" , "TEXTO" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","","0" , "TEXTO" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" ,"0", "TEXTO" },
 
 
             };
@@ -1139,16 +1139,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_total =
         {
 
-            { "1","0_AÑO","","0" },
-            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" , "NOSE"},
-            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" , "NOSE¬0"},
-            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" , "0"},
-            { "1","4_COMENTARIO","" , ""},
-            { "1","5_TOTAL_VENTA","" , "0"},
-            { "1","6_TOTAL_COSTO_COMP","", "0" },
-            { "1","7_TOTAL_IMPUESTOS","" , "0"},
-            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" , "0"},
-            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" , "0"},
+            { "1","0_AÑO","","0" , "TEXTO" },
+            { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" , "NOSE", "TEXTO" },
+            { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" , "NOSE¬0", "TEXTO" },
+            { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" , "0", "TEXTO" },
+            { "1","4_COMENTARIO","" , "", "TEXTO" },
+            { "1","5_TOTAL_VENTA","" , "0", "TEXTO" },
+            { "1","6_TOTAL_COSTO_COMP","", "0" , "TEXTO" },
+            { "1","7_TOTAL_IMPUESTOS","" , "0", "TEXTO" },
+            { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" , "0", "TEXTO" },
+            { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" , "0", "TEXTO" },
 
 
         };
@@ -1156,16 +1156,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_reg_total = new string[,]
             {
-                { "1","0_AÑO","","0" },
-                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" , "NOSE"},
-                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" , "NOSE¬0"},
-                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" , "0"},
-                { "1","4_COMENTARIO","" , ""},
-                { "1","5_TOTAL_VENTA","" , "0"},
-                { "1","6_TOTAL_COSTO_COMP","", "0" },
-                { "1","7_TOTAL_IMPUESTOS","" , "0"},
-                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" , "0"},
-                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" , "0"},
+                { "1","0_AÑO","","0" , "TEXTO" },
+                { "1","1_OPERACION_1_VENTA_2_COMPRA_3_RETIRAR_DINERO_4_INTODUCIR","" , "NOSE", "TEXTO" },
+                { "1","2_IMPUESTO_1¬CANTIDAD_A_PAGAR_IMPUESTO_1¬PORCENTAGE_DE_IMPUESTO_1°IMPUESTO_2¬CANTIDAD_A_PAGAR_IMPUESTO_2¬PORCENTAGE_DE_IMPUESTO_2","" , "NOSE¬0", "TEXTO" },
+                { "1","3_PRODUCTOS_PRECIOTOTAL_CANTIDAD","" , "0", "TEXTO" },
+                { "1","4_COMENTARIO","" , "", "TEXTO" },
+                { "1","5_TOTAL_VENTA","" , "0", "TEXTO" },
+                { "1","6_TOTAL_COSTO_COMP","", "0" , "TEXTO" },
+                { "1","7_TOTAL_IMPUESTOS","" , "0", "TEXTO" },
+                { "1","8_TOTAL_DEDUSIBLES_SOLO_SE_USA_EN_COMPRAS_Y_DONACIONES_SENECECITA_LA_FACTURA","" , "0", "TEXTO" },
+                { "1","9_TOTAL_GANANCIA_DESPUES_DE_IMPUESTOS","" , "0", "TEXTO" },
 
             };
 
@@ -1215,9 +1215,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_dia =
         {
 
-            { "1","0_HORA","" ,"0"},
-            { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" , "NOSE"},
-            { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" , "NOSE"},
+            { "1","0_HORA","" ,"0", "TEXTO" },
+            { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" , "NOSE", "TEXTO" },
+            { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" , "NOSE", "TEXTO" },
 
 
         };
@@ -1225,9 +1225,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_reg_prod_dia = new string[,]
             {
-                { "1","0_HORA","" ,"0"},
-                { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" , "NOSE"},
-                { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" , "NOSE"},
+                { "1","0_HORA","" ,"0", "TEXTO" },
+                { "1","1_OPERACION_VENTA_COMPRA_RETIRAR_PRODUCTO_INTODUCIR_PRODUCTO","" , "NOSE", "TEXTO" },
+                { "1","2_COD_BAR_CANTIDADES_NOMBRE_PRODUCTO_PLATAFORMA_DATOSPLATAFORMA","" , "NOSE", "TEXTO" },
 
             };
 
@@ -1273,36 +1273,36 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
 
 
-            { "1","0_NOMBRE_PRODUCTO","","NOSE" },
-            { "1","1_CANTIDAD","" , "0"},
-            { "1","2_COD_BAR","" , "NOSE"},
-            { "1","3_PROVEDORES","" , "NOSE"},
-            { "1","4_HISTORIAL","" , "0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°"},
-            { "1","5_RANKING","" , "0"},
-            { "1","6_PROMEDIO","" , "0"},
-            { "1","7_VECES_QUE_SUPERA_PROMEDIO","","7" },
-            { "1","8_USO_MULTIPLE","" ,""},              // Nueva columna
-            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","","" },  // Nueva columna
-            { "1","10_MULTI_COSTO_COMPRA","" , "0"},        // Nueva columna
-            { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+            { "1","0_NOMBRE_PRODUCTO","","NOSE" , "TEXTO" },
+            { "1","1_CANTIDAD","" , "0", "TEXTO" },
+            { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+            { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+            { "1","4_HISTORIAL","" , "0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°", "TEXTO" },
+            { "1","5_RANKING","" , "0", "TEXTO" },
+            { "1","6_PROMEDIO","" , "0", "TEXTO" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","","7" , "TEXTO" },
+            { "1","8_USO_MULTIPLE","" ,"", "TEXTO" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","","" , "TEXTO" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" , "0", "TEXTO" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Mes(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_mes = new string[,]
             {
-                { "1","0_NOMBRE_PRODUCTO","","NOSE" },
-                { "1","1_CANTIDAD","" , "0"},
-                { "1","2_COD_BAR","" , "NOSE"},
-                { "1","3_PROVEDORES","" , "NOSE"},
-                { "1","4_HISTORIAL","" , "0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°"},
-                { "1","5_RANKING","" , "0"},
-                { "1","6_PROMEDIO","" , "0"},
-                { "1","7_VECES_QUE_SUPERA_PROMEDIO","","7" },
-                { "1","8_USO_MULTIPLE","" ,""},              // Nueva columna
-                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","","" },  // Nueva columna
-                { "1","10_MULTI_COSTO_COMPRA","" , ""},        // Nueva columna
-                { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+                { "1","0_NOMBRE_PRODUCTO","","NOSE" , "TEXTO" },
+                { "1","1_CANTIDAD","" , "0", "TEXTO" },
+                { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+                { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+                { "1","4_HISTORIAL","" , "0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°", "TEXTO" },
+                { "1","5_RANKING","" , "0", "TEXTO" },
+                { "1","6_PROMEDIO","" , "0", "TEXTO" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","","7" , "TEXTO" },
+                { "1","8_USO_MULTIPLE","" ,"", "TEXTO" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","","" , "TEXTO" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" , "", "TEXTO" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
             };
 
 
@@ -1346,36 +1346,36 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_ventana_reg_prod_año =
         {
 
-            { "1","0_NOMBRE_PRODUCTO","" ,"NOSE"},
-            { "1","1_CANTIDAD","" , "0"},
-            { "1","2_COD_BAR","" , "NOSE"},
-            { "1","3_PROVEDORES","" , "NOSE"},
-            { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" },
-            { "1","5_RANKING","" , "0"},
-            { "1","6_PROMEDIO","" , "0"},
-            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7"},
-            { "1","8_USO_MULTIPLE","" , ""},              // Nueva columna
-            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , ""},  // Nueva columna
-            { "1","10_MULTI_COSTO_COMPRA","" , "0"},        // Nueva columna
-            { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+            { "1","0_NOMBRE_PRODUCTO","" ,"NOSE", "TEXTO" },
+            { "1","1_CANTIDAD","" , "0", "TEXTO" },
+            { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+            { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+            { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" , "TEXTO" },
+            { "1","5_RANKING","" , "0", "TEXTO" },
+            { "1","6_PROMEDIO","" , "0", "TEXTO" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7", "TEXTO" },
+            { "1","8_USO_MULTIPLE","" , "", "TEXTO" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , "", "TEXTO" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" , "0", "TEXTO" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
 
         };
         public static void RecargarVentanaEmergenteReg_prod_Año(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_reg_prod_año = new string[,]
             {
-                { "1","0_NOMBRE_PRODUCTO","" ,"NOSE"},
-                { "1","1_CANTIDAD","" , "0"},
-                { "1","2_COD_BAR","" , "NOSE"},
-                { "1","3_PROVEDORES","" , "NOSE"},
-                { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" },
-                { "1","5_RANKING","" , "0"},
-                { "1","6_PROMEDIO","" , "0"},
-                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7"},
-                { "1","8_USO_MULTIPLE","" , ""},              // Nueva columna
-                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , ""},  // Nueva columna
-                { "1","10_MULTI_COSTO_COMPRA","" , "0"},        // Nueva columna
-                { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+                { "1","0_NOMBRE_PRODUCTO","" ,"NOSE", "TEXTO" },
+                { "1","1_CANTIDAD","" , "0", "TEXTO" },
+                { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+                { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+                { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" , "TEXTO" },
+                { "1","5_RANKING","" , "0", "TEXTO" },
+                { "1","6_PROMEDIO","" , "0", "TEXTO" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7", "TEXTO" },
+                { "1","8_USO_MULTIPLE","" , "", "TEXTO" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , "", "TEXTO" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" , "0", "TEXTO" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
             };
 
 
@@ -1418,18 +1418,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //registro produc total
         static public string[,] GG_ventana_reg_prod_total =
         {
-            { "1","0_NOMBRE_PRODUCTO","" ,"NOSE"},
-            { "1","1_CANTIDAD","" , "0"},
-            { "1","2_COD_BAR","" , "NOSE"},
-            { "1","3_PROVEDORES","" , "NOSE"},
-            { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" },
-            { "1","5_RANKING","" , "0"},
-            { "1","6_PROMEDIO","" , "0"},
-            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7"},
-            { "1","8_USO_MULTIPLE","" , ""},              // Nueva columna
-            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , ""},  // Nueva columna
-            { "1","10_MULTI_COSTO_COMPRA","" , "0"},        // Nueva columna
-            { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+            { "1","0_NOMBRE_PRODUCTO","" ,"NOSE", "TEXTO" },
+            { "1","1_CANTIDAD","" , "0", "TEXTO" },
+            { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+            { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+            { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" , "TEXTO" },
+            { "1","5_RANKING","" , "0", "TEXTO" },
+            { "1","6_PROMEDIO","" , "0", "TEXTO" },
+            { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7", "TEXTO" },
+            { "1","8_USO_MULTIPLE","" , "", "TEXTO" },              // Nueva columna
+            { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , "", "TEXTO" },  // Nueva columna
+            { "1","10_MULTI_COSTO_COMPRA","" , "0", "TEXTO" },        // Nueva columna
+            { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
 
 
         };
@@ -1437,18 +1437,18 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_reg_prod_total = new string[,]
             {
-                { "1","0_NOMBRE_PRODUCTO","" ,"NOSE"},
-                { "1","1_CANTIDAD","" , "0"},
-                { "1","2_COD_BAR","" , "NOSE"},
-                { "1","3_PROVEDORES","" , "NOSE"},
-                { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" },
-                { "1","5_RANKING","" , "0"},
-                { "1","6_PROMEDIO","" , "0"},
-                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7"},
-                { "1","8_USO_MULTIPLE","" , ""},              // Nueva columna
-                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , ""},  // Nueva columna
-                { "1","10_MULTI_COSTO_COMPRA","" , "0"},        // Nueva columna
-                { "1","11_NIVEL_DE_NESECIDAD","" , "0"},        // Nueva columna
+                { "1","0_NOMBRE_PRODUCTO","" ,"NOSE", "TEXTO" },
+                { "1","1_CANTIDAD","" , "0", "TEXTO" },
+                { "1","2_COD_BAR","" , "NOSE", "TEXTO" },
+                { "1","3_PROVEDORES","" , "NOSE", "TEXTO" },
+                { "1","4_HISTORIAL","","0°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°" , "TEXTO" },
+                { "1","5_RANKING","" , "0", "TEXTO" },
+                { "1","6_PROMEDIO","" , "0", "TEXTO" },
+                { "1","7_VECES_QUE_SUPERA_PROMEDIO","" , "7", "TEXTO" },
+                { "1","8_USO_MULTIPLE","" , "", "TEXTO" },              // Nueva columna
+                { "1","9_USOMULTI_TIPO_DE_PRODUCTO","" , "", "TEXTO" },  // Nueva columna
+                { "1","10_MULTI_COSTO_COMPRA","" , "0", "TEXTO" },        // Nueva columna
+                { "1","11_NIVEL_DE_NESECIDAD","" , "0", "TEXTO" },        // Nueva columna
 
             };
 
@@ -1493,11 +1493,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana IMPUESTOS
         static public string[,] GG_ventana_IMPUESTOS =
         {
-            { "1","0_IMPUESTO","","0" },
-            { "1","1_PORCENTAGE","" , "0"},
-            { "1","2_DESCRIPCION","" , "NOSE"},
-            { "1","3_INFO_EXTRA","" , "NOSE"},
-            { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" , "3"},
+            { "1","0_IMPUESTO","","0" , "TEXTO" },
+            { "1","1_PORCENTAGE","" , "0", "TEXTO" },
+            { "1","2_DESCRIPCION","" , "NOSE", "TEXTO" },
+            { "1","3_INFO_EXTRA","" , "NOSE", "TEXTO" },
+            { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" , "3", "TEXTO" },
 
         };
 
@@ -1505,11 +1505,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_IMPUESTOS = new string[,]
             {
-                { "1","0_IMPUESTO","","0" },
-                { "1","1_PORCENTAGE","" , "0"},
-                { "1","2_DESCRIPCION","" , "NOSE"},
-                { "1","3_INFO_EXTRA","" , "NOSE"},
-                { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" , "3"},
+                { "1","0_IMPUESTO","","0" , "TEXTO" },
+                { "1","1_PORCENTAGE","" , "0", "TEXTO" },
+                { "1","2_DESCRIPCION","" , "NOSE", "TEXTO" },
+                { "1","3_INFO_EXTRA","" , "NOSE", "TEXTO" },
+                { "1","3_IMPUESTO_1_DIRECTO_2_INDIRECTO_3_NOSE","" , "3", "TEXTO" },
 
 
             };
@@ -1554,12 +1554,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //ventana DEDUSIBLES
         static public string[,] GG_ventana_DEDUSIBLES =
         {
-            { "1","0_FECHA_yyyyMMddHH","" ,"0"},
-            { "1","1_MONTO","" , "0"},
-            { "1","2_DESCRIPCION","" , "NOSE"},
-            { "1","3_PROVEDOR_O_INSTITUCION_DE_LA_FACTURA_O_DONACION","" , "NOSE"},
-            { "1","4_DIRECCION_ARCHIVO_FACTURA","" , "NOSE"},
-            { "1","5_FOLIO","" , "NOSE"},
+            { "1","0_FECHA_yyyyMMddHH","" ,"0", "TEXTO" },
+            { "1","1_MONTO","" , "0", "TEXTO" },
+            { "1","2_DESCRIPCION","" , "NOSE", "TEXTO" },
+            { "1","3_PROVEDOR_O_INSTITUCION_DE_LA_FACTURA_O_DONACION","" , "NOSE", "TEXTO" },
+            { "1","4_DIRECCION_ARCHIVO_FACTURA","" , "NOSE", "TEXTO" },
+            { "1","5_FOLIO","" , "NOSE", "TEXTO" },
 
         };
 
@@ -1567,12 +1567,12 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             GG_ventana_DEDUSIBLES = new string[,]
             {
-                { "1","0_FECHA_yyyyMMddHH","" ,"0"},
-                { "1","1_MONTO","" , "0"},
-                { "1","2_DESCRIPCION","" , "NOSE"},
-                { "1","3_PROVEDOR_O_INSTITUCION_DE_LA_FACTURA_O_DONACION","" , "NOSE"},
-                { "1","4_DIRECCION_ARCHIVO_FACTURA","" , "NOSE"},
-                { "1","5_FOLIO","" , "NOSE"},
+                { "1","0_FECHA_yyyyMMddHH","" ,"0", "TEXTO" },
+                { "1","1_MONTO","" , "0", "TEXTO" },
+                { "1","2_DESCRIPCION","" , "NOSE", "TEXTO" },
+                { "1","3_PROVEDOR_O_INSTITUCION_DE_LA_FACTURA_O_DONACION","" , "NOSE", "TEXTO" },
+                { "1","4_DIRECCION_ARCHIVO_FACTURA","" , "NOSE", "TEXTO" },
+                { "1","5_FOLIO","" , "NOSE", "TEXTO" },
             };
 
 
@@ -1616,14 +1616,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //HERRAMIENTAS
         static public string[,] GG_ventana_HERRAMIENTAS =
         {
-            { "1","0_COD_BAR","","" },
+            { "1","0_COD_BAR","","" , "TEXTO" },
 
         };
         public static void RecargarVentanaEmergente_HERRAMIENTAS(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_HERRAMIENTAS = new string[,]
             {
-                { "1","0_COD_BAR","","" },
+                { "1","0_COD_BAR","","" , "TEXTO" },
 
             };
 
@@ -1668,14 +1668,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         //trabajos_por_dia
         static public string[,] GG_trabajos_dia =
         {
-            { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" },
+            { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" , "TEXTO" },
 
         };
         public static void RecargarVentanaEmergente_TRABAJOS_DIA(string al_finalizar_que_borrar_para_proxima_ventana = "")
         {
             GG_ventana_HERRAMIENTAS = new string[,]
             {
-                { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" },
+                { "1","dia|trabajos_cada_fila_es_un_dia°id_trabajador_sie_es_vacio_son_todos°hecho_o_no°id_quienlo_iso_si_es_vacio_son_todos°id_programa_enviar","","" , "TEXTO" },
 
             };
 

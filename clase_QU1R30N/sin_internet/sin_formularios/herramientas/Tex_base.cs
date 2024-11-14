@@ -110,7 +110,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 if (leer_y_agrega_al_arreglo)
                 {
                     GG_dir_bd_y_valor_inicial_bidimencional = op_arr.agregar_registro_del_array_bidimensional(GG_dir_bd_y_valor_inicial_bidimencional, direccion_archivo + caracter_separacion_fun_esp[0] + valor_inicial, caracter_separacion_fun_esp);
-                    GG_base_arreglo_de_arreglos = op_arr.agregar_arreglo_a_arreglo_de_arreglos(GG_base_arreglo_de_arreglos, Leer(direccion_archivo));
+                    GG_base_arreglo_de_arreglos = op_arr.agregar_arreglo_a_arreglo_de_arreglos(GG_base_arreglo_de_arreglos, leer(direccion_archivo));
                     return direccion_archivo + G_caracter_separacion[0] + "leido";
                 }
             }
@@ -280,7 +280,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return null;
         }
 
-        public string[] Leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
+        public string[] leer(string direccionArchivo, string posString = null, object caracter_separacion_objeto = null, int iniciar_desde_que_fila = 0)
         {
 
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
@@ -307,7 +307,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
                 catch (Exception e)
                 {
-                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    string[] checador = leer(var_fun_GG.GG_direccion_control_errores_try);
                     chequeo_error_try(direccionArchivo, e, checador[1]);
                 }
             }
@@ -407,7 +407,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             }
             else
             {
-                lineas = Leer(direccion_archivo);
+                lineas = leer(direccion_archivo);
             }
 
 
@@ -525,7 +525,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
                 catch (Exception e)
                 {
-                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    string[] checador = leer(var_fun_GG.GG_direccion_control_errores_try);
                     chequeo_error_try(direccion_archivo, e, checador[1]);
                 }
             }
@@ -738,7 +738,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     {
                         bool esta = false;
 
-                        string[] info_archivo = Leer(direccion_archivo);
+                        string[] info_archivo = leer(direccion_archivo);
                         if (info_archivo == null)
                         {
                             info_archivo = new string[] { "" };
@@ -957,7 +957,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     //solo encontro archivo y no esta en la lista
                     if (res_esp_archivo[0] == "-1")
                     {
-                        string[] inventario = Leer(direccion_archivo);
+                        string[] inventario = leer(direccion_archivo);
                         for (int i = G_donde_inicia_la_tabla; i < inventario.Length; i++)
                         {
                             string[] columnas = inventario[i].Split(caracter_separacion[0][0]);
@@ -1151,7 +1151,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                     //solo encontro archivo y no esta en la lista
                     if (res_esp_archivo[0] == "-1")
                     {
-                        string[] inventario = Leer(direccion_archivo);
+                        string[] inventario = leer(direccion_archivo);
                         for (int i = G_donde_inicia_la_tabla; i < inventario.Length; i++)
                         {
                             string[] columnas = inventario[i].Split(caracter_separacion[0][0]);
@@ -1381,7 +1381,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
                 catch (Exception e)
                 {
-                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    string[] checador = leer(var_fun_GG.GG_direccion_control_errores_try);
                     chequeo_error_try(direccion_archivo, e, checador[1]);
                 }
             }
@@ -1460,7 +1460,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 }
                 catch (Exception e)
                 {
-                    string[] checador = Leer(var_fun_GG.GG_direccion_control_errores_try);
+                    string[] checador = leer(var_fun_GG.GG_direccion_control_errores_try);
                     chequeo_error_try(direccion_archivo, e, checador[1]);
                 }
             }

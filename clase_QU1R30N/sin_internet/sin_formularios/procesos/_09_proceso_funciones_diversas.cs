@@ -90,7 +90,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         public void checar_recordatorios()
         {
-            string[] lista_recordatorioas = bas.Leer(G_dir_arch_uso[0]);
+            string[] lista_recordatorioas = bas.leer(G_dir_arch_uso[0]);
             if (lista_recordatorioas != null)
             {
                 string[] lista_de_recordatorios_a_eliminar = null;

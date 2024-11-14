@@ -53,7 +53,7 @@ namespace clase_QU1R30N
                     var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[i, 2].Split(G_caracter_separacion_funciones_espesificas[1][0]), leer_y_agrega_al_arreglo: false);
             }
 
-            string[] inf_arc = bas.Leer(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0]);
+            string[] inf_arc = bas.leer(var_fun_GG_dir_arch_crear.GG_dir_nom_archivos_SIN_ARREGLOS_GG[0, 0]);
 
             if (inf_arc == null)
             {

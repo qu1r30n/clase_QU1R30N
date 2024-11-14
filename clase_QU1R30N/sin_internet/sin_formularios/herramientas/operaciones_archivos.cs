@@ -100,7 +100,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             tipo = tipo.ToUpper();
 
             Tex_base bas = new Tex_base();
-            string[] lineas = bas.Leer(direccion_archivo);
+            string[] lineas = bas.leer(direccion_archivo);
 
             if (tipo == "NUMERO")
             {
