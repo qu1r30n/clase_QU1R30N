@@ -351,13 +351,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
             return mensaje_de_bienvenida_a_enviar;
         }
 
-        public string concatenacion_caracter_separacion(string tex_a_cambiar, string tex_a_agregar, object caracter_separacion_objeto = null)
+        public string concatenacion_caracter_separacion(string tex_a_cambiar, string tex_a_agregar, object caracter_separacion_objeto = null, string tipo_concatenacion = "CONCATENACION_NORMAL")
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
             if (tex_a_cambiar != "" && tex_a_cambiar != null)
             {
-                tex_a_cambiar = tex_a_cambiar + caracter_separacion[0] + tex_a_agregar;
+                if (tipo_concatenacion== "CONCATENACION_NORMAL")
+                {
+                    tex_a_cambiar = tex_a_cambiar + caracter_separacion[0] + tex_a_agregar;
+                }
+                else if(tipo_concatenacion == "CONCATENACION_INVERSA")
+                {
+                    tex_a_cambiar = tex_a_agregar + caracter_separacion[0] + tex_a_cambiar;
+                }
+                
             }
             else
             {

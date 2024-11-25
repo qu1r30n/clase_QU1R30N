@@ -29,6 +29,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
 
         static public string GG_direccion_control_errores_try = "config\\chatbot\\errores_try\\control_errore.txt";
 
+        
         //funciones---------------------------------------------------------------------------------------------------------
 
         public string[] GG_funcion_caracter_separacion(object caracter_separacion_objeto = null)

@@ -30,6 +30,8 @@ namespace clase_QU1R30N
 
             //_12_proceso_publicidad pru = new _12_proceso_publicidad();
             //pru.publicar_face("tex","","PRUEBA3","221020874422000","EAAEpN2qFii0BO7d1RaXLPx741Xif7ZCTPZBS9cZBbcoE26pfxZB4jgqIdyfEAcvS9rJu8gXJcRCZA3l9ZBAn4DtoXUYXC7pEq3rXmgZAteHnxDVphYKAFNfiKVIfADfXJLF4FhfBbiqWWBExX0hEsWC2SoIuh3Ey50W9lrdHEfeLxcZCmy0ut4PrdpNtYaIASRCl3g7GM5TlskKqqPkwZAmvpNjoZD");
+
+            
         }
 
         private void btn_procesar_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace clase_QU1R30N
 
             string info_resultado = null;
 
-            info_resultado = enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~TRABAJO_DIA§");
+            //info_resultado = enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~TRABAJO_DIA§");
 
             /*
             //info_resultado = enl_princ.enlasador("analisis_datos~existe_producto§codigo");
@@ -83,7 +85,7 @@ namespace clase_QU1R30N
             */
 
 
-
+            /*
             conexion con = new conexion();
             
             
@@ -94,8 +96,9 @@ namespace clase_QU1R30N
                 con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }
-
-
+            */
+            
+            info_resultado = enl_princ.enlasador("MODELO_MUL~COMICION_VENTA_BUSQUEDA_POR_ID§3¬100¬clase1¬10╦5¬15");
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

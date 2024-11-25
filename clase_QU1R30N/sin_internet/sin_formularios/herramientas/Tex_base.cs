@@ -265,17 +265,23 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
-            int num_indice_de_direccion_int = Convert.ToInt32(sacar_indice_del_arreglo_de_direccion(direccion_archivo));
+            string[] res_sacar_indice = sacar_indice_del_arreglo_de_direccion(direccion_archivo).Split(G_caracter_para_confirmacion_o_error[0][0]);
 
-            for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
+            if (Convert.ToInt32(res_sacar_indice[0]) > 0)
             {
-                string[] columnas = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i].Split(caracter_separacion[0][0]);
+                int num_indice_de_direccion_int = Convert.ToInt32(res_sacar_indice[1]);
 
-                if (columnas[num_column_comp] == comparar)
+                for (int i = G_donde_inicia_la_tabla; i < GG_base_arreglo_de_arreglos[num_indice_de_direccion_int].Length; i++)
                 {
+                    string[] columnas = GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i].Split(caracter_separacion[0][0]);
 
-                    return GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
+                    if (columnas[num_column_comp] == comparar)
+                    {
+
+                        return GG_base_arreglo_de_arreglos[num_indice_de_direccion_int][i];
+                    }
                 }
+
             }
             return null;
         }

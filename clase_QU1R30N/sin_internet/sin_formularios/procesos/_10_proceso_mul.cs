@@ -33,9 +33,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[4, 0],//string G_direccion_porcentages = "config\\sismul2\\porcentajes\\porcentajes.TXT";
         };
 
+        
 
 
-        public string dinero_de_venta(string direccion_archivo, string id_usuario, string din, object caracter_separacion_obj = null)
+        public string dinero_de_venta(string direccion_archivo, string id_usuario, string din,string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", object caracter_separacion_obj = null)
         {
 
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
@@ -47,8 +48,8 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (res_esp_archivo_emp[0] != "0")
             {
-                entrada_dinero_simple_y_complejo(G_direcciones[0], id_usuario, din);
-
+                entrada_dinero_simple_metodo(direccion_archivo, id_usuario, din, a_que_proyecto_va_el_dinero, porsentajes_de_comision_para_patrosinadores, porsentajes_de_comision_venta_directa);
+                
             }
 
             else
@@ -58,7 +59,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
             return info_a_retornar;
         }
-
+        /*
         private void registro_simple(string direccion, string id_encargado_simple, string tabla_simple, string[] datos, double dinero_registro = 0, object caracter_separacion_objeto = null, bool regis = true)
         {
 
@@ -145,119 +146,119 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 bas.Agregar(dir, info_movimiento, false);
             }
         }
-
-        private void entrada_dinero_simple_y_complejo(string direccion_enc_simple, string id_usuario_simple, string cantidad_dinero_string, string direccion_enc_complejo = null, string porsentage_comision_por_venta = null, string porsentajes_de_comision_encargados_simp = null, string porsentajes_de_comision_encargados_complejo = null, object caracter_separacion_objeto = null, bool regis = true)
+        */
+        public void entrada_dinero_simple_metodo(string direccion, string id_usuario, string cantidad_dinero_string, string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", string porcentage_o_dienro = "PORCENTAGE", object caracter_separacion_objeto = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
-            string[] fila_espliteada = bas.seleccionar(direccion_enc_simple, 0, id_usuario_simple).Split(caracter_separacion[0][0]);
-            string textos_a_repetir = "0" + caracter_separacion[0] + "7" + caracter_separacion[0] + "1";
-            string[,] a_pagar = null;
 
-            string[] res_comp = null;
-            //simple-----------------------------------------------------------------------------------------------------------------------
+            double cantidad_dinero = Convert.ToDouble(cantidad_dinero_string);
 
-            int indice_de_porcentages = Convert.ToInt32(bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[2]));
-            //string[] porcentage_simple_esp = Tex_base.GG_base_arreglo_de_arreglos[4][2].Split(caracter_separacion[0][0]);
-            string[] porcentage_simple_esp = Tex_base.GG_base_arreglo_de_arreglos[indice_de_porcentages][2].Split(caracter_separacion[0][0]);
-            string enc_simples = extraer_patrosinadores_funcion_recursiva(direccion_enc_simple, 0, id_usuario_simple, 3, porcentage_simple_esp.Length, G_caracter_separacion_funciones_espesificas[0]);
-            string[] acum_simple = acumulador_de_strings(textos_a_repetir, porcentage_simple_esp.Length, caracter_separacion_devolvera_2: G_caracter_separacion_funciones_espesificas[0]);
-
-
-            //complejo---------------------------------------------------------------------------------------------------------------------------
-
-            if (direccion_enc_complejo != null)
-            {
-                string[] porcentaje_complejo_esp = Tex_base.GG_base_arreglo_de_arreglos[indice_de_porcentages][3].Split(caracter_separacion[0][0]);
-                string enc_complejos = extraer_patrosinadores_funcion_recursiva(direccion_enc_complejo, 0, fila_espliteada[3], 3, porcentaje_complejo_esp.Length, G_caracter_separacion_funciones_espesificas[0]);
-                string[] acum_complejo = acumulador_de_strings(textos_a_repetir, porcentaje_complejo_esp.Length, caracter_separacion_devolvera_2: G_caracter_separacion_funciones_espesificas[0]);
-
-                a_pagar = calc_din_por_enc_y_total(enc_simples, cantidad_dinero_string, enc_complejos, car_sep_para_retornar: G_caracter_separacion_funciones_espesificas[0]);
-                int indice_arch_pat_comp = Convert.ToInt32(bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[1]));
-                res_comp = op_arr.busqueda_multiple_edicion_multiple_arreglo_profunda(Tex_base.GG_base_arreglo_de_arreglos[indice_arch_pat_comp], acum_complejo[0], enc_complejos, acum_complejo[1], a_pagar[0, 1], acum_complejo[2], caracter_separacion_para_busqueda_multiple_profuda: G_caracter_separacion_funciones_espesificas[0]);
-                bas.cambiar_archivo_con_arreglo(direccion_enc_complejo, res_comp);
-            }
-            else
-            {
-                a_pagar = calc_din_por_enc_y_total(enc_simples, cantidad_dinero_string, null, car_sep_para_retornar: G_caracter_separacion_funciones_espesificas[0]);
-
-            }
-
-            int indice_negocio = Convert.ToInt32(bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]));
-            string[] res_simp = op_arr.busqueda_multiple_edicion_multiple_arreglo_profunda(Tex_base.GG_base_arreglo_de_arreglos[indice_negocio], acum_simple[0], enc_simples, acum_simple[1], a_pagar[0, 0], acum_simple[2], caracter_separacion_para_busqueda_multiple_profuda: G_caracter_separacion_funciones_espesificas[0]);
-            bas.cambiar_archivo_con_arreglo(direccion_enc_simple, res_simp);
-
-            if (porsentage_comision_por_venta != null)
-            {
-                string cant_incr = "" + (Convert.ToDouble(porsentage_comision_por_venta) / 100) * Convert.ToDouble(cantidad_dinero_string);
-                bas.Editar_o_incr_espesifico_si_no_esta_agrega_linea(direccion_enc_simple, 0, id_usuario_simple, "7", cant_incr, "1");
-            }
-            else
-            {
-                string cant_incr = "" + (Convert.ToDouble(Tex_base.GG_base_arreglo_de_arreglos[indice_de_porcentages][1]) / 100) * Convert.ToDouble(cantidad_dinero_string);
-                bas.Editar_o_incr_espesifico_si_no_esta_agrega_linea(direccion_enc_simple, 0, id_usuario_simple, "7", cant_incr, "1");
-            }
-
-            if (regis == true)
+            if (porsentajes_de_comision_para_patrosinadores != "")
             {
 
 
-                //string datos = "entrada_de_dinero_simple" + G_sep_fun_esp + " id_usuario:" + id_usuario_simple + caracter_separacion[0] + "dinero_introducido:" + cantidad_dinero_string + caracter_separacion[0] + "encargados_simples: " + encargados_simples + cantidad_dinero_string + caracter_separacion[0] + "encargados complejos: " + encargados_complejos;
-                //var_GG.GG_registros(direccion_enc_simple, datos);
+                string[] comiciones = porsentajes_de_comision_para_patrosinadores.Split(caracter_separacion[3][0]);
 
 
+                string usu = bas.seleccionar(direccion, 0, id_usuario);
+                string[] usu_esp = usu.Split(caracter_separacion[0][0]);
+
+
+                string enc_simples = extraer_patrosinadores_funcion_recursiva(direccion, 0, id_usuario, 1, comiciones.Length, a_que_proyecto_va_el_dinero, G_caracter_separacion[3]);
+
+                string[] encargados = enc_simples.Split(G_caracter_separacion[3][0]);
+
+                for (int i = 0; i < encargados.Length; i++)
+                {
+
+                    bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                        (
+                        direccion, 0, encargados[i], "2", "" + (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100)), "", "1"
+                        );
+                    bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                        (
+                        direccion, 0, encargados[i], "3", "" + (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100)), "", "1"
+                        );
+
+                    
+                }
             }
+            
+            if (porsentajes_de_comision_venta_directa != "")
+            {
+                bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                    (
+                    direccion, 0, id_usuario, "2", "" + (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100)), "", "1"
+                    );
+
+                bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
+                    (
+                    direccion, 0, id_usuario, "3", "" + (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100)), "", "1"
+                    );
+            }
+
         }
 
-        private string extraer_patrosinadores_funcion_recursiva(string direccion, int columna_a_comparar_usuario, string id_comparar_usuario, int columna_patrocinadores, int cantidad_patrocinadores_a_extraer, string car_sep_para_retornar = null, object caracter_separacion_objeto = null, bool no_cambiar = true)
-        {
+        
 
+        private string extraer_patrosinadores_funcion_recursiva(string direccion, int columna_a_comparar_usuario, string id_comparar_usuario, int columna_patrocinadores, int cantidad_patrocinadores_a_extraer, string a_que_proyecto_va_el_dinero, string car_sep_para_retornar = null, object caracter_separacion_objeto = null, bool no_cambiar = true)
+        {
+            
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
-            int indice_de_base = Convert.ToInt32(bas.sacar_indice_del_arreglo_de_direccion(direccion));
+            string[] res_indice = bas.sacar_indice_del_arreglo_de_direccion(direccion).Split(G_caracter_para_confirmacion_o_error[0][0]);
 
             string ids_pat_a_retornar = null;
-            for (int j = 0; j < cantidad_patrocinadores_a_extraer; j++)
+
+            if (Convert.ToInt32(res_indice[0]) > 0)
             {
-                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_de_base].Length; i++)
+                int indice_de_base = Convert.ToInt32(res_indice[1]);
+   
+                for (int j = 0; j < cantidad_patrocinadores_a_extraer; j++)
                 {
-                    string[] fila_espliteada = Tex_base.GG_base_arreglo_de_arreglos[indice_de_base][i].Split(caracter_separacion[0][0]);
-                    if (fila_espliteada[columna_a_comparar_usuario] == id_comparar_usuario)
+                    for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice_de_base].Length; i++)
                     {
-                        if (cantidad_patrocinadores_a_extraer > 0)
+                        string[] fila_espliteada = Tex_base.GG_base_arreglo_de_arreglos[indice_de_base][i].Split(caracter_separacion[0][0]);
+                        if (fila_espliteada[columna_a_comparar_usuario] == id_comparar_usuario)
                         {
-                            //que caracter se usara para separar los patrocinadores
-                            if (car_sep_para_retornar == null)
+                            
+                            if (cantidad_patrocinadores_a_extraer > 0)
                             {
-                                string temp = extraer_patrosinadores_funcion_recursiva(direccion, columna_a_comparar_usuario, fila_espliteada[columna_patrocinadores], columna_patrocinadores, cantidad_patrocinadores_a_extraer - 1, car_sep_para_retornar, no_cambiar: false);
-                                if (temp == null)
+                                //que caracter se usara para separar los patrocinadores
+                                
+                                string[] cantidad_tipo_patrocinadores = fila_espliteada[columna_patrocinadores].Split(G_caracter_separacion[1][0]);
+                                bool encontro_clase = false;
+                                for (int g = 0; g < cantidad_tipo_patrocinadores.Length; g++)
                                 {
-                                    ids_pat_a_retornar = fila_espliteada[columna_patrocinadores] + temp;
-                                }
-                                else
-                                {
-                                    ids_pat_a_retornar = fila_espliteada[columna_patrocinadores] + caracter_separacion[0] + temp;
-                                }
+                                    string[] id_pat_y_tipo = cantidad_tipo_patrocinadores[g].Split(G_caracter_separacion[2][0]);
+
+                                    if (id_pat_y_tipo[1] == a_que_proyecto_va_el_dinero)
+                                    {
+                                        encontro_clase = true;
+
+                                        ids_pat_a_retornar = extraer_patrosinadores_funcion_recursiva(direccion, columna_a_comparar_usuario, id_pat_y_tipo[0], columna_patrocinadores, cantidad_patrocinadores_a_extraer - 1, a_que_proyecto_va_el_dinero, car_sep_para_retornar, no_cambiar: false);
+
+                                        ids_pat_a_retornar = op_tex.concatenacion_caracter_separacion(ids_pat_a_retornar, id_pat_y_tipo[0], car_sep_para_retornar, "CONCATENACION_INVERSA");
 
 
+
+
+
+                                    }
+                                }
+                                if (encontro_clase == false)
+                                {
+
+                                }
+
+                                return ids_pat_a_retornar;
                             }
-                            else
-                            {
-                                string temp = extraer_patrosinadores_funcion_recursiva(direccion, columna_a_comparar_usuario, fila_espliteada[columna_patrocinadores], columna_patrocinadores, cantidad_patrocinadores_a_extraer - 1, car_sep_para_retornar, no_cambiar: false);
-                                if (temp == null)
-                                {
-                                    ids_pat_a_retornar = fila_espliteada[columna_patrocinadores] + temp;
-                                }
-                                else
-                                {
-                                    ids_pat_a_retornar = fila_espliteada[columna_patrocinadores] + car_sep_para_retornar + temp;
-                                }
-
-                            }
-                            return ids_pat_a_retornar;
                         }
                     }
                 }
+
             }
+
             return ids_pat_a_retornar;
         }
 

@@ -77,7 +77,6 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     produc_servicion[2],
                     "2",
 
-
                     string.Join(G_caracter_separacion[0], produc_servicion)
                 );
 
