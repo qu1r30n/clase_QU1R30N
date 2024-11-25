@@ -84,7 +84,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     break;
 
                 //no usables--------------------------------------------------------------------------
-
+                /* REGISTROS
                 case "INSCRIBIR_SIMPLE_COD1":
                     //0_id_enc_simp|1_tabla_enc_simple|2_datos
                     //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
@@ -100,7 +100,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
                     info_a_retornar = pr_afil.registro_complejo_cod2(G_direcciones[1], G_direcciones[2], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
 
                     break;
-
+                    */               
+                //------------------------------------------------------------------------------------
+                
                 default:
                     info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
                     break;
