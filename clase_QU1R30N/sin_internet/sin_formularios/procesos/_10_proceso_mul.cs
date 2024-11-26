@@ -105,7 +105,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         }
 
 
-        public string dinero_de_venta(string direccion_archivo, string id_usuario, string din,string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", object caracter_separacion_obj = null)
+        public string dinero_de_venta(string direccion_archivo, string id_usuario, string din,string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", string porcentage_o_dienro = "", object caracter_separacion_obj = null)
         {
 
             string[] caracter_separacion_string = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_obj);
@@ -117,7 +117,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             string[] res_esp_archivo_emp = resultado_archivo_aprendices_emp.Split(G_caracter_para_confirmacion_o_error[0][0]);
             if (res_esp_archivo_emp[0] != "0")
             {
-                entrada_dinero_simple_metodo(direccion_archivo, id_usuario, din, a_que_proyecto_va_el_dinero, porsentajes_de_comision_para_patrosinadores, porsentajes_de_comision_venta_directa);
+                entrada_dinero_simple_metodo(direccion_archivo, id_usuario, din, a_que_proyecto_va_el_dinero, porsentajes_de_comision_para_patrosinadores, porsentajes_de_comision_venta_directa,porcentage_o_dienro);
                 
             }
 
@@ -455,8 +455,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|4", curp).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
-                        string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
-                        info_a_retornar = info_esp[0];
+                        info_a_retornar = res_busqueda[1];
                         break;
                     }
                 }
@@ -481,8 +480,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|5", clave_elector).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
-                        string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
-                        info_a_retornar = info_esp[0];
+                        info_a_retornar = res_busqueda[1];
                         break;
                     }
                 }
@@ -507,8 +505,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|6", otra_identificacion_oficial).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
-                        string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
-                        info_a_retornar = info_esp[0];
+                        info_a_retornar = res_busqueda[1];
                         break;
                     }
                 }
@@ -533,8 +530,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] res_busqueda = op_tex.busqueda_profunda_string(fila, "7|7", num_telefono).Split(G_caracter_para_confirmacion_o_error[0][0]);
                     if (res_busqueda[0] == "1")
                     {
-                        string[] info_esp = res_busqueda[1].Split(G_caracter_separacion[0][0]);
-                        info_a_retornar = info_esp[0];
+                        info_a_retornar = res_busqueda[1];
                         break;
                     }
                 }

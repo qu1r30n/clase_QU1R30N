@@ -32,51 +32,77 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             for (int i = 0; i < cant_datos.Length; i++)
             {
                 string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[2][0]);
-                string id = null;
+                string info = null;
                 switch (proceso)
                 {
-                    case "COMICION_VENTA_BUSQUEDA_POR_ID":
-                        info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+
+                    case "BUSQUEDA_POR_TELEFONO":
+                        string telefono_b = info_espliteada[0];
+                        info_a_retornar = pr_mul.busqueda_id_con_telefono(telefono_b);
                         break;
+
+                    case "BUSQUEDA_POR_CURP":
+                        string curp_b = info_espliteada[0];
+                        info_a_retornar = pr_mul.busqueda_id_con_curp(curp_b);
+                        break;
+
+                    case "BUSQUEDA_POR_INE":
+                        string ine_b = info_espliteada[0];
+                        info_a_retornar = pr_mul.busqueda_id_con_clave_elector(ine_b);
+                        break;
+
+                    case "BUSQUEDA_POR_IDENTIFICACION_OFICIAL":
+                        string identificacion_oficial_b = info_espliteada[0];
+                        info_a_retornar = pr_mul.busqueda_id_con_otra_identificacion_oficial(identificacion_oficial_b);
+                        
+                        break;
+
+
 
                     case "COMICION_VENTA_BUSQUEDA_POR_TELEFONO":
                         string telefono = info_espliteada[0];
-                        id = pr_mul.busqueda_id_con_telefono(telefono);
-                        if (id != "")
+                        info = pr_mul.busqueda_id_con_telefono(telefono);
+                        if (info != "")
                         {
-                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+                            string[] info_esplitedo = info.Split(G_caracter_separacion[0][0]);
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_esplitedo[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                         }
 
                         break;
 
                     case "COMICION_VENTA_BUSQUEDA_POR_CURP":
                         string curp = info_espliteada[0];
-                        id = pr_mul.busqueda_id_con_curp(curp);
-                        if (id != "")
+                        info = pr_mul.busqueda_id_con_curp(curp);
+                        if (info != "")
                         {
-                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+                            string[] info_esplitedo = info.Split(G_caracter_separacion[0][0]);
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_esplitedo[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                         }
                         break;
 
                     case "COMICION_VENTA_BUSQUEDA_POR_INE":
                         string ine = info_espliteada[0];
-                        id = pr_mul.busqueda_id_con_clave_elector(ine);
-                        if (id != "")
+                        info = pr_mul.busqueda_id_con_clave_elector(ine);
+                        if (info != "")
                         {
-                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+                            string[] info_esplitedo = info.Split(G_caracter_separacion[0][0]);
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_esplitedo[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                         }
                         break;
 
                     case "COMICION_VENTA_BUSQUEDA_POR_IDENTIFICACION_OFICIAL":
                         string identificacion_oficial = info_espliteada[0];
-                        id = pr_mul.busqueda_id_con_otra_identificacion_oficial(identificacion_oficial);
-                        if (id != "")
+                        info = pr_mul.busqueda_id_con_otra_identificacion_oficial(identificacion_oficial);
+                        if (info != "")
                         {
-                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], id, info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+                            string[] info_esplitedo = info.Split(G_caracter_separacion[0][0]);
+                            info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_esplitedo[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
                         }
                         break;
 
-
+                        case "COMICION_VENTA_BUSQUEDA_POR_ID":
+                        info_a_retornar = pr_mul.dinero_de_venta(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4], info_espliteada[5]);
+                        break;
                     default:
 
                         info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
