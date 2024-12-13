@@ -44,7 +44,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             //string[] datos_spliteados = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
             string modelo = a_donde_enviara_la_informacion[0];
-            string datos = a_donde_enviara_la_informacion[0];
+            string datos = a_donde_enviara_la_informacion[1];
 
             string yyyyMMddHHmmss = DateTime.Now.ToString("yyyyMMddHHmmss");
 

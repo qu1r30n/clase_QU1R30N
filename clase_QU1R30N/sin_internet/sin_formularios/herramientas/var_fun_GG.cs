@@ -47,7 +47,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     if (caracter_separacion_objeto.ToString() == "") 
                     {
-                        caracter_separacion = (string[])caracter_separacion_objeto;
+                        caracter_separacion = GG_caracter_separacion;
                     }
                     else if (caracter_separacion_objeto.ToString() != GG_caracter_separacion_funciones_espesificas[0])
                     {
