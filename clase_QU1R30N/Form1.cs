@@ -85,21 +85,22 @@ namespace clase_QU1R30N
             */
 
 
-            /*
+            
             conexion con = new conexion();
             
             
             while (true)
             {
 
+                
+                con.datos_recibidos_a_procesar_y_borrar();
                 Thread.Sleep(2000);
-                con.datos_recibidos_a_procesar_y_borrar("IA");
 
             }
-            */
+            
 
 
-            info_resultado = enl_princ.enlasador("MODELO_MUL~COMICION_VENTA_BUSQUEDA_POR_ID§3¬100¬clase1¬10╦5¬15");
+            //info_resultado = enl_princ.enlasador("MODELO_MUL~COMICION_VENTA_BUSQUEDA_POR_ID§3¬100¬clase1¬10╦5¬15");
 
             //info_resultado = enl_princ.enlasador("MODELO_AFILIADOS~INSCRIBIR_UNIFICADO_COD3_R_§4|CLASE1|0_NOM_PRU°1_AP_PAT_PRU°2_APE_MAT_PRU°0╦BANCO°4_CURP°5_CLAV_ELECTOR°6_OTRA_ID_IDENTIFICACION°7_0000000000°8_DIRECCION°9_COLONIA°10_MUNICIOPIO°11_ESTADO°12_CORREO@CORREO.COM");
         }

@@ -199,16 +199,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string trabajos_eventual(string direccion_archivo_emp, string proceso, string inf_a_proc)
+        public string trabajos_eventual(string direccion_archivo_emp, string id_trab, string trabajo_a_hacer, string dias, string id_prog)
         {
             string info_a_retornar = null;
 
-            string[] info_a_procesar = inf_a_proc.Split(G_caracter_separacion[1][0]);
+            
 
-            string id_trab = info_a_procesar[0];
-            string trabajo_a_hacer = info_a_procesar[1];
-            string dias = info_a_procesar[2];
-            string id_prog = info_a_procesar[3];
+            
 
             string[] encontro_trabajador = bas.buscar(direccion_archivo_emp, id_trab, 0, id_trab).Split(G_caracter_para_confirmacion_o_error[0][0]);
 
@@ -219,7 +216,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     string[] info_trabajador = encontro_trabajador[1].Split(G_caracter_separacion[0][0]);
                     string contacto = info_trabajador[12];
                     conexion con = new conexion();
-                    string info_a_enviar = proceso + G_caracter_para_transferencia_entre_archivos[1] + trabajo_a_hacer + G_caracter_para_transferencia_entre_archivos[1] + contacto;
+                    string info_a_enviar = "proceso" + G_caracter_para_transferencia_entre_archivos[1] + trabajo_a_hacer + G_caracter_para_transferencia_entre_archivos[1] + contacto;
                     con.datos_a_enviar("WS_RS", info_a_enviar, id_prog);
                     info_a_retornar = "1" + G_caracter_para_confirmacion_o_error[0] + "trabajador_encontrado_y_enviado";
                 }
@@ -237,7 +234,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string agregar_trabajos_dias(string direccion_archivo_trab_dia, string proceso, string ids_emp, string trabajos, string dias, string id_prog_a_env)
+        public string agregar_trabajos_dias(string direccion_archivo_trab_dia, string ids_emp, string trabajos, string dias, string id_prog_a_env)
         {
 
 

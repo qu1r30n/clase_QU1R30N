@@ -24,9 +24,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         operaciones_textos op_tex = new operaciones_textos();
         operaciones_arreglos op_arr = new operaciones_arreglos();
 
-        public string ventas(string direccion_archivo, string codigos, string cantidades, string plataforma = "")
+        public string ventas(string direccion_archivo,string[] info_entrada)
         {
             string info_a_retornar = null;
+
+            string codigos = info_entrada[0]; 
+            string cantidades = info_entrada[1]; 
+            string plataforma = info_entrada[2];
 
 
             DateTime fecha_hora = DateTime.Now;

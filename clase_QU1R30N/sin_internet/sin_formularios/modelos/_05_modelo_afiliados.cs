@@ -31,17 +31,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         _05_proceso_afiliados pr_afil = new _05_proceso_afiliados();
-        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
+        public string operacion_a_hacer(string info_entrada, string fecha_hora)
         {
             string info_a_retornar = null;
 
-            string año_mes_dia_hora_minuto_segundo = fecha_hora;
-            string año_mes_dia_hora_minuto = "";
-            string año_mes_dia_hora = "";
-            string año_mes_dia = "";
-            string año_mes = "";
-            string año = "";
 
+            string[] info = info_entrada.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string proceso = info[0];
+            string datos = info[1];
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora, año_mes_dia_hora_minuto = "", año_mes_dia_hora = "", año_mes_dia = "", año_mes = "", año = "";
             for (int i = 0; i < fecha_hora.Length; i++)
             {
                 if (i < fecha_hora.Length - 2)
@@ -67,46 +66,50 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
 
+            string[] cant_datos = datos.Split(G_caracter_separacion_funciones_espesificas[2][0]);
 
-
-            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
-
-            switch (proceso)
+            for (int i = 0; i < cant_datos.Length; i++)
             {
-                //usables-----------------------------------------------------------------------------------
-
-                case "INSCRIBIR_UNIFICADO_COD3_R_":
-                    //0_id_enc_simp|1_tabla_enc_simple|2_datos
-                    //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_unificado_cod3_r_(G_direcciones[5], G_direcciones[6], info_espliteada[0], info_espliteada[1], info_espliteada[2]);
-
-                    break;
-
-                //no usables--------------------------------------------------------------------------
-                /* REGISTROS
-                case "INSCRIBIR_SIMPLE_COD1":
-                    //0_id_enc_simp|1_tabla_enc_simple|2_datos
-                    //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
-                    info_a_retornar = pr_afil.registro_simple_cod1(G_direcciones[1], G_direcciones[2], info_espliteada[0], info_espliteada[1], info_espliteada[2]);
-
-                    break;
-
-                case "INSCRIBIR_COMPLEJO_COD2":
-                    //0_id_enc_simp|1_tabla_enc_simple|2_datos
-                    //4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
-                    info_a_retornar = pr_afil.registro_complejo_cod2(G_direcciones[1], G_direcciones[2], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
-
-                    break;
-                    */               
-                //------------------------------------------------------------------------------------
+                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[0][0]);
                 
-                default:
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                    break;
+                switch (proceso)
+                {
+                    //usables-----------------------------------------------------------------------------------
+
+                    case "INSCRIBIR_UNIFICADO_COD3_R_":
+                        //0_id_enc_simp|1_tabla_enc_simple|2_datos
+                        //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
+                        //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
+                        info_a_retornar = pr_afil.registro_unificado_cod3_r_(G_direcciones[5], G_direcciones[6], info_espliteada[0], info_espliteada[1], info_espliteada[2]);
+
+                        break;
+
+                    //no usables--------------------------------------------------------------------------
+                    /* REGISTROS
+                    case "INSCRIBIR_SIMPLE_COD1":
+                        //0_id_enc_simp|1_tabla_enc_simple|2_datos
+                        //4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
+                        //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo                    
+                        info_a_retornar = pr_afil.registro_simple_cod1(G_direcciones[1], G_direcciones[2], info_espliteada[0], info_espliteada[1], info_espliteada[2]);
+
+                        break;
+
+                    case "INSCRIBIR_COMPLEJO_COD2":
+                        //0_id_enc_simp|1_tabla_enc_simple|2_datos
+                        //4|afiliados_complejo|4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
+                        //datos//nombre°apellido_paterno°apellido_materno°numero_cuenta°banco°curp°numero_celular°direccion°colonia°municiopio°estado°correo
+                        info_a_retornar = pr_afil.registro_complejo_cod2(G_direcciones[1], G_direcciones[2], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3], info_espliteada[4]);
+
+                        break;
+                        */
+                    //------------------------------------------------------------------------------------
+
+                    default:
+                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                        break;
+                }
             }
+
 
             return info_a_retornar;
 

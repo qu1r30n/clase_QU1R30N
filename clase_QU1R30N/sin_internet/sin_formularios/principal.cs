@@ -41,12 +41,17 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             string info_a_retornar = null;
 
             string[] a_donde_enviara_la_informacion = INFO_ENTRADA.Split(G_caracter_separacion_funciones_espesificas[0][0]);
-            string[] datos_spliteados = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            //string[] datos_spliteados = a_donde_enviara_la_informacion[1].Split(G_caracter_separacion_funciones_espesificas[1][0]);
 
             string modelo = a_donde_enviara_la_informacion[0];
-            string proceso = datos_spliteados[0];
-            string datos = datos_spliteados[1];
+            string datos = a_donde_enviara_la_informacion[0];
+
             string yyyyMMddHHmmss = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+            //string proceso = datos_spliteados[0];
+            //string datos = datos_spliteados[1];
+
+
 
 
 
@@ -54,57 +59,57 @@ namespace clase_QU1R30N.sin_internet.sin_formularios
             {
                 case "MODELO_ANALISIS_DATOS":
                     //"existe_producto§codigo"
-                    info_a_retornar = mod_an_dat.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_an_dat.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_COMPRAS":
-                    info_a_retornar = mod_comp.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_comp.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_VENTAS":
-                    info_a_retornar = mod_vent.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_vent.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_PRODUCTOS_E_INVENTARIO":
-                    info_a_retornar = mod_pro_inv.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_pro_inv.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_APRENDICES_E":
-                    info_a_retornar = mod_apr_E.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_apr_E.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_AFILIADOS":
                     //inscribir_simple§4|afiliados_simple|nom_pru°ap_pat_pru°ape_mat_pru°0°banco°curp°0000000000°direccion°colonia°municiopio°estado°correo@correo.com
-                    info_a_retornar = mod_afil.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_afil.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_PROVEDORES":
 
-                    info_a_retornar = mod_pro.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_pro.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
                 case "MODELO_SUCURSALES":
 
-                    info_a_retornar = mod_suc.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_suc.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
 
                 case "MODELO_FUNCIONES_DIVERSAS":
 
-                    info_a_retornar = mod_fun_div.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_fun_div.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
 
                 case "MODELO_MUL":
 
-                    info_a_retornar = mod_mul.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_mul.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
 
                 case "MODELO_INT_ACEN":
 
-                    info_a_retornar = mod_int.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_int.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
 
                 case "MODELO_PUB":
 
-                    info_a_retornar = mod_pub.operacion_a_hacer(proceso, datos, yyyyMMddHHmmss);
+                    info_a_retornar = mod_pub.operacion_a_hacer(datos, yyyyMMddHHmmss);
                     break;
 
             }
 
 
-            mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
+            //mod_reg.registro_movimiento(modelo, proceso, datos, yyyyMMddHHmmss);
 
             return info_a_retornar;
 

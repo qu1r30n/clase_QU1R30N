@@ -35,19 +35,21 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         public string[] GG_funcion_caracter_separacion(object caracter_separacion_objeto = null)
         {
             string[] caracter_separacion = null;
-            if (caracter_separacion_objeto == null)
+
+            if (caracter_separacion_objeto != null)
             {
-                caracter_separacion = GG_caracter_separacion;
-            }
-            else
-            {
+
                 if (caracter_separacion_objeto is char)
                 {
                     caracter_separacion = new string[] { caracter_separacion_objeto + "" };
                 }
                 if (caracter_separacion_objeto is string)
                 {
-                    if (caracter_separacion_objeto.ToString() != GG_caracter_separacion_funciones_espesificas[0])
+                    if (caracter_separacion_objeto.ToString() == "") 
+                    {
+                        caracter_separacion = (string[])caracter_separacion_objeto;
+                    }
+                    else if (caracter_separacion_objeto.ToString() != GG_caracter_separacion_funciones_espesificas[0])
                     {
                         caracter_separacion = caracter_separacion_objeto.ToString().Split(GG_caracter_separacion_funciones_espesificas[0][0]);
                     }
@@ -61,6 +63,10 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
                 {
                     caracter_separacion = (string[])caracter_separacion_objeto;
                 }
+            }
+            else
+            {
+                caracter_separacion = GG_caracter_separacion;
             }
 
             return caracter_separacion;

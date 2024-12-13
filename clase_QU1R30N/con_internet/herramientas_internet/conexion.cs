@@ -92,11 +92,10 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
 
         }
 
-        public void datos_recibidos_a_procesar_y_borrar(string ia_ws)
+        public void datos_recibidos_a_procesar_y_borrar()
         {
             //S_1_4_ia
-            if (ia_ws == "IA")//envia info de archivos respuesta y elimina la informacion
-            {
+            
                 string[] usuarios_lectura = bas.leer(G_dir_arch_transferencia[0]);
 
                 if (usuarios_lectura[0] == var_fun_GG.GG_id_programa)
@@ -127,7 +126,7 @@ namespace clase_QU1R30N.con_internet.herramientas_internet
                 }
                 enl_princ.enlasador("MODELO_FUNCIONES_DIVERSAS~CHECAR_RECORDATORIO§");
 
-            }
+            
         }
 
 

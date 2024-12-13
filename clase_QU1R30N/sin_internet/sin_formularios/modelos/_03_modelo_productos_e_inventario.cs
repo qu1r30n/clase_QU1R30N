@@ -24,17 +24,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
         Tex_base bas = new Tex_base();
 
         _03_proceso_productos_e_inventario proc_inventario = new _03_proceso_productos_e_inventario();
-        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
+        public string operacion_a_hacer(string info_entrada, string fecha_hora)
         {
             string info_a_retornar = null;
 
-            string año_mes_dia_hora_minuto_segundo = fecha_hora;
-            string año_mes_dia_hora_minuto = "";
-            string año_mes_dia_hora = "";
-            string año_mes_dia = "";
-            string año_mes = "";
-            string año = "";
 
+            string[] info = info_entrada.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string proceso = info[0];
+            string datos = info[1];
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora, año_mes_dia_hora_minuto = "", año_mes_dia_hora = "", año_mes_dia = "", año_mes = "", año = "";
             for (int i = 0; i < fecha_hora.Length; i++)
             {
                 if (i < fecha_hora.Length - 2)
@@ -60,73 +59,55 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
 
-            string[] info_espliteada = datos.Split(G_caracter_separacion[0][0]);
+            string[] cant_datos = datos.Split(G_caracter_separacion_funciones_espesificas[2][0]);
 
-            string[] res_ind_ar = null;
-            int indice = -1;
-
-            switch (proceso)
+            for (int i = 0; i < cant_datos.Length; i++)
             {
-                case "AGREGAR_SINO_EXISTE":
+                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[0][0]);
 
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-                    indice = Convert.ToInt32(res_ind_ar[1]);
-                    if (datos != "")
-                    {
-                        info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[indice], datos);
-                    }
+                switch (proceso)
+                {
+                    case "AGREGAR_SINO_EXISTE":
 
+                            info_a_retornar = proc_inventario.agrega_si_no_existe(G_direcciones[0], info_espliteada[0]);
 
+                        break;
 
-                    break;
-
-                case "AGREGAR":
-
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-                    indice = Convert.ToInt32(res_ind_ar[1]);
-                    info_a_retornar = proc_inventario.agregar_producto(G_direcciones[indice], datos);
-
-                    break;
+                    case "AGREGAR":
+                        info_a_retornar = proc_inventario.agregar_producto(G_direcciones[0], info_espliteada[0]);
+                        break;
 
 
-                case "BUSCAR":
+                    case "BUSCAR":
 
-                    if (info_espliteada.Length > 1)
-                    {
-                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
-                    }
-                    else
-                    {
-                        info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0]);
-                    }
+                            info_a_retornar = proc_inventario.buscar(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+                        
 
-                    break;
+                        break;
 
-                case "EXTRAER_INVENTARIO_STRING":
+                    case "EXTRAER_INVENTARIO_STRING":
 
-                    res_ind_ar = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[0]).Split(G_caracter_para_confirmacion_o_error[0][0]);
-                    indice = Convert.ToInt32(res_ind_ar[1]);
-                    info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(Tex_base.GG_dir_bd_y_valor_inicial_bidimencional[indice, 0]);
+                        
+                        info_a_retornar = proc_inventario.dar_el_inventario_string_caracter_sep(G_direcciones[0]);
 
-                    break;
+                        break;
 
-                case "CREAR_ARCHIVOS_HACER_INVENT":
 
-                    proc_inventario.archivos_inicio_hacer_inventario();
+                    case "HACER_INVENTARIO":
 
-                    break;
+                        proc_inventario.archivos_inicio_hacer_inventario();
 
-                case "HACER_INVENTARIO":
+                        info_a_retornar = proc_inventario.hacer_inventario(datos, año_mes_dia);
 
-                    info_a_retornar = proc_inventario.hacer_inventario(datos, año_mes_dia);
-
-                    break;
+                        break;
 
 
 
-                default:
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                    break;
+                    default:
+                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                        break;
+                }
+
             }
 
             return info_a_retornar;

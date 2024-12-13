@@ -1782,9 +1782,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.herramientas
         static public string[,] GG_dir_nom_archivos_SIN_ARREGLOS_GG =
         {
             //archivos transferencia informacion
-            /*0*/{ "C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\BANDERAS.TXT", var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa},//no_hacer_caso
-            /*1*/{ "C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\1.TXT", "SIN_INFO", ""},//preguntas
-            /*2*/{"C:\\XEROX\\CONFIG\\INF\\BKLKFJC\\2.TXT", "SIN_INFO", ""},//respuestas
+            /*0*/{ "C:\\XEROX\\CONFIG\\INF\\CLASE_QU1R30N\\BANDERAS.TXT", var_fun_GG.GG_id_programa, var_fun_GG.GG_id_programa},//no_hacer_caso
+            /*1*/{ "C:\\XEROX\\CONFIG\\INF\\CLASE_QU1R30N\\1.TXT", "SIN_INFO", ""},//preguntas
+            /*2*/{"C:\\XEROX\\CONFIG\\INF\\CLASE_QU1R30N\\2.TXT", "SIN_INFO", ""},//respuestas
             /*3*/{"C:\\XEROX\\CONFIG\\REG\\REG_" + DateTime.Now.ToString("yyyyMMdd"),"" , "" },//reg_modificacion archivos
             /*4*/{"CONFIG\\INF\\RECORDATORIO\\RECORDATORIO.TXT","" , "" },//reg_modificacion archivos
 

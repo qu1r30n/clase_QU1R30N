@@ -24,17 +24,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         _04_proceso_aprendices_E pr_apr_E = new _04_proceso_aprendices_E();
-        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
+        public string operacion_a_hacer(string info_entrada, string fecha_hora)
         {
             string info_a_retornar = null;
 
-            string año_mes_dia_hora_minuto_segundo = fecha_hora;
-            string año_mes_dia_hora_minuto = "";
-            string año_mes_dia_hora = "";
-            string año_mes_dia = "";
-            string año_mes = "";
-            string año = "";
 
+            string[] info = info_entrada.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string proceso = info[0];
+            string datos = info[1];
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora, año_mes_dia_hora_minuto = "", año_mes_dia_hora = "", año_mes_dia = "", año_mes = "", año = "";
             for (int i = 0; i < fecha_hora.Length; i++)
             {
                 if (i < fecha_hora.Length - 2)
@@ -60,68 +59,71 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
 
+            string[] cant_datos = datos.Split(G_caracter_separacion_funciones_espesificas[2][0]);
 
-            string[] info_espliteada = datos.Split(G_caracter_separacion[1][0]);
-
-
-            switch (proceso)
+            for (int i = 0; i < cant_datos.Length; i++)
             {
+                string[] info_espliteada = cant_datos[i].Split(G_caracter_separacion[0][0]);
 
-                case "REGISTRO_APRENDIS":
+                switch (proceso)
+                {
 
-                    info_a_retornar = pr_apr_E.registro_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
-                    break;
+                    case "REGISTRO_APRENDIS":
 
-                case "BUSCAR_APRENDIS":
+                        info_a_retornar = pr_apr_E.registro_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.buscar_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
-                    break;
+                    case "BUSCAR_APRENDIS":
 
-                case "EXTRAER_APRENDIS":
+                        info_a_retornar = pr_apr_E.buscar_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0], info_espliteada[1]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.extraer_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
-                    break;
+                    case "EXTRAER_APRENDIS":
 
-                case "TRABAJO_EVENTUAL":
+                        info_a_retornar = pr_apr_E.extraer_aprendices_E_cod3_r_(G_direcciones[0], info_espliteada[0]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, datos);
-                    break;
+                    case "TRABAJO_EVENTUAL":
 
-                case "TRABAJO_EVENTUAL_HECHO":
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
-                    break;
+                    case "TRABAJO_EVENTUAL_HECHO":
 
-                case "TRABAJO_HECHO_DIAS":
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
-                    break;
+                    case "TRABAJO_HECHO_DIAS":
 
-                case "TRABAJO_AGREGAR_DIAS":
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.agregar_trabajos_dias(G_direcciones[1], proceso, info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
-                    break;
+                    case "TRABAJO_AGREGAR_DIAS":
 
-                case "TRABAJO_MOSTRAR_DIAS":
+                        info_a_retornar = pr_apr_E.agregar_trabajos_dias(G_direcciones[1], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
-                    break;
+                    case "TRABAJO_MOSTRAR_DIAS":
 
-                case "TRABAJO_ELIMINAR_DIAS":
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
-                    break;
+                    case "TRABAJO_ELIMINAR_DIAS":
 
-                case "TRABAJO_CAMBIAR_DIAS":
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
 
-                    info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], proceso, info_espliteada[0]);
-                    break;
+                    case "TRABAJO_CAMBIAR_DIAS":
 
-                default:
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                    break;
+                        info_a_retornar = pr_apr_E.trabajos_eventual(G_direcciones[0], info_espliteada[0], info_espliteada[1], info_espliteada[2], info_espliteada[3]);
+                        break;
+
+                    default:
+                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                        break;
+                }
+
             }
-
             return info_a_retornar;
 
         }

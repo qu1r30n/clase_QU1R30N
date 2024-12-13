@@ -33,17 +33,16 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
 
 
         _00_proceso_AnalisisDeDatos pr_an_dat = new _00_proceso_AnalisisDeDatos();
-        public string operacion_a_hacer(string proceso, string datos, string fecha_hora)
+        public string operacion_a_hacer(string info_entrada, string fecha_hora)
         {
             string info_a_retornar = null;
 
-            string año_mes_dia_hora_minuto_segundo = fecha_hora;
-            string año_mes_dia_hora_minuto = "";
-            string año_mes_dia_hora = "";
-            string año_mes_dia = "";
-            string año_mes = "";
-            string año = "";
 
+            string[] info = info_entrada.Split(G_caracter_separacion_funciones_espesificas[1][0]);
+            string proceso = info[0];
+            string datos = info[1];
+
+            string año_mes_dia_hora_minuto_segundo = fecha_hora, año_mes_dia_hora_minuto = "", año_mes_dia_hora = "", año_mes_dia = "", año_mes = "", año = "";
             for (int i = 0; i < fecha_hora.Length; i++)
             {
                 if (i < fecha_hora.Length - 2)
@@ -69,38 +68,42 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.modelos
             }
 
 
+            string[] cant_datos = datos.Split(G_caracter_separacion_funciones_espesificas[2][0]);
 
-            string[] datos_spliteados = datos.Split(G_caracter_separacion[0][0]);
-
-            switch (proceso)
+            for (int i = 0; i < cant_datos.Length; i++)
             {
-                case "EXISTE_PRODUCTO":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], datos_spliteados[0], "5");
-                    break;
+                string[] datos_spliteados = cant_datos[i].Split(G_caracter_separacion[0][0]);
 
-                case "EXISTE_CURP_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|4");
-                    break;
+                switch (proceso)
+                {
+                    case "EXISTE_PRODUCTO":
+                        info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[0], datos_spliteados, "5");
+                        break;
 
-                case "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|5");
-                    break;
-                case "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_":
-                    info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados[0], "4|6");
-                    break;
+                    case "EXISTE_CURP_UNIFICADO_COD3_R_":
+                        info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados, "4|4");
+                        break;
 
-                case "PREDICCION_NECESIDADES_COMPRA":
+                    case "EXISTE_CLAVE_LECTOR_UNIFICADO_COD3_R_":
+                        info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados, "4|5");
+                        break;
+                    case "EXISTE_OTRA_IDENTIFICACION_OFICIAL_UNIFICADO_COD3_R_":
+                        info_a_retornar = pr_an_dat.existe_informacion(G_direcciones[5], datos_spliteados, "4|6");
+                        break;
 
-
-                    info_a_retornar = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], 4, 5, 6, 7);
-
-                    break;
-
+                    case "PREDICCION_NECESIDADES_COMPRA":
 
 
-                default:
-                    info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
-                    break;
+                        info_a_retornar = pr_an_dat.prediccion_archivo_compra(G_direcciones[8], new int[] { 4, 5, 6, 7 });
+
+                        break;
+
+
+
+                    default:
+                        info_a_retornar = "-1" + G_caracter_para_confirmacion_o_error[0] + "no existe ese PROCESO";
+                        break;
+                }
             }
             return info_a_retornar;
         }

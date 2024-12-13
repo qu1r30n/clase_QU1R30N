@@ -218,12 +218,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         }
         */
         
-        public void entrada_dinero_simple_metodo(string direccion, string id_usuario, string cantidad_dinero_string, string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", string porcentage_o_dienro = "PORCENTAGE", object caracter_separacion_objeto = null)
+        public void entrada_dinero_simple_metodo(string direccion, string id_usuario, string cantidad_dinero_string, string a_que_proyecto_va_el_dinero, string porsentajes_de_comision_para_patrosinadores = "", string porsentajes_de_comision_venta_directa = "", string porcentage_o_dienro = "PORCENTAJE", object caracter_separacion_objeto = null)
         {
             string[] caracter_separacion = vf_GG.GG_funcion_caracter_separacion(caracter_separacion_objeto);
 
             double cantidad_dinero = Convert.ToDouble(cantidad_dinero_string);
-
+            
+            double temp_cant_dinero = 0;
+            
             if (porsentajes_de_comision_para_patrosinadores != "")
             {
 
@@ -239,16 +241,32 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
                 string[] encargados = enc_simples.Split(G_caracter_separacion[3][0]);
 
+                
+
                 for (int i = 0; i < encargados.Length; i++)
                 {
+                    if (porcentage_o_dienro == "DINERO")
+                    {
+                        temp_cant_dinero = cantidad_dinero;
+                    }
+
+                    else if (porcentage_o_dienro == "PORCENTAJE")
+                    {
+                        temp_cant_dinero = (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100));
+                    }
+
+                    else
+                    {
+                        temp_cant_dinero = (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100));
+                    }
 
                     bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
                         (
-                        direccion, 0, encargados[i], "2","" + (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100)), a_que_proyecto_va_el_dinero, "1"
+                        direccion, 0, encargados[i], "2","" + temp_cant_dinero, a_que_proyecto_va_el_dinero, "1"
                         );
                     bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
                         (
-                        direccion, 0, encargados[i], "3", "" + (cantidad_dinero * (Convert.ToDouble(comiciones[i]) / 100)), "", "1"
+                        direccion, 0, encargados[i], "3", "" + temp_cant_dinero, "", "1"
                         );
 
                     
@@ -257,14 +275,30 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             
             if (porsentajes_de_comision_venta_directa != "")
             {
+
+                if (porcentage_o_dienro == "DINERO")
+                {
+                    temp_cant_dinero = cantidad_dinero;
+
+                }
+                else if (porcentage_o_dienro == "PORCENTAJE")
+                {
+                    temp_cant_dinero = (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100));
+                }
+                else 
+                {
+                    temp_cant_dinero = (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100));
+                }
+
+
                 bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
                     (
-                    direccion, 0, id_usuario, "2", "" + (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100)), a_que_proyecto_va_el_dinero, "1"
+                    direccion, 0, id_usuario, "2", "" + temp_cant_dinero, a_que_proyecto_va_el_dinero, "1"
                     );
 
                 bas.Editar_incr_o_agrega_info_dentro_de_celda_Y_AGREGA_fila_SI_NO_ESTA_y_no_es_vacia_la_variable_es_multiple_con_comparacion_final_BUSQUEDA_ID
                     (
-                    direccion, 0, id_usuario, "3", "" + (cantidad_dinero * (Convert.ToDouble(porsentajes_de_comision_venta_directa) / 100)), "", "1"
+                    direccion, 0, id_usuario, "3", "" + temp_cant_dinero, "", "1"
                     );
             }
 
@@ -440,7 +474,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return tex_a_retornar;
         }
 
-        public string busqueda_id_con_curp(string curp)
+        public string busqueda_con_curp(string curp)
         {
             string info_a_retornar = "";
 
@@ -465,7 +499,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string busqueda_id_con_clave_elector(string clave_elector)
+        public string busqueda_con_clave_elector(string clave_elector)
         {
             string info_a_retornar = "";
 
@@ -490,7 +524,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string busqueda_id_con_otra_identificacion_oficial(string otra_identificacion_oficial)
+        public string busqueda_con_otra_identificacion_oficial(string otra_identificacion_oficial)
         {
             string info_a_retornar = "";
 
@@ -515,7 +549,7 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return info_a_retornar;
         }
 
-        public string busqueda_id_con_telefono(string num_telefono)
+        public string busqueda_con_telefono(string num_telefono)
         {
             string info_a_retornar = "";
 
@@ -531,6 +565,31 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                     if (res_busqueda[0] == "1")
                     {
                         info_a_retornar = res_busqueda[1];
+                        break;
+                    }
+                }
+            }
+
+
+            return info_a_retornar;
+        }
+
+        public string busqueda_con_id(string id)
+        {
+            string info_a_retornar = "";
+
+            string[] res = bas.sacar_indice_del_arreglo_de_direccion(G_direcciones[2]).Split(G_caracter_para_confirmacion_o_error[0][0]);
+            if (res[0] == "1")
+            {
+                int indice = Convert.ToInt32(res[1]);
+
+                for (int i = G_donde_inicia_la_tabla; i < Tex_base.GG_base_arreglo_de_arreglos[indice].Length; i++)
+                {
+                    string fila = Tex_base.GG_base_arreglo_de_arreglos[indice][i];
+                    string[] info = fila.Split(G_caracter_para_confirmacion_o_error[0][0]);
+                    if (info[0] == id)
+                    {
+                        info_a_retornar = fila;
                         break;
                     }
                 }

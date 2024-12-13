@@ -32,20 +32,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
         };
 
-        public void agregar_producto_servicio(string[] produc_servicion)
+        public void agregar_producto_servicio(string _0_contacto, string _0_COD_BAR, string _1_PROVEDOR, string _2_PRECIO_COMPRA, string _3_PRECIO_VENTA, string _4_TIEMPO_FABRICACION, string _5_UBICACION_GPS)
         {
-            string _0_contacto = produc_servicion[0];
-            string _0_COD_BAR = produc_servicion[1];
-            string _1_PROVEDOR = produc_servicion[2];
-            string _2_PRECIO_COMPRA = produc_servicion[3];
-            string _3_PRECIO_VENTA = produc_servicion[4];
-            string _4_TIEMPO_FABRICACION = produc_servicion[5];
-            string _5_UBICACION_GPS = produc_servicion[6];
 
 
 
 
-            produc_servicion = op_arr.quitar_registro_del_array(produc_servicion, 1, true);
+
+            
 
 
             string dir_inv_arch = "CONFIG\\INF\\INTERMEDIARIO\\" + _0_contacto + "\\" + _0_contacto + "_INVENTARIO.TXT";
@@ -71,13 +65,13 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
                 (
                     dir_inv_arch,
                     1,
-                    produc_servicion[1],
+                    _1_PROVEDOR,
                     "1",
-                    produc_servicion[2],
-                    produc_servicion[2],
+                    _2_PRECIO_COMPRA,
+                    _2_PRECIO_COMPRA,
                     "2",
 
-                    string.Join(G_caracter_separacion[0], produc_servicion)
+                    _0_COD_BAR + G_caracter_separacion[0] + _1_PROVEDOR + G_caracter_separacion[0] + _2_PRECIO_COMPRA + G_caracter_separacion[0] + _3_PRECIO_VENTA + G_caracter_separacion[0] + _4_TIEMPO_FABRICACION + G_caracter_separacion[0] + _5_UBICACION_GPS
                 );
 
 
@@ -88,18 +82,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
 
-        public string venta_producto_servicio(string[] produc_servicion)
+        public string venta_producto_servicio(string _0_contacto, string _0_COD_BAR, string _1_CANTIDAD)
         {
             string info_retornar = null;
 
-            // Extraer valores iniciales del array de entrada
-            string _0_contacto = produc_servicion[0];
-            string _0_COD_BAR = produc_servicion[1];
-            string _1_CANTIDAD = produc_servicion[2];
-
-            // Quitar el primer registro del array (si es necesario)
-            produc_servicion = op_arr.quitar_registro_del_array(produc_servicion, 1, true);
-
+            
             // Definir rutas de los archivos para inventario y proveedores
             string dir_inv_arch = "CONFIG\\INF\\INTERMEDIARIO\\" + _0_contacto + "\\" + _0_contacto + "_INVENTARIO.TXT";
             string dir_prov_arch = "CONFIG\\INF\\INTERMEDIARIO\\" + _0_contacto + "\\" + _0_contacto + "_PROVEDORES.TXT";
@@ -172,9 +159,9 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
 
 
 
-        public string obtenerInventarioCompleto(string[] produc_servicion)
+        public string obtenerInventarioCompleto(string _0_contacto)
         {
-            string _0_contacto = produc_servicion[0];
+            
             // Generar la ruta del archivo de inventario usando el contacto
             string dir_inv_arch = "CONFIG\\INF\\INTERMEDIARIO\\" + _0_contacto + "\\" + _0_contacto + "_INVENTARIO.TXT";
 
@@ -190,17 +177,14 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         }
 
 
-        public string poner_imagen_a_producto(string[] produc_servicion)
+        public string poner_imagen_a_producto(string _0_contacto, string _0_COD_BAR, string _1_NUEVA_DIRECCION)
         {
             string info_retornar = null;
 
             // Extraer valores iniciales del array de entrada
-            string _0_contacto = produc_servicion[0];
-            string _0_COD_BAR = produc_servicion[1];
-            string _1_NUEVA_DIRECCION = produc_servicion[2];
+            
 
-            // Quitar el primer registro del array (si es necesario)
-            produc_servicion = op_arr.quitar_registro_del_array(produc_servicion, 1, true);
+            
 
             // Definir rutas de los archivos para inventario y proveedores
             string dir_inv_arch = "CONFIG\\INF\\INTERMEDIARIO\\" + _0_contacto + "\\" + _0_contacto + "_INVENTARIO.TXT";

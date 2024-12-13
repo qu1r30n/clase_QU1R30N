@@ -27,10 +27,11 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
         };
 
 
-        public string existe_informacion(string direccion_archivo, string informacion, string columnas_a_recorrer)
+        public string existe_informacion(string direccion_archivo, string[] info_entrada, string columnas_a_recorrer)
         {
             string info_a_retornar = null;
-
+            
+            string informacion = info_entrada[0];
 
 
             string[] resultado = bas.sacar_indice_del_arreglo_de_direccion(direccion_archivo).ToString().Split(G_caracter_para_confirmacion_o_error[0][0]);
@@ -180,8 +181,15 @@ namespace clase_QU1R30N.sin_internet.sin_formularios.procesos
             return lista_final;
         }
 
-        public string prediccion_archivo_compra(string direccion_ranking, int columna_historial, int columna_ranking, int columna_promedio_compra, int columna_veses_supera_promedio)
+        public string prediccion_archivo_compra(string direccion_ranking,int[] info_entrada)
         {
+
+
+            int columna_historial = info_entrada[0]; 
+            int columna_ranking = info_entrada[1];
+            int columna_promedio_compra = info_entrada[2];
+            int columna_veses_supera_promedio = info_entrada[3];
+
 
             bas.Ordenar(direccion_ranking, 5, fila_donde_comiensa: 1);
 
